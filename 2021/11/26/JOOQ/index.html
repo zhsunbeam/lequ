@@ -20,26 +20,31 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"zhsunbeam.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="锹甲先生, 一个老不正经的Programer">
-<meta property="og:type" content="website">
-<meta property="og:title" content="锹甲先生">
-<meta property="og:url" content="https://zhsunbeam.github.io/index.html">
+<meta name="description" content="一个简单的前端机试题，使用原生JavaScript或是JQuery又或是Vue，如果能快速搞定，用什么无所谓啦 效果图 还是有几点要求的 点击固定标签可以修改选中状态，选中方式为多选 自定义输入框可输入10个字以内的标签（限制中文） 点击确认会在标签后面新增一个自定义名称的标签，自定义标签数量超过5个之后，输入框和确认按钮置灰，不可点击 点击确认时，需要对当前自定义标签的名称进行去重，如果标签重复">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个简单的前端机试题">
+<meta property="og:url" content="https://zhsunbeam.github.io/2021/11/26/JOOQ/index.html">
 <meta property="og:site_name" content="锹甲先生">
-<meta property="og:description" content="锹甲先生, 一个老不正经的Programer">
+<meta property="og:description" content="一个简单的前端机试题，使用原生JavaScript或是JQuery又或是Vue，如果能快速搞定，用什么无所谓啦 效果图 还是有几点要求的 点击固定标签可以修改选中状态，选中方式为多选 自定义输入框可输入10个字以内的标签（限制中文） 点击确认会在标签后面新增一个自定义名称的标签，自定义标签数量超过5个之后，输入框和确认按钮置灰，不可点击 点击确认时，需要对当前自定义标签的名称进行去重，如果标签重复">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zhsunbeam.github.io/2021/11/26/JOOQ/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E5%89%8D%E7%AB%AF%E6%9C%BA%E8%AF%95%E9%A2%98/1.png">
+<meta property="article:published_time" content="2021-11-26T01:39:57.004Z">
+<meta property="article:modified_time" content="2021-08-11T13:37:00.917Z">
 <meta property="article:author" content="锹甲先生">
-<meta property="article:tag" content="程序员和代码的那点事, 架构, 数据结构, 网络, 数据库, Java, C, Go, JavaScript, HTML5, CSS3, Vue, Spring">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="HTML">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zhsunbeam.github.io/2021/11/26/JOOQ/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E5%89%8D%E7%AB%AF%E6%9C%BA%E8%AF%95%E9%A2%98/1.png">
 
 
-<link rel="canonical" href="https://zhsunbeam.github.io/">
+<link rel="canonical" href="https://zhsunbeam.github.io/2021/11/26/JOOQ/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhsunbeam.github.io/2021/11/26/JOOQ/","path":"2021/11/26/JOOQ/","title":"一个简单的前端机试题"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>锹甲先生</title>
+<title>一个简单的前端机试题 | 锹甲先生</title>
   
 
 
@@ -106,7 +111,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -119,6 +124,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%88%E6%9E%9C%E5%9B%BE"><span class="nav-number">1.</span> <span class="nav-text">效果图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%98%E6%98%AF%E6%9C%89%E5%87%A0%E7%82%B9%E8%A6%81%E6%B1%82%E7%9A%84"><span class="nav-number">2.</span> <span class="nav-text">还是有几点要求的</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -172,16 +178,17 @@
 </noscript>
 
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2021/11/26/JOOQ/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -194,9 +201,9 @@
       <meta itemprop="name" content="锹甲先生">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/11/26/JOOQ/" class="post-title-link" itemprop="url">一个简单的前端机试题</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          一个简单的前端机试题
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -235,7 +242,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>一个简单的前端机试题，使用原生JavaScript或是JQuery又或是Vue，如果能快速搞定，用什么无所谓啦</p>
+        <p>一个简单的前端机试题，使用原生JavaScript或是JQuery又或是Vue，如果能快速搞定，用什么无所谓啦</p>
 <h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><p><img src="%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E5%89%8D%E7%AB%AF%E6%9C%BA%E8%AF%95%E9%A2%98/1.png"></p>
 <h2 id="还是有几点要求的"><a href="#还是有几点要求的" class="headerlink" title="还是有几点要求的"></a>还是有几点要求的</h2><ol>
 <li>点击固定标签可以修改选中状态，选中方式为多选</li>
@@ -245,7 +252,6 @@
 <li>自定义的标签右上角会有个删除的按钮，点击删除按钮会删除该自定义标签</li>
 </ol>
 
-      
     </div>
 
     
@@ -253,195 +259,26 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+          <div class="post-tags">
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+              <a href="/tags/HTML/" rel="tag"># HTML</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/08/22/%E4%B8%80%E4%B8%AA%E5%A4%96%E5%8C%85%E9%A1%B9%E7%9B%AE/" rel="prev" title="一个外包项目">
+                  <i class="fa fa-chevron-left"></i> 一个外包项目
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
     </footer>
   </article>
 </div>
 
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2021/08/22/%E4%B8%80%E4%B8%AA%E5%A4%96%E5%8C%85%E9%A1%B9%E7%9B%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="锹甲先生">
-      <meta itemprop="description" content="锹甲先生, 一个老不正经的Programer">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="锹甲先生">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/22/%E4%B8%80%E4%B8%AA%E5%A4%96%E5%8C%85%E9%A1%B9%E7%9B%AE/" class="post-title-link" itemprop="url">一个外包项目</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2021-08-22 12:33:52 / 修改时间：21:20:12" itemprop="dateCreated datePublished" datetime="2021-08-22T12:33:52+08:00">2021-08-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">项目开发</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>一个外包小项目，利用业余时间赚点零花钱，甲方要求也简单，这种类型的项目其实到处都是，也可以直接做个搬运工， 但需要改成客户想要的样子，花的时间可能更多，而且需要做成多端应用：微信端和PC端，看看分析后的需求内容吧</p>
-<h2 id="员工"><a href="#员工" class="headerlink" title="员工"></a>员工</h2><ul>
-<li>员工ID、姓名、个人照片、性别(选择，男|女)、籍贯(选择，省|市|区县)、出生年月日(选择)、学历(选择)、手机、住址、邮箱、毕业院校(手动填写)、专业(手动填写)、工作经历、入职时间(年月日)、岗位名称、操作时间、操作人、状态(在职|离职)。</li>
-<li>参与角色：员工或者人事专员</li>
-</ul>
-<h2 id="员工证件"><a href="#员工证件" class="headerlink" title="员工证件"></a>员工证件</h2><ul>
-<li>员工ID、证件名称ID、证件图、状态。需要员工自己上传的为3个证件：学位证、毕业证、其它技能证书、银行卡、入职体检报告，人事专员需要上传一个合同。</li>
-<li>参与角色：员工或者人事专员</li>
-</ul>
-<h2 id="员工晋级转岗"><a href="#员工晋级转岗" class="headerlink" title="员工晋级转岗"></a>员工晋级转岗</h2><ul>
-<li>员工ID、事项类型(试用期|转岗|晋级)、岗位、时间、操作时间、操作人、备注。</li>
-<li>参与角色：人事专员</li>
-</ul>
-<h2 id="员工离职"><a href="#员工离职" class="headerlink" title="员工离职"></a>员工离职</h2><ul>
-<li>员工ID、离职时间、离职原因、操作人、操作时间、是否已打印离职证明、工作交接是否已完成、是否已归还设备及其他。</li>
-<li>参与角色：人事专员</li>
-</ul>
-<h2 id="员工资产归属"><a href="#员工资产归属" class="headerlink" title="员工资产归属"></a>员工资产归属</h2><ul>
-<li>员工ID、资产编号、领用时间、领用操作人、归还时间、归还操作人、备注。</li>
-<li>参与角色：资产管理或者人事专员</li>
-</ul>
-<hr>
-<p>如果要根据以上需求来建表，怎么玩?</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2021/08/03/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E5%89%8D%E7%AB%AF%E6%9C%BA%E8%AF%95%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="锹甲先生">
-      <meta itemprop="description" content="锹甲先生, 一个老不正经的Programer">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="锹甲先生">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/03/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E5%89%8D%E7%AB%AF%E6%9C%BA%E8%AF%95%E9%A2%98/" class="post-title-link" itemprop="url">一个简单的前端机试题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-08-03 10:03:59" itemprop="dateCreated datePublished" datetime="2021-08-03T10:03:59+08:00">2021-08-03</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-08-11 21:37:00" itemprop="dateModified" datetime="2021-08-11T21:37:00+08:00">2021-08-11</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>一个简单的前端机试题，使用原生JavaScript或是JQuery又或是Vue，如果能快速搞定，用什么无所谓啦</p>
-<h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><p><img src="%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84%E5%89%8D%E7%AB%AF%E6%9C%BA%E8%AF%95%E9%A2%98/1.png"></p>
-<h2 id="还是有几点要求的"><a href="#还是有几点要求的" class="headerlink" title="还是有几点要求的"></a>还是有几点要求的</h2><ol>
-<li>点击固定标签可以修改选中状态，选中方式为多选</li>
-<li>自定义输入框可输入10个字以内的标签（限制中文）</li>
-<li>点击确认会在标签后面新增一个自定义名称的标签，自定义标签数量超过5个之后，输入框和确认按钮置灰，不可点击</li>
-<li>点击确认时，需要对当前自定义标签的名称进行去重，如果标签重复，需要在确认按钮后面用红色的文字提示“该标签已重复”</li>
-<li>自定义的标签右上角会有个删除的按钮，点击删除按钮会删除该自定义标签</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
 
 
 
