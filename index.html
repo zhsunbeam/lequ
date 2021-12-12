@@ -132,7 +132,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -173,6 +173,112 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2021/12/12/snake-board/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="锹甲先生">
+      <meta itemprop="description" content="锹甲先生, 一个老不正经的Programer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="锹甲先生">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/12/12/snake-board/" class="post-title-link" itemprop="url">玩游戏学前端-贪吃蛇-游戏界面</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-12-12 21:34:03 / 修改时间：22:17:54" itemprop="dateCreated datePublished" datetime="2021-12-12T21:34:03+08:00">2021-12-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="贪吃蛇-游戏界面"><a href="#贪吃蛇-游戏界面" class="headerlink" title="贪吃蛇-游戏界面"></a>贪吃蛇-游戏界面</h3><hr>
+<p>在编写界面之前，有一些前置知识必须要理解并能熟练使用，比如flex和grid布局， vh、vw、 vmin、 vmax、em、rem、px单位;  有了这些知识，编写游戏界面将变得非常简单，下面我们一步步实现。</p>
+<h4 id="HTML设计"><a href="#HTML设计" class="headerlink" title="HTML设计"></a>HTML设计</h4><hr>
+<p>只需一个div元素，给它一个id</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;game-board&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="body样式"><a href="#body样式" class="headerlink" title="body样式"></a>body样式</h4><hr>
+<p>我们需要定义高度和宽度，对整个body元素采用flex布局，主要目的是让其内容居中，并给一些基础样式美化一下；会使用到 display, justify-content, align-items 这些和flex布局相关， vh,vw单位也将使用到</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100vh</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100vw</span>;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">justify-content</span>: center;</span><br><span class="line">    <span class="attribute">align-items</span>: center;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: black;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>vw、vh、vmin和vmax是CSS3中的视窗单位，也是相对单位。它们的大小都是由视窗大小来决定的，单位1，表示视窗的1%；vw：视窗宽度的百分比， vh：视窗高度的百分比， vmin：当前较小的vw和vh， vmax：当前较大的vw和vh</p>
+</blockquote>
+<blockquote>
+<p>视窗是指浏览器可视区域的宽和高， 1vm 表示 1%浏览器可视区域的宽，100vm表示整个可视频区域的宽</p>
+</blockquote>
+<h4 id="div游戏面板样式"><a href="#div游戏面板样式" class="headerlink" title="div游戏面板样式"></a>div游戏面板样式</h4><hr>
+<p>我们使用到了id选择器　#game-board, 定义了背景颜色，以及宽度和高度， 同时这个游戏界面我们使用网格布局，目的是把蛇的头和身子以及食物都用格子表示</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#game-board</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#CCC</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100vmin</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100vmin</span>;</span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    grid-template-rows: <span class="built_in">repeat</span>(<span class="number">50</span>, <span class="number">1</span>fr);</span><br><span class="line">    grid-template-<span class="attribute">columns</span>: <span class="built_in">repeat</span>(<span class="number">50</span>, <span class="number">1</span>fr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<img src="snake-board\1.png" style="zoom:80%;" />
+
+<blockquote>
+<p>使用了行列均为50格子的网格布局</p>
+<p>grid-template-rows: repeat(50, 1fr); </p>
+<p>grid-template-columns: repeat(50, 1fr);</p>
+</blockquote>
+<h4 id="蛇和食物样式"><a href="#蛇和食物样式" class="headerlink" title="蛇和食物样式"></a>蛇和食物样式</h4><hr>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.snake</span> &#123;</span><br><span class="line">    <span class="attribute">border</span>: .<span class="number">20vmin</span> solid black;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="built_in">hsl</span>(<span class="number">200</span>, <span class="number">100%</span>, <span class="number">50%</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.food</span> &#123;</span><br><span class="line">    <span class="attribute">border</span>: .<span class="number">20vmin</span> solid black;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="built_in">hsl</span>(<span class="number">50</span>, <span class="number">100%</span>, <span class="number">50%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>就这么简单, 蛇和食物都需要使用Javascript动态创建，后续就是Javascript编码了</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1346,99 +1452,6 @@
 <p>简单的猜数字游戏，重要的是知道如何定义和使用程序运行过程中需要的要素(变量)，以及程序的执行流程。</p>
 </blockquote>
 <hr>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2021/11/26/JOOQ/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="锹甲先生">
-      <meta itemprop="description" content="锹甲先生, 一个老不正经的Programer">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="锹甲先生">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/11/26/JOOQ/" class="post-title-link" itemprop="url">JOOQ&DSL</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2021-11-26 09:39:57 / 修改时间：16:44:57" itemprop="dateCreated datePublished" datetime="2021-11-26T09:39:57+08:00">2021-11-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JOOQ/" itemprop="url" rel="index"><span itemprop="name">JOOQ</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>​        为了更”懒”一点，程序员们发明了各种ORM框架，从繁琐的SQL中解放了出来，但产生的副作用便是需要学习一套的对象和关系映射的API，再加上一堆的XML配置或是感觉不那么舒服的注解。 </p>
-<p>​        相比开发中主流的ORM开发框架Hibernate、MyBatis/MyBatisPlus， JOOQ(Java Object Oriented Query), 是一个不那么广泛应用的ORM&amp;DSL(Domain Specific Language)框架。</p>
-<p>​        使用它必定有强大的理由，也就是说JOOQ解决了哪些开发中的哪些痛点，长时间以来我们使用Hibernate/MyBatis来服务开发中的数据查询、持久化等功能，虽然都能在一定程度上提升生产率，让开发人员专注于业务，但在实践中复杂且并不易维护的XML配置让人抓狂，复杂的判断逻辑操作几乎需要纯手工打造。那么使用JOOQ的理由便正如它官网(jooq.org)上的那句:</p>
-<blockquote>
-<p>Our customers spend most time on <em>their</em> business-logic.<br>Because jOOQ takes care of all their Java/SQL infrastructure problems.</p>
-</blockquote>
-<h5 id="JOOQ的优点："><a href="#JOOQ的优点：" class="headerlink" title="JOOQ的优点："></a>JOOQ的优点：</h5><ol>
-<li>Database First：数据库优先，和MyBatis一样提供灵活的不隐藏SQL的方式，用Java代码的风格编写SQL语句</li>
-<li>Typesafe SQL：将SQL建模为内部DSL，并使用Java编译器编译SQL语法、元数据和数据类型</li>
-<li>Code Generation：它从数据库元数据生成Java类。当代码与模式不同步时，Java编译器会告诉你</li>
-<li>Active Records：允许你直接在ActiveRecords上执行CRUD和POJO映射，这些ActiveRecords也是由代码生成器生成的</li>
-<li>Multi-Tenancy：允许你在运行时配置数据库模式和表覆盖，还支持行级安全性</li>
-<li>Standardisation：将常见的SQL表达式转换为数据库中最接近的匹配。编写适用于所有数据库的SQL</li>
-<li>Query Lifecycle：让你的程序与它的SQL生成生命周期挂钩，用于日志记录、事务处理、ID生成、SQL转换等</li>
-<li>Procedures：允许你将存储的函数调用嵌入到SQL语句中</li>
-</ol>
-<h5 id="jOOQ的缺点："><a href="#jOOQ的缺点：" class="headerlink" title="jOOQ的缺点："></a>jOOQ的缺点：</h5><ol>
-<li>对开源数据库免费，对商业数据库收费</li>
-</ol>
-<p>一系列的总结记录jOOQ使用方法，以便查询</p>
 
       
     </div>
