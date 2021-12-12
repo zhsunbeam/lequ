@@ -132,7 +132,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -173,6 +173,298 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2021/12/12/snake-grid/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="锹甲先生">
+      <meta itemprop="description" content="锹甲先生, 一个老不正经的Programer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="锹甲先生">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/12/12/snake-grid/" class="post-title-link" itemprop="url">玩游戏学前端-贪吃蛇-Grid布局</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-12-12 09:31:08 / 修改时间：20:50:38" itemprop="dateCreated datePublished" datetime="2021-12-12T09:31:08+08:00">2021-12-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="CSS-Grid网格布局"><a href="#CSS-Grid网格布局" class="headerlink" title="CSS Grid网格布局"></a>CSS Grid网格布局</h3><hr>
+<p>在贪吃蛇游戏中，我们使用了CSS中的Grid网格布局，如果不用Grid，你可以使用Canvas绘图。其实在其它编程语言的UI设计中，早已有此类布局方案,比如Java中的GridLayout，感觉CSS把后端语言的UI设计又重新走一遍，而且进展还比较慢 , 多年以前我们还只能使用position,float和各种骇客技术实现布局,直至出现Flex、Grid才真正意义上的解脱；</p>
+<h4 id="网格布局示例图"><a href="#网格布局示例图" class="headerlink" title="网格布局示例图"></a>网格布局示例图</h4><hr>
+<p><img src="snake-grid%5Cheader.jpg"></p>
+<h4 id="HTML结构"><a href="#HTML结构" class="headerlink" title="HTML结构"></a>HTML结构</h4><hr>
+<p>需要将想要控制的元素包装在父容器DIV中</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;wrapper&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;div1&quot;</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;div2&quot;</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;div3&quot;</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;div4&quot;</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>让我们为div添加一些样式，这样就可以轻松地区分不同盒子,这里使用了 display:grid，也就是网格布局</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &gt; <span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: orange;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> black solid;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="selector-class">.wrapper</span> &gt; <span class="selector-tag">div</span><span class="selector-pseudo">:nth-child</span>(odd) &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: indianred;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="selector-class">.wrapper</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: grid</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="grid1.png"></p>
+<h4 id="Grid-template-columns-和-Grid-template-rows"><a href="#Grid-template-columns-和-Grid-template-rows" class="headerlink" title="Grid-template-columns 和 Grid-template-rows"></a>Grid-template-columns 和 Grid-template-rows</h4><hr>
+<h5 id="grid-template-columns-规则"><a href="#grid-template-columns-规则" class="headerlink" title="grid-template-columns 规则"></a>grid-template-columns 规则</h5><p>对于grid网格布局，我们首先需要了解的是 <code>grid-template-columns</code> 和 grid-template-rows 这两条规则。这两条规则控制了网格的形状。这些规则的值可以是长度、百分比或网格中空闲空间的一部分。还可以将它们设置为auto，这样做将会填充div盒子的剩余的空间。看例子:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  grid-template-<span class="attribute">columns</span>: <span class="number">100px</span> <span class="number">100px</span> <span class="number">100px</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="grid2.png"></p>
+<blockquote>
+<p>上面代码片断中我们设置了三列，每列100px, 但是wrapper下有四个div,所以会有一个div换行显示， display的值还可以设置为inline-grid</p>
+</blockquote>
+<p>修改一下中间设置为<strong>auto</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  grid-template-<span class="attribute">columns</span>: <span class="number">100px</span> auto <span class="number">100px</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="grid3.png"></p>
+<blockquote>
+<p>上面代码中，中间值使用了auto, 那么中间那个div将填充所有剩余部分</p>
+</blockquote>
+<p>也可以<strong>使用fr</strong>, 网格布局提供了fr(fraction片段的意思)，它用于表示比例关系，如果列宽度都为1fr , 那么将平分此行</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  grid-template-<span class="attribute">columns</span>: <span class="number">1</span>fr <span class="number">1</span>fr <span class="number">1</span>fr <span class="number">1</span>fr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="grid4.png"></p>
+<blockquote>
+<p>上面代码中将一行分为四列，每列宽度一样</p>
+</blockquote>
+<p>修改一下值</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.wrapper &#123;</span><br><span class="line">  display: grid;</span><br><span class="line">  grid-template-columns: 1fr 2fr 3fr 1fr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="grid5.png"></p>
+<blockquote>
+<p>可以看出第二列是第一列的2倍，第三列的大小是前面二列的和; 试着修改最后一列的大小</p>
+</blockquote>
+<h5 id="grid-template-columns-和-grid-template-rows-规则"><a href="#grid-template-columns-和-grid-template-rows-规则" class="headerlink" title="grid-template-columns 和 grid-template-rows 规则"></a>grid-template-columns 和 grid-template-rows 规则</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  grid-template-<span class="attribute">columns</span>: <span class="number">1</span>fr <span class="number">1</span>fr;</span><br><span class="line">  grid-template-rows: <span class="number">50px</span> <span class="number">50px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="grid6.png"></p>
+<blockquote>
+<p>上面定义二行二列，每一行的高度都为50px, 如果将第一个50px改成其它值如30px, 那么第一行高度将为30px</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  grid-template-<span class="attribute">columns</span>: <span class="number">100px</span> <span class="number">20px</span> <span class="number">250px</span>;</span><br><span class="line">  grid-template-rows: <span class="number">150px</span> <span class="number">40px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="grid7.png"></p>
+<blockquote>
+<p>上面定义二行三列，第一行高150px, 第二行高40px, 前面3个div成为一行中三列，最后一个div单独一行</p>
+</blockquote>
+<h5 id="grid-template-重复规则：-Repeat"><a href="#grid-template-重复规则：-Repeat" class="headerlink" title="grid-template 重复规则： Repeat"></a>grid-template 重复规则： Repeat</h5><p>如果你的网格布局中有一个重复的元素，你可以使用repeat并告诉它重复多少次相同的元素。<br>例如，假设你有12个元素，你想让它们以相同的宽度水平放置。您可以在grid-template-column使用repeat(12, 1fr)。</p>
+<p><img src="grid8.png"></p>
+<p>也可以像下面这样</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  grid-template-<span class="attribute">columns</span>: <span class="built_in">repeat</span>(<span class="number">4</span>, <span class="number">1</span>fr <span class="number">5</span>fr <span class="number">10</span>fr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="grid9.png"></p>
+<blockquote>
+<p>上面代码中重复4个div元素，1，2，3是第一部分，分别为1fr, 5fr, 10fr; 后续依此类推</p>
+</blockquote>
+<h5 id="Grid-auto-columns-和-Grid-auto-rows-规则"><a href="#Grid-auto-columns-和-Grid-auto-rows-规则" class="headerlink" title="Grid-auto-columns 和 Grid-auto-rows 规则"></a>Grid-auto-columns 和 Grid-auto-rows 规则</h5><p>此规则帮助你设置网格单元格的宽度和高度。如果不设置此规则，网格的行和列将根据内容展开。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  grid-template-<span class="attribute">columns</span>: <span class="built_in">repeat</span>(<span class="number">4</span>, <span class="number">1</span>fr);</span><br><span class="line">  grid-<span class="attribute">auto</span>-rows: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="grid-10.png"></p>
+<blockquote>
+<p>上面代码重复4个元素，因为总共有12个元素，所以拆分成了3行，每行100px高</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  grid-template-<span class="attribute">columns</span>: <span class="built_in">repeat</span>(<span class="number">6</span>, <span class="number">1</span>fr);</span><br><span class="line">  grid-<span class="attribute">auto</span>-rows: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="grid-12.png"></p>
+<blockquote>
+<p>上面代码重复6个元素，因为总共有12个元素，所以拆分成了2行，每行100px高</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  grid-template-<span class="attribute">columns</span>: <span class="built_in">repeat</span>(<span class="number">4</span>, <span class="number">1</span>fr);</span><br><span class="line">  grid-<span class="attribute">auto</span>-rows: <span class="number">20px</span> <span class="number">40px</span> <span class="number">60px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="grid-11.png"></p>
+<h5 id="minmax-函数"><a href="#minmax-函数" class="headerlink" title="minmax() 函数"></a>minmax() 函数</h5><p>网格自动规则的一个很好的特性是minmax函数。<br>只需将最小值设置为第一个参数，将最大值设置为第二个参数。如果将第二个参数设置为auto，则会得到响应式单元格大小。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  grid-template-<span class="attribute">columns</span>: <span class="built_in">repeat</span>(<span class="number">4</span>, <span class="number">1</span>fr);</span><br><span class="line">  grid-<span class="attribute">auto</span>-rows: <span class="built_in">minmax</span>(<span class="number">50px</span>, auto)</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="grid-13.png"></p>
+<p><img src="grid-14.png"></p>
+<blockquote>
+<p>以上两个结果是CSS相同，div中内容不同的情况</p>
+</blockquote>
+<h4 id="Grid-gap"><a href="#Grid-gap" class="headerlink" title="Grid-gap"></a>Grid-gap</h4><hr>
+<p>顾名思义，该规则在网格单元格之间创建了一个间隙(gap)。<br>如果你使用grid-gap: 5px，你会在每个单元格之间得到5px的间隙。或者，只能设置行或列间隙，分别为grid-row-gap: 5px和grid-column-gap: 5px。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  grid-template-<span class="attribute">columns</span>: <span class="built_in">repeat</span>(<span class="number">4</span>, <span class="number">1</span>fr);</span><br><span class="line">  grid-<span class="attribute">auto</span>-rows: <span class="built_in">minmax</span>(<span class="number">50px</span>, auto);</span><br><span class="line">  grid-gap: <span class="number">5px</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="grid-15.png"></p>
+<h4 id="子div元素规则"><a href="#子div元素规则" class="headerlink" title="子div元素规则"></a>子div元素规则</h4><hr>
+<p>到目前为止，我们只关注网格的形状和在网格中流动的项。现在我们将学习如何单独控制每一项。</p>
+<p>为了定位每一项，我们使用网格线作为参考。下面是2x4网格的行和列，分别用黑色和橙色表示。</p>
+<p><img src="grid.jpg"></p>
+<p>使用带有行号的 grid-column 和 grid-row 规则来定位元素。</p>
+<p>例如，如果我们为第一个子div设置grid-column: 1/3，它将使用网格中的前两个单元格, 也就是第1格到第3格，但不包含第3格, 这种做法类似于在Excel中的列合并。</p>
+<p>grid-column属性是grid-column-start和grid-column-end的合并简写形式，grid-row属性是grid-row-start属性和grid-row-end的合并简写形式。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  grid-template-<span class="attribute">columns</span>: <span class="built_in">repeat</span>(<span class="number">4</span>, <span class="number">1</span>fr);</span><br><span class="line">  grid-<span class="attribute">auto</span>-rows: <span class="number">100px</span>;</span><br><span class="line">  grid-gap: <span class="number">5px</span>;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="selector-class">.div1</span>&#123;</span><br><span class="line">  grid-column: <span class="number">1</span>/<span class="number">3</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="grid-16.png"></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.div1</span> &#123;</span><br><span class="line">  grid-column: &lt;start-line&gt; / &lt;end-line&gt;;</span><br><span class="line">  grid-row: &lt;start-line&gt; / &lt;end-line&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.div1  &#123;</span><br><span class="line">  grid-column: 1 / 3;  /*占用 1~2 列, 也就是跨列*/</span><br><span class="line">  grid-row: 1 / 2;</span><br><span class="line">&#125;</span><br><span class="line">/* 等同于 */</span><br><span class="line">.div1  &#123;</span><br><span class="line">  grid-column-start: 1;</span><br><span class="line">  grid-column-end: 3;</span><br><span class="line">  grid-row-start: 1;</span><br><span class="line">  grid-row-end: 2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>再看下面示例，div1元素跨列和行</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.div1</span>&#123;</span><br><span class="line">  grid-column: <span class="number">1</span>/<span class="number">3</span>;</span><br><span class="line">  grid-row: <span class="number">1</span>/<span class="number">3</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="grid-17.png"></p>
+<p>也可以使用grid-arge</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.div1</span>&#123;</span><br><span class="line">  grid-area: <span class="number">2</span>/<span class="number">2</span>/<span class="number">3</span>/<span class="number">4</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="grid-18.png"></p>
+<h4 id="Grid-area-和-grid-template-areas"><a href="#Grid-area-和-grid-template-areas" class="headerlink" title="Grid-area 和 grid-template-areas"></a>Grid-area 和 grid-template-areas</h4><hr>
+<p>下面的示例稍复杂一点</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;wrapper&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;header&quot;</span>&gt;</span>页头<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;leftCol&quot;</span>&gt;</span>左侧<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;rightCol&quot;</span>&gt;</span>右侧<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;midTop&quot;</span>&gt;</span>中间上方<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;midBottom&quot;</span>&gt;</span>中间下方<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;footer&quot;</span>&gt;</span>页脚<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.header</span>&#123;</span><br><span class="line">   grid-area: header;</span><br><span class="line">   <span class="attribute">background-color</span>: LightSeaGreen ;</span><br><span class="line"> &#125;</span><br><span class="line">  </span><br><span class="line"> <span class="selector-class">.leftCol</span>&#123;</span><br><span class="line">   grid-area: leftCol;</span><br><span class="line">   <span class="attribute">background-color</span>: orange;</span><br><span class="line"> &#125;</span><br><span class="line">  </span><br><span class="line"> <span class="selector-class">.rightCol</span>&#123;</span><br><span class="line">   grid-area: rightCol;</span><br><span class="line">   <span class="attribute">background-color</span>: lightblue;</span><br><span class="line"> &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="selector-class">.midTop</span>&#123;</span><br><span class="line">   grid-area: midTop;</span><br><span class="line">   <span class="attribute">background-color</span>: lightgrey;</span><br><span class="line"> &#125;</span><br><span class="line">  </span><br><span class="line"> <span class="selector-class">.midBottom</span>&#123;</span><br><span class="line">   grid-area: midBottom;</span><br><span class="line">   <span class="attribute">background-color</span>: pink;</span><br><span class="line"> &#125;</span><br><span class="line">  </span><br><span class="line"> <span class="selector-class">.footer</span>&#123;</span><br><span class="line">   grid-area: footer;</span><br><span class="line">   <span class="attribute">background-color</span>: lightgreen;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  grid-template-<span class="attribute">columns</span>: <span class="number">1</span>fr <span class="number">4</span>fr <span class="number">4</span>fr <span class="number">1</span>fr;</span><br><span class="line">  grid-template-rows: <span class="number">50px</span> <span class="number">100px</span> <span class="number">100px</span> <span class="number">30px</span>;</span><br><span class="line">  grid-template-areas:</span><br><span class="line">  <span class="string">&quot;header header header header&quot;</span></span><br><span class="line">  <span class="string">&quot;leftCol midTop midTop rightCol&quot;</span></span><br><span class="line">  <span class="string">&quot;leftCol midBottom midBottom rightCol&quot;</span></span><br><span class="line">  <span class="string">&quot;footer footer footer footer&quot;</span>;</span><br><span class="line">  grid-gap: <span class="number">5px</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>布局结果</p>
+<p><img src="grid-19.png"></p>
+<p>如果想让页脚只取两列并居中，那么我只需在网格模板区域中用点(.)替换页脚的第一个和最后一个。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  grid-template-<span class="attribute">columns</span>: <span class="number">1</span>fr <span class="number">4</span>fr <span class="number">4</span>fr <span class="number">1</span>fr;</span><br><span class="line">  grid-template-rows: <span class="number">50px</span> <span class="number">100px</span> <span class="number">100px</span> <span class="number">30px</span>;</span><br><span class="line">  grid-template-areas:</span><br><span class="line">  <span class="string">&quot;header header header header&quot;</span></span><br><span class="line">  <span class="string">&quot;leftCol midTop midTop rightCol&quot;</span></span><br><span class="line">  <span class="string">&quot;leftCol midBottom midBottom rightCol&quot;</span></span><br><span class="line">  <span class="string">&quot;. footer footer .&quot;</span>;</span><br><span class="line">  grid-gap: <span class="number">5px</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="grid-19.png"></p>
+<h3 id="你需要grid"><a href="#你需要grid" class="headerlink" title="你需要grid"></a>你需要grid</h3><hr>
+<p>Grid 布局还有很多其它属性，可以参考官方文档， 有了上述基础，我们就可以画出贪吃蛇游戏的界面了，马上为你呈现使用Grid有多么简单</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2021/12/10/snake-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="锹甲先生">
+      <meta itemprop="description" content="锹甲先生, 一个老不正经的Programer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="锹甲先生">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/12/10/snake-1/" class="post-title-link" itemprop="url">玩游戏学前端-贪吃蛇-HTML5和CSS3</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-12-10 20:32:19 / 修改时间：20:45:47" itemprop="dateCreated datePublished" datetime="2021-12-10T20:32:19+08:00">2021-12-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="游戏界面设计"><a href="#游戏界面设计" class="headerlink" title="游戏界面设计"></a>游戏界面设计</h3><hr>
+<p>使用HTML5和CSS3设计游戏界面，需要设计蛇以及食物，如果使用position、float，这个难度有点大，幸好CSS３给我们提供了flex和grid布局，其实前端这些布局方式在其它编程语言中早已存在，如Java Swing中的 GridLayout</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><hr>
+<blockquote>
+<p>window.requestAnimationFrame( callback 回调函数 );</p>
+</blockquote>
+<p><strong>参数</strong>：此方法接收单个参数 callback, 它是一个回调函数; 除非你想要动画停止，否则你应该编写回调函数，便于发出对下一帧的请求。回调函数接受时间戳或一个时间值，在该时间值处开始执行。</p>
+<p><strong>返回值</strong>：此方法返回一个非零长整型数值，作为回调函数中动画的唯一标识。</p>
+<h3 id="示例1-元素向右移动"><a href="#示例1-元素向右移动" class="headerlink" title="示例1: 元素向右移动"></a>示例1: 元素向右移动</h3><hr>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;panel&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span> <span class="attr">style</span>=<span class="string">&quot;color: #d662f3;&quot;</span>&gt;</span>我爱你中国<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="comment">//动画起始时间</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> start = <span class="literal">null</span>;</span></span><br><span class="line"><span class="javascript">    <span class="comment">//获取DIV元素对象 </span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> element = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;panel&#x27;</span>);</span></span><br><span class="line"><span class="javascript">    <span class="comment">//开始动画函数，传入时间戳</span></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">startAnimation</span>(<span class="params">timestamp</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        </span></span><br><span class="line"><span class="javascript">        <span class="comment">// timestamp表示1970年1月1日开始经过的秒数</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">// 第一次回调此函数 start 为 null, 进入if块之后重新赋值</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span> (!start) &#123;</span></span><br><span class="line"><span class="javascript">            start = timestamp;</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">        <span class="comment">//时间戳-开始时间 表示流逝的时间</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> progress = timestamp - start;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="comment">// 移动元素，使用transform样式 ,变换 x 坐标</span></span></span><br><span class="line"><span class="javascript">        element.style.transform = <span class="string">&#x27;translateX(&#x27;</span> + <span class="built_in">Math</span>.min(progress / <span class="number">10</span>, <span class="number">700</span>) + <span class="string">&#x27;px)&#x27;</span>;</span></span><br><span class="line"><span class="javascript">        <span class="comment">//再次请求动画帧</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">window</span>.requestAnimationFrame(startAnimation);</span></span><br><span class="line"><span class="javascript">    &#125;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.requestAnimationFrame(startAnimation);</span></span><br><span class="line"><span class="javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>回调函数会收到一个参数，这个参数表示当前时间距离开始触发 requestAnimationFrame 的回调的时间。</p>
+</blockquote>
+<p><img src="example1.gif"></p>
+<h3 id="示例2-按下按钮元素向右移动"><a href="#示例2-按下按钮元素向右移动" class="headerlink" title="示例2: 按下按钮元素向右移动"></a>示例2: 按下按钮元素向右移动</h3><hr>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">		<span class="selector-tag">div</span> &#123;</span></span><br><span class="line"><span class="css">			<span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="css">			<span class="attribute">left</span>: <span class="number">10px</span>;</span></span><br><span class="line"><span class="css">			<span class="attribute">top</span>: <span class="number">50px</span>;</span></span><br><span class="line"><span class="css">			<span class="attribute">padding</span>: auto;</span></span><br><span class="line"><span class="css">			<span class="attribute">color</span>: white</span></span><br><span class="line"><span class="css">		&#125;</span></span><br><span class="line"><span class="css">		<span class="selector-tag">h1</span> &#123;</span></span><br><span class="line"><span class="css">			<span class="attribute">color</span>: green;</span></span><br><span class="line"><span class="css">		&#125;</span></span><br><span class="line"><span class="css">	</span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">	<span class="tag">&lt;<span class="name">center</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">&quot;start()&quot;</span>&gt;</span>开始动画<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;panel&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span>&gt;</span>我爱你中国<span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">		<span class="keyword">var</span> x = <span class="built_in">document</span>.getElementById(<span class="string">&quot;panel&quot;</span>);</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">		<span class="comment">// 初始化变量</span></span></span><br><span class="line"><span class="javascript">		<span class="keyword">var</span> requestId;</span></span><br><span class="line"><span class="javascript">		<span class="keyword">var</span> stopped;</span></span><br><span class="line"><span class="javascript">		<span class="keyword">var</span> starttime;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">		<span class="function"><span class="keyword">function</span> <span class="title">startAnimation</span>(<span class="params">time</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">			<span class="comment">//如果stopped为空 则设置x元素的样式left</span></span></span><br><span class="line"><span class="javascript">			<span class="keyword">if</span> (!stopped) &#123;</span></span><br><span class="line"><span class="javascript">				x.style.left = ((<span class="built_in">Date</span>.now() - starttime) / <span class="number">10</span> % <span class="number">700</span>) + <span class="string">&quot;px&quot;</span>;</span></span><br><span class="line"><span class="javascript">				<span class="comment">//返回id</span></span></span><br><span class="line"><span class="javascript">                requestId = <span class="built_in">window</span>.requestAnimationFrame(startAnimation);</span></span><br><span class="line"><span class="javascript">			&#125;</span></span><br><span class="line"><span class="javascript">		&#125;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">		<span class="function"><span class="keyword">function</span> <span class="title">start</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">			<span class="comment">//当前时间</span></span></span><br><span class="line"><span class="javascript">			starttime = <span class="built_in">Date</span>.now();</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">			<span class="comment">//开始动画</span></span></span><br><span class="line"><span class="javascript">			requestId = <span class="built_in">window</span>.requestAnimationFrame(startAnimation);</span></span><br><span class="line"><span class="javascript">			<span class="comment">// 设置为false表示动画不会停止</span></span></span><br><span class="line"><span class="javascript">            stopped = <span class="literal">false</span>; </span></span><br><span class="line"><span class="javascript">		&#125;</span></span><br><span class="line"><span class="javascript">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="example2.gif"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1146,195 +1438,6 @@
 <p>简单的猜数字游戏，重要的是知道如何定义和使用程序运行过程中需要的要素(变量)，以及程序的执行流程。</p>
 </blockquote>
 <hr>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2021/11/26/JOOQ/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="锹甲先生">
-      <meta itemprop="description" content="锹甲先生, 一个老不正经的Programer">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="锹甲先生">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/11/26/JOOQ/" class="post-title-link" itemprop="url">JOOQ&DSL</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2021-11-26 09:39:57 / 修改时间：16:44:57" itemprop="dateCreated datePublished" datetime="2021-11-26T09:39:57+08:00">2021-11-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/JOOQ/" itemprop="url" rel="index"><span itemprop="name">JOOQ</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>​        为了更”懒”一点，程序员们发明了各种ORM框架，从繁琐的SQL中解放了出来，但产生的副作用便是需要学习一套的对象和关系映射的API，再加上一堆的XML配置或是感觉不那么舒服的注解。 </p>
-<p>​        相比开发中主流的ORM开发框架Hibernate、MyBatis/MyBatisPlus， JOOQ(Java Object Oriented Query), 是一个不那么广泛应用的ORM&amp;DSL(Domain Specific Language)框架。</p>
-<p>​        使用它必定有强大的理由，也就是说JOOQ解决了哪些开发中的哪些痛点，长时间以来我们使用Hibernate/MyBatis来服务开发中的数据查询、持久化等功能，虽然都能在一定程度上提升生产率，让开发人员专注于业务，但在实践中复杂且并不易维护的XML配置让人抓狂，复杂的判断逻辑操作几乎需要纯手工打造。那么使用JOOQ的理由便正如它官网(jooq.org)上的那句:</p>
-<blockquote>
-<p>Our customers spend most time on <em>their</em> business-logic.<br>Because jOOQ takes care of all their Java/SQL infrastructure problems.</p>
-</blockquote>
-<h5 id="JOOQ的优点："><a href="#JOOQ的优点：" class="headerlink" title="JOOQ的优点："></a>JOOQ的优点：</h5><ol>
-<li>Database First：数据库优先，和MyBatis一样提供灵活的不隐藏SQL的方式，用Java代码的风格编写SQL语句</li>
-<li>Typesafe SQL：将SQL建模为内部DSL，并使用Java编译器编译SQL语法、元数据和数据类型</li>
-<li>Code Generation：它从数据库元数据生成Java类。当代码与模式不同步时，Java编译器会告诉你</li>
-<li>Active Records：允许你直接在ActiveRecords上执行CRUD和POJO映射，这些ActiveRecords也是由代码生成器生成的</li>
-<li>Multi-Tenancy：允许你在运行时配置数据库模式和表覆盖，还支持行级安全性</li>
-<li>Standardisation：将常见的SQL表达式转换为数据库中最接近的匹配。编写适用于所有数据库的SQL</li>
-<li>Query Lifecycle：让你的程序与它的SQL生成生命周期挂钩，用于日志记录、事务处理、ID生成、SQL转换等</li>
-<li>Procedures：允许你将存储的函数调用嵌入到SQL语句中</li>
-</ol>
-<h5 id="jOOQ的缺点："><a href="#jOOQ的缺点：" class="headerlink" title="jOOQ的缺点："></a>jOOQ的缺点：</h5><ol>
-<li>对开源数据库免费，对商业数据库收费</li>
-</ol>
-<p>一系列的总结记录jOOQ使用方法，以便查询</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2021/08/22/%E4%B8%80%E4%B8%AA%E5%A4%96%E5%8C%85%E9%A1%B9%E7%9B%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="锹甲先生">
-      <meta itemprop="description" content="锹甲先生, 一个老不正经的Programer">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="锹甲先生">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/08/22/%E4%B8%80%E4%B8%AA%E5%A4%96%E5%8C%85%E9%A1%B9%E7%9B%AE/" class="post-title-link" itemprop="url">一个外包项目</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2021-08-22 12:33:52 / 修改时间：21:20:12" itemprop="dateCreated datePublished" datetime="2021-08-22T12:33:52+08:00">2021-08-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">项目开发</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>一个外包小项目，利用业余时间赚点零花钱，甲方要求也简单，这种类型的项目其实到处都是，也可以直接做个搬运工， 但需要改成客户想要的样子，花的时间可能更多，而且需要做成多端应用：微信端和PC端，看看分析后的需求内容吧</p>
-<h2 id="员工"><a href="#员工" class="headerlink" title="员工"></a>员工</h2><ul>
-<li>员工ID、姓名、个人照片、性别(选择，男|女)、籍贯(选择，省|市|区县)、出生年月日(选择)、学历(选择)、手机、住址、邮箱、毕业院校(手动填写)、专业(手动填写)、工作经历、入职时间(年月日)、岗位名称、操作时间、操作人、状态(在职|离职)。</li>
-<li>参与角色：员工或者人事专员</li>
-</ul>
-<h2 id="员工证件"><a href="#员工证件" class="headerlink" title="员工证件"></a>员工证件</h2><ul>
-<li>员工ID、证件名称ID、证件图、状态。需要员工自己上传的为3个证件：学位证、毕业证、其它技能证书、银行卡、入职体检报告，人事专员需要上传一个合同。</li>
-<li>参与角色：员工或者人事专员</li>
-</ul>
-<h2 id="员工晋级转岗"><a href="#员工晋级转岗" class="headerlink" title="员工晋级转岗"></a>员工晋级转岗</h2><ul>
-<li>员工ID、事项类型(试用期|转岗|晋级)、岗位、时间、操作时间、操作人、备注。</li>
-<li>参与角色：人事专员</li>
-</ul>
-<h2 id="员工离职"><a href="#员工离职" class="headerlink" title="员工离职"></a>员工离职</h2><ul>
-<li>员工ID、离职时间、离职原因、操作人、操作时间、是否已打印离职证明、工作交接是否已完成、是否已归还设备及其他。</li>
-<li>参与角色：人事专员</li>
-</ul>
-<h2 id="员工资产归属"><a href="#员工资产归属" class="headerlink" title="员工资产归属"></a>员工资产归属</h2><ul>
-<li>员工ID、资产编号、领用时间、领用操作人、归还时间、归还操作人、备注。</li>
-<li>参与角色：资产管理或者人事专员</li>
-</ul>
-<hr>
-<p>如果要根据以上需求来建表，怎么玩?</p>
 
       
     </div>

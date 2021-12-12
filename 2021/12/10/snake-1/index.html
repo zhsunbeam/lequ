@@ -20,31 +20,31 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"zhsunbeam.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="window.requestAnimationFrame() 方法 现如今，各种web开发技术被引入来创建漂亮的web页面。当谈到漂亮的网页时，最重要的内容之一就是动画。有很多方法可以生成动画，CSS3是其中之一，但JavaScript一直是一个强大的选项。window.requestAnimationFrame()方法是JavaScript中将简单的动画整合到我们的项目中的方法之一。也可以使用早">
+<meta name="description" content="游戏界面设计 使用HTML5和CSS3设计游戏界面，需要设计蛇以及食物，如果使用position、float，这个难度有点大，幸好CSS３给我们提供了flex和grid布局，其实前端这些布局方式在其它编程语言中早已存在，如Java Swing中的 GridLayout 语法  window.requestAnimationFrame( callback 回调函数 );  参数：此方法接收单个参数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="玩游戏学前端-贪吃蛇-animationframe">
-<meta property="og:url" content="https://zhsunbeam.github.io/2021/12/10/animationframe/index.html">
+<meta property="og:title" content="玩游戏学前端-贪吃蛇-HTML5和CSS3">
+<meta property="og:url" content="https://zhsunbeam.github.io/2021/12/10/snake-1/index.html">
 <meta property="og:site_name" content="锹甲先生">
-<meta property="og:description" content="window.requestAnimationFrame() 方法 现如今，各种web开发技术被引入来创建漂亮的web页面。当谈到漂亮的网页时，最重要的内容之一就是动画。有很多方法可以生成动画，CSS3是其中之一，但JavaScript一直是一个强大的选项。window.requestAnimationFrame()方法是JavaScript中将简单的动画整合到我们的项目中的方法之一。也可以使用早">
+<meta property="og:description" content="游戏界面设计 使用HTML5和CSS3设计游戏界面，需要设计蛇以及食物，如果使用position、float，这个难度有点大，幸好CSS３给我们提供了flex和grid布局，其实前端这些布局方式在其它编程语言中早已存在，如Java Swing中的 GridLayout 语法  window.requestAnimationFrame( callback 回调函数 );  参数：此方法接收单个参数">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://zhsunbeam.github.io/2021/12/10/animationframe/example1.gif">
-<meta property="og:image" content="https://zhsunbeam.github.io/2021/12/10/animationframe/example2.gif">
-<meta property="article:published_time" content="2021-12-10T03:06:38.468Z">
-<meta property="article:modified_time" content="2021-12-10T06:16:11.734Z">
+<meta property="og:image" content="https://zhsunbeam.github.io/2021/12/10/snake-1/example1.gif">
+<meta property="og:image" content="https://zhsunbeam.github.io/2021/12/10/snake-1/example2.gif">
+<meta property="article:published_time" content="2021-12-10T12:32:19.746Z">
+<meta property="article:modified_time" content="2021-12-10T12:45:47.908Z">
 <meta property="article:author" content="锹甲先生">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://zhsunbeam.github.io/2021/12/10/animationframe/example1.gif">
+<meta name="twitter:image" content="https://zhsunbeam.github.io/2021/12/10/snake-1/example1.gif">
 
 
-<link rel="canonical" href="https://zhsunbeam.github.io/2021/12/10/animationframe/">
+<link rel="canonical" href="https://zhsunbeam.github.io/2021/12/10/snake-1/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhsunbeam.github.io/2021/12/10/animationframe/","path":"2021/12/10/animationframe/","title":"玩游戏学前端-贪吃蛇-animationframe"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhsunbeam.github.io/2021/12/10/snake-1/","path":"2021/12/10/snake-1/","title":"玩游戏学前端-贪吃蛇-HTML5和CSS3"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>玩游戏学前端-贪吃蛇-animationframe | 锹甲先生</title>
+<title>玩游戏学前端-贪吃蛇-HTML5和CSS3 | 锹甲先生</title>
   
 
 
@@ -124,7 +124,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#window-requestAnimationFrame-%E6%96%B9%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">window.requestAnimationFrame() 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B1-%E5%85%83%E7%B4%A0%E5%90%91%E5%8F%B3%E7%A7%BB%E5%8A%A8"><span class="nav-number">3.</span> <span class="nav-text">示例1: 元素向右移动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B2-%E6%8C%89%E4%B8%8B%E6%8C%89%E9%92%AE%E5%85%83%E7%B4%A0%E5%90%91%E5%8F%B3%E7%A7%BB%E5%8A%A8"><span class="nav-number">4.</span> <span class="nav-text">示例2: 按下按钮元素向右移动</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B8%B8%E6%88%8F%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1"><span class="nav-number">1.</span> <span class="nav-text">游戏界面设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B1-%E5%85%83%E7%B4%A0%E5%90%91%E5%8F%B3%E7%A7%BB%E5%8A%A8"><span class="nav-number">3.</span> <span class="nav-text">示例1: 元素向右移动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B2-%E6%8C%89%E4%B8%8B%E6%8C%89%E9%92%AE%E5%85%83%E7%B4%A0%E5%90%91%E5%8F%B3%E7%A7%BB%E5%8A%A8"><span class="nav-number">4.</span> <span class="nav-text">示例2: 按下按钮元素向右移动</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -189,7 +189,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2021/12/10/animationframe/">
+    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2021/12/10/snake-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -202,7 +202,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          玩游戏学前端-贪吃蛇-animationframe
+          玩游戏学前端-贪吃蛇-HTML5和CSS3
         </h1>
 
         <div class="post-meta-container">
@@ -214,7 +214,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-12-10 11:06:38 / 修改时间：14:16:11" itemprop="dateCreated datePublished" datetime="2021-12-10T11:06:38+08:00">2021-12-10</time>
+      <time title="创建时间：2021-12-10 20:32:19 / 修改时间：20:45:47" itemprop="dateCreated datePublished" datetime="2021-12-10T20:32:19+08:00">2021-12-10</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -236,8 +236,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="window-requestAnimationFrame-方法"><a href="#window-requestAnimationFrame-方法" class="headerlink" title="window.requestAnimationFrame() 方法"></a>window.requestAnimationFrame() 方法</h3><hr>
-<p>现如今，各种web开发技术被引入来创建漂亮的web页面。当谈到漂亮的网页时，最重要的内容之一就是动画。有很多方法可以生成动画，CSS3是其中之一，但JavaScript一直是一个强大的选项。window.requestAnimationFrame()方法是JavaScript中将简单的动画整合到我们的项目中的方法之一。也可以使用早期的方法，如setTimeout()或setInterval()，这两个方法仍然可用，但是使用起来慢且不太优雅，最主要的问题还是同步，过渡时间慢，而且对游戏项目来说体验较差。</p>
+        <h3 id="游戏界面设计"><a href="#游戏界面设计" class="headerlink" title="游戏界面设计"></a>游戏界面设计</h3><hr>
+<p>使用HTML5和CSS3设计游戏界面，需要设计蛇以及食物，如果使用position、float，这个难度有点大，幸好CSS３给我们提供了flex和grid布局，其实前端这些布局方式在其它编程语言中早已存在，如Java Swing中的 GridLayout</p>
 <h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><hr>
 <blockquote>
 <p>window.requestAnimationFrame( callback 回调函数 );</p>
@@ -271,13 +271,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/12/09/snake/" rel="prev" title="玩游戏学前端-贪吃蛇">
-                  <i class="fa fa-chevron-left"></i> 玩游戏学前端-贪吃蛇
+                <a href="/2021/12/10/animationframe/" rel="prev" title="玩游戏学前端-贪吃蛇-animationframe">
+                  <i class="fa fa-chevron-left"></i> 玩游戏学前端-贪吃蛇-animationframe
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/12/10/snake-1/" rel="next" title="玩游戏学前端-贪吃蛇-HTML5和CSS3">
-                  玩游戏学前端-贪吃蛇-HTML5和CSS3 <i class="fa fa-chevron-right"></i>
+                <a href="/2021/12/12/snake-grid/" rel="next" title="玩游戏学前端-贪吃蛇-Grid布局">
+                  玩游戏学前端-贪吃蛇-Grid布局 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
