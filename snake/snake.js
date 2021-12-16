@@ -75,7 +75,9 @@ function draw(gameBoard) {
 }
 
 function snakeGrow() {
-    newSegment += SNAKE_GROW
+    
+	newSegment += SNAKE_GROW
+	
     SNAKE_SPEED += 1
     updateScore(1)
     updateSpeed(SNAKE_SPEED)
