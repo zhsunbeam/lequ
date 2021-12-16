@@ -2,14 +2,18 @@ import {SNAKE_SPEED, update as updateSnake, draw as drawSnake, getSnakeHead, sna
 import {update as updateFood, draw as drawFood} from './food.js'
 import {outsideGrid} from './grid.js'
 
-console.log(SNAKE_SPEED)
+//console.log(SNAKE_SPEED)
 
 let lastRenderTime = 0
 //游戏是否结束
 let gameOver = false
 
+
 //获取游戏界面元素, 蛇和食物都会要添加到此元素中
-var gameBoard = document.getElementById('game-board')
+let gameBoard = document.getElementById('game-board')
+
+let speedElement = document.getElementById('speed')
+
 
 /**
  * 游戏的主函数
@@ -17,7 +21,6 @@ var gameBoard = document.getElementById('game-board')
 function main(currentTime) {
 
     if(gameOver) {
-
         let cm = window.confirm('游戏失败，请按F5重新游戏')
         //如果按下确认则cm的值为true, 按下取消则cm值为false
         if(cm) {
@@ -68,3 +71,5 @@ function draw() {
 function checkGameOver() {
     gameOver = outsideGrid( getSnakeHead()) || snakeIntersection()
 }
+
+

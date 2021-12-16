@@ -1,10 +1,12 @@
 import { getInputDirection,getHeadDirection } from "./keyevent.js"
+import { updateScore,updateSpeed} from "./settings.js"
 
 /* 定义常量表示蛇的移动速度 */
-export let SNAKE_SPEED = 8
+export let SNAKE_SPEED = 1
 
+//初始蛇的身体大小为0
 let newSegment = 0
-const SNAKE_GROW = 2
+const SNAKE_GROW = 1
 
 const snakeBody = [
     {x : 11, y : 11},
@@ -74,6 +76,10 @@ function draw(gameBoard) {
 
 function snakeGrow() {
     newSegment += SNAKE_GROW
+    SNAKE_SPEED += 1
+    updateScore(1)
+    updateSpeed(SNAKE_SPEED)
+
 }
 
 //获取蛇头坐标位置
