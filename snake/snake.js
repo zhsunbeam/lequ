@@ -4,7 +4,7 @@ import { getInputDirection,getHeadDirection } from "./keyevent.js"
 export let SNAKE_SPEED = 8
 
 let newSegment = 0
-const SNAKE_GROW = 20
+const SNAKE_GROW = 2
 
 const snakeBody = [
     {x : 11, y : 11},
