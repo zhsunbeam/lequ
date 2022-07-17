@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhsunbeam.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="游戏需要图形界面，虽然互联网时代Java FX 使用频率很小, 但是作为开发者，技多不压身，况且UI源码中有很多经典设计，是各类设计模式聚集地，可以让开发者加深对OOP、设计模式的理解。 如果把UI界面运用到游戏中去，既学到知识又增加趣味，岂不乐哉。  数字游戏界面一、问题 怎样使用JavaFX创建一个UI界面? 怎样创建一个按钮并添加到UI界面中? 怎样监听一个按钮的事件? 怎样使用线程开启一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="玩游戏学编程(1)-猜数字UI">
+<meta property="og:url" content="https://zhsunbeam.github.io/2022/07/17/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97UI%E7%95%8C%E9%9D%A2/index.html">
+<meta property="og:site_name" content="Mars极乐空间">
+<meta property="og:description" content="游戏需要图形界面，虽然互联网时代Java FX 使用频率很小, 但是作为开发者，技多不压身，况且UI源码中有很多经典设计，是各类设计模式聚集地，可以让开发者加深对OOP、设计模式的理解。 如果把UI界面运用到游戏中去，既学到知识又增加趣味，岂不乐哉。  数字游戏界面一、问题 怎样使用JavaFX创建一个UI界面? 怎样创建一个按钮并添加到UI界面中? 怎样监听一个按钮的事件? 怎样使用线程开启一">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-17T01:19:56.085Z">
+<meta property="article:modified_time" content="2021-11-30T07:39:55.359Z">
+<meta property="article:author" content="Mars笑笑生">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="编程基础">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://zhsunbeam.github.io/2022/07/17/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97UI%E7%95%8C%E9%9D%A2/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhsunbeam.github.io/2022/07/17/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97UI%E7%95%8C%E9%9D%A2/","path":"2022/07/17/玩游戏学编程(2)-猜数字UI界面/","title":"玩游戏学编程(1)-猜数字UI"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>玩游戏学编程(1)-猜数字UI | Mars极乐空间</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Mars极乐空间</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">安静的来点代码</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E6%B8%B8%E6%88%8F%E7%95%8C%E9%9D%A2"><span class="nav-number">1.</span> <span class="nav-text">数字游戏界面</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E9%97%AE%E9%A2%98"><span class="nav-number">1.0.1.</span> <span class="nav-text">一、问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98"><span class="nav-number">1.0.2.</span> <span class="nav-text">二、解决问题</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Mars笑笑生</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97UI%E7%95%8C%E9%9D%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mars笑笑生">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mars极乐空间">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          玩游戏学编程(1)-猜数字UI
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-17 09:19:56" itemprop="dateCreated datePublished" datetime="2022-07-17T09:19:56+08:00">2022-07-17</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-11-30 15:39:55" itemprop="dateModified" datetime="2021-11-30T15:39:55+08:00">2021-11-30</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <blockquote>
+<p>游戏需要图形界面，虽然互联网时代Java FX 使用频率很小, 但是作为开发者，技多不压身，况且UI源码中有很多经典设计，是各类设计模式聚集地，可以让开发者加深对OOP、设计模式的理解。 如果把UI界面运用到游戏中去，既学到知识又增加趣味，岂不乐哉。</p>
+</blockquote>
+<h3 id="数字游戏界面"><a href="#数字游戏界面" class="headerlink" title="数字游戏界面"></a>数字游戏界面</h3><h5 id="一、问题"><a href="#一、问题" class="headerlink" title="一、问题"></a>一、问题</h5><ol>
+<li>怎样使用JavaFX创建一个UI界面?</li>
+<li>怎样创建一个按钮并添加到UI界面中?</li>
+<li>怎样监听一个按钮的事件?</li>
+<li>怎样使用线程开启一个异步任务?</li>
+<li>在异步任务中绘图并添加到UI窗口</li>
+</ol>
+<h5 id="二、解决问题"><a href="#二、解决问题" class="headerlink" title="二、解决问题"></a>二、解决问题</h5><blockquote>
+<ol>
+<li>要编写一个JavaFX界面，需要创建一个类并继承javafx.application.Application类(Java8中可以直接使用，更高版本的Java引入了模块化，需要手动引入), 并重写start方法：</li>
+<li>代码中的Stage参数可以认为是一个UI窗口，英文翻译成“舞台”, 调用它的show方法显示这个窗口</li>
+</ol>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> top.coolcode;</span><br><span class="line"><span class="keyword">import</span> javafx.application.Application;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GuessApp</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">(Stage primaryStage)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">       	<span class="comment">//显示“舞台”窗口</span></span><br><span class="line">        primaryStage.show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<blockquote>
+<ol start="3">
+<li>窗口创建好之后需要创建一些内容放到这个窗口中，这个内容我们称为Scene , 英文翻译成<strong>场景</strong></li>
+<li>可以独立创建一个函数，这个函数用来创建窗口界面中的内容</li>
+<li>界面元素包含一个按钮Button, 并为这个按钮添加了一个事件处理函数,代码中使用了<strong>箭头函数</strong></li>
+<li>设置对象的属性通常会使用set开头的函数</li>
+</ol>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> top.coolcode;</span><br><span class="line"><span class="keyword">import</span> javafx.application.Application;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GuessApp</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line">    <span class="comment">//垂直盒子布局容器</span></span><br><span class="line">    <span class="keyword">private</span> VBox root;</span><br><span class="line">    <span class="comment">//游戏中的地砖面板</span></span><br><span class="line">    <span class="keyword">private</span> Pane tilePane;</span><br><span class="line">    <span class="comment">//使用Executors创建线程</span></span><br><span class="line">    <span class="keyword">private</span> ScheduledExecutorService servicePool = 	       Executors.newSingleThreadScheduledExecutor();</span><br><span class="line">    <span class="comment">//存储所有数字框 的集合</span></span><br><span class="line">    <span class="keyword">private</span> List&lt;TileView&gt; tileSequence = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">(Stage primaryStage)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//createContent()函数将会独立出来用于创建内容</span></span><br><span class="line">        Scene scene = <span class="keyword">new</span> Scene(<span class="keyword">this</span>.createContent());</span><br><span class="line">       	<span class="comment">//显示“舞台”窗口</span></span><br><span class="line">        primaryStage.show();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> Parent <span class="title">createContent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//使用垂直盒子进行布局，界面元素将会垂直放置在这个盒子容器中</span></span><br><span class="line">        <span class="comment">// root是定义在类上的属性</span></span><br><span class="line">        <span class="keyword">this</span>.root = <span class="keyword">new</span> VBox();</span><br><span class="line">        <span class="comment">//设置布局容器大小(宽，高)</span></span><br><span class="line">        root.setPrefSize(<span class="number">1024</span>, <span class="number">500</span>);</span><br><span class="line">        <span class="comment">//创建按钮对象</span></span><br><span class="line">        Button button = <span class="keyword">new</span> Button(<span class="string">&quot;开始&quot;</span>);</span><br><span class="line">        <span class="comment">//为按钮添加一个事件处理函数startGame(),也就是说当按下按钮后，这个函数就会被调用</span></span><br><span class="line">        button.setOnAction(e-&gt;startGame());</span><br><span class="line">        <span class="comment">//创建一个面板</span></span><br><span class="line">        Pane pane = <span class="keyword">new</span> Pane();</span><br><span class="line">        <span class="comment">//获取这个垂直盒子容器并将面板和按钮添加到容器中</span></span><br><span class="line">        root.getChildren().addAll(pane, button);</span><br><span class="line">        <span class="comment">//返回这个垂直盒子容器，返回的内容将会被添加到舞台Stage</span></span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<blockquote>
+<ol start="7">
+<li>编写按钮事件处理函数</li>
+<li>在函数中会调用随机产生数字方格的函数populateGrid()，并将此函数返回的内容添加到VBox根容器</li>
+<li>此函数中有一个计划任务，实际上使用的是Java中的线程池，同时还使用到了Java8中的Stream编程</li>
+</ol>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">startGame</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.tilePane = <span class="keyword">this</span>.populateGrid(); </span><br><span class="line">    <span class="keyword">this</span>.root.getChildren().set(<span class="number">0</span>, tilePane); </span><br><span class="line">    <span class="comment">//6秒后执行线程,计划任务</span></span><br><span class="line">    <span class="keyword">this</span>.servicePool.schedule(()-&gt;&#123;</span><br><span class="line">        tilePane.getChildren().stream().map(n-&gt;(TileView)n)</span><br><span class="line">                .forEach(TileView::hide);<span class="comment">//此处是遍历tilePane面板上的每一个元素，并调用它的hide方法</span></span><br><span class="line">    &#125;, <span class="number">6</span>, TimeUnit.SECONDS);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<blockquote>
+<ol start="10">
+<li>populateGrid函数实现, 用于随机绘制数字框，并添加到UI界面中</li>
+<li>此函数的逻辑稍显复杂，主要使用到了Point2D类，产生9个数字框，并需要判断每个数字框不重合</li>
+</ol>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> Pane <span class="title">populateGrid</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Pane pane = <span class="keyword">new</span> Pane();</span><br><span class="line">    pane.setPrefSize(<span class="number">1024</span>, <span class="number">500</span>);</span><br><span class="line">    Random random = <span class="keyword">new</span> Random();</span><br><span class="line">    List&lt;Point2D&gt; usedPoints = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">9</span>; i++) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> randomX = random.nextInt(<span class="number">1024</span>/<span class="number">80</span>);</span><br><span class="line">        <span class="keyword">int</span> randomY = random.nextInt(<span class="number">500</span>/<span class="number">80</span>);</span><br><span class="line">        Point2D p = <span class="keyword">new</span> Point2D(randomX, randomY);</span><br><span class="line">        <span class="comment">//判断集合usedPoints中是否包含了p,如果包含了则重新创建，并添加到usedPoints集合中</span></span><br><span class="line">        <span class="keyword">while</span>(usedPoints.contains(p)) &#123;</span><br><span class="line">            randomX = random.nextInt(<span class="number">1024</span>/<span class="number">80</span>);</span><br><span class="line">            randomY = random.nextInt(<span class="number">500</span>/<span class="number">80</span>);</span><br><span class="line">            p = <span class="keyword">new</span> Point2D(randomX,randomY);</span><br><span class="line">        &#125;</span><br><span class="line">        usedPoints.add(p);</span><br><span class="line">		<span class="comment">//此类是自建类，用于创建一个数字框</span></span><br><span class="line">        TileView tile = <span class="keyword">new</span> TileView(Integer.toString(i));</span><br><span class="line">        </span><br><span class="line">        tile.setTranslateX(randomX * <span class="number">80</span>);</span><br><span class="line">        tile.setTranslateY(randomY * <span class="number">80</span>);</span><br><span class="line">        tile.setOnMouseClicked(e-&gt;&#123;</span><br><span class="line">            <span class="keyword">if</span>(tileSequence.isEmpty())  &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;游戏已结束&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            TileView correctTile = tileSequence.remove(<span class="number">0</span>);</span><br><span class="line">            <span class="keyword">if</span>(tile == correctTile) &#123;</span><br><span class="line">                tile.show();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                tileSequence.clear();</span><br><span class="line">                System.out.println(<span class="string">&quot;失败：游戏结束&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        pane.getChildren().add(tile);</span><br><span class="line">        tileSequence.add(tile);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> pane;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">TileView</span> <span class="keyword">extends</span> <span class="title">StackPane</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Text text;</span><br><span class="line">    TileView(String content) &#123;</span><br><span class="line">        Rectangle border = <span class="keyword">new</span> Rectangle(<span class="number">80</span>,<span class="number">80</span>,<span class="keyword">null</span>);</span><br><span class="line">        border.setStroke(Color.BLUEVIOLET);</span><br><span class="line">        border.setStrokeWidth(<span class="number">4</span>);</span><br><span class="line">        border.setStrokeType(StrokeType.INSIDE);</span><br><span class="line"></span><br><span class="line">        text = <span class="keyword">new</span> Text(content);</span><br><span class="line">        text.setFont(Font.font(<span class="number">64</span>));</span><br><span class="line">        getChildren().addAll(border,text);</span><br><span class="line">        setPickOnBounds(<span class="keyword">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">hide</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        text.setVisible(<span class="keyword">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        text.setVisible(<span class="keyword">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<ol start="12">
+<li>最后运行程序</li>
+</ol>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	launch(args);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>此程序融合了线程、集合、FX UI界面、事件、Stream， 亦有很多英文单词</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+              <a href="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="tag"># 编程基础</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/07/17/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97-JavaFX-UI/" rel="prev" title="玩游戏学编程(1)-猜数字-JavaFX-UI">
+                  <i class="fa fa-chevron-left"></i> 玩游戏学编程(1)-猜数字-JavaFX-UI
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/07/17/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B/" rel="next" title="玩游戏学编程-猜数字">
+                  玩游戏学编程-猜数字 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mars笑笑生</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

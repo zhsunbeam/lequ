@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhsunbeam.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="贪吃蛇-游戏界面 在编写界面之前，有一些前置知识必须要理解并能熟练使用，比如flex和grid布局， vh、vw、 vmin、 vmax、em、rem、px单位;  有了这些知识，编写游戏界面将变得非常简单，下面我们一步步实现。 HTML设计 只需一个div元素，给它一个id 123&lt;body&gt; &lt;div id&#x3D;&quot;game-board&quot;&gt;&lt;&#x2F;div">
+<meta property="og:type" content="article">
+<meta property="og:title" content="玩游戏学前端-贪吃蛇-游戏界面">
+<meta property="og:url" content="https://zhsunbeam.github.io/2022/07/17/snake-board/index.html">
+<meta property="og:site_name" content="Mars极乐空间">
+<meta property="og:description" content="贪吃蛇-游戏界面 在编写界面之前，有一些前置知识必须要理解并能熟练使用，比如flex和grid布局， vh、vw、 vmin、 vmax、em、rem、px单位;  有了这些知识，编写游戏界面将变得非常简单，下面我们一步步实现。 HTML设计 只需一个div元素，给它一个id 123&lt;body&gt; &lt;div id&#x3D;&quot;game-board&quot;&gt;&lt;&#x2F;div">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zhsunbeam.github.io/2022/07/17/snake-board/1.png">
+<meta property="article:published_time" content="2022-07-17T01:19:55.826Z">
+<meta property="article:modified_time" content="2021-12-12T14:24:05.854Z">
+<meta property="article:author" content="Mars笑笑生">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zhsunbeam.github.io/2022/07/17/snake-board/1.png">
+
+
+<link rel="canonical" href="https://zhsunbeam.github.io/2022/07/17/snake-board/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhsunbeam.github.io/2022/07/17/snake-board/","path":"2022/07/17/snake-board/","title":"玩游戏学前端-贪吃蛇-游戏界面"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>玩游戏学前端-贪吃蛇-游戏界面 | Mars极乐空间</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Mars极乐空间</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">安静的来点代码</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B4%AA%E5%90%83%E8%9B%87-%E6%B8%B8%E6%88%8F%E7%95%8C%E9%9D%A2"><span class="nav-number">1.</span> <span class="nav-text">贪吃蛇-游戏界面</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HTML%E8%AE%BE%E8%AE%A1"><span class="nav-number">1.1.</span> <span class="nav-text">HTML设计</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#body%E6%A0%B7%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">body样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#div%E6%B8%B8%E6%88%8F%E9%9D%A2%E6%9D%BF%E6%A0%B7%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text">div游戏面板样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%9B%87%E5%92%8C%E9%A3%9F%E7%89%A9%E6%A0%B7%E5%BC%8F"><span class="nav-number">1.4.</span> <span class="nav-text">蛇和食物样式</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-overview">
+            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Mars笑笑生</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/snake-board/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mars笑笑生">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mars极乐空间">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          玩游戏学前端-贪吃蛇-游戏界面
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-17 09:19:55" itemprop="dateCreated datePublished" datetime="2022-07-17T09:19:55+08:00">2022-07-17</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-12-12 22:24:05" itemprop="dateModified" datetime="2021-12-12T22:24:05+08:00">2021-12-12</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="贪吃蛇-游戏界面"><a href="#贪吃蛇-游戏界面" class="headerlink" title="贪吃蛇-游戏界面"></a>贪吃蛇-游戏界面</h3><hr>
+<p>在编写界面之前，有一些前置知识必须要理解并能熟练使用，比如flex和grid布局， vh、vw、 vmin、 vmax、em、rem、px单位;  有了这些知识，编写游戏界面将变得非常简单，下面我们一步步实现。</p>
+<h4 id="HTML设计"><a href="#HTML设计" class="headerlink" title="HTML设计"></a>HTML设计</h4><hr>
+<p>只需一个div元素，给它一个id</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;game-board&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="body样式"><a href="#body样式" class="headerlink" title="body样式"></a>body样式</h4><hr>
+<p>我们需要定义高度和宽度，对整个body元素采用flex布局，主要目的是让其内容居中，并给一些基础样式美化一下；会使用到 display, justify-content, align-items 这些和flex布局相关， vh,vw单位也将使用到</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100vh</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100vw</span>;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">justify-content</span>: center;</span><br><span class="line">    <span class="attribute">align-items</span>: center;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: black;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>vw、vh、vmin和vmax是CSS3中的视窗单位，也是相对单位。它们的大小都是由视窗大小来决定的，单位1，表示视窗的1%；vw：视窗宽度的百分比， vh：视窗高度的百分比， vmin：当前较小的vw和vh， vmax：当前较大的vw和vh</p>
+</blockquote>
+<blockquote>
+<p>视窗是指浏览器可视区域的宽和高， 1vm 表示 1%浏览器可视区域的宽，100vm表示整个可视频区域的宽</p>
+</blockquote>
+<h4 id="div游戏面板样式"><a href="#div游戏面板样式" class="headerlink" title="div游戏面板样式"></a>div游戏面板样式</h4><hr>
+<p>我们使用到了id选择器　#game-board, 定义了背景颜色，以及宽度和高度， 同时这个游戏界面我们使用网格布局，目的是把蛇的头和身子以及食物都用格子表示</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#game-board</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#CCC</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100vmin</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100vmin</span>;</span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    grid-template-rows: <span class="built_in">repeat</span>(<span class="number">50</span>, <span class="number">1</span>fr);</span><br><span class="line">    grid-template-<span class="attribute">columns</span>: <span class="built_in">repeat</span>(<span class="number">50</span>, <span class="number">1</span>fr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<img src="1.png" style="zoom:80%;" />
+
+<blockquote>
+<p>使用了行列均为50格子的网格布局</p>
+<p>grid-template-rows: repeat(50, 1fr); </p>
+<p>grid-template-columns: repeat(50, 1fr);</p>
+</blockquote>
+<h4 id="蛇和食物样式"><a href="#蛇和食物样式" class="headerlink" title="蛇和食物样式"></a>蛇和食物样式</h4><hr>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.snake</span> &#123;</span><br><span class="line">    <span class="attribute">border</span>: .<span class="number">20vmin</span> solid black;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="built_in">hsl</span>(<span class="number">200</span>, <span class="number">100%</span>, <span class="number">50%</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.food</span> &#123;</span><br><span class="line">    <span class="attribute">border</span>: .<span class="number">20vmin</span> solid black;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="built_in">hsl</span>(<span class="number">50</span>, <span class="number">100%</span>, <span class="number">50%</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>就这么简单, 蛇和食物都需要使用Javascript动态创建，后续就是Javascript编码了</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/07/17/JOOQ/" rel="prev" title="JOOQ&DSL">
+                  <i class="fa fa-chevron-left"></i> JOOQ&DSL
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/07/17/snake-dom/" rel="next" title="玩游戏学前端-贪吃蛇-使用DOM画蛇">
+                  玩游戏学前端-贪吃蛇-使用DOM画蛇 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mars笑笑生</span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

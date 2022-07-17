@@ -24,12 +24,12 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="玩游戏学前端-贪吃蛇-使用DOM画蛇">
 <meta property="og:url" content="https://zhsunbeam.github.io/2022/07/17/snake-dom/index.html">
-<meta property="og:site_name" content="锹甲先生">
+<meta property="og:site_name" content="Mars极乐空间">
 <meta property="og:description" content="使用DOM画蛇 上一篇中我们将整个游戏划分了模块，主要有main.js, snake.js, food.js三个模块，然后在main模块中使用了window.requestAnimationFrame()请求动画帧函数, 通过这个函数不断重复调用update()和draw()函数，这两个函数用于更新界面和重绘游戏中的蛇和食物, 到现在为止并没有实现这两个函数的具体功能，在这一篇中我们将使用Java">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-07-17T01:19:55.828Z">
 <meta property="article:modified_time" content="2021-12-16T14:36:14.449Z">
-<meta property="article:author" content="锹甲先生">
+<meta property="article:author" content="Mars笑笑生">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
 
@@ -41,7 +41,7 @@
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhsunbeam.github.io/2022/07/17/snake-dom/","path":"2022/07/17/snake-dom/","title":"玩游戏学前端-贪吃蛇-使用DOM画蛇"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>玩游戏学前端-贪吃蛇-使用DOM画蛇 | 锹甲先生</title>
+<title>玩游戏学前端-贪吃蛇-使用DOM画蛇 | Mars极乐空间</title>
   
 
 
@@ -70,7 +70,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">锹甲先生</h1>
+      <h1 class="site-title">Mars极乐空间</h1>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">安静的来点代码</p>
@@ -128,8 +128,8 @@
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-overview">
             <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">锹甲先生</p>
-  <div class="site-description" itemprop="description">锹甲先生, 一个老不正经的Programer</div>
+  <p class="site-author-name" itemprop="name">Mars笑笑生</p>
+  <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
@@ -190,12 +190,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="锹甲先生">
-      <meta itemprop="description" content="锹甲先生, 一个老不正经的Programer">
+      <meta itemprop="name" content="Mars笑笑生">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="锹甲先生">
+      <meta itemprop="name" content="Mars极乐空间">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -320,11 +320,14 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/12/14/snake-es6module/" rel="prev" title="玩游戏学前端-贪吃蛇-ES6模块化">
-                  <i class="fa fa-chevron-left"></i> 玩游戏学前端-贪吃蛇-ES6模块化
+                <a href="/2022/07/17/snake-board/" rel="prev" title="玩游戏学前端-贪吃蛇-游戏界面">
+                  <i class="fa fa-chevron-left"></i> 玩游戏学前端-贪吃蛇-游戏界面
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2022/07/17/snake-es6module/" rel="next" title="玩游戏学前端-贪吃蛇-ES6模块化">
+                  玩游戏学前端-贪吃蛇-ES6模块化 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -349,7 +352,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">锹甲先生</span>
+  <span class="author" itemprop="copyrightHolder">Mars笑笑生</span>
 </div>
 
     </div>
