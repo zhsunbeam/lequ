@@ -182,7 +182,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2021/12/16/snake-dom/">
+    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/snake-dom/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -195,7 +195,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/12/16/snake-dom/" class="post-title-link" itemprop="url">玩游戏学前端-贪吃蛇-使用DOM画蛇</a>
+          <a href="/2022/07/17/snake-dom/" class="post-title-link" itemprop="url">玩游戏学前端-贪吃蛇-使用DOM画蛇</a>
         </h2>
 
         <div class="post-meta-container">
@@ -205,10 +205,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2021-12-16 09:06:21 / 修改时间：22:00:20" itemprop="dateCreated datePublished" datetime="2021-12-16T09:06:21+08:00">2021-12-16</time>
+      <time title="创建时间：2022-07-17 09:19:55" itemprop="dateCreated datePublished" datetime="2022-07-17T09:19:55+08:00">2022-07-17</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-12-16 22:36:14" itemprop="dateModified" datetime="2021-12-16T22:36:14+08:00">2021-12-16</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -293,7 +299,7 @@
 <p>实现的代码删除和背景颜色和边框，使用classList.add方法添加样式，snake.js完整代码如下</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">update</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;更新蛇&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params">gameBoard</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;=snakeBody.length;i++) &#123;</span><br><span class="line">        <span class="comment">//创建一个div元素</span></span><br><span class="line">        <span class="keyword">const</span> snakeElement = <span class="built_in">document</span>.createElement(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line">        <span class="comment">//设置div元素的样式, 使用style</span></span><br><span class="line">        <span class="comment">//行位置</span></span><br><span class="line">        snakeElement.style.gridRowStart = snakeBody[i].x</span><br><span class="line">        <span class="comment">//列位置</span></span><br><span class="line">        snakeElement.style.gridColumnStart = snakeBody[i].y</span><br><span class="line"></span><br><span class="line">      	<span class="keyword">if</span>(index == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">//为蛇头 添加snake-head样式类</span></span><br><span class="line">            snakeElement.classList.add(<span class="string">&#x27;snake-head&#x27;</span>)</span><br><span class="line">            <span class="comment">//蛇头随着按下不同的方向键进行旋转，getHeadDirection函数后面再实现，此行先注释</span></span><br><span class="line">            <span class="comment">//snakeElement.style.transform = &#x27;rotate(&#x27;+getHeadDirection()+&quot;)&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//为蛇身体添加样式类</span></span><br><span class="line">            snakeElement.classList.add(<span class="string">&#x27;snake-body&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//将蛇添加到gameBoard元素中</span></span><br><span class="line">        gameBoard.appendChild(snakeElement)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> &#123;update, draw&#125;</span><br></pre></td></tr></table></figure>
 
-<p>画食物的函数在这里就没有贴出代码，可以自己参考画蛇的方法完成食物的绘制。</p>
+<p>画食物的函数在这里就没有贴出代码，可以自己参考画蛇的方法完成食物的绘制</p>
 
       
     </div>
@@ -1489,7 +1495,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
