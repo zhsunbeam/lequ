@@ -130,13 +130,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -180,7 +180,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/JavaScript/snake/">
+    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -193,143 +193,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/17/JavaScript/snake/" class="post-title-link" itemprop="url">玩游戏学前端-贪吃蛇</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-07-17 10:57:15 / 修改时间：10:57:26" itemprop="dateCreated datePublished" datetime="2022-07-17T10:57:15+08:00">2022-07-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%89%8D%E7%AB%AF%E6%B8%B8%E6%88%8F/" itemprop="url" rel="index"><span itemprop="name">前端游戏</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="在游戏项目中学JavaScript"><a href="#在游戏项目中学JavaScript" class="headerlink" title="在游戏项目中学JavaScript"></a>在游戏项目中学JavaScript</h3><hr>
-<p>WEB前端基础技术包含HTML5/CSS3/JavaScript, 当然除了基础技术前端还有框架如React,Vue等, 其中相对难一点的便是JavaScript和CSS3，CSS3学起来开心多了, JavaScript编程语言可没那么有趣，如果用它来实现游戏，我想趣味性要超越CSS3, 俗话说：兴趣是最好的老师；下面我们一步步来实现这个小游戏，在开发过程中去学习JavaScript语言和CSS3的关键技术要点。效果如下图所示</p>
-<p><img src="snake-main.gif"></p>
-<p><a href="/snake/index.html">贪吃蛇</a></p>
-<h3 id="贪吃蛇游戏"><a href="#贪吃蛇游戏" class="headerlink" title="贪吃蛇游戏"></a>贪吃蛇游戏</h3><hr>
-<h4 id="1-HTML5和CSS3设计游戏界面"><a href="#1-HTML5和CSS3设计游戏界面" class="headerlink" title="1. HTML5和CSS3设计游戏界面"></a>1. HTML5和CSS3设计游戏界面</h4><ul>
-<li><p>HTML页面组成，常用标签和meta</p>
-</li>
-<li><p>准确使用HTML标签div, 标签中的基本属性</p>
-</li>
-<li><p>为HTML标签添加样式</p>
-</li>
-<li><p>CSS3样式编写，标签选择器，ID选择器，类选择器</p>
-</li>
-<li><p>CSS3中的常用单位 px,rpx,em,rem,vh,vw,vmin,vmax</p>
-</li>
-<li><p>CSS3边框和颜色</p>
-</li>
-<li><p>CSS3 Grid网格布局</p>
-</li>
-</ul>
-<h4 id="2-HTML与Javascript"><a href="#2-HTML与Javascript" class="headerlink" title="2. HTML与Javascript"></a>2. HTML与Javascript</h4><ul>
-<li>ES5和ES6的基本认知</li>
-<li>在HTML中添加Javascript脚本支持</li>
-<li>Javascript语言基础: 变量、程序逻辑、函数、对象</li>
-<li>Javascript的模块化</li>
-</ul>
-<h4 id="3-Javascript操作HTML元素-DOM"><a href="#3-Javascript操作HTML元素-DOM" class="headerlink" title="3. Javascript操作HTML元素 - DOM"></a>3. Javascript操作HTML元素 - DOM</h4><ul>
-<li>使用Javascript选择HTML元素</li>
-<li>Javascript动画</li>
-<li>Javascript创建HTML元素</li>
-<li>Javascript设置HTML元素样式</li>
-<li>Javascript定义游戏核心逻辑</li>
-</ul>
-<h4 id="4-绘制Snake"><a href="#4-绘制Snake" class="headerlink" title="4. 绘制Snake"></a>4. 绘制Snake</h4><ul>
-<li><p>Javascript数组和DOM操作</p>
-</li>
-<li><p>创建Snake Head，定义速度常量</p>
-</li>
-<li><p>移动Snake Head</p>
-</li>
-<li><p>使用Javascript事件控制Snake方向</p>
-</li>
-<li><p>创建Snake Body并绘制蛇的身体</p>
-</li>
-</ul>
-<h4 id="6-绘制Food"><a href="#6-绘制Food" class="headerlink" title="6. 绘制Food"></a>6. 绘制Food</h4><ul>
-<li><p>Javascript数组和DOM操作</p>
-</li>
-<li><p>使用Javascript DOM创建Food</p>
-</li>
-<li><p>Javascript创建随机数</p>
-</li>
-<li><p>根据随机数位置显示Food</p>
-</li>
-</ul>
-<h4 id="7-Snake和Food"><a href="#7-Snake和Food" class="headerlink" title="7. Snake和Food"></a>7. Snake和Food</h4><ul>
-<li>Snake吃Food，Snake增长逻辑</li>
-</ul>
-<h4 id="7-游戏结束"><a href="#7-游戏结束" class="headerlink" title="7. 游戏结束"></a>7. 游戏结束</h4><ul>
-<li>Snake移动范围边界判断</li>
-<li>游戏结束判断</li>
-</ul>
-<h4 id=""><a href="#" class="headerlink" title=""></a></h4>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mars笑笑生">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="极乐空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/17/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B/" class="post-title-link" itemprop="url">玩游戏学编程-猜数字</a>
+          <a href="/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B/" class="post-title-link" itemprop="url">玩游戏学编程-猜数字</a>
         </h2>
 
         <div class="post-meta-container">
@@ -429,7 +293,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97UI%E7%95%8C%E9%9D%A2/">
+    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97UI%E7%95%8C%E9%9D%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -442,7 +306,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/17/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97UI%E7%95%8C%E9%9D%A2/" class="post-title-link" itemprop="url">玩游戏学编程(1)-猜数字UI</a>
+          <a href="/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97UI%E7%95%8C%E9%9D%A2/" class="post-title-link" itemprop="url">玩游戏学编程(1)-猜数字UI</a>
         </h2>
 
         <div class="post-meta-container">
@@ -566,7 +430,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97-JavaFX-UI/">
+    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97-JavaFX-UI/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -579,7 +443,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/17/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97-JavaFX-UI/" class="post-title-link" itemprop="url">玩游戏学编程(1)-猜数字-JavaFX-UI</a>
+          <a href="/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97-JavaFX-UI/" class="post-title-link" itemprop="url">玩游戏学编程(1)-猜数字-JavaFX-UI</a>
         </h2>
 
         <div class="post-meta-container">
@@ -682,7 +546,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(1)-%E7%8C%9C%E6%95%B0%E5%AD%97-Stream/">
+    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(1)-%E7%8C%9C%E6%95%B0%E5%AD%97-Stream/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -695,7 +559,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/17/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(1)-%E7%8C%9C%E6%95%B0%E5%AD%97-Stream/" class="post-title-link" itemprop="url">玩游戏学编程(1)-猜数字-Stream</a>
+          <a href="/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(1)-%E7%8C%9C%E6%95%B0%E5%AD%97-Stream/" class="post-title-link" itemprop="url">玩游戏学编程(1)-猜数字-Stream</a>
         </h2>
 
         <div class="post-meta-container">
@@ -794,7 +658,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(1)-%E7%8C%9C%E6%95%B0%E5%AD%97-Lambda%E5%92%8CStream/">
+    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(1)-%E7%8C%9C%E6%95%B0%E5%AD%97-Lambda%E5%92%8CStream/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -807,7 +671,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/17/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(1)-%E7%8C%9C%E6%95%B0%E5%AD%97-Lambda%E5%92%8CStream/" class="post-title-link" itemprop="url">玩游戏学编程(1)-猜数字-Lambda</a>
+          <a href="/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(1)-%E7%8C%9C%E6%95%B0%E5%AD%97-Lambda%E5%92%8CStream/" class="post-title-link" itemprop="url">玩游戏学编程(1)-猜数字-Lambda</a>
         </h2>
 
         <div class="post-meta-container">
@@ -911,7 +775,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/JavaScript-Interview-1/">
+    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/JavaScript/JavaScript-Interview-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -924,7 +788,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/17/JavaScript-Interview-1/" class="post-title-link" itemprop="url">一个简单的前端机试题</a>
+          <a href="/2022/07/17/JavaScript/JavaScript-Interview-1/" class="post-title-link" itemprop="url">一个简单的前端机试题</a>
         </h2>
 
         <div class="post-meta-container">
@@ -936,7 +800,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2022-07-17 09:19:56 / 修改时间：11:23:52" itemprop="dateCreated datePublished" datetime="2022-07-17T09:19:56+08:00">2022-07-17</time>
+      <time title="创建时间：2022-07-17 09:19:56 / 修改时间：11:30:34" itemprop="dateCreated datePublished" datetime="2022-07-17T09:19:56+08:00">2022-07-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -959,7 +823,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>一个简单的前端机试题，使用原生JavaScript或是JQuery又或是Vue，如果能快速搞定，用什么无所谓啦</p>
-<h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><p><img src="JavaScript-Interview-1/1.png"></p>
+<h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><p><img src="1.png"></p>
 <h2 id="还是有几点要求的"><a href="#还是有几点要求的" class="headerlink" title="还是有几点要求的"></a>还是有几点要求的</h2><ol>
 <li>点击固定标签可以修改选中状态，选中方式为多选</li>
 <li>自定义输入框可输入10个字以内的标签（限制中文）</li>
@@ -993,7 +857,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/snake/">
+    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/JavaScript/snake/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1006,7 +870,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/17/snake/" class="post-title-link" itemprop="url">玩游戏学前端-贪吃蛇</a>
+          <a href="/2022/07/17/JavaScript/snake/" class="post-title-link" itemprop="url">玩游戏学前端-贪吃蛇</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1129,7 +993,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/snake-grid/">
+    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/JavaScript/snake-grid/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1142,7 +1006,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/17/snake-grid/" class="post-title-link" itemprop="url">玩游戏学前端-贪吃蛇-Grid布局</a>
+          <a href="/2022/07/17/JavaScript/snake-grid/" class="post-title-link" itemprop="url">玩游戏学前端-贪吃蛇-Grid布局</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1329,7 +1193,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/snake-es6module/">
+    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/JavaScript/snake-es6module/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -1342,7 +1206,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/17/snake-es6module/" class="post-title-link" itemprop="url">玩游戏学前端-贪吃蛇-ES6模块化</a>
+          <a href="/2022/07/17/JavaScript/snake-es6module/" class="post-title-link" itemprop="url">玩游戏学前端-贪吃蛇-ES6模块化</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1408,6 +1272,144 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//引入 snake.js 和 food.js模块内容 </span></span><br><span class="line"><span class="keyword">import</span> &#123;update <span class="keyword">as</span> updateSnake, draw <span class="keyword">as</span> drawSnake&#125; <span class="keyword">from</span> <span class="string">&#x27;./snake.js&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123;update <span class="keyword">as</span> updateFood, draw <span class="keyword">as</span> drawFood&#125; <span class="keyword">from</span> <span class="string">&#x27;./food.js&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">main</span>(<span class="params">currentTime</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//再次请求动画帧</span></span><br><span class="line">    <span class="built_in">window</span>.requestAnimationFrame(main)</span><br><span class="line">	<span class="comment">//调用本模块中的update和draw函数</span></span><br><span class="line">    update()</span><br><span class="line">    draw()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//请求动画帧</span></span><br><span class="line"><span class="built_in">window</span>.requestAnimationFrame(main)</span><br><span class="line"></span><br><span class="line"><span class="comment">//因为有蛇和食物需要更新，所以定义了update函数，在函数内部调用另外两个模块的函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">update</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    updateSnake()</span><br><span class="line">    updateFood()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//因为有蛇和食物需要绘制，所以定义了draw函数，在函数内部调用另外两个模块的函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    drawSnake()</span><br><span class="line">    drawFood()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>可以将这些代码整合到vscode开发工具中，再运行index.html文件，在浏览器控制台查看效果。 下一篇我们看如何使用DOM绘制蛇和食物。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/JavaScript/snake-dom/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mars笑笑生">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="极乐空间">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/07/17/JavaScript/snake-dom/" class="post-title-link" itemprop="url">玩游戏学前端-贪吃蛇-使用DOM画蛇</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-07-17 09:19:55 / 修改时间：11:23:08" itemprop="dateCreated datePublished" datetime="2022-07-17T09:19:55+08:00">2022-07-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="使用DOM画蛇"><a href="#使用DOM画蛇" class="headerlink" title="使用DOM画蛇"></a>使用DOM画蛇</h3><hr>
+<p>上一篇中我们将整个游戏划分了模块，主要有main.js, snake.js, food.js三个模块，然后在main模块中使用了window.requestAnimationFrame()请求动画帧函数, 通过这个函数不断重复调用update()和draw()函数，这两个函数用于更新界面和重绘游戏中的蛇和食物, 到现在为止并没有实现这两个函数的具体功能，在这一篇中我们将使用JavaScript DOM技术把蛇画出来。</p>
+<h4 id="JavaScript-DOM"><a href="#JavaScript-DOM" class="headerlink" title="JavaScript DOM"></a>JavaScript DOM</h4><hr>
+<p>DOM 全称文档对象模型，在前端是将WEB页面和JavaScript脚本语言连接起来，提供了一套API（应用程序编程接口）用于操作HTML元素、处理事件等，在贪吃蛇游戏中我们需要用到几个DOM API来创建蛇和食物：</p>
+<blockquote>
+<p>怎样获取HTML元素?</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.getElementById();</span><br><span class="line"><span class="built_in">document</span>.querySelector();</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>怎样创建HTML元素?</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.createElement()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>怎样修改元素的样式属性？</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">元素.style = ...</span><br><span class="line">元素.className = ...</span><br><span class="line">元素.classList.add(...)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>怎样添加元素?</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">元素.appendChild(其它元素)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>JavaScript中如何定义数组?</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> snakeBody = [ 数组内容 ]</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="绘制蛇身体和头部"><a href="#绘制蛇身体和头部" class="headerlink" title="绘制蛇身体和头部"></a>绘制蛇身体和头部</h4><hr>
+<p>HTML代码就不重复了，先在main.js文件中获取网页中id为game-board的元素， 然后再绘制蛇或食物的时候需要传递这个HTML元素给drawSnake方法， 关键代码如下：</p>
+<blockquote>
+<p>获取HTML元素的关键代码</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> gameBoard = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;game-board&#x27;</span>)</span><br><span class="line"><span class="comment">//或者</span></span><br><span class="line"><span class="keyword">let</span> gameBoard = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#game-board&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>调用绘制蛇和食物的关键代码</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">drawSnake(gameBoard)</span><br><span class="line">drawFood(gameBoard)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>完整代码如下:</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//引入 snake.js 和 food.js模块内容 </span></span><br><span class="line"><span class="keyword">import</span> &#123;update <span class="keyword">as</span> updateSnake, draw <span class="keyword">as</span> drawSnake&#125; <span class="keyword">from</span> <span class="string">&#x27;./snake.js&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123;update <span class="keyword">as</span> updateFood, draw <span class="keyword">as</span> drawFood&#125; <span class="keyword">from</span> <span class="string">&#x27;./food.js&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 通过getElementById获取元素 */</span></span><br><span class="line"><span class="keyword">let</span> gameBoard = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;game-board&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">main</span>(<span class="params">currentTime</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//再次请求动画帧</span></span><br><span class="line">    <span class="built_in">window</span>.requestAnimationFrame(main)</span><br><span class="line">	<span class="comment">//调用本模块中的update和draw函数</span></span><br><span class="line">    update()</span><br><span class="line">    draw()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//请求动画帧</span></span><br><span class="line"><span class="built_in">window</span>.requestAnimationFrame(main)</span><br><span class="line"></span><br><span class="line"><span class="comment">//因为有蛇和食物需要更新，所以定义了update函数，在函数内部调用另外两个模块的函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">update</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    updateSnake()</span><br><span class="line">    updateFood()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//因为有蛇和食物需要绘制，所以定义了draw函数，在函数内部调用另外两个模块的函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//画蛇  在game.js模块中drawSnake和drawFood 是一个别名</span></span><br><span class="line">    drawSnake(gameBoard)</span><br><span class="line">    <span class="comment">//画食物</span></span><br><span class="line">    drawFood(gameBoard)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下面将会在snake.js模块中实现draw方法</p>
+<p>在snake.js模块中需要定义蛇，我们使用一个数组来表示，数组中的每一个元素代表蛇的每一个部分的坐标位置，包括x和y, 因为game-board采用的是网格布局，所以每一项（也就是单元格) 都有固定的坐标, 这个坐标(x,y)不能为0，也不能超过在CSS中设定的网格数(网页中设定的是50) :</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#game-board</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="built_in">rgb</span>(<span class="number">250</span>, <span class="number">245</span>, <span class="number">245</span>);</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100vmin</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100vmin</span>;</span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    grid-template-rows: <span class="built_in">repeat</span>(<span class="number">50</span>, <span class="number">1</span>fr);</span><br><span class="line">    grid-template-<span class="attribute">columns</span>: <span class="built_in">repeat</span>(<span class="number">50</span>, <span class="number">1</span>fr);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 蛇头样式, 使用图片，来源 https://www.iconfont.cn/ */</span></span><br><span class="line"><span class="selector-class">.snake-head</span> &#123;</span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">&#x27;./images/head1.png&#x27;</span>);</span><br><span class="line">    <span class="attribute">background-size</span>: cover;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 蛇身子样式  */</span></span><br><span class="line"><span class="selector-class">.snake-body</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="built_in">hsl</span>(<span class="number">200</span>,<span class="number">100%</span>,<span class="number">50%</span>);</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">80%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>蛇用一个对象数组表示，数组中的每个对象表示蛇的一部分</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> snakeBody = [</span><br><span class="line">    &#123;<span class="attr">x</span> : <span class="number">2</span>, <span class="attr">y</span> : <span class="number">2</span>&#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>在draw函数中根据snakeBody数组的大小创建多个div元素，用于显示蛇，蛇的长度在后面的游戏过程中会要增加，所以这个snakeBody数组会动态改变大小, 创建div元素并设定它的样式代码如下:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个div元素</span></span><br><span class="line"><span class="keyword">const</span> snakeElement = <span class="built_in">document</span>.createElement(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line"><span class="comment">//设置div元素的样式, 使用style</span></span><br><span class="line"><span class="comment">//行位置</span></span><br><span class="line">snakeElement.style.gridRowStart = snakeBody[<span class="number">0</span>].x</span><br><span class="line"><span class="comment">//列位置</span></span><br><span class="line">snakeElement.style.gridColumnStart = snakeBody[<span class="number">0</span>].y</span><br><span class="line"><span class="comment">//背景颜色</span></span><br><span class="line">snakeElement.style.backgroundColor = <span class="string">&#x27;hsl(200,100%,50%)&#x27;</span></span><br><span class="line"><span class="comment">//边框</span></span><br><span class="line">snakeElement.style.border = <span class="string">&#x27;.25vmin solid black&#x27;</span></span><br><span class="line"><span class="comment">//将蛇添加到gameBoard元素中</span></span><br><span class="line">gameBoard.appendChild(snakeElement)</span><br></pre></td></tr></table></figure>
+
+<p>通过循环画蛇，一开始仅有一个蛇头，可以自行在snakeBody中添加对象并查看效果</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;=snakeBody.length;i++) &#123;</span><br><span class="line">    <span class="comment">//创建一个div元素</span></span><br><span class="line">    <span class="keyword">const</span> snakeElement = <span class="built_in">document</span>.createElement(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line">    <span class="comment">//设置div元素的样式, 使用style</span></span><br><span class="line">    <span class="comment">//行位置</span></span><br><span class="line">    snakeElement.style.gridRowStart = snakeBody[i].x</span><br><span class="line">    <span class="comment">//列位置</span></span><br><span class="line">    snakeElement.style.gridColumnStart = snakeBody[i].y</span><br><span class="line">    <span class="comment">//背景颜色</span></span><br><span class="line">    snakeElement.style.backgroundColor = <span class="string">&#x27;hsl(200,100%,50%)&#x27;</span></span><br><span class="line">    <span class="comment">//边框</span></span><br><span class="line">    snakeElement.style.border = <span class="string">&#x27;.25vmin solid black&#x27;</span></span><br><span class="line">    <span class="comment">//将蛇添加到gameBoard元素中</span></span><br><span class="line">    gameBoard.appendChild(snakeElement)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>实现的代码删除和背景颜色和边框，使用classList.add方法添加样式，snake.js完整代码如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">update</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;更新蛇&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params">gameBoard</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;=snakeBody.length;i++) &#123;</span><br><span class="line">        <span class="comment">//创建一个div元素</span></span><br><span class="line">        <span class="keyword">const</span> snakeElement = <span class="built_in">document</span>.createElement(<span class="string">&#x27;div&#x27;</span>)</span><br><span class="line">        <span class="comment">//设置div元素的样式, 使用style</span></span><br><span class="line">        <span class="comment">//行位置</span></span><br><span class="line">        snakeElement.style.gridRowStart = snakeBody[i].x</span><br><span class="line">        <span class="comment">//列位置</span></span><br><span class="line">        snakeElement.style.gridColumnStart = snakeBody[i].y</span><br><span class="line"></span><br><span class="line">      	<span class="keyword">if</span>(index == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="comment">//为蛇头 添加snake-head样式类</span></span><br><span class="line">            snakeElement.classList.add(<span class="string">&#x27;snake-head&#x27;</span>)</span><br><span class="line">            <span class="comment">//蛇头随着按下不同的方向键进行旋转，getHeadDirection函数后面再实现，此行先注释</span></span><br><span class="line">            <span class="comment">//snakeElement.style.transform = &#x27;rotate(&#x27;+getHeadDirection()+&quot;)&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//为蛇身体添加样式类</span></span><br><span class="line">            snakeElement.classList.add(<span class="string">&#x27;snake-body&#x27;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//将蛇添加到gameBoard元素中</span></span><br><span class="line">        gameBoard.appendChild(snakeElement)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> &#123;update, draw&#125;</span><br></pre></td></tr></table></figure>
+
+<p>画食物的函数在这里就没有贴出代码，可以自己参考画蛇的方法完成食物的绘制</p>
 
       
     </div>

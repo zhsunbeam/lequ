@@ -20,30 +20,31 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"zhsunbeam.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="在游戏项目中学JavaScript WEB前端基础技术包含HTML5&#x2F;CSS3&#x2F;JavaScript, 当然除了基础技术前端还有框架如React,Vue等, 其中相对难一点的便是JavaScript和CSS3，CSS3学起来开心多了, JavaScript编程语言可没那么有趣，如果用它来实现游戏，我想趣味性要超越CSS3, 俗话说：兴趣是最好的老师；下面我们一步步来实现这个小游戏，在开发过程中去学">
+<meta name="description" content="一个简单的前端机试题，使用原生JavaScript或是JQuery又或是Vue，如果能快速搞定，用什么无所谓啦 效果图 还是有几点要求的 点击固定标签可以修改选中状态，选中方式为多选 自定义输入框可输入10个字以内的标签（限制中文） 点击确认会在标签后面新增一个自定义名称的标签，自定义标签数量超过5个之后，输入框和确认按钮置灰，不可点击 点击确认时，需要对当前自定义标签的名称进行去重，如果标签重复">
 <meta property="og:type" content="article">
-<meta property="og:title" content="玩游戏学前端-贪吃蛇">
-<meta property="og:url" content="https://zhsunbeam.github.io/2022/07/17/JavaScript/snake/index.html">
+<meta property="og:title" content="一个简单的前端机试题">
+<meta property="og:url" content="https://zhsunbeam.github.io/2022/07/17/JavaScript/JavaScript-Interview-1/index.html">
 <meta property="og:site_name" content="极乐空间">
-<meta property="og:description" content="在游戏项目中学JavaScript WEB前端基础技术包含HTML5&#x2F;CSS3&#x2F;JavaScript, 当然除了基础技术前端还有框架如React,Vue等, 其中相对难一点的便是JavaScript和CSS3，CSS3学起来开心多了, JavaScript编程语言可没那么有趣，如果用它来实现游戏，我想趣味性要超越CSS3, 俗话说：兴趣是最好的老师；下面我们一步步来实现这个小游戏，在开发过程中去学">
+<meta property="og:description" content="一个简单的前端机试题，使用原生JavaScript或是JQuery又或是Vue，如果能快速搞定，用什么无所谓啦 效果图 还是有几点要求的 点击固定标签可以修改选中状态，选中方式为多选 自定义输入框可输入10个字以内的标签（限制中文） 点击确认会在标签后面新增一个自定义名称的标签，自定义标签数量超过5个之后，输入框和确认按钮置灰，不可点击 点击确认时，需要对当前自定义标签的名称进行去重，如果标签重复">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://zhsunbeam.github.io/2022/07/17/JavaScript/snake/snake-main.gif">
-<meta property="article:published_time" content="2022-07-17T01:19:56.024Z">
-<meta property="article:modified_time" content="2022-07-17T03:22:52.563Z">
+<meta property="og:image" content="https://zhsunbeam.github.io/2022/07/17/JavaScript/JavaScript-Interview-1/1.png">
+<meta property="article:published_time" content="2022-07-17T01:19:56.056Z">
+<meta property="article:modified_time" content="2022-07-17T03:30:34.935Z">
 <meta property="article:author" content="Mars笑笑生">
 <meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="HTML">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://zhsunbeam.github.io/2022/07/17/JavaScript/snake/snake-main.gif">
+<meta name="twitter:image" content="https://zhsunbeam.github.io/2022/07/17/JavaScript/JavaScript-Interview-1/1.png">
 
 
-<link rel="canonical" href="https://zhsunbeam.github.io/2022/07/17/JavaScript/snake/">
+<link rel="canonical" href="https://zhsunbeam.github.io/2022/07/17/JavaScript/JavaScript-Interview-1/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhsunbeam.github.io/2022/07/17/JavaScript/snake/","path":"2022/07/17/JavaScript/snake/","title":"玩游戏学前端-贪吃蛇"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhsunbeam.github.io/2022/07/17/JavaScript/JavaScript-Interview-1/","path":"2022/07/17/JavaScript/JavaScript-Interview-1/","title":"一个简单的前端机试题"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>玩游戏学前端-贪吃蛇 | 极乐空间</title>
+<title>一个简单的前端机试题 | 极乐空间</title>
   
 
 
@@ -123,7 +124,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E6%B8%B8%E6%88%8F%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%AD%A6JavaScript"><span class="nav-number">1.</span> <span class="nav-text">在游戏项目中学JavaScript</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B4%AA%E5%90%83%E8%9B%87%E6%B8%B8%E6%88%8F"><span class="nav-number">2.</span> <span class="nav-text">贪吃蛇游戏</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-HTML5%E5%92%8CCSS3%E8%AE%BE%E8%AE%A1%E6%B8%B8%E6%88%8F%E7%95%8C%E9%9D%A2"><span class="nav-number">2.1.</span> <span class="nav-text">1. HTML5和CSS3设计游戏界面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-HTML%E4%B8%8EJavascript"><span class="nav-number">2.2.</span> <span class="nav-text">2. HTML与Javascript</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Javascript%E6%93%8D%E4%BD%9CHTML%E5%85%83%E7%B4%A0-DOM"><span class="nav-number">2.3.</span> <span class="nav-text">3. Javascript操作HTML元素 - DOM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E7%BB%98%E5%88%B6Snake"><span class="nav-number">2.4.</span> <span class="nav-text">4. 绘制Snake</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-%E7%BB%98%E5%88%B6Food"><span class="nav-number">2.5.</span> <span class="nav-text">6. 绘制Food</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-Snake%E5%92%8CFood"><span class="nav-number">2.6.</span> <span class="nav-text">7. Snake和Food</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-%E6%B8%B8%E6%88%8F%E7%BB%93%E6%9D%9F"><span class="nav-number">2.7.</span> <span class="nav-text">7. 游戏结束</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">2.8.</span> <span class="nav-text"></span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%88%E6%9E%9C%E5%9B%BE"><span class="nav-number">1.</span> <span class="nav-text">效果图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%98%E6%98%AF%E6%9C%89%E5%87%A0%E7%82%B9%E8%A6%81%E6%B1%82%E7%9A%84"><span class="nav-number">2.</span> <span class="nav-text">还是有几点要求的</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -188,7 +189,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/JavaScript/snake/">
+    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/JavaScript/JavaScript-Interview-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -201,7 +202,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          玩游戏学前端-贪吃蛇
+          一个简单的前端机试题
         </h1>
 
         <div class="post-meta-container">
@@ -213,7 +214,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2022-07-17 09:19:56 / 修改时间：11:22:52" itemprop="dateCreated datePublished" datetime="2022-07-17T09:19:56+08:00">2022-07-17</time>
+      <time title="创建时间：2022-07-17 09:19:56 / 修改时间：11:30:34" itemprop="dateCreated datePublished" datetime="2022-07-17T09:19:56+08:00">2022-07-17</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -235,70 +236,16 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="在游戏项目中学JavaScript"><a href="#在游戏项目中学JavaScript" class="headerlink" title="在游戏项目中学JavaScript"></a>在游戏项目中学JavaScript</h3><hr>
-<p>WEB前端基础技术包含HTML5/CSS3/JavaScript, 当然除了基础技术前端还有框架如React,Vue等, 其中相对难一点的便是JavaScript和CSS3，CSS3学起来开心多了, JavaScript编程语言可没那么有趣，如果用它来实现游戏，我想趣味性要超越CSS3, 俗话说：兴趣是最好的老师；下面我们一步步来实现这个小游戏，在开发过程中去学习JavaScript语言和CSS3的关键技术要点。效果如下图所示</p>
-<p><img src="snake-main.gif"></p>
-<p><a href="/snake/index.html">贪吃蛇</a></p>
-<h3 id="贪吃蛇游戏"><a href="#贪吃蛇游戏" class="headerlink" title="贪吃蛇游戏"></a>贪吃蛇游戏</h3><hr>
-<h4 id="1-HTML5和CSS3设计游戏界面"><a href="#1-HTML5和CSS3设计游戏界面" class="headerlink" title="1. HTML5和CSS3设计游戏界面"></a>1. HTML5和CSS3设计游戏界面</h4><ul>
-<li><p>HTML页面组成，常用标签和meta</p>
-</li>
-<li><p>准确使用HTML标签div, 标签中的基本属性</p>
-</li>
-<li><p>为HTML标签添加样式</p>
-</li>
-<li><p>CSS3样式编写，标签选择器，ID选择器，类选择器</p>
-</li>
-<li><p>CSS3中的常用单位 px,rpx,em,rem,vh,vw,vmin,vmax</p>
-</li>
-<li><p>CSS3边框和颜色</p>
-</li>
-<li><p>CSS3 Grid网格布局</p>
-</li>
-</ul>
-<h4 id="2-HTML与Javascript"><a href="#2-HTML与Javascript" class="headerlink" title="2. HTML与Javascript"></a>2. HTML与Javascript</h4><ul>
-<li>ES5和ES6的基本认知</li>
-<li>在HTML中添加Javascript脚本支持</li>
-<li>Javascript语言基础: 变量、程序逻辑、函数、对象</li>
-<li>Javascript的模块化</li>
-</ul>
-<h4 id="3-Javascript操作HTML元素-DOM"><a href="#3-Javascript操作HTML元素-DOM" class="headerlink" title="3. Javascript操作HTML元素 - DOM"></a>3. Javascript操作HTML元素 - DOM</h4><ul>
-<li>使用Javascript选择HTML元素</li>
-<li>Javascript动画</li>
-<li>Javascript创建HTML元素</li>
-<li>Javascript设置HTML元素样式</li>
-<li>Javascript定义游戏核心逻辑</li>
-</ul>
-<h4 id="4-绘制Snake"><a href="#4-绘制Snake" class="headerlink" title="4. 绘制Snake"></a>4. 绘制Snake</h4><ul>
-<li><p>Javascript数组和DOM操作</p>
-</li>
-<li><p>创建Snake Head，定义速度常量</p>
-</li>
-<li><p>移动Snake Head</p>
-</li>
-<li><p>使用Javascript事件控制Snake方向</p>
-</li>
-<li><p>创建Snake Body并绘制蛇的身体</p>
-</li>
-</ul>
-<h4 id="6-绘制Food"><a href="#6-绘制Food" class="headerlink" title="6. 绘制Food"></a>6. 绘制Food</h4><ul>
-<li><p>Javascript数组和DOM操作</p>
-</li>
-<li><p>使用Javascript DOM创建Food</p>
-</li>
-<li><p>Javascript创建随机数</p>
-</li>
-<li><p>根据随机数位置显示Food</p>
-</li>
-</ul>
-<h4 id="7-Snake和Food"><a href="#7-Snake和Food" class="headerlink" title="7. Snake和Food"></a>7. Snake和Food</h4><ul>
-<li>Snake吃Food，Snake增长逻辑</li>
-</ul>
-<h4 id="7-游戏结束"><a href="#7-游戏结束" class="headerlink" title="7. 游戏结束"></a>7. 游戏结束</h4><ul>
-<li>Snake移动范围边界判断</li>
-<li>游戏结束判断</li>
-</ul>
-<h4 id=""><a href="#" class="headerlink" title=""></a></h4>
+        <p>一个简单的前端机试题，使用原生JavaScript或是JQuery又或是Vue，如果能快速搞定，用什么无所谓啦</p>
+<h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><p><img src="1.png"></p>
+<h2 id="还是有几点要求的"><a href="#还是有几点要求的" class="headerlink" title="还是有几点要求的"></a>还是有几点要求的</h2><ol>
+<li>点击固定标签可以修改选中状态，选中方式为多选</li>
+<li>自定义输入框可输入10个字以内的标签（限制中文）</li>
+<li>点击确认会在标签后面新增一个自定义名称的标签，自定义标签数量超过5个之后，输入框和确认按钮置灰，不可点击</li>
+<li>点击确认时，需要对当前自定义标签的名称进行去重，如果标签重复，需要在确认按钮后面用红色的文字提示“该标签已重复”</li>
+<li>自定义的标签右上角会有个删除的按钮，点击删除按钮会删除该自定义标签</li>
+</ol>
+
     </div>
 
     
@@ -308,19 +255,20 @@
     <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+              <a href="/tags/HTML/" rel="tag"># HTML</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/07/17/JavaScript/snake-grid/" rel="prev" title="玩游戏学前端-贪吃蛇-Grid布局">
-                  <i class="fa fa-chevron-left"></i> 玩游戏学前端-贪吃蛇-Grid布局
+                <a href="/2022/07/17/JavaScript/snake/" rel="prev" title="玩游戏学前端-贪吃蛇">
+                  <i class="fa fa-chevron-left"></i> 玩游戏学前端-贪吃蛇
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/07/17/JavaScript/JavaScript-Interview-1/" rel="next" title="一个简单的前端机试题">
-                  一个简单的前端机试题 <i class="fa fa-chevron-right"></i>
+                <a href="/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(1)-%E7%8C%9C%E6%95%B0%E5%AD%97-Lambda%E5%92%8CStream/" rel="next" title="玩游戏学编程(1)-猜数字-Lambda">
+                  玩游戏学编程(1)-猜数字-Lambda <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
