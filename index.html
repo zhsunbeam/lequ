@@ -211,7 +211,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-07-18 11:17:09" itemprop="dateModified" datetime="2022-07-18T11:17:09+08:00">2022-07-18</time>
+        <time title="修改时间：2022-07-18 11:49:13" itemprop="dateModified" datetime="2022-07-18T11:49:13+08:00">2022-07-18</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -249,6 +249,8 @@
 <ol>
 <li>创建一个Project  jfxdemo</li>
 </ol>
+<img src="/2022/07/17/Java/Java%E6%A8%A1%E5%9D%97%E5%8C%96/1.png" class="">
+
 <p><img src="1.png"></p>
 <p><img src="2.png"></p>
 <p><img src="3.png"></p>
@@ -269,7 +271,7 @@
 </blockquote>
 </li>
 <li><p>查看demo1模块的module-info.java文件</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> com.example1.demo1 &#123;</span><br><span class="line">    <span class="keyword">requires</span> javafx.controls;</span><br><span class="line">    <span class="keyword">requires</span> javafx.fxml;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    opens com.example.demo1 to javafx.fxml;</span><br><span class="line">    <span class="keyword">exports</span> com.example1.demo1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> com.example1.demo1 &#123;</span><br><span class="line">    <span class="keyword">requires</span> javafx.controls;</span><br><span class="line">    <span class="keyword">requires</span> javafx.fxml;</span><br><span class="line">    opens com.example.demo1 to javafx.fxml;</span><br><span class="line">    <span class="keyword">exports</span> com.example1.demo1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><p>module-info.java文件中的第一行表示，当前应用是一个模块，模块名为 com.example.demo1, 模块名称虽然随便写个字符串也可以，但最好以域名作为基础，也就是使用反向DNS符号来确保模块的唯一性，后面紧跟着项目名称，建议尽量使用自己的域名。模块都位于一个全局命名空间中，因此，模块名称必须唯一。</p>
