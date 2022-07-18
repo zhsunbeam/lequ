@@ -1,26 +1,24 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang=zh>
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.min.css" integrity="sha256-2H3fkXt6FEmrReK448mDVGKb3WW2ZZw35gI7vqHOE4Y=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
-
-<script class="next-config" data-name="main" type="application/json">{"hostname":"zhsunbeam.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-<meta property="og:type" content="website">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Hexo</title>
+  <meta property="og:type" content="website">
 <meta property="og:title" content="极乐空间">
 <meta property="og:url" content="https://zhsunbeam.github.io/index.html">
 <meta property="og:site_name" content="极乐空间">
@@ -28,1479 +26,792 @@
 <meta property="article:author" content="Mars笑笑生">
 <meta property="article:tag" content="编程, 架构, 数据结构, 网络, 数据库&#x2F;MySQL&#x2F;Redis, Java&#x2F;JavaFX, C, Go, JavaScript&#x2F;Canvas, HTML5, CSS3, Vue, Spring, 消息队列&#x2F;Kafka">
 <meta name="twitter:card" content="summary">
-
-
-<link rel="canonical" href="https://zhsunbeam.github.io/">
-
-
-
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
-
-<script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>极乐空间</title>
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://zhsunbeam.github.io/index.html">
   
-
-
-
-
-  <noscript>
-    <link rel="stylesheet" href="/css/noscript.css">
-  </noscript>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
-
-  <main class="main">
-    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <h1 class="site-title">极乐空间</h1>
-      <i class="logo-line"></i>
-    </a>
-      <p class="site-subtitle" itemprop="description">安静的来点代码</p>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-    </div>
-  </div>
-</div>
-
-
-
-<nav class="site-nav">
-  <ul class="main-menu menu">
-        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
-        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
-  </ul>
-</nav>
-
-
-
-
-</div>
-        
+    <link rel="alternate" href="/atom.xml" title="极乐空间" type="application/atom+xml">
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
 
-  <aside class="sidebar">
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
 
-    <div class="sidebar-inner sidebar-overview-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
 
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
-        </div>
-        <!--/noindex-->
-
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-overview">
-            <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">Mars笑笑生</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap site-overview-item animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        <a href="/archives/">
-          <span class="site-state-item-count">16</span>
-          <span class="site-state-item-name">日志</span>
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/cofess" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
         </a>
+        <h2 id="name" class="hidden-xs hidden-sm">昵称</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer &amp; Designer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shenzhen, China</small>
       </div>
-      <div class="site-state-item site-state-categories">
-          <a href="/categories/">
-        <span class="site-state-item-count">5</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-          <a href="/tags/">
-        <span class="site-state-item-count">7</span>
-        <span class="site-state-item-name">标签</span></a>
-      </div>
-  </nav>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
 </div>
 
 
-
-          </div>
-        </div>
-      </div>
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
     </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
 
+    </nav>
+  </div>
+</header>
 
-    </header>
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
 
     
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/H5/">H5</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JOOQ/">JOOQ</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/">项目开发</a><span class="category-list-count">1</span></li></ul>
+    </div>
   </div>
 
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
-
-    <div class="main-inner index posts-expand">
 
     
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/Java/Java%E6%A8%A1%E5%9D%97%E5%8C%96/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mars笑笑生">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="极乐空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/17/Java/Java%E6%A8%A1%E5%9D%97%E5%8C%96/" class="post-title-link" itemprop="url">Java 模块化编程</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-07-17 11:44:51" itemprop="dateCreated datePublished" datetime="2022-07-17T11:44:51+08:00">2022-07-17</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-07-18 11:52:46" itemprop="dateModified" datetime="2022-07-18T11:52:46+08:00">2022-07-18</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>现在，Java每半年发布一个版本，知道为什么这么快吗？这主要得益于Java的模块化技术。 换作以前，时间得以【年】计算。 从本质上讲，模块化(modularization） 是指将系统分解成独立且相互连接的模块的行为。模抉（ module） 是包含代码的可识别部分，使用元数据来描述模块与其它模块之间的关系。在Java 模块系统之前， JDK 的运行时库由一个庞大的rt.jar 所组成，其大小超过60MB ，包含了Java 大部分运行时类： 即Java 平台的最终载体。为了获得一个灵活且符合未来发展方向的平台， JDK 团队着手对JDK 进行模块化。模块化可以将jar声明为模块，它将在其自己的<code>隔离类加载器</code>中运行，该类加载器以OSGI方式从其他类似的模块类加载器读取类文件。这将允许同一版本的Jar的<code>多个版本共存</code>。 毕竟Java太庞大，模块化过程持续了几年时间，最终随Java9发布. </p>
-</blockquote>
-<h3 id="Java9模块化系统出现以前Java模块化的核心三原则"><a href="#Java9模块化系统出现以前Java模块化的核心三原则" class="headerlink" title="Java9模块化系统出现以前Java模块化的核心三原则:"></a>Java9模块化系统出现以前Java模块化的核心三原则:</h3><ul>
-<li>组合使用package和访问修饰符(public,protected,private)可以实现类型封装</li>
-<li>定义良好的接口, 也就是使用interface关键字公开公共接口</li>
-<li>显式依赖，也就是使用import关键字</li>
-</ul>
-<h3 id="Java9之后模块化"><a href="#Java9之后模块化" class="headerlink" title="Java9之后模块化"></a>Java9之后模块化</h3><ul>
-<li>JDK 由大约90个模抉组成，而不是一个整体库。与可由自己创建的应用程序模块不同的是，平台模块是JDK的一部分。从技术上讲，平台模块和应用模块之间没有任何技术区别。每个平台模块都构成了JDK 的一个定义良好的功能块，从日志记录到XML 支持。所有模块都显式地定义了与其他模块的依赖关系。</li>
-</ul>
-<h3 id="模块工作原理"><a href="#模块工作原理" class="headerlink" title="模块工作原理"></a>模块工作原理</h3><ul>
-<li><p>什么是模块，它是如何定义的？模块拥有一个<strong>名称</strong>，并对相关的代码以及可能的其他资源进行分组，使用一个模块描述符进行描述。模块描述符保存在一个名为 <strong>module-info.java</strong>  的文件中, 为此我们先创建一个Project,然后在Project下创建两个module, 如图所示:</p>
-<ol>
-<li>创建一个Project  jfxdemo</li>
-</ol>
-<img src="/2022/07/17/Java/Java%E6%A8%A1%E5%9D%97%E5%8C%96/1.png" class="">
-
-<img src="/2022/07/17/Java/Java%E6%A8%A1%E5%9D%97%E5%8C%96/2.png" class="">
-
-<img src="/2022/07/17/Java/Java%E6%A8%A1%E5%9D%97%E5%8C%96/3.png" class="">
-
-<ol start="2">
-<li>在这个jfxdemo工程下创建二个javafx  module, 以下是第一个模块demo1</li>
-</ol>
-<img src="/2022/07/17/Java/Java%E6%A8%A1%E5%9D%97%E5%8C%96/4.png" class="">
-
-<img src="/2022/07/17/Java/Java%E6%A8%A1%E5%9D%97%E5%8C%96/5.png" class="">
-
-<img src="/2022/07/17/Java/Java%E6%A8%A1%E5%9D%97%E5%8C%96/6.png" class="">
-
-<ol start="3">
-<li>第二个模块 demo2</li>
-</ol>
-<img src="/2022/07/17/Java/Java%E6%A8%A1%E5%9D%97%E5%8C%96/7.png" class="">
-
-</li>
-<li><p>创建完成后可以发现，每个module下都有一个模块描述文件  module-info.java</p>
-<blockquote>
-<p>此处我们使用javafx是为了后续开发游戏做准备，同时Javafx库默认情况下不能直接在应用程序中使用，必须使用模块描述文件来导入 </p>
-</blockquote>
-</li>
-<li><p>查看demo1模块的module-info.java文件</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> com.example1.demo1 &#123;</span><br><span class="line">    <span class="keyword">requires</span> javafx.controls;</span><br><span class="line">    <span class="keyword">requires</span> javafx.fxml;</span><br><span class="line">    opens com.example.demo1 to javafx.fxml;</span><br><span class="line">    <span class="keyword">exports</span> com.example1.demo1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>module-info.java文件中的第一行表示，当前应用是一个模块，模块名为 com.example.demo1, 模块名称虽然随便写个字符串也可以，但最好以域名作为基础，也就是使用反向DNS符号来确保模块的唯一性，后面紧跟着项目名称，建议尽量使用自己的域名。模块都位于一个全局命名空间中，因此，模块名称必须唯一。</p>
-</li>
-<li><p>requires 表示一个依赖关系，此是表示当前应用程序需要使用到javafx.controls模块以及javafx.xml模块,如果将这两句代码删除，那么在需要引用这两个模块的类中将会提示错误, 如下图所示 :</p>
-<ul>
-<li>注释了requires javafx.fxml;</li>
-<li>在HelloApplication中将无法使用</li>
-</ul>
-<img src="/2022/07/17/Java/Java%E6%A8%A1%E5%9D%97%E5%8C%96/8.png" class="">
-
-<img src="/2022/07/17/Java/Java%E6%A8%A1%E5%9D%97%E5%8C%96/9.png" class=""></li>
-<li><p>exports的意思是来自com.example.demo1模块的单个包被导出到其它模块</p>
-</li>
-<li><p>opens表示com.example.demo1中的类型可用于深度反射</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="模块化开发"><a href="#模块化开发" class="headerlink" title="模块化开发"></a>模块化开发</h3><blockquote>
-<p>在demo2模块中需要使用demo1模块中的定义的类</p>
-</blockquote>
-<ol>
-<li>demo1模块中的module-info.java配置如下:</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> com.example.demo1 &#123;</span><br><span class="line">    <span class="keyword">requires</span> javafx.controls;</span><br><span class="line">    <span class="keyword">requires</span> javafx.fxml;</span><br><span class="line">    opens com.example.demo1 to javafx.fxml;</span><br><span class="line">    <span class="keyword">exports</span> com.example.demo1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<ol start="2">
-<li>在module  demo2中的pom.xml文件中加入demo1的依赖</li>
-</ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.example<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>demo1<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-<ol start="3">
-<li>在demo2中要使用demo1模块中的类，则需要在demo2 模块中修改module-info.java文件</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> com.example.demo2 &#123;</span><br><span class="line">    <span class="keyword">requires</span> javafx.controls;</span><br><span class="line">    <span class="keyword">requires</span> javafx.fxml;</span><br><span class="line">    <span class="keyword">requires</span> com.example.demo1; <span class="comment">//引入名称为com.example.demo1的模块</span></span><br><span class="line"></span><br><span class="line">    opens com.example.demo2 to javafx.fxml;</span><br><span class="line">    <span class="keyword">exports</span> com.example.demo2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li>在demo2模块中的HelloApplication中使用demo1模块中的类</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.demo2;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javafx.application.Application;</span><br><span class="line"><span class="keyword">import</span> javafx.fxml.FXMLLoader;</span><br><span class="line"><span class="keyword">import</span> javafx.scene.Scene;</span><br><span class="line"><span class="keyword">import</span> javafx.stage.Stage;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> com.example.demo1.*; <span class="comment">//此处引用demo1模块API</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloApplication</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">(Stage stage)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        FXMLLoader fxmlLoader = <span class="keyword">new</span> FXMLLoader(HelloApplication.class.getResource(<span class="string">&quot;hello-view.fxml&quot;</span>));</span><br><span class="line">        Scene scene = <span class="keyword">new</span> Scene(fxmlLoader.load(), <span class="number">320</span>, <span class="number">240</span>);</span><br><span class="line">        stage.setTitle(<span class="string">&quot;Hello!&quot;</span>);</span><br><span class="line">        stage.setScene(scene);</span><br><span class="line">        stage.show();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        launch();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="5">
-<li>如果在demo1模块中新建两个包，demo2模块中需要引用则要在demo1模块的module-info.java 文件中加入exports</li>
-</ol>
-<img src="/2022/07/17/Java/Java%E6%A8%A1%E5%9D%97%E5%8C%96/10.png" class="">
-
-<p>   demo2模块中的HelloApplication</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.example.demo2;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javafx.application.Application;</span><br><span class="line"><span class="keyword">import</span> javafx.fxml.FXMLLoader;</span><br><span class="line"><span class="keyword">import</span> javafx.scene.Scene;</span><br><span class="line"><span class="keyword">import</span> javafx.stage.Stage;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> com.example.demo1.*;</span><br><span class="line"><span class="keyword">import</span> com.example.demo1.service.*;</span><br><span class="line"><span class="keyword">import</span> com.example.demo1.dao.*;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloApplication</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">(Stage stage)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        FXMLLoader fxmlLoader = <span class="keyword">new</span> FXMLLoader(HelloApplication.class.getResource(<span class="string">&quot;hello-view.fxml&quot;</span>));</span><br><span class="line">        Scene scene = <span class="keyword">new</span> Scene(fxmlLoader.load(), <span class="number">320</span>, <span class="number">240</span>);</span><br><span class="line">        stage.setTitle(<span class="string">&quot;Hello!&quot;</span>);</span><br><span class="line">        stage.setScene(scene);</span><br><span class="line">        stage.show();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        launch();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<blockquote>
-<p>上面的内容中使用了java11进行模块化开发的第一步，也就是手动编写自己的第一个模块，而不仅仅是查看JDK中现有的模块。有了这部分经验后，后续就可以创建更加复杂的模块</p>
-</blockquote>
-
       
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/" rel="tag">H5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ORM%E6%A1%86%E6%9E%B6/" rel="tag">ORM框架</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="tag">编程基础</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/" rel="tag">项目开发</a><span class="tag-list-count">1</span></li></ul>
     </div>
+  </div>
+
 
     
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
       
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mars笑笑生">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="极乐空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B/" class="post-title-link" itemprop="url">玩游戏学编程-猜数字</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-07-17 09:19:56" itemprop="dateCreated datePublished" datetime="2022-07-17T09:19:56+08:00">2022-07-17</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-11-30 14:07:33" itemprop="dateModified" datetime="2021-11-30T14:07:33+08:00">2021-11-30</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>一些编程初学者的痛点在于认识的英语单词太少，不知道程序在运行过程中需要什么？通过开发游戏学习编程，是一个快速但又不会觉得枯燥的方法；在这篇简单的猜数字游戏中，来看看程序开发过程中逻辑是怎样形成的？为了达到期望的结果，需要做哪些工作?</p>
-</blockquote>
-<blockquote>
-<p>猜数字游戏过程: 用户自己输入一个数字A和程序中产生的一个数字B进行比较，如果A大于B则提示太大了，否则提示太小了，直到输入的数字A与产生的数字B相等，游戏结束，程序还需要设置一个猜的次数，如果超过次数则没猜中则游戏失败，否则成功。</p>
-</blockquote>
-<hr>
-<h3 id="猜数字游戏"><a href="#猜数字游戏" class="headerlink" title="猜数字游戏"></a>猜数字游戏</h3><h5 id="一、问题"><a href="#一、问题" class="headerlink" title="一、问题"></a>一、问题</h5><ol>
-<li>程序中需要哪些变量?</li>
-<li>用户要怎样输入? </li>
-<li>怎样产生随机数字 ?</li>
-<li>怎样使用循环和判断 ?</li>
-<li>怎样创建对象 ?  它是用来干嘛的 ?</li>
-</ol>
-<h5 id="二、解决问题"><a href="#二、解决问题" class="headerlink" title="二、解决问题"></a>二、解决问题</h5><blockquote>
-<p>使用Scanner对象获取玩家的输入，当然还需要System.in</p>
-</blockquote>
-<blockquote>
-<p>定义变量input用于存储用户输入的数字，定义number存储计算机生成的随机数</p>
-</blockquote>
-<blockquote>
-<p>为了控制循环和判断的逻辑还需要两个控制变量 running 和  guessed</p>
-</blockquote>
-<blockquote>
-<p>为了控制玩家输入的次数，需要定义count计数器变量计数</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> top.coolcode;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GuessNumber</span> </span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">( String[] args )</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//玩家需要输入，且输入的会是一个数字</span></span><br><span class="line">        Scanner sc = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">        <span class="comment">//程序运行所需要的要素,我怎么会想到需要这个,你是怎样想到的?</span></span><br><span class="line">        <span class="keyword">boolean</span> running = <span class="keyword">true</span>; <span class="comment">//控制游戏是否继续</span></span><br><span class="line">        <span class="keyword">boolean</span> guessed = <span class="keyword">true</span>; <span class="comment">//控制是否要猜数字</span></span><br><span class="line">        <span class="comment">//计算机帮我们生成的数字</span></span><br><span class="line">        <span class="keyword">int</span> number = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//游戏玩家输入的数字</span></span><br><span class="line">        <span class="keyword">int</span> input = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//记录猜的次数</span></span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//游戏是否能一直玩，靠的是这个running</span></span><br><span class="line">        <span class="keyword">while</span>(running) &#123;</span><br><span class="line">            <span class="keyword">if</span>(count&gt;<span class="number">3</span>) &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;三次机会已用完，游戏失败. 您可以继续游戏；退出输入-1&quot;</span>);</span><br><span class="line">                guessed = <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//判断是否要猜数字</span></span><br><span class="line">            <span class="keyword">if</span>(guessed==<span class="keyword">true</span>) &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;计算机已经随机产生一个数，范围是0~20&quot;</span>);</span><br><span class="line">                System.out.println(<span class="string">&quot;您可以猜猜看, 退出输入  -1&quot;</span>);</span><br><span class="line">                number = getRandom(<span class="number">20</span>);</span><br><span class="line">                guessed = <span class="keyword">false</span>;<span class="comment">//设置为false,如果后续没有设置为true，就不会产生新的随机数</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//如果上面的if分支进入了，那么说明随机数字已经产生</span></span><br><span class="line">            <span class="comment">//游戏玩家输入的数字</span></span><br><span class="line">            input = sc.nextInt();</span><br><span class="line">            <span class="comment">//判断用户输入</span></span><br><span class="line">            <span class="comment">//如果用户输入的是-1表示结束游戏, 更改判断变量running为false,循环将终止</span></span><br><span class="line">            <span class="keyword">if</span>(input == -<span class="number">1</span>) &#123;</span><br><span class="line">                running = <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(input &gt; number) &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;输入的数字太大了,退出输入  -1&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(input &lt; number) &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;输入的数字太小了,退出输入  -1&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(input == number)&#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;您猜对了，您可以继续游戏；退出输入  -1&quot;</span>);</span><br><span class="line">                guessed = <span class="keyword">true</span>; <span class="comment">//如果玩家没有输入-1则此变量设置为true,会继续产生随机数字</span></span><br><span class="line">            &#125;</span><br><span class="line">            count++;<span class="comment">//次数累加</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 定义一个函数用于产生随机数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> max</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getRandom</span><span class="params">(<span class="keyword">int</span> max)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>)(Math.random()*max) + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<blockquote>
-<p>简单的猜数字游戏，重要的是知道如何定义和使用程序运行过程中需要的要素(变量)，以及程序的执行流程。</p>
-</blockquote>
-<hr>
-
-      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/H5/" style="font-size: 13px;">H5</a> <a href="/tags/HTML/" style="font-size: 13px;">HTML</a> <a href="/tags/Java/" style="font-size: 14px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 14px;">JavaScript</a> <a href="/tags/ORM%E6%A1%86%E6%9E%B6/" style="font-size: 13px;">ORM框架</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" style="font-size: 13.5px;">编程基础</a> <a href="/tags/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/" style="font-size: 13px;">项目开发</a>
     </div>
+  </div>
 
     
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
       
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97UI%E7%95%8C%E9%9D%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mars笑笑生">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="极乐空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97UI%E7%95%8C%E9%9D%A2/" class="post-title-link" itemprop="url">玩游戏学编程(1)-猜数字UI</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-07-17 09:19:56" itemprop="dateCreated datePublished" datetime="2022-07-17T09:19:56+08:00">2022-07-17</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-11-30 15:39:55" itemprop="dateModified" datetime="2021-11-30T15:39:55+08:00">2021-11-30</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>游戏需要图形界面，虽然互联网时代Java FX 使用频率很小, 但是作为开发者，技多不压身，况且UI源码中有很多经典设计，是各类设计模式聚集地，可以让开发者加深对OOP、设计模式的理解。 如果把UI界面运用到游戏中去，既学到知识又增加趣味，岂不乐哉。</p>
-</blockquote>
-<h3 id="数字游戏界面"><a href="#数字游戏界面" class="headerlink" title="数字游戏界面"></a>数字游戏界面</h3><h5 id="一、问题"><a href="#一、问题" class="headerlink" title="一、问题"></a>一、问题</h5><ol>
-<li>怎样使用JavaFX创建一个UI界面?</li>
-<li>怎样创建一个按钮并添加到UI界面中?</li>
-<li>怎样监听一个按钮的事件?</li>
-<li>怎样使用线程开启一个异步任务?</li>
-<li>在异步任务中绘图并添加到UI窗口</li>
-</ol>
-<h5 id="二、解决问题"><a href="#二、解决问题" class="headerlink" title="二、解决问题"></a>二、解决问题</h5><blockquote>
-<ol>
-<li>要编写一个JavaFX界面，需要创建一个类并继承javafx.application.Application类(Java8中可以直接使用，更高版本的Java引入了模块化，需要手动引入), 并重写start方法：</li>
-<li>代码中的Stage参数可以认为是一个UI窗口，英文翻译成“舞台”, 调用它的show方法显示这个窗口</li>
-</ol>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> top.coolcode;</span><br><span class="line"><span class="keyword">import</span> javafx.application.Application;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GuessApp</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">(Stage primaryStage)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">       	<span class="comment">//显示“舞台”窗口</span></span><br><span class="line">        primaryStage.show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<hr>
-<blockquote>
-<ol start="3">
-<li>窗口创建好之后需要创建一些内容放到这个窗口中，这个内容我们称为Scene , 英文翻译成<strong>场景</strong></li>
-<li>可以独立创建一个函数，这个函数用来创建窗口界面中的内容</li>
-<li>界面元素包含一个按钮Button, 并为这个按钮添加了一个事件处理函数,代码中使用了<strong>箭头函数</strong></li>
-<li>设置对象的属性通常会使用set开头的函数</li>
-</ol>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> top.coolcode;</span><br><span class="line"><span class="keyword">import</span> javafx.application.Application;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GuessApp</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line">    <span class="comment">//垂直盒子布局容器</span></span><br><span class="line">    <span class="keyword">private</span> VBox root;</span><br><span class="line">    <span class="comment">//游戏中的地砖面板</span></span><br><span class="line">    <span class="keyword">private</span> Pane tilePane;</span><br><span class="line">    <span class="comment">//使用Executors创建线程</span></span><br><span class="line">    <span class="keyword">private</span> ScheduledExecutorService servicePool = 	       Executors.newSingleThreadScheduledExecutor();</span><br><span class="line">    <span class="comment">//存储所有数字框 的集合</span></span><br><span class="line">    <span class="keyword">private</span> List&lt;TileView&gt; tileSequence = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">(Stage primaryStage)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//createContent()函数将会独立出来用于创建内容</span></span><br><span class="line">        Scene scene = <span class="keyword">new</span> Scene(<span class="keyword">this</span>.createContent());</span><br><span class="line">       	<span class="comment">//显示“舞台”窗口</span></span><br><span class="line">        primaryStage.show();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> Parent <span class="title">createContent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//使用垂直盒子进行布局，界面元素将会垂直放置在这个盒子容器中</span></span><br><span class="line">        <span class="comment">// root是定义在类上的属性</span></span><br><span class="line">        <span class="keyword">this</span>.root = <span class="keyword">new</span> VBox();</span><br><span class="line">        <span class="comment">//设置布局容器大小(宽，高)</span></span><br><span class="line">        root.setPrefSize(<span class="number">1024</span>, <span class="number">500</span>);</span><br><span class="line">        <span class="comment">//创建按钮对象</span></span><br><span class="line">        Button button = <span class="keyword">new</span> Button(<span class="string">&quot;开始&quot;</span>);</span><br><span class="line">        <span class="comment">//为按钮添加一个事件处理函数startGame(),也就是说当按下按钮后，这个函数就会被调用</span></span><br><span class="line">        button.setOnAction(e-&gt;startGame());</span><br><span class="line">        <span class="comment">//创建一个面板</span></span><br><span class="line">        Pane pane = <span class="keyword">new</span> Pane();</span><br><span class="line">        <span class="comment">//获取这个垂直盒子容器并将面板和按钮添加到容器中</span></span><br><span class="line">        root.getChildren().addAll(pane, button);</span><br><span class="line">        <span class="comment">//返回这个垂直盒子容器，返回的内容将会被添加到舞台Stage</span></span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<hr>
-<blockquote>
-<ol start="7">
-<li>编写按钮事件处理函数</li>
-<li>在函数中会调用随机产生数字方格的函数populateGrid()，并将此函数返回的内容添加到VBox根容器</li>
-<li>此函数中有一个计划任务，实际上使用的是Java中的线程池，同时还使用到了Java8中的Stream编程</li>
-</ol>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">startGame</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.tilePane = <span class="keyword">this</span>.populateGrid(); </span><br><span class="line">    <span class="keyword">this</span>.root.getChildren().set(<span class="number">0</span>, tilePane); </span><br><span class="line">    <span class="comment">//6秒后执行线程,计划任务</span></span><br><span class="line">    <span class="keyword">this</span>.servicePool.schedule(()-&gt;&#123;</span><br><span class="line">        tilePane.getChildren().stream().map(n-&gt;(TileView)n)</span><br><span class="line">                .forEach(TileView::hide);<span class="comment">//此处是遍历tilePane面板上的每一个元素，并调用它的hide方法</span></span><br><span class="line">    &#125;, <span class="number">6</span>, TimeUnit.SECONDS);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<blockquote>
-<ol start="10">
-<li>populateGrid函数实现, 用于随机绘制数字框，并添加到UI界面中</li>
-<li>此函数的逻辑稍显复杂，主要使用到了Point2D类，产生9个数字框，并需要判断每个数字框不重合</li>
-</ol>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> Pane <span class="title">populateGrid</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Pane pane = <span class="keyword">new</span> Pane();</span><br><span class="line">    pane.setPrefSize(<span class="number">1024</span>, <span class="number">500</span>);</span><br><span class="line">    Random random = <span class="keyword">new</span> Random();</span><br><span class="line">    List&lt;Point2D&gt; usedPoints = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">9</span>; i++) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> randomX = random.nextInt(<span class="number">1024</span>/<span class="number">80</span>);</span><br><span class="line">        <span class="keyword">int</span> randomY = random.nextInt(<span class="number">500</span>/<span class="number">80</span>);</span><br><span class="line">        Point2D p = <span class="keyword">new</span> Point2D(randomX, randomY);</span><br><span class="line">        <span class="comment">//判断集合usedPoints中是否包含了p,如果包含了则重新创建，并添加到usedPoints集合中</span></span><br><span class="line">        <span class="keyword">while</span>(usedPoints.contains(p)) &#123;</span><br><span class="line">            randomX = random.nextInt(<span class="number">1024</span>/<span class="number">80</span>);</span><br><span class="line">            randomY = random.nextInt(<span class="number">500</span>/<span class="number">80</span>);</span><br><span class="line">            p = <span class="keyword">new</span> Point2D(randomX,randomY);</span><br><span class="line">        &#125;</span><br><span class="line">        usedPoints.add(p);</span><br><span class="line">		<span class="comment">//此类是自建类，用于创建一个数字框</span></span><br><span class="line">        TileView tile = <span class="keyword">new</span> TileView(Integer.toString(i));</span><br><span class="line">        </span><br><span class="line">        tile.setTranslateX(randomX * <span class="number">80</span>);</span><br><span class="line">        tile.setTranslateY(randomY * <span class="number">80</span>);</span><br><span class="line">        tile.setOnMouseClicked(e-&gt;&#123;</span><br><span class="line">            <span class="keyword">if</span>(tileSequence.isEmpty())  &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;游戏已结束&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            TileView correctTile = tileSequence.remove(<span class="number">0</span>);</span><br><span class="line">            <span class="keyword">if</span>(tile == correctTile) &#123;</span><br><span class="line">                tile.show();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                tileSequence.clear();</span><br><span class="line">                System.out.println(<span class="string">&quot;失败：游戏结束&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        pane.getChildren().add(tile);</span><br><span class="line">        tileSequence.add(tile);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> pane;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">TileView</span> <span class="keyword">extends</span> <span class="title">StackPane</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Text text;</span><br><span class="line">    TileView(String content) &#123;</span><br><span class="line">        Rectangle border = <span class="keyword">new</span> Rectangle(<span class="number">80</span>,<span class="number">80</span>,<span class="keyword">null</span>);</span><br><span class="line">        border.setStroke(Color.BLUEVIOLET);</span><br><span class="line">        border.setStrokeWidth(<span class="number">4</span>);</span><br><span class="line">        border.setStrokeType(StrokeType.INSIDE);</span><br><span class="line"></span><br><span class="line">        text = <span class="keyword">new</span> Text(content);</span><br><span class="line">        text.setFont(Font.font(<span class="number">64</span>));</span><br><span class="line">        getChildren().addAll(border,text);</span><br><span class="line">        setPickOnBounds(<span class="keyword">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">hide</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        text.setVisible(<span class="keyword">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        text.setVisible(<span class="keyword">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<ol start="12">
-<li>最后运行程序</li>
-</ol>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	launch(args);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>此程序融合了线程、集合、FX UI界面、事件、Stream， 亦有很多英文单词</p>
-</blockquote>
-
-      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">1</span></li></ul>
     </div>
+  </div>
+
 
     
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
       
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97-JavaFX-UI/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mars笑笑生">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="极乐空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97-JavaFX-UI/" class="post-title-link" itemprop="url">玩游戏学编程(1)-猜数字-JavaFX-UI</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-07-17 09:19:56" itemprop="dateCreated datePublished" datetime="2022-07-17T09:19:56+08:00">2022-07-17</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-12-02 11:46:08" itemprop="dateModified" datetime="2021-12-02T11:46:08+08:00">2021-12-02</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>在之前那篇中涉及到很多知识点，其中之一就是JavaFX，JavaFX 是一个开源的下一代客户端应用平台，适用于基于Java构建的桌面、移动端和嵌入式系统。JavaFX类似于Java Swing；学习桌面UI也不是一无是处，WEB前端不也是一样的需要UI，而且WEB前端已经把桌面软件犯过的错误再重犯一遍，然后再把桌面软件的解决方案和设计方案再重新发明一遍, 学习使用JavaFX对后续再学前端或许能更快进入状态。</p>
-</blockquote>
-<h3 id="一、窗口"><a href="#一、窗口" class="headerlink" title="一、窗口"></a>一、窗口</h3><blockquote>
-<p>前面那篇代码中用到这些API： Application， Stage， Pane， VBox， Button</p>
-</blockquote>
-<blockquote>
-<p>直接运行下面这段代码会出现一个窗口, Stage可翻译成舞台，调用show()方法就是显示这个舞台(窗口)</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">(Stage primaryStage)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        primaryStage.show();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        launch(args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="二、控件"><a href="#二、控件" class="headerlink" title="二、控件"></a>二、控件</h3><blockquote>
-<p>Button</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">(Stage primaryStage)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        <span class="comment">//按钮控件</span></span><br><span class="line">        Button button = <span class="keyword">new</span> Button(<span class="string">&quot;ok&quot;</span>);</span><br><span class="line">        <span class="comment">//布局面板</span></span><br><span class="line">        Pane pane = <span class="keyword">new</span> Pane();</span><br><span class="line">        <span class="comment">//设置布局面板宽和高</span></span><br><span class="line">        pane.setPrefSize(<span class="number">900</span>,<span class="number">500</span>);</span><br><span class="line">        <span class="comment">//将控件添加到布局面板</span></span><br><span class="line">        pane.getChildren().add(button);</span><br><span class="line">        <span class="comment">//创建一个场景，并将布局面板添加到其中</span></span><br><span class="line">        Scene scene = <span class="keyword">new</span> Scene(pane);</span><br><span class="line">        primaryStage.show();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        launch(args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>使用垂直布局容器VBox</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">(Stage primaryStage)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    	<span class="comment">//垂直盒子容器</span></span><br><span class="line">        VBox vBox = <span class="keyword">new</span> VBox();</span><br><span class="line">        vBox.setPrefSize(<span class="number">900</span>, <span class="number">500</span>);</span><br><span class="line">        Button button = <span class="keyword">new</span> Button(<span class="string">&quot;ok&quot;</span>);</span><br><span class="line">        Button button1 = <span class="keyword">new</span> Button(<span class="string">&quot;cancel&quot;</span>);</span><br><span class="line">        Pane pane = <span class="keyword">new</span> Pane();</span><br><span class="line">        pane.setPrefSize(<span class="number">100</span>,<span class="number">50</span>);</span><br><span class="line">        <span class="comment">//将控件添加到VBox</span></span><br><span class="line">        vBox.getChildren().addAll(pane,button,button1);</span><br><span class="line">        Scene scene = <span class="keyword">new</span> Scene(vBox);</span><br><span class="line">        primaryStage.setScene(scene);</span><br><span class="line">        primaryStage.show();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        launch(args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>画图: 使用Rectangle类</p>
-<p>为按钮添加事件</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">(Stage primaryStage)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Pane pane = <span class="keyword">new</span> Pane();</span><br><span class="line">        pane.setPrefSize(<span class="number">800</span>, <span class="number">300</span>);</span><br><span class="line">        Tile tile = <span class="keyword">new</span> Tile(<span class="string">&quot;1&quot;</span>);</span><br><span class="line">        pane.getChildren().add(tile);</span><br><span class="line">        <span class="comment">//创建按钮并为按钮设置事件监听</span></span><br><span class="line">        Button button = <span class="keyword">new</span> Button(<span class="string">&quot;点击隐藏矩形框&quot;</span>);</span><br><span class="line">        <span class="comment">//此处使用了lambda表达式</span></span><br><span class="line">        button.setOnAction(e-&gt;&#123;</span><br><span class="line">            tile.hide();<span class="comment">//隐藏tile</span></span><br><span class="line">        &#125;);</span><br><span class="line">        </span><br><span class="line">        Scene scene = <span class="keyword">new</span> Scene(pane);</span><br><span class="line">        primaryStage.setScene(scene);</span><br><span class="line">        primaryStage.show();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Tile</span> <span class="keyword">extends</span> <span class="title">StackPane</span> </span>&#123;</span><br><span class="line">        <span class="comment">//定义一个文本</span></span><br><span class="line">        <span class="keyword">private</span> Text text;</span><br><span class="line">        Tile(String content) &#123;</span><br><span class="line">            <span class="comment">//定义一个矩形</span></span><br><span class="line">            Rectangle rect = <span class="keyword">new</span> Rectangle(<span class="number">80</span>,<span class="number">80</span>,<span class="keyword">null</span>);</span><br><span class="line">            <span class="comment">//颜色</span></span><br><span class="line">            rect.setStroke(Color.AQUAMARINE);</span><br><span class="line">            <span class="comment">//宽度</span></span><br><span class="line">            rect.setStrokeWidth(<span class="number">4</span>);</span><br><span class="line">            <span class="comment">//类型</span></span><br><span class="line">            rect.setStrokeType(StrokeType.INSIDE);</span><br><span class="line">			<span class="comment">//创建文本</span></span><br><span class="line">            text = <span class="keyword">new</span> Text(content);</span><br><span class="line">            <span class="comment">//设置文本字体</span></span><br><span class="line">            text.setFont(Font.font(<span class="number">64</span>));</span><br><span class="line">            <span class="comment">//添加到当前布局面板</span></span><br><span class="line">            <span class="keyword">this</span>.getChildren().addAll(rect, text);</span><br><span class="line">            setPickOnBounds(<span class="keyword">true</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">hide</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            text.setVisible(<span class="keyword">false</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            text.setVisible(<span class="keyword">true</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>如果想生成多个矩形，而且位置随机，可以使用Random类， 此类用于产生随机数。 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> Parent <span class="title">populateGrid</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Pane pane = <span class="keyword">new</span> Pane();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">        TileView tile = <span class="keyword">new</span> TileView(Integer.toString(i));</span><br><span class="line">        Random random = <span class="keyword">new</span> Random();</span><br><span class="line">        <span class="keyword">int</span> randomX = random.nextInt(<span class="number">1024</span>/<span class="number">80</span>);</span><br><span class="line">        <span class="keyword">int</span> randomY = random.nextInt(<span class="number">500</span>/<span class="number">80</span>);</span><br><span class="line"></span><br><span class="line">        tile.setTranslateX(randomX * <span class="number">80</span>);</span><br><span class="line">        tile.setTranslateY(randomY * <span class="number">80</span>);</span><br><span class="line"></span><br><span class="line">        tile.setOnMouseClicked(e-&gt;&#123;</span><br><span class="line"></span><br><span class="line">        &#125;);</span><br><span class="line">        pane.getChildren().add(tile);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> pane;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>使用下面的代码测试populateGrid方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">(Stage primaryStage)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//===定义一个垂直盒子容器,populateGrid方法返回的Pane添加进去</span></span><br><span class="line">        VBox vBox = <span class="keyword">new</span> VBox();</span><br><span class="line">        vBox.setPrefSize(<span class="number">1000</span>, <span class="number">500</span>);</span><br><span class="line">    </span><br><span class="line">        <span class="comment">//populateGrid函数将会返回一个Pane，Pane存放多个随机的矩形</span></span><br><span class="line">        vBox.getChildren().add( populateGrid());</span><br><span class="line">        Scene scene = <span class="keyword">new</span> Scene(vBox);</span><br><span class="line">        primaryStage.setScene(scene);</span><br><span class="line">        primaryStage.show();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>以上代码简单介绍并使用JavaFX，对上一篇中的技术分解</p>
-</blockquote>
-
-      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Java/">Java</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/07/17/Java/Java%E6%A8%A1%E5%9D%97%E5%8C%96/" class="title">Java 模块化编程</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-07-17T03:44:51.934Z" itemprop="datePublished">2022-07-17</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Java/">Java</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B/" class="title">玩游戏学编程-猜数字</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-07-17T01:19:56.088Z" itemprop="datePublished">2022-07-17</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Java/">Java</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97UI%E7%95%8C%E9%9D%A2/" class="title">玩游戏学编程(1)-猜数字UI</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-07-17T01:19:56.085Z" itemprop="datePublished">2022-07-17</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Java/">Java</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97-JavaFX-UI/" class="title">玩游戏学编程(1)-猜数字-JavaFX-UI</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-07-17T01:19:56.081Z" itemprop="datePublished">2022-07-17</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Java/">Java</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(1)-%E7%8C%9C%E6%95%B0%E5%AD%97-Stream/" class="title">玩游戏学编程(1)-猜数字-Stream</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-07-17T01:19:56.078Z" itemprop="datePublished">2022-07-17</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
     </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
+  </div>
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(1)-%E7%8C%9C%E6%95%B0%E5%AD%97-Stream/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mars笑笑生">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="极乐空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(1)-%E7%8C%9C%E6%95%B0%E5%AD%97-Stream/" class="post-title-link" itemprop="url">玩游戏学编程(1)-猜数字-Stream</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-07-17 09:19:56 / 修改时间：11:39:58" itemprop="dateCreated datePublished" datetime="2022-07-17T09:19:56+08:00">2022-07-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-    </span>
+    
+  </div>
+</aside>
 
   
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在这一篇<a target="_blank" rel="noopener" href="http://codecool.top/2021/11/30/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97UI%E7%95%8C%E9%9D%A2/">玩游戏学编程(1)-猜数字</a>中出现了Stream相关技术， 先看看代码其中的一段代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.tilePane = <span class="keyword">this</span>.populateGrid();  </span><br><span class="line"><span class="keyword">this</span>.root.getChildren().set(<span class="number">0</span>, tilePane);  </span><br><span class="line"><span class="comment">//6秒后执行线程,计划任务</span></span><br><span class="line"><span class="keyword">this</span>.servicePool.schedule(</span><br><span class="line">    ()-&gt;&#123;</span><br><span class="line">        tilePane.getChildren()</span><br><span class="line">            .stream()</span><br><span class="line">            .map(n-&gt;(Tile)n)</span><br><span class="line">        .forEach(Tile::hide);</span><br><span class="line">&#125;, <span class="number">6</span>, TimeUnit.SECONDS);</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>代码中populateGrid()函数会返回一个Pane, 这个Pane中包含多个Tile, 每个Tile是一个矩形方框，其中还有一个数字, 那就意味着tilePane这个对象中有多个控件，我们可以通过循环或Stream遍历tilePane中的每一个控件;</p>
-</blockquote>
-<blockquote>
-<p>this.servicePool.schedule(lambda表达式）它可以传递一个Lambda表达式， 这里可以改成传统的自定义线程类对象，只不过现在可以用Lambda表达式的方式简写, 因为线程中的Runnable接口也只有一个抽象方法， 传统的代码写法如下:</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个线程类，里边包含异步任务</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ScheduleThread</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        ObservableList&lt;Node&gt; list = tilePane.getChildren();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.size(); i++) &#123;</span><br><span class="line">            TileView tv = (TileView)list.get(i);</span><br><span class="line">            tv.hide();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//创建一个异步任务，6秒后执行线程的run()方法</span></span><br><span class="line"><span class="keyword">this</span>.servicePool.schedule(<span class="keyword">new</span> ScheduleThread(), <span class="number">6</span>, TimeUnit.SECONDS);</span><br></pre></td></tr></table></figure>
-
-
-
-<blockquote>
-<p>遍历可以采用以下方式：</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取面板上的所有控件元素,返回的是一个集合</span></span><br><span class="line">ObservableList&lt;Node&gt; list = tilePane.getChildren();</span><br><span class="line"><span class="comment">//遍历集合</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list.size(); i++) &#123;</span><br><span class="line">    <span class="comment">//将集合中的每一个元素获取到，并强制转换成Tile对象</span></span><br><span class="line">    Tile tile = (TileView)list.get(i);</span><br><span class="line">    <span class="comment">//调用控件元素的hide方法</span></span><br><span class="line">    tile.hide();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>以上这种方案很传统，代码繁杂，如果采用Lambda和Stream的方式，代码更简洁：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.servicePool.schedule( ()-&gt;&#123;</span><br><span class="line">            tilePane.getChildren().stream().map(n-&gt;(Tile)n)</span><br><span class="line">            .forEach(Tile::hide);</span><br><span class="line">		&#125;, </span><br><span class="line"><span class="number">6</span>, TimeUnit.SECONDS);</span><br></pre></td></tr></table></figure>
-
-<p>下面我们再来举个例子， 假如我们有一个ArrayList集合，其中存放了一些数据，那么遍历这种集合有两种方式</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; fruitList = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">fruitList.add(<span class="string">&quot;苹果&quot;</span>);</span><br><span class="line">fruitList.add(<span class="string">&quot;香蕉&quot;</span>);</span><br><span class="line">fruitList.add(<span class="string">&quot;西瓜&quot;</span>);</span><br><span class="line"><span class="comment">//第一种遍历方式，每获取一个元素直接输出, 此种方式属于外部迭代</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; fruitList.size(); i++) &#123;</span><br><span class="line">    String fruit = fruitList.get(i);</span><br><span class="line">    System.out.println(fruit);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//另一种方式，采用forEach,其实也是外部迭代，只是采用了Lambda表达式</span></span><br><span class="line">fruitList.forEach(item-&gt;&#123;</span><br><span class="line">            System.out.println(item);</span><br><span class="line">        &#125;);</span><br><span class="line"><span class="comment">//如果仅仅是输出集合中的每一个元素，还可以使用更简单的写法</span></span><br><span class="line">fruitList.forEach(System.out::println);</span><br></pre></td></tr></table></figure>
-
-<p>我们可以使用Stream对这个集合进行过滤、筛选、切片、映射等操作, 这些操作称为对集合的<strong>中间操作</strong>，最后可以对Stream进行关闭操作称为<strong>终端操作</strong>， 比如我们使用java.util.stream.Stream接口中的map方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fruitList.stream().map(item-&gt;&#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="string">&quot;&amp;&quot;</span>+item+<span class="string">&quot;&amp;&quot;</span>;</span><br><span class="line">        &#125;).collect(Collectors.toList()).forEach(System.out::println);</span><br></pre></td></tr></table></figure>
-
-<p>这段代码的意思是将迭代(遍历)集合中的每一个元素，迭代过程中每遇到一个元素会将其传递给Lambda表达式对应的方法，由方法处理完成之后返回，此处是将每个元素的前后添加一个&amp;符号，最后处理完所有元素后再将其转换为List集合 (collect 终端操作), 那么对于猜数字游戏中的如下代码意思是通过Stream接口的map方法，过程是将每一个元素转换成Tile对象，然后通过forEach迭代每一个元素并调用它的hide方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tilePane.getChildren().stream().map(n-&gt;(Tile)n)</span><br><span class="line">            .forEach(Tile::hide);</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>初学者如果不理解Stream，只能通过大量的练习去熟练，如果能有函数式编程语言基础便更容易理解</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
+  <main class="main" role="main">
   
+  <div class="content article-list">
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/17/Java/Java%E6%A8%A1%E5%9D%97%E5%8C%96/">Java 模块化编程</a>
+    </h1>
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(1)-%E7%8C%9C%E6%95%B0%E5%AD%97-Lambda%E5%92%8CStream/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mars笑笑生">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="极乐空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(1)-%E7%8C%9C%E6%95%B0%E5%AD%97-Lambda%E5%92%8CStream/" class="post-title-link" itemprop="url">玩游戏学编程(1)-猜数字-Lambda</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-07-17 09:19:56 / 修改时间：10:43:23" itemprop="dateCreated datePublished" datetime="2022-07-17T09:19:56+08:00">2022-07-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-    </span>
-
+  </div>
   
-</div>
-
-        </div>
-      </header>
-
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/07/17/Java/Java%E6%A8%A1%E5%9D%97%E5%8C%96/" class="article-date">
+	  <time datetime="2022-07-17T03:44:51.934Z" itemprop="datePublished">7月 17</time>
+	</a>
+</span>
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h5 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h5><p>在这一篇中出现了Lambda表达式和Stream<a target="_blank" rel="noopener" href="http://codecool.top/2021/11/30/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97UI%E7%95%8C%E9%9D%A2/">玩游戏学编程(1)-猜数字</a>， 它们在Java应用开发中现已成为常用的开发技术， Lambda表达式这玩艺在函数式编程语言如Ruby、JavaScript、Python中早已存在，Java只是把他们学了过来。你可以把Lambda表达式看作是一种匿名功能，也就是没有名称的方法,可以认为lambda它是一块代码，我们在使用时可以将这块代码传递出去，这样它后续可以执行一次或多次，如果你了解过匿名类，那么对Lambda的写法就不会感到太生涩。</p>
-<blockquote>
-<p>Java中没有函数类型，如果要实现Lambda表达式就得将函数表达为对象，也就是实现了特定接口的类的实例，当然你先得对面向对象中的接口以及实现有一些经验。</p>
-</blockquote>
-<h5 id="简单的使用"><a href="#简单的使用" class="headerlink" title="简单的使用"></a>简单的使用</h5><blockquote>
-<p>任务：对一个数组进行排序，调用数组排序函数Arrays.sort(), 使用Lambda表达式自定义排序方式</p>
-</blockquote>
-<ol>
-<li><p>默认排序方式</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] a = &#123;<span class="number">3</span>,<span class="number">21</span>,<span class="number">4</span>,<span class="number">99</span>,<span class="number">32</span>,<span class="number">87</span>,<span class="number">9</span>&#125;;</span><br><span class="line">Arrays.sort(a);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.length; i++) &#123;</span><br><span class="line">	System.out.print(a[i]+<span class="string">&quot;,&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>输出排序结果：3,4,9,21,32,87,99,  如果我们需要控制比较结果，比如说从大到小排列，就必须自定义比较逻辑，这个比较逻辑需要实现一个接口Comparator, 这个接口称为<strong>函数式接口</strong>,而且这个接口只有一个抽象方法compare, 代码如下:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ComparatorNumber</span> </span></span><br><span class="line"><span class="class">    <span class="keyword">implements</span> <span class="title">Comparator</span>&lt;<span class="title">Integer</span>&gt; </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Integer m, Integer n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(m&gt;n) &#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Integer[] ary = &#123;<span class="number">3</span>,<span class="number">21</span>,<span class="number">4</span>,<span class="number">99</span>,<span class="number">32</span>,<span class="number">87</span>,<span class="number">9</span>&#125;;</span><br><span class="line"><span class="comment">//创建比较对象</span></span><br><span class="line">ComparatorNumber comparatorNumber = <span class="keyword">new</span> ComparatorNumber();</span><br><span class="line"><span class="comment">//第二个参数为自定义比较对象</span></span><br><span class="line">Arrays.sort(ary, comparatorNumber);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; ary.length; i++) &#123;</span><br><span class="line">	System.out.print(ary[i]+<span class="string">&quot;,&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>ComparatorNumber类的compare方法为比较方式的实现</p>
-</blockquote>
-</li>
-<li><p>使用Lambda表达式</p>
-<p>上面的代码可以直接换成lambda表达式的方式，更简洁, 可以把它称为箭头函数，具体的语法如下: </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(参数1, 参数2)  -&gt; &#123; 函数实现 &#125;    </span><br></pre></td></tr></table></figure>
-
-<p>如果只有一个参数，语法还可以是下面这样:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">形参1 -&gt; &#123;函数实现&#125;</span><br></pre></td></tr></table></figure>
-
-<p> 如果没有函数的实现只有一个返回代码，还可以用下面这种写法:</p>
- <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">形参1 -&gt; 返回的变量</span><br></pre></td></tr></table></figure>
-<p> 比较函数的改造如下, 上面创建的比较类就不需要了 :</p>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Arrays.sort(ary, (m,n)-&gt;&#123;</span><br><span class="line">    <span class="keyword">if</span>(m&gt;n) &#123;</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>如果希望一个接口成为函数式接口，只需要这个接口中仅有一个抽象方法即可</p>
-</blockquote>
-<blockquote>
-<p>如果对sort方法的第二个参数已有实现的代码，我们也可以直接拿过来使用, 下面的代码就是直接使用了Integer的比较方法compareTo,只是它的比较方式是从小到大，使用方法如下: </p>
-</blockquote>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Arrays.sort(ary,Integer::compareTo);</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>Java 类库中有很多这样的接口，比如多线程中的Runnable接口, 那么对于<a target="_blank" rel="noopener" href="http://codecool.top/2021/11/30/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97UI%E7%95%8C%E9%9D%A2/">玩游戏学编程(1)-猜数字</a>这篇中的如下代码应该就能理解了，按钮的事件监听器对象本身也需要实现一个接口EventHandler, 并且此接口仅有一个抽象方法，此时可以使用Lambda表达式</p>
-</blockquote>
- <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ButtonLis</span>  <span class="keyword">implements</span> <span class="title">EventHandler</span>&lt;<span class="title">ActionEvent</span>&gt; </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handle</span><span class="params">(ActionEvent event)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">button.setOnAction(<span class="keyword">new</span> ButtonLis());</span><br><span class="line"></span><br><span class="line"><span class="comment">//忽略上面的代码，直接使用Lambda表达式</span></span><br><span class="line">Button button = <span class="keyword">new</span> Button(<span class="string">&quot;开始&quot;</span>);</span><br><span class="line">button.setOnAction(e-&gt;startGame());<span class="comment">//开始按钮事件,startGame()是具体的实现</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/JavaScript/JavaScript-Interview-1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mars笑笑生">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="极乐空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/17/JavaScript/JavaScript-Interview-1/" class="post-title-link" itemprop="url">一个简单的前端机试题</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-07-17 09:19:56 / 修改时间：11:30:34" itemprop="dateCreated datePublished" datetime="2022-07-17T09:19:56+08:00">2022-07-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>一个简单的前端机试题，使用原生JavaScript或是JQuery又或是Vue，如果能快速搞定，用什么无所谓啦</p>
-<h2 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h2><p><img src="1.png"></p>
-<h2 id="还是有几点要求的"><a href="#还是有几点要求的" class="headerlink" title="还是有几点要求的"></a>还是有几点要求的</h2><ol>
-<li>点击固定标签可以修改选中状态，选中方式为多选</li>
-<li>自定义输入框可输入10个字以内的标签（限制中文）</li>
-<li>点击确认会在标签后面新增一个自定义名称的标签，自定义标签数量超过5个之后，输入框和确认按钮置灰，不可点击</li>
-<li>点击确认时，需要对当前自定义标签的名称进行去重，如果标签重复，需要在确认按钮后面用红色的文字提示“该标签已重复”</li>
-<li>自定义的标签右上角会有个删除的按钮，点击删除按钮会删除该自定义标签</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/JavaScript/snake/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mars笑笑生">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="极乐空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/17/JavaScript/snake/" class="post-title-link" itemprop="url">玩游戏学前端-贪吃蛇</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-07-17 09:19:56 / 修改时间：11:22:52" itemprop="dateCreated datePublished" datetime="2022-07-17T09:19:56+08:00">2022-07-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="在游戏项目中学JavaScript"><a href="#在游戏项目中学JavaScript" class="headerlink" title="在游戏项目中学JavaScript"></a>在游戏项目中学JavaScript</h3><hr>
-<p>WEB前端基础技术包含HTML5/CSS3/JavaScript, 当然除了基础技术前端还有框架如React,Vue等, 其中相对难一点的便是JavaScript和CSS3，CSS3学起来开心多了, JavaScript编程语言可没那么有趣，如果用它来实现游戏，我想趣味性要超越CSS3, 俗话说：兴趣是最好的老师；下面我们一步步来实现这个小游戏，在开发过程中去学习JavaScript语言和CSS3的关键技术要点。效果如下图所示</p>
-<p><img src="snake-main.gif"></p>
-<p><a href="/snake/index.html">贪吃蛇</a></p>
-<h3 id="贪吃蛇游戏"><a href="#贪吃蛇游戏" class="headerlink" title="贪吃蛇游戏"></a>贪吃蛇游戏</h3><hr>
-<h4 id="1-HTML5和CSS3设计游戏界面"><a href="#1-HTML5和CSS3设计游戏界面" class="headerlink" title="1. HTML5和CSS3设计游戏界面"></a>1. HTML5和CSS3设计游戏界面</h4><ul>
-<li><p>HTML页面组成，常用标签和meta</p>
-</li>
-<li><p>准确使用HTML标签div, 标签中的基本属性</p>
-</li>
-<li><p>为HTML标签添加样式</p>
-</li>
-<li><p>CSS3样式编写，标签选择器，ID选择器，类选择器</p>
-</li>
-<li><p>CSS3中的常用单位 px,rpx,em,rem,vh,vw,vmin,vmax</p>
-</li>
-<li><p>CSS3边框和颜色</p>
-</li>
-<li><p>CSS3 Grid网格布局</p>
-</li>
-</ul>
-<h4 id="2-HTML与Javascript"><a href="#2-HTML与Javascript" class="headerlink" title="2. HTML与Javascript"></a>2. HTML与Javascript</h4><ul>
-<li>ES5和ES6的基本认知</li>
-<li>在HTML中添加Javascript脚本支持</li>
-<li>Javascript语言基础: 变量、程序逻辑、函数、对象</li>
-<li>Javascript的模块化</li>
-</ul>
-<h4 id="3-Javascript操作HTML元素-DOM"><a href="#3-Javascript操作HTML元素-DOM" class="headerlink" title="3. Javascript操作HTML元素 - DOM"></a>3. Javascript操作HTML元素 - DOM</h4><ul>
-<li>使用Javascript选择HTML元素</li>
-<li>Javascript动画</li>
-<li>Javascript创建HTML元素</li>
-<li>Javascript设置HTML元素样式</li>
-<li>Javascript定义游戏核心逻辑</li>
-</ul>
-<h4 id="4-绘制Snake"><a href="#4-绘制Snake" class="headerlink" title="4. 绘制Snake"></a>4. 绘制Snake</h4><ul>
-<li><p>Javascript数组和DOM操作</p>
-</li>
-<li><p>创建Snake Head，定义速度常量</p>
-</li>
-<li><p>移动Snake Head</p>
-</li>
-<li><p>使用Javascript事件控制Snake方向</p>
-</li>
-<li><p>创建Snake Body并绘制蛇的身体</p>
-</li>
-</ul>
-<h4 id="6-绘制Food"><a href="#6-绘制Food" class="headerlink" title="6. 绘制Food"></a>6. 绘制Food</h4><ul>
-<li><p>Javascript数组和DOM操作</p>
-</li>
-<li><p>使用Javascript DOM创建Food</p>
-</li>
-<li><p>Javascript创建随机数</p>
-</li>
-<li><p>根据随机数位置显示Food</p>
-</li>
-</ul>
-<h4 id="7-Snake和Food"><a href="#7-Snake和Food" class="headerlink" title="7. Snake和Food"></a>7. Snake和Food</h4><ul>
-<li>Snake吃Food，Snake增长逻辑</li>
-</ul>
-<h4 id="7-游戏结束"><a href="#7-游戏结束" class="headerlink" title="7. 游戏结束"></a>7. 游戏结束</h4><ul>
-<li>Snake移动范围边界判断</li>
-<li>游戏结束判断</li>
-</ul>
-<h4 id=""><a href="#" class="headerlink" title=""></a></h4>
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/JavaScript/snake-grid/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mars笑笑生">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="极乐空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/17/JavaScript/snake-grid/" class="post-title-link" itemprop="url">玩游戏学前端-贪吃蛇-Grid布局</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-07-17 09:19:56 / 修改时间：11:23:22" itemprop="dateCreated datePublished" datetime="2022-07-17T09:19:56+08:00">2022-07-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="CSS-Grid网格布局"><a href="#CSS-Grid网格布局" class="headerlink" title="CSS Grid网格布局"></a>CSS Grid网格布局</h3><hr>
-<p>在贪吃蛇游戏中，我们使用了CSS中的Grid网格布局，如果不用Grid，你可以使用Canvas绘图。其实在其它编程语言的UI设计中，早已有此类布局方案,比如Java中的GridLayout，感觉CSS把后端语言的UI设计又重新走一遍，而且进展还比较慢 , 多年以前我们还只能使用position,float和各种骇客技术实现布局,直至出现Flex、Grid才真正意义上的解脱；</p>
-<h4 id="网格布局示例图"><a href="#网格布局示例图" class="headerlink" title="网格布局示例图"></a>网格布局示例图</h4><hr>
-<p><img src="header.jpg"></p>
-<h4 id="HTML结构"><a href="#HTML结构" class="headerlink" title="HTML结构"></a>HTML结构</h4><hr>
-<p>需要将想要控制的元素包装在父容器DIV中</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;wrapper&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;div1&quot;</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;div2&quot;</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;div3&quot;</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;div4&quot;</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>让我们为div添加一些样式，这样就可以轻松地区分不同盒子,这里使用了 display:grid，也就是网格布局</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &gt; <span class="selector-tag">div</span> &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: orange;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> black solid;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="selector-class">.wrapper</span> &gt; <span class="selector-tag">div</span><span class="selector-pseudo">:nth-child</span>(odd) &#123;</span><br><span class="line">  <span class="attribute">background-color</span>: indianred;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="selector-class">.wrapper</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: grid</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="grid1.png"></p>
-<h4 id="Grid-template-columns-和-Grid-template-rows"><a href="#Grid-template-columns-和-Grid-template-rows" class="headerlink" title="Grid-template-columns 和 Grid-template-rows"></a>Grid-template-columns 和 Grid-template-rows</h4><hr>
-<h5 id="grid-template-columns-规则"><a href="#grid-template-columns-规则" class="headerlink" title="grid-template-columns 规则"></a>grid-template-columns 规则</h5><p>对于grid网格布局，我们首先需要了解的是 <code>grid-template-columns</code> 和 grid-template-rows 这两条规则。这两条规则控制了网格的形状。这些规则的值可以是长度、百分比或网格中空闲空间的一部分。还可以将它们设置为auto，这样做将会填充div盒子的剩余的空间。看例子:</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  grid-template-<span class="attribute">columns</span>: <span class="number">100px</span> <span class="number">100px</span> <span class="number">100px</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="grid2.png"></p>
-<blockquote>
-<p>上面代码片断中我们设置了三列，每列100px, 但是wrapper下有四个div,所以会有一个div换行显示， display的值还可以设置为inline-grid</p>
-</blockquote>
-<p>修改一下中间设置为<strong>auto</strong></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  grid-template-<span class="attribute">columns</span>: <span class="number">100px</span> auto <span class="number">100px</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="grid3.png"></p>
-<blockquote>
-<p>上面代码中，中间值使用了auto, 那么中间那个div将填充所有剩余部分</p>
-</blockquote>
-<p>也可以<strong>使用fr</strong>, 网格布局提供了fr(fraction片段的意思)，它用于表示比例关系，如果列宽度都为1fr , 那么将平分此行</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  grid-template-<span class="attribute">columns</span>: <span class="number">1</span>fr <span class="number">1</span>fr <span class="number">1</span>fr <span class="number">1</span>fr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="grid4.png"></p>
-<blockquote>
-<p>上面代码中将一行分为四列，每列宽度一样</p>
-</blockquote>
-<p>修改一下值</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">.wrapper &#123;</span><br><span class="line">  display: grid;</span><br><span class="line">  grid-template-columns: 1fr 2fr 3fr 1fr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="grid5.png"></p>
-<blockquote>
-<p>可以看出第二列是第一列的2倍，第三列的大小是前面二列的和; 试着修改最后一列的大小</p>
-</blockquote>
-<h5 id="grid-template-columns-和-grid-template-rows-规则"><a href="#grid-template-columns-和-grid-template-rows-规则" class="headerlink" title="grid-template-columns 和 grid-template-rows 规则"></a>grid-template-columns 和 grid-template-rows 规则</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  grid-template-<span class="attribute">columns</span>: <span class="number">1</span>fr <span class="number">1</span>fr;</span><br><span class="line">  grid-template-rows: <span class="number">50px</span> <span class="number">50px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="grid6.png"></p>
-<blockquote>
-<p>上面定义二行二列，每一行的高度都为50px, 如果将第一个50px改成其它值如30px, 那么第一行高度将为30px</p>
-</blockquote>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  grid-template-<span class="attribute">columns</span>: <span class="number">100px</span> <span class="number">20px</span> <span class="number">250px</span>;</span><br><span class="line">  grid-template-rows: <span class="number">150px</span> <span class="number">40px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="grid7.png"></p>
-<blockquote>
-<p>上面定义二行三列，第一行高150px, 第二行高40px, 前面3个div成为一行中三列，最后一个div单独一行</p>
-</blockquote>
-<h5 id="grid-template-重复规则：-Repeat"><a href="#grid-template-重复规则：-Repeat" class="headerlink" title="grid-template 重复规则： Repeat"></a>grid-template 重复规则： Repeat</h5><p>如果你的网格布局中有一个重复的元素，你可以使用repeat并告诉它重复多少次相同的元素。<br>例如，假设你有12个元素，你想让它们以相同的宽度水平放置。您可以在grid-template-column使用repeat(12, 1fr)。</p>
-<p><img src="grid8.png"></p>
-<p>也可以像下面这样</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  grid-template-<span class="attribute">columns</span>: <span class="built_in">repeat</span>(<span class="number">4</span>, <span class="number">1</span>fr <span class="number">5</span>fr <span class="number">10</span>fr);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="grid9.png"></p>
-<blockquote>
-<p>上面代码中重复4个div元素，1，2，3是第一部分，分别为1fr, 5fr, 10fr; 后续依此类推</p>
-</blockquote>
-<h5 id="Grid-auto-columns-和-Grid-auto-rows-规则"><a href="#Grid-auto-columns-和-Grid-auto-rows-规则" class="headerlink" title="Grid-auto-columns 和 Grid-auto-rows 规则"></a>Grid-auto-columns 和 Grid-auto-rows 规则</h5><p>此规则帮助你设置网格单元格的宽度和高度。如果不设置此规则，网格的行和列将根据内容展开。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  grid-template-<span class="attribute">columns</span>: <span class="built_in">repeat</span>(<span class="number">4</span>, <span class="number">1</span>fr);</span><br><span class="line">  grid-<span class="attribute">auto</span>-rows: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="grid-10.png"></p>
-<blockquote>
-<p>上面代码重复4个元素，因为总共有12个元素，所以拆分成了3行，每行100px高</p>
-</blockquote>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  grid-template-<span class="attribute">columns</span>: <span class="built_in">repeat</span>(<span class="number">6</span>, <span class="number">1</span>fr);</span><br><span class="line">  grid-<span class="attribute">auto</span>-rows: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="grid-12.png"></p>
-<blockquote>
-<p>上面代码重复6个元素，因为总共有12个元素，所以拆分成了2行，每行100px高</p>
-</blockquote>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  grid-template-<span class="attribute">columns</span>: <span class="built_in">repeat</span>(<span class="number">4</span>, <span class="number">1</span>fr);</span><br><span class="line">  grid-<span class="attribute">auto</span>-rows: <span class="number">20px</span> <span class="number">40px</span> <span class="number">60px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="grid-11.png"></p>
-<h5 id="minmax-函数"><a href="#minmax-函数" class="headerlink" title="minmax() 函数"></a>minmax() 函数</h5><p>网格自动规则的一个很好的特性是minmax函数。<br>只需将最小值设置为第一个参数，将最大值设置为第二个参数。如果将第二个参数设置为auto，则会得到响应式单元格大小。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  grid-template-<span class="attribute">columns</span>: <span class="built_in">repeat</span>(<span class="number">4</span>, <span class="number">1</span>fr);</span><br><span class="line">  grid-<span class="attribute">auto</span>-rows: <span class="built_in">minmax</span>(<span class="number">50px</span>, auto)</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="grid-13.png"></p>
-<p><img src="grid-14.png"></p>
-<blockquote>
-<p>以上两个结果是CSS相同，div中内容不同的情况</p>
-</blockquote>
-<h4 id="Grid-gap"><a href="#Grid-gap" class="headerlink" title="Grid-gap"></a>Grid-gap</h4><hr>
-<p>顾名思义，该规则在网格单元格之间创建了一个间隙(gap)。<br>如果你使用grid-gap: 5px，你会在每个单元格之间得到5px的间隙。或者，只能设置行或列间隙，分别为grid-row-gap: 5px和grid-column-gap: 5px。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  grid-template-<span class="attribute">columns</span>: <span class="built_in">repeat</span>(<span class="number">4</span>, <span class="number">1</span>fr);</span><br><span class="line">  grid-<span class="attribute">auto</span>-rows: <span class="built_in">minmax</span>(<span class="number">50px</span>, auto);</span><br><span class="line">  grid-gap: <span class="number">5px</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="grid-15.png"></p>
-<h4 id="子div元素规则"><a href="#子div元素规则" class="headerlink" title="子div元素规则"></a>子div元素规则</h4><hr>
-<p>到目前为止，我们只关注网格的形状和在网格中流动的项。现在我们将学习如何单独控制每一项。</p>
-<p>为了定位每一项，我们使用网格线作为参考。下面是2x4网格的行和列，分别用黑色和橙色表示。</p>
-<p><img src="grid.jpg"></p>
-<p>使用带有行号的 grid-column 和 grid-row 规则来定位元素。</p>
-<p>例如，如果我们为第一个子div设置grid-column: 1/3，它将使用网格中的前两个单元格, 也就是第1格到第3格，但不包含第3格, 这种做法类似于在Excel中的列合并。</p>
-<p>grid-column属性是grid-column-start和grid-column-end的合并简写形式，grid-row属性是grid-row-start属性和grid-row-end的合并简写形式。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  grid-template-<span class="attribute">columns</span>: <span class="built_in">repeat</span>(<span class="number">4</span>, <span class="number">1</span>fr);</span><br><span class="line">  grid-<span class="attribute">auto</span>-rows: <span class="number">100px</span>;</span><br><span class="line">  grid-gap: <span class="number">5px</span>;</span><br><span class="line"> &#125;</span><br><span class="line"><span class="selector-class">.div1</span>&#123;</span><br><span class="line">  grid-column: <span class="number">1</span>/<span class="number">3</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="grid-16.png"></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.div1</span> &#123;</span><br><span class="line">  grid-column: &lt;start-line&gt; / &lt;end-line&gt;;</span><br><span class="line">  grid-row: &lt;start-line&gt; / &lt;end-line&gt;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.div1  &#123;</span><br><span class="line">  grid-column: 1 / 3;  /*占用 1~2 列, 也就是跨列*/</span><br><span class="line">  grid-row: 1 / 2;</span><br><span class="line">&#125;</span><br><span class="line">/* 等同于 */</span><br><span class="line">.div1  &#123;</span><br><span class="line">  grid-column-start: 1;</span><br><span class="line">  grid-column-end: 3;</span><br><span class="line">  grid-row-start: 1;</span><br><span class="line">  grid-row-end: 2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>再看下面示例，div1元素跨列和行</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.div1</span>&#123;</span><br><span class="line">  grid-column: <span class="number">1</span>/<span class="number">3</span>;</span><br><span class="line">  grid-row: <span class="number">1</span>/<span class="number">3</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="grid-17.png"></p>
-<p>也可以使用grid-arge</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.div1</span>&#123;</span><br><span class="line">  grid-area: <span class="number">2</span>/<span class="number">2</span>/<span class="number">3</span>/<span class="number">4</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="grid-18.png"></p>
-<h4 id="Grid-area-和-grid-template-areas"><a href="#Grid-area-和-grid-template-areas" class="headerlink" title="Grid-area 和 grid-template-areas"></a>Grid-area 和 grid-template-areas</h4><hr>
-<p>下面的示例稍复杂一点</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;wrapper&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;header&quot;</span>&gt;</span>页头<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;leftCol&quot;</span>&gt;</span>左侧<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;rightCol&quot;</span>&gt;</span>右侧<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;midTop&quot;</span>&gt;</span>中间上方<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;midBottom&quot;</span>&gt;</span>中间下方<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;footer&quot;</span>&gt;</span>页脚<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.header</span>&#123;</span><br><span class="line">   grid-area: header;</span><br><span class="line">   <span class="attribute">background-color</span>: LightSeaGreen ;</span><br><span class="line"> &#125;</span><br><span class="line">  </span><br><span class="line"> <span class="selector-class">.leftCol</span>&#123;</span><br><span class="line">   grid-area: leftCol;</span><br><span class="line">   <span class="attribute">background-color</span>: orange;</span><br><span class="line"> &#125;</span><br><span class="line">  </span><br><span class="line"> <span class="selector-class">.rightCol</span>&#123;</span><br><span class="line">   grid-area: rightCol;</span><br><span class="line">   <span class="attribute">background-color</span>: lightblue;</span><br><span class="line"> &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="selector-class">.midTop</span>&#123;</span><br><span class="line">   grid-area: midTop;</span><br><span class="line">   <span class="attribute">background-color</span>: lightgrey;</span><br><span class="line"> &#125;</span><br><span class="line">  </span><br><span class="line"> <span class="selector-class">.midBottom</span>&#123;</span><br><span class="line">   grid-area: midBottom;</span><br><span class="line">   <span class="attribute">background-color</span>: pink;</span><br><span class="line"> &#125;</span><br><span class="line">  </span><br><span class="line"> <span class="selector-class">.footer</span>&#123;</span><br><span class="line">   grid-area: footer;</span><br><span class="line">   <span class="attribute">background-color</span>: lightgreen;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  grid-template-<span class="attribute">columns</span>: <span class="number">1</span>fr <span class="number">4</span>fr <span class="number">4</span>fr <span class="number">1</span>fr;</span><br><span class="line">  grid-template-rows: <span class="number">50px</span> <span class="number">100px</span> <span class="number">100px</span> <span class="number">30px</span>;</span><br><span class="line">  grid-template-areas:</span><br><span class="line">  <span class="string">&quot;header header header header&quot;</span></span><br><span class="line">  <span class="string">&quot;leftCol midTop midTop rightCol&quot;</span></span><br><span class="line">  <span class="string">&quot;leftCol midBottom midBottom rightCol&quot;</span></span><br><span class="line">  <span class="string">&quot;footer footer footer footer&quot;</span>;</span><br><span class="line">  grid-gap: <span class="number">5px</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-<p>布局结果</p>
-<p><img src="grid-19.png"></p>
-<p>如果想让页脚只取两列并居中，那么我只需在网格模板区域中用点(.)替换页脚的第一个和最后一个。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.wrapper</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  grid-template-<span class="attribute">columns</span>: <span class="number">1</span>fr <span class="number">4</span>fr <span class="number">4</span>fr <span class="number">1</span>fr;</span><br><span class="line">  grid-template-rows: <span class="number">50px</span> <span class="number">100px</span> <span class="number">100px</span> <span class="number">30px</span>;</span><br><span class="line">  grid-template-areas:</span><br><span class="line">  <span class="string">&quot;header header header header&quot;</span></span><br><span class="line">  <span class="string">&quot;leftCol midTop midTop rightCol&quot;</span></span><br><span class="line">  <span class="string">&quot;leftCol midBottom midBottom rightCol&quot;</span></span><br><span class="line">  <span class="string">&quot;. footer footer .&quot;</span>;</span><br><span class="line">  grid-gap: <span class="number">5px</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="grid-19.png"></p>
-<h3 id="你需要grid"><a href="#你需要grid" class="headerlink" title="你需要grid"></a>你需要grid</h3><hr>
-<p>Grid 布局还有很多其它属性，可以参考官方文档， 有了上述基础，我们就可以画出贪吃蛇游戏的界面了，马上为你呈现使用Grid有多么简单</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhsunbeam.github.io/2022/07/17/JavaScript/snake-es6module/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Mars笑笑生">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="极乐空间">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/07/17/JavaScript/snake-es6module/" class="post-title-link" itemprop="url">玩游戏学前端-贪吃蛇-ES6模块化</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2022-07-17 09:19:55 / 修改时间：11:23:15" itemprop="dateCreated datePublished" datetime="2022-07-17T09:19:55+08:00">2022-07-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">前端开发</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="贪吃蛇-ES6模块化"><a href="#贪吃蛇-ES6模块化" class="headerlink" title="贪吃蛇-ES6模块化"></a>贪吃蛇-ES6模块化</h3><hr>
-<p>在后续内容中，我们逐渐在游戏面板上绘制蛇和食物，将会涉及到 javascript DOM技术、ES6中的模块化、箭头函数等知识，所以我们先简单地把要用到的知识点了解和应用。如果需要全面了解，请移步相关官方文档。或者与我私聊，嘿嘿！</p>
-<h4 id="游戏核心逻辑模块化-使用ES6模块化"><a href="#游戏核心逻辑模块化-使用ES6模块化" class="headerlink" title="游戏核心逻辑模块化: 使用ES6模块化"></a>游戏核心逻辑模块化: 使用ES6模块化</h4><hr>
-<p>现代浏览器基本上都支持ES6模块化(有关ES6的基础知识，可参考阮一峰老师ECMAScript 6入门), 首先我们创建一个<strong>main.js</strong>文件，这个文件是游戏的入口，只需要在HTML页面上引入main.js，main.js文件内的逻辑先不管，可以先创建一个空文件。关键代码如下:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">&quot;main.js&quot;</span> defer type=<span class="string">&quot;module&quot;</span> &gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong>defer(延期，推迟)</strong>  defer属性的意思是HTML页面渲染完成,同时页面中其它脚本也执行完成后脚本文件才会执行, 如果有多个脚本文件都声明了defer, 这些脚本的加载顺序会按照它们在HTML页面上出现的顺序</p>
-</blockquote>
-<blockquote>
-<p><strong>async(异步)</strong> 声明了这个属性的JS脚本一旦下载完成就会立即执行, 如果多个脚本文件都声明了async, 那么它并不能保证按出现的顺序加载</p>
-</blockquote>
-<blockquote>
-<p><strong>type=”module”</strong> 表示让浏览器知晓这是一个ES6模块</p>
-</blockquote>
-<p>模块化在Java中有import，nodejs中也有require, python中有import, 在ES6之前，我在前端开发中会使用CommonJS、requireJS、seaJS等进行模块化, Javascript终于不用第三方插件也可以模块化了，意外地开心，但必须强调一点，使用它还需要浏览器支持才行。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>贪吃蛇游戏<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">         </span></span><br><span class="line"><span class="css">       <span class="selector-tag">body</span> &#123;</span></span><br><span class="line"><span class="css">           <span class="attribute">height</span>: <span class="number">100vh</span>;</span></span><br><span class="line"><span class="css">           <span class="attribute">width</span>: <span class="number">100vw</span>;</span></span><br><span class="line"><span class="css">           <span class="attribute">display</span>: flex;</span></span><br><span class="line"><span class="css">           <span class="attribute">flex-direction</span>: row;</span></span><br><span class="line"><span class="css">           <span class="attribute">justify-content</span>: left;</span></span><br><span class="line"><span class="css">           <span class="attribute">align-items</span>: center;</span></span><br><span class="line"><span class="css">           <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">           <span class="attribute">background-color</span>: black;</span></span><br><span class="line"><span class="css">       &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">       <span class="selector-id">#game-board</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">background-color</span>: <span class="built_in">rgb</span>(<span class="number">250</span>, <span class="number">245</span>, <span class="number">245</span>);</span></span><br><span class="line"><span class="css">            <span class="attribute">width</span>: <span class="number">100vmin</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">height</span>: <span class="number">100vmin</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">display</span>: grid;</span></span><br><span class="line"><span class="css">            grid-template-rows: <span class="built_in">repeat</span>(<span class="number">50</span>, <span class="number">1</span>fr);</span></span><br><span class="line"><span class="css">            grid-template-<span class="attribute">columns</span>: <span class="built_in">repeat</span>(<span class="number">50</span>, <span class="number">1</span>fr);</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-id">#settings</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">display</span>: grid;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;main.js&quot;</span> <span class="attr">defer</span> <span class="attr">type</span>=<span class="string">&quot;module&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;game-board&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;settings&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>下面创建一个snake.js蛇模块和food.js食物模块， 暂时仅在里边定义update和draw函数, update函数实现蛇的变化逻辑， 比如蛇的移动方向以及它的长度变化; draw函数实现蛇的绘制。 food.js类似</p>
-<p>snake.js</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">update</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;更新蛇&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;绘制蛇&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> &#123;update, draw&#125;</span><br></pre></td></tr></table></figure>
-
-<p>food.js</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">update</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;更新食物&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&#x27;绘制食物&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> &#123;update, draw&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>上面两个文件都用到了export关键词，用于导出模块中的内容 </p>
-</blockquote>
-<h4 id=""><a href="#" class="headerlink" title=""></a></h4><p>main.js实现，会用到之前文章中讲到的window.requestAnimationFrame,游戏界面需要不断更新并重绘 <a target="_blank" rel="noopener" href="http://codecool.top/2021/12/10/animationframe/"></a> , 先使用import 导入snake.js, food.js, 这两个文件和main.js是在同一个目录下， 导入时使用 as 给出一个别名以便在main.js中使用</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//引入 snake.js 和 food.js模块内容 </span></span><br><span class="line"><span class="keyword">import</span> &#123;update <span class="keyword">as</span> updateSnake, draw <span class="keyword">as</span> drawSnake&#125; <span class="keyword">from</span> <span class="string">&#x27;./snake.js&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123;update <span class="keyword">as</span> updateFood, draw <span class="keyword">as</span> drawFood&#125; <span class="keyword">from</span> <span class="string">&#x27;./food.js&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">main</span>(<span class="params">currentTime</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//再次请求动画帧</span></span><br><span class="line">    <span class="built_in">window</span>.requestAnimationFrame(main)</span><br><span class="line">	<span class="comment">//调用本模块中的update和draw函数</span></span><br><span class="line">    update()</span><br><span class="line">    draw()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//请求动画帧</span></span><br><span class="line"><span class="built_in">window</span>.requestAnimationFrame(main)</span><br><span class="line"></span><br><span class="line"><span class="comment">//因为有蛇和食物需要更新，所以定义了update函数，在函数内部调用另外两个模块的函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">update</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    updateSnake()</span><br><span class="line">    updateFood()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//因为有蛇和食物需要绘制，所以定义了draw函数，在函数内部调用另外两个模块的函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    drawSnake()</span><br><span class="line">    drawFood()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>可以将这些代码整合到vscode开发工具中，再运行index.html文件，在浏览器控制台查看效果。 下一篇我们看如何使用DOM绘制蛇和食物。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
-</div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-
-
-<div class="copyright">
-  &copy; 
-  <span itemprop="copyrightYear">2022</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
   </span>
-  <span class="author" itemprop="copyrightHolder">Mars笑笑生</span>
-</div>
 
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/Java/" rel="tag">Java</a>, <a class="article-tag-link-link" href="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="tag">编程基础</a>
+  </span>
+
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/07/17/Java/Java%E6%A8%A1%E5%9D%97%E5%8C%96/#comments" class="article-comment-link">评论</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B/">玩游戏学编程-猜数字</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B/" class="article-date">
+	  <time datetime="2022-07-17T01:19:56.088Z" itemprop="datePublished">7月 17</time>
+	</a>
+</span>
+    
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </span>
+
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/Java/" rel="tag">Java</a>, <a class="article-tag-link-link" href="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="tag">编程基础</a>
+  </span>
+
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B/#comments" class="article-comment-link">评论</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97UI%E7%95%8C%E9%9D%A2/">玩游戏学编程(1)-猜数字UI</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97UI%E7%95%8C%E9%9D%A2/" class="article-date">
+	  <time datetime="2022-07-17T01:19:56.085Z" itemprop="datePublished">7月 17</time>
+	</a>
+</span>
+    
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </span>
+
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/Java/" rel="tag">Java</a>, <a class="article-tag-link-link" href="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="tag">编程基础</a>
+  </span>
+
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97UI%E7%95%8C%E9%9D%A2/#comments" class="article-comment-link">评论</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97-JavaFX-UI/">玩游戏学编程(1)-猜数字-JavaFX-UI</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97-JavaFX-UI/" class="article-date">
+	  <time datetime="2022-07-17T01:19:56.081Z" itemprop="datePublished">7月 17</time>
+	</a>
+</span>
+    
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </span>
+
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/Java/" rel="tag">Java</a>, <a class="article-tag-link-link" href="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="tag">编程基础</a>
+  </span>
+
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97-JavaFX-UI/#comments" class="article-comment-link">评论</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(1)-%E7%8C%9C%E6%95%B0%E5%AD%97-Stream/">玩游戏学编程(1)-猜数字-Stream</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(1)-%E7%8C%9C%E6%95%B0%E5%AD%97-Stream/" class="article-date">
+	  <time datetime="2022-07-17T01:19:56.078Z" itemprop="datePublished">7月 17</time>
+	</a>
+</span>
+    
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </span>
+
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/Java/" rel="tag">Java</a>, <a class="article-tag-link-link" href="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="tag">编程基础</a>
+  </span>
+
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(1)-%E7%8C%9C%E6%95%B0%E5%AD%97-Stream/#comments" class="article-comment-link">评论</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(1)-%E7%8C%9C%E6%95%B0%E5%AD%97-Lambda%E5%92%8CStream/">玩游戏学编程(1)-猜数字-Lambda</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(1)-%E7%8C%9C%E6%95%B0%E5%AD%97-Lambda%E5%92%8CStream/" class="article-date">
+	  <time datetime="2022-07-17T01:19:56.075Z" itemprop="datePublished">7月 17</time>
+	</a>
+</span>
+    
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </span>
+
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/Java/" rel="tag">Java</a>, <a class="article-tag-link-link" href="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="tag">编程基础</a>
+  </span>
+
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(1)-%E7%8C%9C%E6%95%B0%E5%AD%97-Lambda%E5%92%8CStream/#comments" class="article-comment-link">评论</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/17/JavaScript/JavaScript-Interview-1/">一个简单的前端机试题</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/07/17/JavaScript/JavaScript-Interview-1/" class="article-date">
+	  <time datetime="2022-07-17T01:19:56.056Z" itemprop="datePublished">7月 17</time>
+	</a>
+</span>
+    
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
+  </span>
+
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/HTML/" rel="tag">HTML</a>, <a class="article-tag-link-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>
+  </span>
+
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/07/17/JavaScript/JavaScript-Interview-1/#comments" class="article-comment-link">评论</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/17/JavaScript/snake/">玩游戏学前端-贪吃蛇</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/07/17/JavaScript/snake/" class="article-date">
+	  <time datetime="2022-07-17T01:19:56.024Z" itemprop="datePublished">7月 17</time>
+	</a>
+</span>
+    
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
+  </span>
+
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>
+  </span>
+
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/07/17/JavaScript/snake/#comments" class="article-comment-link">评论</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/17/JavaScript/snake-grid/">玩游戏学前端-贪吃蛇-Grid布局</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/07/17/JavaScript/snake-grid/" class="article-date">
+	  <time datetime="2022-07-17T01:19:56.022Z" itemprop="datePublished">7月 17</time>
+	</a>
+</span>
+    
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
+  </span>
+
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>
+  </span>
+
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/07/17/JavaScript/snake-grid/#comments" class="article-comment-link">评论</a></span>
+    
+  </p>
+</article>
+
+    
+      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+  <div class="article-header">
+    
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/07/17/JavaScript/snake-es6module/">玩游戏学前端-贪吃蛇-ES6模块化</a>
+    </h1>
+  
+
+  </div>
+  
+  <p class="article-meta">
+    <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/07/17/JavaScript/snake-es6module/" class="article-date">
+	  <time datetime="2022-07-17T01:19:55.830Z" itemprop="datePublished">7月 17</time>
+	</a>
+</span>
+    
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
+  </span>
+
+    
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>
+  </span>
+
+
+    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/07/17/JavaScript/snake-es6module/#comments" class="article-comment-link">评论</a></span>
+    
+  </p>
+</article>
+
+    
+  </div>
+
+  
+    
+    <nav class="bar bar-footer clearfix" data-stick-bottom>
+        <div class="bar-inner">
+        <ul class="pager pull-left">
+            
+            <li class="prev disabled">
+                <a href="javascript:;">
+                    <i class="icon icon-angle-left"></i>
+                    上一页
+                </a>
+            </li>
+            
+            
+            <li class="next">
+                <a href="/page/2/">
+                    下一页
+                    <i class="icon icon-angle-right"></i>
+                </a>
+            </li>
+            
+        </ul>
+            <div class="total-article bar-right">Page 1 of 2</div>
+        </div>
+    </nav>
+    
+ 
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2022 Mars笑笑生
+        
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
     </div>
-  </footer>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
 
-  
-  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
-
-  
-
-
+<script src="/js/plugin.min.js"></script>
 
 
-  
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
 
 
 
