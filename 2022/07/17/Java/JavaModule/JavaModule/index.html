@@ -20,19 +20,27 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"zhsunbeam.github.io","root":"/","images":"/images","scheme":"Mist","version":"8.7.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="现在，Java每半年发布一个版本，知道为什么这么快吗？ 换作以前，得好几年时间，这主要得益于Java的模块化技术">
+<meta name="description" content="现在，Java每半年发布一个版本，知道为什么这么快吗？这主要得益于Java的模块化技术。 换作以前，时间得以【年】计算。 从本质上讲，模块化(modularization） 是指将系统分解成独立且相互连接的模块的行为。模抉（ module） 是包含代码的可识别部分，使用元数据来描述模块与其它模块之间的关系。在Java 模块系统之前， JDK 的运行时库由一个庞大的rt.jar 所组成，其大小超过">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 模块化编程">
 <meta property="og:url" content="https://zhsunbeam.github.io/2022/07/17/Java/JavaModule/JavaModule/index.html">
 <meta property="og:site_name" content="极乐空间">
-<meta property="og:description" content="现在，Java每半年发布一个版本，知道为什么这么快吗？ 换作以前，得好几年时间，这主要得益于Java的模块化技术">
+<meta property="og:description" content="现在，Java每半年发布一个版本，知道为什么这么快吗？这主要得益于Java的模块化技术。 换作以前，时间得以【年】计算。 从本质上讲，模块化(modularization） 是指将系统分解成独立且相互连接的模块的行为。模抉（ module） 是包含代码的可识别部分，使用元数据来描述模块与其它模块之间的关系。在Java 模块系统之前， JDK 的运行时库由一个庞大的rt.jar 所组成，其大小超过">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zhsunbeam.github.io/2022/07/17/Java/JavaModule/JavaModule/1.png">
+<meta property="og:image" content="https://zhsunbeam.github.io/2022/07/17/Java/JavaModule/JavaModule/2.png">
+<meta property="og:image" content="https://zhsunbeam.github.io/2022/07/17/Java/JavaModule/JavaModule/3.png">
+<meta property="og:image" content="https://zhsunbeam.github.io/2022/07/17/Java/JavaModule/JavaModule/4.png">
+<meta property="og:image" content="https://zhsunbeam.github.io/2022/07/17/Java/JavaModule/JavaModule/5.png">
+<meta property="og:image" content="https://zhsunbeam.github.io/2022/07/17/Java/JavaModule/JavaModule/6.png">
+<meta property="og:image" content="https://zhsunbeam.github.io/2022/07/17/Java/JavaModule/JavaModule/7.png">
 <meta property="article:published_time" content="2022-07-17T03:44:51.934Z">
-<meta property="article:modified_time" content="2022-07-17T03:47:32.709Z">
+<meta property="article:modified_time" content="2022-07-18T01:11:20.934Z">
 <meta property="article:author" content="Mars笑笑生">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="编程基础">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zhsunbeam.github.io/2022/07/17/Java/JavaModule/JavaModule/1.png">
 
 
 <link rel="canonical" href="https://zhsunbeam.github.io/2022/07/17/Java/JavaModule/JavaModule/">
@@ -109,7 +117,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -122,6 +130,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java9%E6%A8%A1%E5%9D%97%E5%8C%96%E7%B3%BB%E7%BB%9F%E5%87%BA%E7%8E%B0%E4%BB%A5%E5%89%8DJava%E6%A8%A1%E5%9D%97%E5%8C%96%E7%9A%84%E6%A0%B8%E5%BF%83%E4%B8%89%E5%8E%9F%E5%88%99"><span class="nav-number">1.</span> <span class="nav-text">Java9模块化系统出现以前Java模块化的核心三原则:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java9%E4%B9%8B%E5%90%8E%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="nav-number">2.</span> <span class="nav-text">Java9之后模块化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">模块工作原理</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -209,10 +218,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2022-07-17 11:44:51 / 修改时间：11:47:32" itemprop="dateCreated datePublished" datetime="2022-07-17T11:44:51+08:00">2022-07-17</time>
+      <time title="创建时间：2022-07-17 11:44:51" itemprop="dateCreated datePublished" datetime="2022-07-17T11:44:51+08:00">2022-07-17</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-07-18 09:11:20" itemprop="dateModified" datetime="2022-07-18T09:11:20+08:00">2022-07-18</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -234,8 +249,50 @@
     
     <div class="post-body" itemprop="articleBody">
         <blockquote>
-<p>现在，Java每半年发布一个版本，知道为什么这么快吗？ 换作以前，得好几年时间，这主要得益于Java的模块化技术</p>
+<p>现在，Java每半年发布一个版本，知道为什么这么快吗？这主要得益于Java的模块化技术。 换作以前，时间得以【年】计算。 从本质上讲，模块化(modularization） 是指将系统分解成独立且相互连接的模块的行为。模抉（ module） 是包含代码的可识别部分，使用元数据来描述模块与其它模块之间的关系。在Java 模块系统之前， JDK 的运行时库由一个庞大的rt.jar 所组成，其大小超过60MB ，包含了Java 大部分运行时类： 即Java 平台的最终载体。为了获得一个灵活且符合未来发展方向的平台， JDK 团队着手对JDK 进行模块化。模块化可以将jar声明为模块，它将在其自己的<code>隔离类加载器</code>中运行，该类加载器以OSGI方式从其他类似的模块类加载器读取类文件。这将允许同一版本的Jar的<code>多个版本共存</code>。 毕竟Java太庞大，模块化过程持续了几年时间，最终随Java9发布. </p>
 </blockquote>
+<h3 id="Java9模块化系统出现以前Java模块化的核心三原则"><a href="#Java9模块化系统出现以前Java模块化的核心三原则" class="headerlink" title="Java9模块化系统出现以前Java模块化的核心三原则:"></a>Java9模块化系统出现以前Java模块化的核心三原则:</h3><ul>
+<li>组合使用package和访问修饰符(public,protected,private)可以实现类型封装</li>
+<li>定义良好的接口, 也就是使用interface关键字公开公共接口</li>
+<li>显式依赖，也就是使用import关键字</li>
+</ul>
+<h3 id="Java9之后模块化"><a href="#Java9之后模块化" class="headerlink" title="Java9之后模块化"></a>Java9之后模块化</h3><ul>
+<li>JDK 由大约90个模抉组成，而不是一个整体库。与可由自己创建的应用程序模块不同的是，平台模块是JDK的一部分。从技术上讲，平台模块和应用模块之间没有任何技术区别。每个平台模块都构成了JDK 的一个定义良好的功能块，从日志记录到XML 支持。所有模块都显式地定义了与其他模块的依赖关系。</li>
+</ul>
+<h3 id="模块工作原理"><a href="#模块工作原理" class="headerlink" title="模块工作原理"></a>模块工作原理</h3><ul>
+<li><p>什么是模块，它是如何定义的？模块拥有一个<strong>名称</strong>，并对相关的代码以及可能的其他资源进行分组，使用一个模块描述符进行描述。模块描述符保存在一个名为 <strong>module-info.java</strong>  的文件中, 为此我们先创建一个Project,然后在Project下创建两个module, 如图所示:</p>
+<ol>
+<li>创建一个Project  jfxdemo</li>
+</ol>
+<p><img src="1.png"></p>
+<p><img src="2.png"></p>
+<p><img src="3.png"></p>
+<ol start="2">
+<li>在这个jfxdemo工程下创建二个javafx  module, 以下是第一个模块demo1</li>
+</ol>
+<p><img src="4.png"></p>
+<p><img src="5.png"></p>
+<p><img src="6.png"></p>
+<ol start="3">
+<li>第二个模块 demo2</li>
+</ol>
+<p><img src="7.png"></p>
+</li>
+<li><p>创建完成后可以发现，每个module下都有一个模块描述文件  module-info.java</p>
+<blockquote>
+<p>此处我们使用javafx是为了后续开发游戏做准备，同时Javafx库默认情况下不能直接在应用程序中使用，必须使用模块描述文件来导入 </p>
+</blockquote>
+</li>
+<li><p>查看demo1模块的module-info.java文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">module</span> com.example.demo1 &#123;</span><br><span class="line">    <span class="keyword">requires</span> javafx.controls;</span><br><span class="line">    <span class="keyword">requires</span> javafx.fxml;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    opens com.example.demo1 to javafx.fxml;</span><br><span class="line">    <span class="keyword">exports</span> com.example.demo1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>module-info.java文件中的第一行表示，当前应用是一个模块，模块名为 com.example.demo1</li>
+<li>requires 表示一个依赖关系，此是表示当前应用程序需要使用到javafx.controls模块以及javafx.xml模块,如果将这两句代码删除，那么在需要引用这两个模块的类中将会提示错误</li>
+<li></li>
+</ul>
+</li>
+</ul>
 
     </div>
 
