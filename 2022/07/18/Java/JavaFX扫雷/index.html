@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://zhsunbeam.github.io/2022/07/18/Java/JavaFX%E6%89%AB%E9%9B%B7/4.png">
 <meta property="og:image" content="https://zhsunbeam.github.io/2022/07/18/Java/JavaFX%E6%89%AB%E9%9B%B7/5.png">
 <meta property="article:published_time" content="2022-07-18T08:02:13.000Z">
-<meta property="article:modified_time" content="2022-07-19T03:07:54.206Z">
+<meta property="article:modified_time" content="2022-07-19T03:22:27.061Z">
 <meta property="article:author" content="Mars笑笑生">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="编程基础">
@@ -411,7 +411,7 @@
 </ol>
 <p><img src="/2022/07/18/Java/JavaFX%E6%89%AB%E9%9B%B7/2.png"></p>
 <h3 id="游戏实现"><a href="#游戏实现" class="headerlink" title="游戏实现"></a>游戏实现</h3><h4 id="1-创建JavaFX-Module"><a href="#1-创建JavaFX-Module" class="headerlink" title="1. 创建JavaFX Module"></a>1. 创建JavaFX Module</h4><ul>
-<li>参考 <a href>http://codecool.top/2022/07/17/Java/Java%E6%A8%A1%E5%9D%97%E5%8C%96/</a>  修改module-info.java文件，添加javafx模块支持</li>
+<li>参考 <a target="_blank" rel="noopener" href="http://codecool.top/2022/07/17/Java/Java%E6%A8%A1%E5%9D%97%E5%8C%96/">Java模块化编程</a>  修改module-info.java文件，添加javafx模块支持</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//module声明一个模块 加上 opens 关键词表示模块内的所有包都允许通过 Java 反射访问</span></span><br><span class="line"> <span class="keyword">module</span> example.fxdemo &#123;</span><br><span class="line">    <span class="comment">//声明模块依赖</span></span><br><span class="line">    <span class="keyword">requires</span> javafx.controls;</span><br><span class="line">    <span class="keyword">requires</span> javafx.fxml;</span><br><span class="line">    <span class="keyword">requires</span> javafx.swing;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//开放模块内的包, 允许通过java反射访问，一次开放一个包,如果外部使用了open,那么内部将不能使用opens</span></span><br><span class="line">    opens com.example.fxdemo to javafx.fxml,javafx.controls;</span><br><span class="line">    opens com.example to javafx.fxml;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">//导出这个包com.example.game，以便别的模块可以使用</span></span><br><span class="line">    <span class="keyword">exports</span> com.example.game;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
