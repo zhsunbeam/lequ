@@ -1,3 +1,4 @@
+https://zhsunbeam.github.io/2022/07/19/JavaScript/(1)-JavaScript-Canvas%E7%94%BB%E7%BA%BF/
 https://zhsunbeam.github.io/2022/07/18/Java/JavaFX%E6%89%AB%E9%9B%B7/
 https://zhsunbeam.github.io/2022/07/17/Java/Java%E6%A8%A1%E5%9D%97%E5%8C%96/
 https://zhsunbeam.github.io/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(1)-%E7%8C%9C%E6%95%B0%E5%AD%97-Stream/
@@ -31,3 +32,4 @@ https://zhsunbeam.github.io/categories/JOOQ/
 https://zhsunbeam.github.io/categories/Java/
 https://zhsunbeam.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/
 https://zhsunbeam.github.io/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/
+https://zhsunbeam.github.io/categories/JavaScript/
