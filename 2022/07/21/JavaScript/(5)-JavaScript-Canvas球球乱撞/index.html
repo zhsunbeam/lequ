@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>(五) JavaScript-Canvas球球乱撞 | CodeCool</title>
+  <meta name="description" content="JavaScript基础,Canvas">
+<meta property="og:type" content="article">
+<meta property="og:title" content="(五) JavaScript-Canvas球球乱撞">
+<meta property="og:url" content="https://zhsunbeam.github.io/2022/07/21/JavaScript/(5)-JavaScript-Canvas%E7%90%83%E7%90%83%E4%B9%B1%E6%92%9E/index.html">
+<meta property="og:site_name" content="极乐空间">
+<meta property="og:description" content="JavaScript基础,Canvas">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zhsunbeam.github.io/2022/07/21/JavaScript/(5)-JavaScript-Canvas%E7%90%83%E7%90%83%E4%B9%B1%E6%92%9E/1.gif">
+<meta property="article:published_time" content="2022-07-21T09:00:00.000Z">
+<meta property="article:modified_time" content="2022-07-22T09:53:37.080Z">
+<meta property="article:author" content="Mars笑笑生">
+<meta property="article:tag" content="编程基础">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zhsunbeam.github.io/2022/07/21/JavaScript/(5)-JavaScript-Canvas%E7%90%83%E7%90%83%E4%B9%B1%E6%92%9E/1.gif">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://zhsunbeam.github.io/2022/07/21/JavaScript/(5)-JavaScript-Canvas%E7%90%83%E7%90%83%E4%B9%B1%E6%92%9E/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="极乐空间" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body class="main-center theme-green" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/cofess" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">哼哈七龙岛主</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">架构师 &amp; 开发者 &amp; 技术分享</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> ChangSha, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/H5/">H5</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JOOQ/">JOOQ</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/">项目开发</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/" rel="tag">H5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ORM%E6%A1%86%E6%9E%B6/" rel="tag">ORM框架</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="tag">编程基础</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/" rel="tag">项目开发</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/H5/" style="font-size: 13px;">H5</a> <a href="/tags/HTML/" style="font-size: 13px;">HTML</a> <a href="/tags/Java/" style="font-size: 13.5px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 14px;">JavaScript</a> <a href="/tags/ORM%E6%A1%86%E6%9E%B6/" style="font-size: 13px;">ORM框架</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" style="font-size: 14px;">编程基础</a> <a href="/tags/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/" style="font-size: 13px;">项目开发</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">21</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/07/21/JavaScript/(5)-JavaScript-Canvas%E7%90%83%E7%90%83%E4%B9%B1%E6%92%9E/" class="title">(五) JavaScript-Canvas球球乱撞</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-07-21T09:00:00.000Z" itemprop="datePublished">2022-07-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/07/21/JavaScript/(4)-JavaScript-Canvas%E8%87%AA%E7%94%B1%E8%BF%90%E5%8A%A8%E7%9A%84%E7%90%83/" class="title">(四) JavaScript-Canvas-自由运动的球</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-07-21T07:00:00.000Z" itemprop="datePublished">2022-07-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/07/21/JavaScript/(3)-JavaScript-Canvas%E7%94%BB%E5%A4%9A%E8%BE%B9%E5%BD%A2/" class="title">(三)  JavaScript Canvas 画多边形-多角星</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-07-21T02:02:00.000Z" itemprop="datePublished">2022-07-21</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/07/20/JavaScript/(2)-JavaScript-Canvas%E7%94%BB%E7%9F%A9%E5%BD%A2/" class="title">(二)  JavaScript Canvas 画矩形</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-07-20T04:02:00.000Z" itemprop="datePublished">2022-07-20</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/07/19/JavaScript/(1)-JavaScript-Canvas%E7%94%BB%E7%BA%BF/" class="title">(一)  JavaScript Canvas 画线</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-07-19T13:02:13.000Z" itemprop="datePublished">2022-07-19</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-JavaScript/(5)-JavaScript-Canvas球球乱撞" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      (五) JavaScript-Canvas球球乱撞
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/07/21/JavaScript/(5)-JavaScript-Canvas%E7%90%83%E7%90%83%E4%B9%B1%E6%92%9E/" class="article-date">
+	  <time datetime="2022-07-21T09:00:00.000Z" itemprop="datePublished">2022-07-21</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>, <a class="article-tag-link-link" href="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="tag">编程基础</a>
+  </span>
+
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/07/21/JavaScript/(5)-JavaScript-Canvas%E7%90%83%E7%90%83%E4%B9%B1%E6%92%9E/#comments" class="article-comment-link">评论</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <blockquote>
+<p> JavaScript 是前端核心， 掌握这门语言是步入前端高手行列必经之路，噢，别忘了还有TypeScript, 学习它还需要OOP知识， 底层的浏览器原理、HTTP协议也必不可少， 此系列文章记录使用JavaScript和Canvas进行游戏开发, 有游戏才有趣!!!</p>
+</blockquote>
+<h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p><img src="/2022/07/21/JavaScript/(5)-JavaScript-Canvas%E7%90%83%E7%90%83%E4%B9%B1%E6%92%9E/1.gif"></p>
+<h2 id="五-JavaScript-Canvas球球乱撞"><a href="#五-JavaScript-Canvas球球乱撞" class="headerlink" title="(五) JavaScript-Canvas球球乱撞"></a>(五) JavaScript-Canvas球球乱撞</h2><blockquote>
+<p>在 <a target="_blank" rel="noopener" href="http://codecool.top/2022/07/21/JavaScript/(4)-JavaScript-Canvas%E8%87%AA%E7%94%B1%E8%BF%90%E5%8A%A8%E7%9A%84%E7%90%83/">JavaScript-Canvas-自由运动的球</a> 这一节里，实现了单个球自由地在Canvas画布中运动，本节将它完善一下，创建N个球在Canvas画布中胡乱飞，见上图；这些球相互之间不会碰撞，如果需要实现这个功能，还需加点油，跟着来就对了。</p>
+</blockquote>
+<ul>
+<li><p>本节JavaScript 技术要点</p>
+<ul>
+<li><p>定义数组 和使用数组, 貌似一见到数组有些人就犯难了</p>
+</li>
+<li><p>随机设置颜色</p>
+</li>
+<li><p>控制一下球的运动速度(其实这算不上技术，顶多是个技巧)</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-JavaScript-Canvas-自由运动的球-最终代码如下"><a href="#1-JavaScript-Canvas-自由运动的球-最终代码如下" class="headerlink" title="1. JavaScript-Canvas-自由运动的球 最终代码如下"></a>1. <a target="_blank" rel="noopener" href="http://codecool.top/2022/07/21/JavaScript/(4)-JavaScript-Canvas%E8%87%AA%E7%94%B1%E8%BF%90%E5%8A%A8%E7%9A%84%E7%90%83/">JavaScript-Canvas-自由运动的球</a> 最终代码如下</h3><ul>
+<li>需要在这个代码上面增加一点内容来实现 多球自由运动</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">        *&#123;<span class="attribute">padding</span>: <span class="number">0</span>; <span class="attribute">margin</span>: <span class="number">0</span>;&#125;</span></span><br><span class="line"><span class="css">        <span class="selector-id">#canvas</span>  &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="css">            <span class="attribute">top</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">left</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">&quot;canvas&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="comment">/** <span class="doctag">@type <span class="type">&#123;HTMLCanvasElement&#125;</span> </span>*/</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;canvas&#x27;</span>)</span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> ctx = canvas.getContext(<span class="string">&#x27;2d&#x27;</span>)</span></span><br><span class="line"><span class="javascript">        canvas.width = <span class="built_in">window</span>.innerWidth</span></span><br><span class="line"><span class="javascript">        canvas.height = <span class="built_in">window</span>.innerHeight</span></span><br><span class="line"><span class="javascript">        </span></span><br><span class="line"><span class="javascript">        <span class="class"><span class="keyword">class</span> <span class="title">Circle</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="title">constructor</span>(<span class="params">x, y, dx, dy, radius</span>)</span> &#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">this</span>.x = x</span></span><br><span class="line"><span class="javascript">                <span class="built_in">this</span>.y = y</span></span><br><span class="line"><span class="javascript">                <span class="built_in">this</span>.dx = dx</span></span><br><span class="line"><span class="javascript">                <span class="built_in">this</span>.dy = dy</span></span><br><span class="line"><span class="javascript">                <span class="built_in">this</span>.radius = radius</span></span><br><span class="line"><span class="javascript">            &#125;</span></span><br><span class="line"><span class="javascript">            <span class="comment">//画一个圆</span></span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="title">draw</span>(<span class="params"></span>)</span> &#123;</span></span><br><span class="line"><span class="javascript">                ctx.beginPath()</span></span><br><span class="line"><span class="javascript">                ctx.arc(<span class="built_in">this</span>.x,<span class="built_in">this</span>.y,<span class="built_in">this</span>.radius,<span class="number">0</span>,<span class="number">2</span>*<span class="built_in">Math</span>.PI, <span class="literal">false</span>)</span></span><br><span class="line"><span class="javascript">                <span class="comment">//线样式</span></span></span><br><span class="line"><span class="javascript">                ctx.strokeStyle = <span class="string">&#x27;blue&#x27;</span></span></span><br><span class="line"><span class="javascript">                ctx.stroke()</span></span><br><span class="line"><span class="javascript">                <span class="comment">//填充</span></span></span><br><span class="line"><span class="javascript">                ctx.fill()</span></span><br><span class="line"><span class="javascript">            &#125;</span></span><br><span class="line"><span class="javascript">            </span></span><br><span class="line"><span class="javascript">            <span class="comment">//更新圆的位置</span></span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="title">update</span>(<span class="params"></span>)</span> &#123;</span></span><br><span class="line"><span class="javascript">                <span class="comment">//判断圆是否超出canvas边界，判断时需要将半径也算上</span></span></span><br><span class="line"><span class="javascript">                <span class="keyword">if</span>(<span class="built_in">this</span>.x + <span class="built_in">this</span>.radius &gt; canvas.width || <span class="built_in">this</span>.x-<span class="built_in">this</span>.radius &lt; <span class="number">0</span>)&#123;</span></span><br><span class="line"><span class="javascript">                    <span class="comment">//如果超出x轴左右两边的边界则重新设置 dx的值</span></span></span><br><span class="line"><span class="javascript">                    <span class="built_in">this</span>.dx = -<span class="built_in">this</span>.dx</span></span><br><span class="line"><span class="javascript">                &#125;</span></span><br><span class="line"><span class="javascript">                <span class="comment">//高度边界判断</span></span></span><br><span class="line"><span class="javascript">                <span class="keyword">if</span>(<span class="built_in">this</span>.y+<span class="built_in">this</span>.radius &gt; canvas.height || <span class="built_in">this</span>.y-<span class="built_in">this</span>.radius &lt; <span class="number">0</span>) &#123;</span></span><br><span class="line"><span class="javascript">                    <span class="built_in">this</span>.dy = -<span class="built_in">this</span>.dy</span></span><br><span class="line"><span class="javascript">                &#125;</span></span><br><span class="line"><span class="javascript">                <span class="comment">//更改x和y坐标</span></span></span><br><span class="line"><span class="javascript">                <span class="built_in">this</span>.x += <span class="built_in">this</span>.dx</span></span><br><span class="line"><span class="javascript">                <span class="built_in">this</span>.y += <span class="built_in">this</span>.dy</span></span><br><span class="line"><span class="javascript">                </span></span><br><span class="line"><span class="javascript">                <span class="comment">//调用draw()函数重新画圆</span></span></span><br><span class="line"><span class="javascript">                <span class="built_in">this</span>.draw()</span></span><br><span class="line"><span class="javascript">            &#125;</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">        </span></span><br><span class="line"><span class="javascript">        </span></span><br><span class="line"><span class="javascript">        <span class="comment">//创建一个圆</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> circle = <span class="keyword">new</span> Circle(<span class="number">200</span>,<span class="number">200</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">30</span>)</span></span><br><span class="line"><span class="javascript">        <span class="comment">//调用update函数</span></span></span><br><span class="line"><span class="javascript">        circle.update()</span></span><br><span class="line"><span class="javascript">        </span></span><br><span class="line"><span class="javascript">        <span class="comment">//动画函数</span></span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="keyword">function</span> <span class="title">animate</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="comment">//不断请求动画帧，每次请求都会重新调用一次animate,</span></span></span><br><span class="line"><span class="javascript">            requestAnimationFrame(animate)</span></span><br><span class="line"><span class="javascript">            ctx.clearRect(<span class="number">0</span>,<span class="number">0</span>,canvas.width,canvas.height)</span></span><br><span class="line"><span class="javascript">            circle.update()</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">        animate()</span></span><br><span class="line"><span class="javascript">        </span></span><br><span class="line"><span class="javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-Circle数组"><a href="#2-Circle数组" class="headerlink" title="2. Circle数组"></a>2. Circle数组</h3><ul>
+<li>既然要有多个球，那么可以定义一个数组，数组中的元素为Circle对象, 每个圆的初始位置都随机生成</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//声明一个数组</span></span><br><span class="line"><span class="keyword">var</span> circleArray = []</span><br><span class="line"><span class="comment">//循环50次，产生50个Circle对象</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">50</span>; i++) &#123;</span><br><span class="line">    <span class="comment">//自动生成x,y坐标,范围必须在Canvas画布内</span></span><br><span class="line">    <span class="keyword">let</span> x = <span class="built_in">Math</span>.random() * (canvas.width-radius*<span class="number">2</span>) + radius</span><br><span class="line">    <span class="keyword">let</span> y = <span class="built_in">Math</span>.random() * (canvas.height-radius*<span class="number">2</span>) + radius</span><br><span class="line">    <span class="comment">//速度控制, dx和dy表示移动的位置，此时也随机生成</span></span><br><span class="line">    <span class="keyword">let</span> dx = (<span class="built_in">Math</span>.random() - <span class="number">0.5</span>) * <span class="number">6</span></span><br><span class="line">    <span class="keyword">let</span> dy = (<span class="built_in">Math</span>.random() - <span class="number">0.5</span>) * <span class="number">8</span></span><br><span class="line">    <span class="keyword">let</span> radius = <span class="number">30</span></span><br><span class="line">    <span class="comment">//创建Circle对象，并添加到数组中</span></span><br><span class="line">    circleArray.push(<span class="keyword">new</span> Circle(x,y,dx,dy,radius))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-动画函数中遍历数组"><a href="#3-动画函数中遍历数组" class="headerlink" title="3. 动画函数中遍历数组"></a>3. 动画函数中遍历数组</h3><ul>
+<li>遍历数组时不断的调用 Circle对象的update()方法</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">animate</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    requestAnimationFrame(animate)</span><br><span class="line">    ctx.clearRect(<span class="number">0</span>,<span class="number">0</span>,canvas.width,canvas.height)</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; circleArray.length; i++) &#123;</span><br><span class="line">        circleArray[i].update()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">animate()</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="4-完整代码"><a href="#4-完整代码" class="headerlink" title="4. 完整代码"></a>4. 完整代码</h3><ul>
+<li>增加了随机颜色</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">        *&#123;<span class="attribute">padding</span>: <span class="number">0</span>; <span class="attribute">margin</span>: <span class="number">0</span>;&#125;</span></span><br><span class="line"><span class="css">        <span class="selector-id">#canvas</span>  &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="css">            <span class="attribute">top</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">left</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">&quot;canvas&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="comment">/** <span class="doctag">@type <span class="type">&#123;HTMLCanvasElement&#125;</span> </span>*/</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;canvas&#x27;</span>)</span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> ctx = canvas.getContext(<span class="string">&#x27;2d&#x27;</span>)</span></span><br><span class="line"><span class="javascript">        canvas.width = <span class="built_in">window</span>.innerWidth</span></span><br><span class="line"><span class="javascript">        canvas.height = <span class="built_in">window</span>.innerHeight</span></span><br><span class="line"><span class="javascript">        </span></span><br><span class="line"><span class="javascript">        <span class="class"><span class="keyword">class</span> <span class="title">Circle</span> </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="title">constructor</span>(<span class="params">x, y, dx, dy, radius</span>)</span> &#123;</span></span><br><span class="line"><span class="javascript">                <span class="built_in">this</span>.x = x</span></span><br><span class="line"><span class="javascript">                <span class="built_in">this</span>.y = y</span></span><br><span class="line"><span class="javascript">                <span class="built_in">this</span>.dx = dx</span></span><br><span class="line"><span class="javascript">                <span class="built_in">this</span>.dy = dy</span></span><br><span class="line"><span class="javascript">                <span class="built_in">this</span>.radius = radius</span></span><br><span class="line"><span class="javascript">                <span class="comment">//增加一个颜色属性</span></span></span><br><span class="line"><span class="javascript">                <span class="built_in">this</span>.color = <span class="string">&#x27;hsla(&#x27;</span>+(<span class="built_in">Math</span>.random()*<span class="number">360</span>)+<span class="string">&#x27;, 100%, 50%, 0.6)&#x27;</span></span></span><br><span class="line"><span class="javascript">            &#125;</span></span><br><span class="line"><span class="javascript">            <span class="comment">//画一个圆</span></span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="title">draw</span>(<span class="params"></span>)</span> &#123;</span></span><br><span class="line"><span class="javascript">                ctx.beginPath()</span></span><br><span class="line"><span class="javascript">                <span class="comment">//设置填充颜色</span></span></span><br><span class="line"><span class="javascript">                ctx.fillStyle = <span class="built_in">this</span>.color</span></span><br><span class="line"><span class="javascript">                </span></span><br><span class="line"><span class="javascript">                ctx.arc(<span class="built_in">this</span>.x,<span class="built_in">this</span>.y,<span class="built_in">this</span>.radius,<span class="number">0</span>,<span class="number">2</span>*<span class="built_in">Math</span>.PI, <span class="literal">false</span>)</span></span><br><span class="line"><span class="javascript">                <span class="comment">//线样式</span></span></span><br><span class="line"><span class="javascript">                <span class="comment">//ctx.strokeStyle = &#x27;blue&#x27;</span></span></span><br><span class="line"><span class="javascript">                <span class="comment">//ctx.stroke()</span></span></span><br><span class="line"><span class="javascript">                <span class="comment">//填充</span></span></span><br><span class="line"><span class="javascript">                ctx.fill()</span></span><br><span class="line"><span class="javascript">            &#125;</span></span><br><span class="line"><span class="javascript">            </span></span><br><span class="line"><span class="javascript">            <span class="comment">//更新圆的位置</span></span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="title">update</span>(<span class="params"></span>)</span> &#123;</span></span><br><span class="line"><span class="javascript">                <span class="comment">//判断圆是否超出canvas边界，判断时需要将半径也算上</span></span></span><br><span class="line"><span class="javascript">                <span class="keyword">if</span>(<span class="built_in">this</span>.x + <span class="built_in">this</span>.radius &gt; canvas.width || <span class="built_in">this</span>.x-<span class="built_in">this</span>.radius &lt; <span class="number">0</span>)&#123;</span></span><br><span class="line"><span class="javascript">                    <span class="comment">//如果超出x轴左右两边的边界则重新设置 dx的值</span></span></span><br><span class="line"><span class="javascript">                    <span class="built_in">this</span>.dx = -<span class="built_in">this</span>.dx</span></span><br><span class="line"><span class="javascript">                &#125;</span></span><br><span class="line"><span class="javascript">                <span class="comment">//高度边界判断</span></span></span><br><span class="line"><span class="javascript">                <span class="keyword">if</span>(<span class="built_in">this</span>.y+<span class="built_in">this</span>.radius &gt; canvas.height || <span class="built_in">this</span>.y-<span class="built_in">this</span>.radius &lt; <span class="number">0</span>) &#123;</span></span><br><span class="line"><span class="javascript">                    <span class="built_in">this</span>.dy = -<span class="built_in">this</span>.dy</span></span><br><span class="line"><span class="javascript">                &#125;</span></span><br><span class="line"><span class="javascript">                <span class="comment">//更改x和y坐标</span></span></span><br><span class="line"><span class="javascript">                <span class="built_in">this</span>.x += <span class="built_in">this</span>.dx</span></span><br><span class="line"><span class="javascript">                <span class="built_in">this</span>.y += <span class="built_in">this</span>.dy</span></span><br><span class="line"><span class="javascript">                </span></span><br><span class="line"><span class="javascript">                <span class="comment">//调用draw()函数重新画圆</span></span></span><br><span class="line"><span class="javascript">                <span class="built_in">this</span>.draw()</span></span><br><span class="line"><span class="javascript">            &#125;</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">        </span></span><br><span class="line"><span class="javascript">        </span></span><br><span class="line"><span class="javascript">        <span class="comment">//***************************************************************</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">//声明一个数组</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> circleArray = []</span></span><br><span class="line"><span class="javascript">        <span class="comment">//循环50次，产生50个Circle对象</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">50</span>; i++) &#123;</span></span><br><span class="line"><span class="javascript">            <span class="comment">//自动生成x,y坐标,范围必须在Canvas画布内</span></span></span><br><span class="line"><span class="javascript">            <span class="keyword">let</span> x = <span class="built_in">Math</span>.random() * (canvas.width-radius*<span class="number">2</span>) + radius</span></span><br><span class="line"><span class="javascript">            <span class="keyword">let</span> y = <span class="built_in">Math</span>.random() * (canvas.height-radius*<span class="number">2</span>) + radius</span></span><br><span class="line"><span class="javascript">            <span class="comment">//速度控制, dx和dy表示移动的位置，此时也随机生成</span></span></span><br><span class="line"><span class="javascript">            <span class="keyword">let</span> dx = (<span class="built_in">Math</span>.random() - <span class="number">0.5</span>) * <span class="number">6</span></span></span><br><span class="line"><span class="javascript">            <span class="keyword">let</span> dy = (<span class="built_in">Math</span>.random() - <span class="number">0.5</span>) * <span class="number">8</span></span></span><br><span class="line"><span class="javascript">            <span class="keyword">let</span> radius = <span class="number">30</span></span></span><br><span class="line"><span class="javascript">            <span class="comment">//创建Circle对象，并添加到数组中</span></span></span><br><span class="line"><span class="javascript">            circleArray.push(<span class="keyword">new</span> Circle(x,y,dx,dy,radius))</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">        <span class="comment">//****************************************************************</span></span></span><br><span class="line"><span class="javascript">        </span></span><br><span class="line"><span class="javascript">        <span class="comment">//**********************动画函数**********************</span></span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="keyword">function</span> <span class="title">animate</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            requestAnimationFrame(animate)</span></span><br><span class="line"><span class="javascript">            ctx.clearRect(<span class="number">0</span>,<span class="number">0</span>,canvas.width,canvas.height)</span></span><br><span class="line"><span class="javascript">            <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; circleArray.length; i++) &#123;</span></span><br><span class="line"><span class="javascript">                circleArray[i].update()</span></span><br><span class="line"><span class="javascript">            &#125;</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">        <span class="comment">//**********************动画函数**********************</span></span></span><br><span class="line"><span class="javascript">        </span></span><br><span class="line"><span class="javascript">        <span class="comment">//别忘记调用</span></span></span><br><span class="line"><span class="javascript">        animate()</span></span><br><span class="line"><span class="javascript">        </span></span><br><span class="line"><span class="javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>本节中利用数组存储了多个Circle对象，在动画函数中遍历数组并调用update方法更新 Circle的位置， 后续我们增加特效，让球和球之间有连线</p>
+</blockquote>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://zhsunbeam.github.io/2022/07/21/JavaScript/(5)-JavaScript-Canvas%E7%90%83%E7%90%83%E4%B9%B1%E6%92%9E/" title="(五) JavaScript-Canvas球球乱撞" target="_blank" rel="external">https://zhsunbeam.github.io/2022/07/21/JavaScript/(5)-JavaScript-Canvas球球乱撞/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/cofess" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/cofess" target="_blank"><span class="text-dark">哼哈七龙岛主</span><small class="ml-1x">架构师 &amp; 开发者 &amp; 技术分享</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2022/07/21/JavaScript/(4)-JavaScript-Canvas%E8%87%AA%E7%94%B1%E8%BF%90%E5%8A%A8%E7%9A%84%E7%90%83/" title="(四) JavaScript-Canvas-自由运动的球"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2022 Mars笑笑生
+        
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
