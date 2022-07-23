@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhsunbeam.github.io/2022/07/22/JavaScript/(7)-JavaScript-Canvas%E6%BB%91%E5%8A%A8%E6%98%9F%E5%BA%A7/</loc>
+    
+    <lastmod>2022-07-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhsunbeam.github.io/2022/07/22/JavaScript/(6)-JavaScript-Canvas%E6%98%9F%E5%BA%A7/</loc>
     
     <lastmod>2022-07-23</lastmod>
