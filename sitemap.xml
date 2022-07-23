@@ -2,9 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://zhsunbeam.github.io/2022/07/21/JavaScript/(5)-JavaScript-Canvas%E7%90%83%E7%90%83%E4%B9%B1%E6%92%9E/</loc>
+    <loc>https://zhsunbeam.github.io/2022/07/22/JavaScript/(6)-JavaScript-Canvas%E6%98%9F%E5%BA%A7/</loc>
     
-    <lastmod>2022-07-22</lastmod>
+    <lastmod>2022-07-23</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -12,6 +12,15 @@
   
   <url>
     <loc>https://zhsunbeam.github.io/2022/07/21/JavaScript/(4)-JavaScript-Canvas%E8%87%AA%E7%94%B1%E8%BF%90%E5%8A%A8%E7%9A%84%E7%90%83/</loc>
+    
+    <lastmod>2022-07-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhsunbeam.github.io/2022/07/21/JavaScript/(5)-JavaScript-Canvas%E7%90%83%E7%90%83%E4%B9%B1%E6%92%9E/</loc>
     
     <lastmod>2022-07-22</lastmod>
     
@@ -229,7 +238,7 @@
 
   <url>
     <loc>https://zhsunbeam.github.io/</loc>
-    <lastmod>2022-07-22</lastmod>
+    <lastmod>2022-07-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -237,49 +246,49 @@
   
   <url>
     <loc>https://zhsunbeam.github.io/tags/H5/</loc>
-    <lastmod>2022-07-22</lastmod>
+    <lastmod>2022-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhsunbeam.github.io/tags/Java/</loc>
-    <lastmod>2022-07-22</lastmod>
+    <lastmod>2022-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhsunbeam.github.io/tags/ORM%E6%A1%86%E6%9E%B6/</loc>
-    <lastmod>2022-07-22</lastmod>
+    <lastmod>2022-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/</loc>
-    <lastmod>2022-07-22</lastmod>
+    <lastmod>2022-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhsunbeam.github.io/tags/JavaScript/</loc>
-    <lastmod>2022-07-22</lastmod>
+    <lastmod>2022-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhsunbeam.github.io/tags/HTML/</loc>
-    <lastmod>2022-07-22</lastmod>
+    <lastmod>2022-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhsunbeam.github.io/tags/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/</loc>
-    <lastmod>2022-07-22</lastmod>
+    <lastmod>2022-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -288,42 +297,42 @@
   
   <url>
     <loc>https://zhsunbeam.github.io/categories/H5/</loc>
-    <lastmod>2022-07-22</lastmod>
+    <lastmod>2022-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhsunbeam.github.io/categories/JOOQ/</loc>
-    <lastmod>2022-07-22</lastmod>
+    <lastmod>2022-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhsunbeam.github.io/categories/Java/</loc>
-    <lastmod>2022-07-22</lastmod>
+    <lastmod>2022-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhsunbeam.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/</loc>
-    <lastmod>2022-07-22</lastmod>
+    <lastmod>2022-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhsunbeam.github.io/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/</loc>
-    <lastmod>2022-07-22</lastmod>
+    <lastmod>2022-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhsunbeam.github.io/categories/JavaScript/</loc>
-    <lastmod>2022-07-22</lastmod>
+    <lastmod>2022-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
