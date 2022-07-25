@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhsunbeam.github.io/2022/07/25/JavaScript/(8)-JavaScript-Canvas%E6%97%8B%E8%BD%AC%E7%9A%84%E5%9B%BE%E7%89%87/</loc>
+    
+    <lastmod>2022-07-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhsunbeam.github.io/2022/07/21/Spring/00-Spring-core/</loc>
     
     <lastmod>2022-07-24</lastmod>
