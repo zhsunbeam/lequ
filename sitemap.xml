@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhsunbeam.github.io/2022/07/26/JavaScript/(9)-JavaScript-Canvas%E9%9B%AA%E8%8A%B1%E9%A3%98/</loc>
+    
+    <lastmod>2022-07-26</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhsunbeam.github.io/2022/07/25/JavaScript/(8)-JavaScript-Canvas%E6%97%8B%E8%BD%AC%E7%9A%84%E5%9B%BE%E7%89%87/</loc>
     
     <lastmod>2022-07-25</lastmod>
@@ -265,7 +274,7 @@
 
   <url>
     <loc>https://zhsunbeam.github.io/</loc>
-    <lastmod>2022-07-25</lastmod>
+    <lastmod>2022-07-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -273,63 +282,63 @@
   
   <url>
     <loc>https://zhsunbeam.github.io/tags/H5/</loc>
-    <lastmod>2022-07-25</lastmod>
+    <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhsunbeam.github.io/tags/Java/</loc>
-    <lastmod>2022-07-25</lastmod>
+    <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhsunbeam.github.io/tags/ORM%E6%A1%86%E6%9E%B6/</loc>
-    <lastmod>2022-07-25</lastmod>
+    <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/</loc>
-    <lastmod>2022-07-25</lastmod>
+    <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhsunbeam.github.io/tags/JavaScript/</loc>
-    <lastmod>2022-07-25</lastmod>
+    <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhsunbeam.github.io/tags/HTML/</loc>
-    <lastmod>2022-07-25</lastmod>
+    <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhsunbeam.github.io/tags/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/</loc>
-    <lastmod>2022-07-25</lastmod>
+    <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhsunbeam.github.io/tags/Spring/</loc>
-    <lastmod>2022-07-25</lastmod>
+    <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhsunbeam.github.io/tags/%E6%A1%86%E6%9E%B6/</loc>
-    <lastmod>2022-07-25</lastmod>
+    <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -338,49 +347,49 @@
   
   <url>
     <loc>https://zhsunbeam.github.io/categories/H5/</loc>
-    <lastmod>2022-07-25</lastmod>
+    <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhsunbeam.github.io/categories/JOOQ/</loc>
-    <lastmod>2022-07-25</lastmod>
+    <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhsunbeam.github.io/categories/Java/</loc>
-    <lastmod>2022-07-25</lastmod>
+    <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhsunbeam.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/</loc>
-    <lastmod>2022-07-25</lastmod>
+    <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhsunbeam.github.io/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/</loc>
-    <lastmod>2022-07-25</lastmod>
+    <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhsunbeam.github.io/categories/JavaScript/</loc>
-    <lastmod>2022-07-25</lastmod>
+    <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhsunbeam.github.io/categories/Spring/</loc>
-    <lastmod>2022-07-25</lastmod>
+    <lastmod>2022-07-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
