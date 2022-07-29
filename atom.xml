@@ -3,11 +3,11 @@
   <title>极乐空间</title>
   
   <subtitle>安静的来点代码</subtitle>
-  <link href="https://zhsunbeam.github.io/lequ/atom.xml" rel="self"/>
+  <link href="https://zhsunbeam.github.io/atom.xml" rel="self"/>
   
-  <link href="https://zhsunbeam.github.io/lequ/"/>
+  <link href="https://zhsunbeam.github.io/"/>
   <updated>2022-07-29T13:53:32.420Z</updated>
-  <id>https://zhsunbeam.github.io/lequ/</id>
+  <id>https://zhsunbeam.github.io/</id>
   
   <author>
     <name>Mars笑笑生</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>(九) JavaScript-Canvas 雪花飘</title>
-    <link href="https://zhsunbeam.github.io/lequ/2022/07/26/JavaScript/(9)-JavaScript-Canvas%E9%9B%AA%E8%8A%B1%E9%A3%98/"/>
-    <id>https://zhsunbeam.github.io/lequ/2022/07/26/JavaScript/(9)-JavaScript-Canvas%E9%9B%AA%E8%8A%B1%E9%A3%98/</id>
+    <link href="https://zhsunbeam.github.io/2022/07/26/JavaScript/(9)-JavaScript-Canvas%E9%9B%AA%E8%8A%B1%E9%A3%98/"/>
+    <id>https://zhsunbeam.github.io/2022/07/26/JavaScript/(9)-JavaScript-Canvas%E9%9B%AA%E8%8A%B1%E9%A3%98/</id>
     <published>2022-07-26T11:05:00.000Z</published>
     <updated>2022-07-29T13:53:32.420Z</updated>
     
@@ -30,19 +30,19 @@
     
     
     
-    <category term="JavaScript" scheme="https://zhsunbeam.github.io/lequ/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://zhsunbeam.github.io/categories/JavaScript/"/>
     
     
-    <category term="编程基础" scheme="https://zhsunbeam.github.io/lequ/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
     
-    <category term="JavaScript" scheme="https://zhsunbeam.github.io/lequ/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://zhsunbeam.github.io/tags/JavaScript/"/>
     
   </entry>
   
   <entry>
     <title>(八) JavaScript-Canvas旋转的图片</title>
-    <link href="https://zhsunbeam.github.io/lequ/2022/07/25/JavaScript/(8)-JavaScript-Canvas%E6%97%8B%E8%BD%AC%E7%9A%84%E5%9B%BE%E7%89%87/"/>
-    <id>https://zhsunbeam.github.io/lequ/2022/07/25/JavaScript/(8)-JavaScript-Canvas%E6%97%8B%E8%BD%AC%E7%9A%84%E5%9B%BE%E7%89%87/</id>
+    <link href="https://zhsunbeam.github.io/2022/07/25/JavaScript/(8)-JavaScript-Canvas%E6%97%8B%E8%BD%AC%E7%9A%84%E5%9B%BE%E7%89%87/"/>
+    <id>https://zhsunbeam.github.io/2022/07/25/JavaScript/(8)-JavaScript-Canvas%E6%97%8B%E8%BD%AC%E7%9A%84%E5%9B%BE%E7%89%87/</id>
     <published>2022-07-25T01:05:00.000Z</published>
     <updated>2022-07-29T14:22:01.591Z</updated>
     
@@ -53,19 +53,19 @@
     
     
     
-    <category term="JavaScript" scheme="https://zhsunbeam.github.io/lequ/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://zhsunbeam.github.io/categories/JavaScript/"/>
     
     
-    <category term="编程基础" scheme="https://zhsunbeam.github.io/lequ/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
     
-    <category term="JavaScript" scheme="https://zhsunbeam.github.io/lequ/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://zhsunbeam.github.io/tags/JavaScript/"/>
     
   </entry>
   
   <entry>
     <title>(七) JavaScript-Canvas-滑动星座</title>
-    <link href="https://zhsunbeam.github.io/lequ/2022/07/22/JavaScript/(7)-JavaScript-Canvas%E6%BB%91%E5%8A%A8%E6%98%9F%E5%BA%A7/"/>
-    <id>https://zhsunbeam.github.io/lequ/2022/07/22/JavaScript/(7)-JavaScript-Canvas%E6%BB%91%E5%8A%A8%E6%98%9F%E5%BA%A7/</id>
+    <link href="https://zhsunbeam.github.io/2022/07/22/JavaScript/(7)-JavaScript-Canvas%E6%BB%91%E5%8A%A8%E6%98%9F%E5%BA%A7/"/>
+    <id>https://zhsunbeam.github.io/2022/07/22/JavaScript/(7)-JavaScript-Canvas%E6%BB%91%E5%8A%A8%E6%98%9F%E5%BA%A7/</id>
     <published>2022-07-22T10:00:00.000Z</published>
     <updated>2022-07-24T04:14:07.171Z</updated>
     
@@ -76,19 +76,19 @@
     
     
     
-    <category term="JavaScript" scheme="https://zhsunbeam.github.io/lequ/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://zhsunbeam.github.io/categories/JavaScript/"/>
     
     
-    <category term="编程基础" scheme="https://zhsunbeam.github.io/lequ/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
     
-    <category term="JavaScript" scheme="https://zhsunbeam.github.io/lequ/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://zhsunbeam.github.io/tags/JavaScript/"/>
     
   </entry>
   
   <entry>
     <title>(六) JavaScript-Canvas-星座</title>
-    <link href="https://zhsunbeam.github.io/lequ/2022/07/22/JavaScript/(6)-JavaScript-Canvas%E6%98%9F%E5%BA%A7/"/>
-    <id>https://zhsunbeam.github.io/lequ/2022/07/22/JavaScript/(6)-JavaScript-Canvas%E6%98%9F%E5%BA%A7/</id>
+    <link href="https://zhsunbeam.github.io/2022/07/22/JavaScript/(6)-JavaScript-Canvas%E6%98%9F%E5%BA%A7/"/>
+    <id>https://zhsunbeam.github.io/2022/07/22/JavaScript/(6)-JavaScript-Canvas%E6%98%9F%E5%BA%A7/</id>
     <published>2022-07-22T00:00:00.000Z</published>
     <updated>2022-07-23T01:16:50.527Z</updated>
     
@@ -99,19 +99,19 @@
     
     
     
-    <category term="JavaScript" scheme="https://zhsunbeam.github.io/lequ/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://zhsunbeam.github.io/categories/JavaScript/"/>
     
     
-    <category term="编程基础" scheme="https://zhsunbeam.github.io/lequ/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
     
-    <category term="JavaScript" scheme="https://zhsunbeam.github.io/lequ/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://zhsunbeam.github.io/tags/JavaScript/"/>
     
   </entry>
   
   <entry>
     <title>(五) JavaScript-Canvas球球乱撞</title>
-    <link href="https://zhsunbeam.github.io/lequ/2022/07/21/JavaScript/(5)-JavaScript-Canvas%E7%90%83%E7%90%83%E4%B9%B1%E6%92%9E/"/>
-    <id>https://zhsunbeam.github.io/lequ/2022/07/21/JavaScript/(5)-JavaScript-Canvas%E7%90%83%E7%90%83%E4%B9%B1%E6%92%9E/</id>
+    <link href="https://zhsunbeam.github.io/2022/07/21/JavaScript/(5)-JavaScript-Canvas%E7%90%83%E7%90%83%E4%B9%B1%E6%92%9E/"/>
+    <id>https://zhsunbeam.github.io/2022/07/21/JavaScript/(5)-JavaScript-Canvas%E7%90%83%E7%90%83%E4%B9%B1%E6%92%9E/</id>
     <published>2022-07-21T09:00:00.000Z</published>
     <updated>2022-07-22T09:53:37.080Z</updated>
     
@@ -122,19 +122,19 @@
     
     
     
-    <category term="JavaScript" scheme="https://zhsunbeam.github.io/lequ/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://zhsunbeam.github.io/categories/JavaScript/"/>
     
     
-    <category term="编程基础" scheme="https://zhsunbeam.github.io/lequ/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
     
-    <category term="JavaScript" scheme="https://zhsunbeam.github.io/lequ/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://zhsunbeam.github.io/tags/JavaScript/"/>
     
   </entry>
   
   <entry>
     <title>(四) JavaScript-Canvas-自由运动的球</title>
-    <link href="https://zhsunbeam.github.io/lequ/2022/07/21/JavaScript/(4)-JavaScript-Canvas%E8%87%AA%E7%94%B1%E8%BF%90%E5%8A%A8%E7%9A%84%E7%90%83/"/>
-    <id>https://zhsunbeam.github.io/lequ/2022/07/21/JavaScript/(4)-JavaScript-Canvas%E8%87%AA%E7%94%B1%E8%BF%90%E5%8A%A8%E7%9A%84%E7%90%83/</id>
+    <link href="https://zhsunbeam.github.io/2022/07/21/JavaScript/(4)-JavaScript-Canvas%E8%87%AA%E7%94%B1%E8%BF%90%E5%8A%A8%E7%9A%84%E7%90%83/"/>
+    <id>https://zhsunbeam.github.io/2022/07/21/JavaScript/(4)-JavaScript-Canvas%E8%87%AA%E7%94%B1%E8%BF%90%E5%8A%A8%E7%9A%84%E7%90%83/</id>
     <published>2022-07-21T07:00:00.000Z</published>
     <updated>2022-07-23T00:33:56.503Z</updated>
     
@@ -145,19 +145,19 @@
     
     
     
-    <category term="JavaScript" scheme="https://zhsunbeam.github.io/lequ/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://zhsunbeam.github.io/categories/JavaScript/"/>
     
     
-    <category term="编程基础" scheme="https://zhsunbeam.github.io/lequ/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
     
-    <category term="JavaScript" scheme="https://zhsunbeam.github.io/lequ/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://zhsunbeam.github.io/tags/JavaScript/"/>
     
   </entry>
   
   <entry>
     <title>(三)  JavaScript Canvas 画多边形-多角星</title>
-    <link href="https://zhsunbeam.github.io/lequ/2022/07/21/JavaScript/(3)-JavaScript-Canvas%E7%94%BB%E5%A4%9A%E8%BE%B9%E5%BD%A2/"/>
-    <id>https://zhsunbeam.github.io/lequ/2022/07/21/JavaScript/(3)-JavaScript-Canvas%E7%94%BB%E5%A4%9A%E8%BE%B9%E5%BD%A2/</id>
+    <link href="https://zhsunbeam.github.io/2022/07/21/JavaScript/(3)-JavaScript-Canvas%E7%94%BB%E5%A4%9A%E8%BE%B9%E5%BD%A2/"/>
+    <id>https://zhsunbeam.github.io/2022/07/21/JavaScript/(3)-JavaScript-Canvas%E7%94%BB%E5%A4%9A%E8%BE%B9%E5%BD%A2/</id>
     <published>2022-07-21T02:02:00.000Z</published>
     <updated>2022-07-22T04:29:06.941Z</updated>
     
@@ -168,19 +168,19 @@
     
     
     
-    <category term="JavaScript" scheme="https://zhsunbeam.github.io/lequ/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://zhsunbeam.github.io/categories/JavaScript/"/>
     
     
-    <category term="编程基础" scheme="https://zhsunbeam.github.io/lequ/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
     
-    <category term="JavaScript" scheme="https://zhsunbeam.github.io/lequ/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://zhsunbeam.github.io/tags/JavaScript/"/>
     
   </entry>
   
   <entry>
     <title>(七) JavaScript-Canvas-滑动星座</title>
-    <link href="https://zhsunbeam.github.io/lequ/2022/07/21/Spring/00-Spring-core/"/>
-    <id>https://zhsunbeam.github.io/lequ/2022/07/21/Spring/00-Spring-core/</id>
+    <link href="https://zhsunbeam.github.io/2022/07/21/Spring/00-Spring-core/"/>
+    <id>https://zhsunbeam.github.io/2022/07/21/Spring/00-Spring-core/</id>
     <published>2022-07-21T00:00:00.000Z</published>
     <updated>2022-07-24T04:58:42.804Z</updated>
     
@@ -191,19 +191,19 @@
     
     
     
-    <category term="Spring" scheme="https://zhsunbeam.github.io/lequ/categories/Spring/"/>
+    <category term="Spring" scheme="https://zhsunbeam.github.io/categories/Spring/"/>
     
     
-    <category term="Spring" scheme="https://zhsunbeam.github.io/lequ/tags/Spring/"/>
+    <category term="Spring" scheme="https://zhsunbeam.github.io/tags/Spring/"/>
     
-    <category term="框架" scheme="https://zhsunbeam.github.io/lequ/tags/%E6%A1%86%E6%9E%B6/"/>
+    <category term="框架" scheme="https://zhsunbeam.github.io/tags/%E6%A1%86%E6%9E%B6/"/>
     
   </entry>
   
   <entry>
     <title>(二)  JavaScript Canvas 画矩形</title>
-    <link href="https://zhsunbeam.github.io/lequ/2022/07/20/JavaScript/(2)-JavaScript-Canvas%E7%94%BB%E7%9F%A9%E5%BD%A2/"/>
-    <id>https://zhsunbeam.github.io/lequ/2022/07/20/JavaScript/(2)-JavaScript-Canvas%E7%94%BB%E7%9F%A9%E5%BD%A2/</id>
+    <link href="https://zhsunbeam.github.io/2022/07/20/JavaScript/(2)-JavaScript-Canvas%E7%94%BB%E7%9F%A9%E5%BD%A2/"/>
+    <id>https://zhsunbeam.github.io/2022/07/20/JavaScript/(2)-JavaScript-Canvas%E7%94%BB%E7%9F%A9%E5%BD%A2/</id>
     <published>2022-07-20T04:02:00.000Z</published>
     <updated>2022-07-21T12:04:14.161Z</updated>
     
@@ -214,19 +214,19 @@
     
     
     
-    <category term="JavaScript" scheme="https://zhsunbeam.github.io/lequ/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://zhsunbeam.github.io/categories/JavaScript/"/>
     
     
-    <category term="编程基础" scheme="https://zhsunbeam.github.io/lequ/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
     
-    <category term="JavaScript" scheme="https://zhsunbeam.github.io/lequ/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://zhsunbeam.github.io/tags/JavaScript/"/>
     
   </entry>
   
   <entry>
     <title>(一)  JavaScript Canvas 画线</title>
-    <link href="https://zhsunbeam.github.io/lequ/2022/07/19/JavaScript/(1)-JavaScript-Canvas%E7%94%BB%E7%BA%BF/"/>
-    <id>https://zhsunbeam.github.io/lequ/2022/07/19/JavaScript/(1)-JavaScript-Canvas%E7%94%BB%E7%BA%BF/</id>
+    <link href="https://zhsunbeam.github.io/2022/07/19/JavaScript/(1)-JavaScript-Canvas%E7%94%BB%E7%BA%BF/"/>
+    <id>https://zhsunbeam.github.io/2022/07/19/JavaScript/(1)-JavaScript-Canvas%E7%94%BB%E7%BA%BF/</id>
     <published>2022-07-19T13:02:13.000Z</published>
     <updated>2022-07-21T04:12:04.361Z</updated>
     
@@ -237,19 +237,19 @@
     
     
     
-    <category term="JavaScript" scheme="https://zhsunbeam.github.io/lequ/categories/JavaScript/"/>
+    <category term="JavaScript" scheme="https://zhsunbeam.github.io/categories/JavaScript/"/>
     
     
-    <category term="编程基础" scheme="https://zhsunbeam.github.io/lequ/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
     
-    <category term="JavaScript" scheme="https://zhsunbeam.github.io/lequ/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://zhsunbeam.github.io/tags/JavaScript/"/>
     
   </entry>
   
   <entry>
     <title>JavaFX扫雷</title>
-    <link href="https://zhsunbeam.github.io/lequ/2022/07/18/Java/JavaFX%E6%89%AB%E9%9B%B7/"/>
-    <id>https://zhsunbeam.github.io/lequ/2022/07/18/Java/JavaFX%E6%89%AB%E9%9B%B7/</id>
+    <link href="https://zhsunbeam.github.io/2022/07/18/Java/JavaFX%E6%89%AB%E9%9B%B7/"/>
+    <id>https://zhsunbeam.github.io/2022/07/18/Java/JavaFX%E6%89%AB%E9%9B%B7/</id>
     <published>2022-07-18T08:02:13.000Z</published>
     <updated>2022-07-19T03:22:27.061Z</updated>
     
@@ -260,19 +260,19 @@
     
     
     
-    <category term="Java" scheme="https://zhsunbeam.github.io/lequ/categories/Java/"/>
+    <category term="Java" scheme="https://zhsunbeam.github.io/categories/Java/"/>
     
     
-    <category term="Java" scheme="https://zhsunbeam.github.io/lequ/tags/Java/"/>
+    <category term="Java" scheme="https://zhsunbeam.github.io/tags/Java/"/>
     
-    <category term="编程基础" scheme="https://zhsunbeam.github.io/lequ/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
   <entry>
     <title>Java 模块化编程</title>
-    <link href="https://zhsunbeam.github.io/lequ/2022/07/17/Java/Java%E6%A8%A1%E5%9D%97%E5%8C%96/"/>
-    <id>https://zhsunbeam.github.io/lequ/2022/07/17/Java/Java%E6%A8%A1%E5%9D%97%E5%8C%96/</id>
+    <link href="https://zhsunbeam.github.io/2022/07/17/Java/Java%E6%A8%A1%E5%9D%97%E5%8C%96/"/>
+    <id>https://zhsunbeam.github.io/2022/07/17/Java/Java%E6%A8%A1%E5%9D%97%E5%8C%96/</id>
     <published>2022-07-17T03:44:51.934Z</published>
     <updated>2022-07-18T04:51:53.410Z</updated>
     
@@ -287,19 +287,19 @@
     
     
     
-    <category term="Java" scheme="https://zhsunbeam.github.io/lequ/categories/Java/"/>
+    <category term="Java" scheme="https://zhsunbeam.github.io/categories/Java/"/>
     
     
-    <category term="Java" scheme="https://zhsunbeam.github.io/lequ/tags/Java/"/>
+    <category term="Java" scheme="https://zhsunbeam.github.io/tags/Java/"/>
     
-    <category term="编程基础" scheme="https://zhsunbeam.github.io/lequ/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
   <entry>
     <title>玩游戏学编程-猜数字</title>
-    <link href="https://zhsunbeam.github.io/lequ/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B/"/>
-    <id>https://zhsunbeam.github.io/lequ/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B/</id>
+    <link href="https://zhsunbeam.github.io/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B/"/>
+    <id>https://zhsunbeam.github.io/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B/</id>
     <published>2022-07-17T01:19:56.088Z</published>
     <updated>2021-11-30T06:07:33.303Z</updated>
     
@@ -315,19 +315,19 @@
     
     
     
-    <category term="Java" scheme="https://zhsunbeam.github.io/lequ/categories/Java/"/>
+    <category term="Java" scheme="https://zhsunbeam.github.io/categories/Java/"/>
     
     
-    <category term="Java" scheme="https://zhsunbeam.github.io/lequ/tags/Java/"/>
+    <category term="Java" scheme="https://zhsunbeam.github.io/tags/Java/"/>
     
-    <category term="编程基础" scheme="https://zhsunbeam.github.io/lequ/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
   <entry>
     <title>玩游戏学编程(1)-猜数字UI</title>
-    <link href="https://zhsunbeam.github.io/lequ/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97UI%E7%95%8C%E9%9D%A2/"/>
-    <id>https://zhsunbeam.github.io/lequ/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97UI%E7%95%8C%E9%9D%A2/</id>
+    <link href="https://zhsunbeam.github.io/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97UI%E7%95%8C%E9%9D%A2/"/>
+    <id>https://zhsunbeam.github.io/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97UI%E7%95%8C%E9%9D%A2/</id>
     <published>2022-07-17T01:19:56.085Z</published>
     <updated>2021-11-30T07:39:55.359Z</updated>
     
@@ -342,19 +342,19 @@
     
     
     
-    <category term="Java" scheme="https://zhsunbeam.github.io/lequ/categories/Java/"/>
+    <category term="Java" scheme="https://zhsunbeam.github.io/categories/Java/"/>
     
     
-    <category term="Java" scheme="https://zhsunbeam.github.io/lequ/tags/Java/"/>
+    <category term="Java" scheme="https://zhsunbeam.github.io/tags/Java/"/>
     
-    <category term="编程基础" scheme="https://zhsunbeam.github.io/lequ/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
   <entry>
     <title>玩游戏学编程(1)-猜数字-JavaFX-UI</title>
-    <link href="https://zhsunbeam.github.io/lequ/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97-JavaFX-UI/"/>
-    <id>https://zhsunbeam.github.io/lequ/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97-JavaFX-UI/</id>
+    <link href="https://zhsunbeam.github.io/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97-JavaFX-UI/"/>
+    <id>https://zhsunbeam.github.io/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(2)-%E7%8C%9C%E6%95%B0%E5%AD%97-JavaFX-UI/</id>
     <published>2022-07-17T01:19:56.081Z</published>
     <updated>2021-12-02T03:46:08.436Z</updated>
     
@@ -369,19 +369,19 @@
     
     
     
-    <category term="Java" scheme="https://zhsunbeam.github.io/lequ/categories/Java/"/>
+    <category term="Java" scheme="https://zhsunbeam.github.io/categories/Java/"/>
     
     
-    <category term="Java" scheme="https://zhsunbeam.github.io/lequ/tags/Java/"/>
+    <category term="Java" scheme="https://zhsunbeam.github.io/tags/Java/"/>
     
-    <category term="编程基础" scheme="https://zhsunbeam.github.io/lequ/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
   <entry>
     <title>玩游戏学编程(1)-猜数字-Stream</title>
-    <link href="https://zhsunbeam.github.io/lequ/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(1)-%E7%8C%9C%E6%95%B0%E5%AD%97-Stream/"/>
-    <id>https://zhsunbeam.github.io/lequ/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(1)-%E7%8C%9C%E6%95%B0%E5%AD%97-Stream/</id>
+    <link href="https://zhsunbeam.github.io/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(1)-%E7%8C%9C%E6%95%B0%E5%AD%97-Stream/"/>
+    <id>https://zhsunbeam.github.io/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(1)-%E7%8C%9C%E6%95%B0%E5%AD%97-Stream/</id>
     <published>2022-07-17T01:19:56.078Z</published>
     <updated>2022-07-17T03:39:58.166Z</updated>
     
@@ -395,19 +395,19 @@
     
     
     
-    <category term="Java" scheme="https://zhsunbeam.github.io/lequ/categories/Java/"/>
+    <category term="Java" scheme="https://zhsunbeam.github.io/categories/Java/"/>
     
     
-    <category term="Java" scheme="https://zhsunbeam.github.io/lequ/tags/Java/"/>
+    <category term="Java" scheme="https://zhsunbeam.github.io/tags/Java/"/>
     
-    <category term="编程基础" scheme="https://zhsunbeam.github.io/lequ/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
   <entry>
     <title>玩游戏学编程(1)-猜数字-Lambda</title>
-    <link href="https://zhsunbeam.github.io/lequ/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(1)-%E7%8C%9C%E6%95%B0%E5%AD%97-Lambda%E5%92%8CStream/"/>
-    <id>https://zhsunbeam.github.io/lequ/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(1)-%E7%8C%9C%E6%95%B0%E5%AD%97-Lambda%E5%92%8CStream/</id>
+    <link href="https://zhsunbeam.github.io/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(1)-%E7%8C%9C%E6%95%B0%E5%AD%97-Lambda%E5%92%8CStream/"/>
+    <id>https://zhsunbeam.github.io/2022/07/17/Java/%E7%8E%A9%E6%B8%B8%E6%88%8F%E5%AD%A6%E7%BC%96%E7%A8%8B(1)-%E7%8C%9C%E6%95%B0%E5%AD%97-Lambda%E5%92%8CStream/</id>
     <published>2022-07-17T01:19:56.075Z</published>
     <updated>2022-07-17T02:43:23.633Z</updated>
     
@@ -421,19 +421,19 @@
     
     
     
-    <category term="Java" scheme="https://zhsunbeam.github.io/lequ/categories/Java/"/>
+    <category term="Java" scheme="https://zhsunbeam.github.io/categories/Java/"/>
     
     
-    <category term="Java" scheme="https://zhsunbeam.github.io/lequ/tags/Java/"/>
+    <category term="Java" scheme="https://zhsunbeam.github.io/tags/Java/"/>
     
-    <category term="编程基础" scheme="https://zhsunbeam.github.io/lequ/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
   <entry>
     <title>一个简单的前端机试题</title>
-    <link href="https://zhsunbeam.github.io/lequ/2022/07/17/JavaScript/JavaScript-Interview-1/"/>
-    <id>https://zhsunbeam.github.io/lequ/2022/07/17/JavaScript/JavaScript-Interview-1/</id>
+    <link href="https://zhsunbeam.github.io/2022/07/17/JavaScript/JavaScript-Interview-1/"/>
+    <id>https://zhsunbeam.github.io/2022/07/17/JavaScript/JavaScript-Interview-1/</id>
     <published>2022-07-17T01:19:56.056Z</published>
     <updated>2022-07-17T03:30:34.935Z</updated>
     
@@ -448,19 +448,19 @@
     
     
     
-    <category term="前端开发" scheme="https://zhsunbeam.github.io/lequ/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    <category term="前端开发" scheme="https://zhsunbeam.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
     
-    <category term="JavaScript" scheme="https://zhsunbeam.github.io/lequ/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://zhsunbeam.github.io/tags/JavaScript/"/>
     
-    <category term="HTML" scheme="https://zhsunbeam.github.io/lequ/tags/HTML/"/>
+    <category term="HTML" scheme="https://zhsunbeam.github.io/tags/HTML/"/>
     
   </entry>
   
   <entry>
     <title>玩游戏学前端-贪吃蛇</title>
-    <link href="https://zhsunbeam.github.io/lequ/2022/07/17/JavaScript/snake/"/>
-    <id>https://zhsunbeam.github.io/lequ/2022/07/17/JavaScript/snake/</id>
+    <link href="https://zhsunbeam.github.io/2022/07/17/JavaScript/snake/"/>
+    <id>https://zhsunbeam.github.io/2022/07/17/JavaScript/snake/</id>
     <published>2022-07-17T01:19:56.024Z</published>
     <updated>2022-07-17T03:22:52.563Z</updated>
     
@@ -475,17 +475,17 @@
     
     
     
-    <category term="前端开发" scheme="https://zhsunbeam.github.io/lequ/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    <category term="前端开发" scheme="https://zhsunbeam.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
     
-    <category term="JavaScript" scheme="https://zhsunbeam.github.io/lequ/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://zhsunbeam.github.io/tags/JavaScript/"/>
     
   </entry>
   
   <entry>
     <title>玩游戏学前端-贪吃蛇-Grid布局</title>
-    <link href="https://zhsunbeam.github.io/lequ/2022/07/17/JavaScript/snake-grid/"/>
-    <id>https://zhsunbeam.github.io/lequ/2022/07/17/JavaScript/snake-grid/</id>
+    <link href="https://zhsunbeam.github.io/2022/07/17/JavaScript/snake-grid/"/>
+    <id>https://zhsunbeam.github.io/2022/07/17/JavaScript/snake-grid/</id>
     <published>2022-07-17T01:19:56.022Z</published>
     <updated>2022-07-17T03:23:22.864Z</updated>
     
@@ -500,10 +500,10 @@
     
     
     
-    <category term="前端开发" scheme="https://zhsunbeam.github.io/lequ/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
+    <category term="前端开发" scheme="https://zhsunbeam.github.io/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
     
-    <category term="JavaScript" scheme="https://zhsunbeam.github.io/lequ/tags/JavaScript/"/>
+    <category term="JavaScript" scheme="https://zhsunbeam.github.io/tags/JavaScript/"/>
     
   </entry>
   
