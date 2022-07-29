@@ -6,7 +6,7 @@
   <link href="https://zhsunbeam.github.io/atom.xml" rel="self"/>
   
   <link href="https://zhsunbeam.github.io/"/>
-  <updated>2022-07-26T16:07:17.816Z</updated>
+  <updated>2022-07-29T13:53:32.420Z</updated>
   <id>https://zhsunbeam.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://zhsunbeam.github.io/2022/07/26/JavaScript/(9)-JavaScript-Canvas%E9%9B%AA%E8%8A%B1%E9%A3%98/"/>
     <id>https://zhsunbeam.github.io/2022/07/26/JavaScript/(9)-JavaScript-Canvas%E9%9B%AA%E8%8A%B1%E9%A3%98/</id>
     <published>2022-07-26T11:05:00.000Z</published>
-    <updated>2022-07-26T16:07:17.816Z</updated>
+    <updated>2022-07-29T13:53:32.420Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p> JavaScript 是前端核心， 掌握这门语言是步入前端高手行列必经之路，噢，别忘了还有TypeScript, 学习它还需要OOP知识， 底层的浏览器原理、HTTP协议也必不可少， 此系列文章记录使用JavaScript和Canvas进行游戏开发, 有游戏才有趣!!!</p></blockquote><h3 id="旋转的图片"><a href="#旋转的图片" class="headerlink" title="旋转的图片"></a>旋转的图片</h3><p><img src="/2022/07/26/JavaScript/(9)-JavaScript-Canvas%E9%9B%AA%E8%8A%B1%E9%A3%98/1.gif"></p><h2 id="九-JavaScript-Canvas-雪花飘"><a href="#九-JavaScript-Canvas-雪花飘" class="headerlink" title="(九) JavaScript-Canvas 雪花飘"></a>(九) JavaScript-Canvas 雪花飘</h2><blockquote><p> 上一篇中让图片转了起来， 本篇自己设计一张图形，然后让图形转动； 在网页代码中要注意，设计了两个Canvas，两个Canvas的位置在CSS中有具体的描述。其中第一个画布准备画一个图形，然后再将图形整体画到第二个画布上</p></blockquote><h3 id="1-设计网页代码"><a href="#1-设计网页代码" class="headerlink" title="1. 设计网页代码"></a>1. 设计网页代码</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-id">#canvas1</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">position</span>:absolute;</span></span><br><span class="line"><span class="css">            <span class="attribute">top</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">left</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">background-color</span>: <span class="built_in">rgb</span>(<span class="number">11</span>, <span class="number">4</span>, <span class="number">4</span>);</span></span><br><span class="line"><span class="css">            <span class="attribute">z-index</span>: <span class="number">11</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-id">#canvas2</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">position</span>:absolute;</span></span><br><span class="line"><span class="css">            <span class="attribute">top</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">left</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">background</span>: <span class="built_in">rgb</span>(<span class="number">11</span>, <span class="number">4</span>, <span class="number">4</span>);</span></span><br><span class="line"><span class="css">            <span class="attribute">z-index</span>: -<span class="number">11</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">&quot;canvas1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">&quot;canvas2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="comment">/** <span class="doctag">@type <span class="type">&#123;HTMLCanvasElement&#125;</span> </span>*/</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">//第一个画布</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> canvas1 = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;canvas1&#x27;</span>)</span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> ctx1 = canvas1.getContext(<span class="string">&#x27;2d&#x27;</span>)</span></span><br><span class="line"><span class="javascript">        canvas1.width = <span class="number">200</span></span></span><br><span class="line"><span class="javascript">        canvas1.height= <span class="number">200</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">//画布设置</span></span></span><br><span class="line"><span class="javascript">        ctx1.lineCap = <span class="string">&#x27;round&#x27;</span>;</span></span><br><span class="line"><span class="javascript">        <span class="comment">//阴影设置</span></span></span><br><span class="line"><span class="javascript">        ctx1.shadowColor = <span class="string">&#x27;rgba(0,0,0,0.7)&#x27;</span>;</span></span><br><span class="line"><span class="javascript">        ctx1.shadowOffsetX = <span class="number">10</span>;</span></span><br><span class="line"><span class="javascript">        ctx1.shadowOffsetY = <span class="number">5</span>;</span></span><br><span class="line"><span class="javascript">        ctx1.shadowBlur = <span class="number">10</span>;</span></span><br><span class="line"><span class="javascript">        </span></span><br><span class="line"><span class="javascript">        <span class="comment">//第二个画布</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> canvas2 = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;canvas2&#x27;</span>);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> ctx2 = canvas2.getContext(<span class="string">&#x27;2d&#x27;</span>);</span></span><br><span class="line"><span class="javascript">        canvas2.width = <span class="built_in">window</span>.innerWidth;</span></span><br><span class="line"><span class="javascript">        canvas2.height = <span class="built_in">window</span>.innerHeight;</span></span><br><span class="line"><span class="javascript">        </span></span><br><span class="line"><span class="javascript">        </span></span><br><span class="line"><span class="javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><h4 id="1-先画几根线"><a href="#1-先画几根线" class="headerlink" title="1. 先画几根线"></a>1. 先画几根线</h4><ul><li><p>定义一个画线函数</p></li><li><p>设定线从坐标(0,0) 开始，线长100, 线宽4, 颜色orange</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">drawLine</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    ctx1.beginPath() </span><br><span class="line">    ctx1.moveTo(<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">    ctx1.lineTo(<span class="number">100</span>, <span class="number">0</span>)</span><br><span class="line">    ctx1.lineWidth=<span class="number">4</span></span><br><span class="line">    ctx1.strokeStyle=<span class="string">&#x27;orange&#x27;</span></span><br><span class="line">    ctx1.stroke()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ul><h4 id="2-定义一个draw函数，绕中心点画多根线"><a href="#2-定义一个draw函数，绕中心点画多根线" class="headerlink" title="2. 定义一个draw函数，绕中心点画多根线"></a>2. 定义一个draw函数，绕中心点画多根线</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">drawLine</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    ctx1.beginPath() </span><br><span class="line">    ctx1.moveTo(<span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">    ctx1.lineTo(<span class="number">100</span>, <span class="number">0</span>)</span><br><span class="line">    ctx1.lineWidth=<span class="number">4</span></span><br><span class="line">    ctx1.strokeStyle=<span class="string">&#x27;orange&#x27;</span></span><br><span class="line">    ctx1.stroke()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//注意save方法</span></span><br><span class="line">    ctx1.save()</span><br><span class="line">    <span class="comment">//将原点平移到中心位置</span></span><br><span class="line">    ctx1.translate( canvas1.width/<span class="number">2</span>,  canvas1.height/<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">12</span>; i++)&#123; <span class="comment">//线条数量</span></span><br><span class="line">        <span class="comment">//旋转</span></span><br><span class="line">        ctx1.rotate((<span class="built_in">Math</span>.PI * <span class="number">2</span>)/<span class="number">12</span>);<span class="comment">//旋转度数 2PI 除以 线条数目</span></span><br><span class="line">        drawLine();<span class="comment">//画线</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//恢复状态</span></span><br><span class="line">    ctx1.restore()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">draw() <span class="comment">//调用绘图函数</span></span><br></pre></td></tr></table></figure><p>绘图结果</p><p><img src="/2022/07/26/JavaScript/(9)-JavaScript-Canvas%E9%9B%AA%E8%8A%B1%E9%A3%98/2.png"></p><h4 id="3-将绘制在Canvas1上面的图形转换为图片"><a href="#3-将绘制在Canvas1上面的图形转换为图片" class="headerlink" title="3. 将绘制在Canvas1上面的图形转换为图片"></a>3. 将绘制在Canvas1上面的图形转换为图片</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> image = <span class="keyword">new</span> Image()</span><br><span class="line">image.src = canvas1.toDataURL();</span><br></pre></td></tr></table></figure><h4 id="4-图片旋转"><a href="#4-图片旋转" class="headerlink" title="4. 图片旋转"></a>4. 图片旋转</h4><ul><li>注意一定要注册一个事件，图片加载完成后才能进入动画</li></ul><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">image.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> angle = <span class="number">1</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">animate</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//先清空，再平移</span></span><br><span class="line">        ctx2.clearRect(<span class="number">0</span>,<span class="number">0</span>,canvas2.width, canvas2.height)</span><br><span class="line">        ctx2.save() </span><br><span class="line">        <span class="comment">//将图片移到canvas2的中心位置</span></span><br><span class="line">        ctx2.translate(canvas2.width/<span class="number">2</span>-<span class="number">100</span>, canvas2.height/<span class="number">2</span>-<span class="number">100</span>) </span><br><span class="line">        <span class="comment">//旋转角度</span></span><br><span class="line">        ctx2.rotate(angle * <span class="built_in">Math</span>.PI/<span class="number">360</span>)</span><br><span class="line">        <span class="comment">//画图</span></span><br><span class="line">        ctx2.drawImage(image, <span class="number">0</span>-<span class="number">100</span>, <span class="number">0</span>-<span class="number">100</span>, <span class="number">200</span>, <span class="number">200</span>)</span><br><span class="line">        ctx2.restore();</span><br><span class="line">        angle += <span class="number">4</span> <span class="comment">//更新角度</span></span><br><span class="line">        <span class="built_in">window</span>.requestAnimationFrame(animate)</span><br><span class="line">    &#125;</span><br><span class="line">    animate()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="5-完整代码如下"><a href="#5-完整代码如下" class="headerlink" title="5. 完整代码如下"></a>5. 完整代码如下</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">        </span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-id">#canvas1</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">position</span>:absolute;</span></span><br><span class="line"><span class="css">            <span class="attribute">top</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">left</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">background-color</span>: <span class="built_in">rgb</span>(<span class="number">11</span>, <span class="number">4</span>, <span class="number">4</span>);</span></span><br><span class="line"><span class="css">            <span class="attribute">z-index</span>: <span class="number">11</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-id">#canvas2</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">position</span>:absolute;</span></span><br><span class="line"><span class="css">            <span class="attribute">top</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">left</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">background</span>: <span class="built_in">rgb</span>(<span class="number">11</span>, <span class="number">4</span>, <span class="number">4</span>);</span></span><br><span class="line"><span class="css">            <span class="attribute">z-index</span>: -<span class="number">11</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">&quot;canvas1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">&quot;canvas2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="comment">/** <span class="doctag">@type <span class="type">&#123;HTMLCanvasElement&#125;</span> </span>*/</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> canvas1 = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;canvas1&#x27;</span>)</span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> ctx1 = canvas1.getContext(<span class="string">&#x27;2d&#x27;</span>)</span></span><br><span class="line"><span class="javascript">        canvas1.width = <span class="number">200</span></span></span><br><span class="line"><span class="javascript">        canvas1.height= <span class="number">200</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">//画布设置</span></span></span><br><span class="line"><span class="javascript">        ctx1.lineCap = <span class="string">&#x27;round&#x27;</span>;</span></span><br><span class="line"><span class="javascript">        <span class="comment">//阴影设置</span></span></span><br><span class="line"><span class="javascript">        ctx1.shadowColor = <span class="string">&#x27;rgba(0,0,0,0.7)&#x27;</span>;</span></span><br><span class="line"><span class="javascript">        ctx1.shadowOffsetX = <span class="number">10</span>;</span></span><br><span class="line"><span class="javascript">        ctx1.shadowOffsetY = <span class="number">5</span>;</span></span><br><span class="line"><span class="javascript">        ctx1.shadowBlur = <span class="number">10</span>;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="comment">//第二个画布</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> canvas2 = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;canvas2&#x27;</span>);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> ctx2 = canvas2.getContext(<span class="string">&#x27;2d&#x27;</span>);</span></span><br><span class="line"><span class="javascript">        canvas2.width = <span class="built_in">window</span>.innerWidth;</span></span><br><span class="line"><span class="javascript">        canvas2.height = <span class="built_in">window</span>.innerHeight;</span></span><br><span class="line"><span class="javascript">        </span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="keyword">function</span> <span class="title">drawLine</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            ctx1.beginPath() </span></span><br><span class="line"><span class="javascript">            ctx1.moveTo(<span class="number">0</span>,<span class="number">0</span>)</span></span><br><span class="line"><span class="javascript">            ctx1.lineTo(<span class="number">100</span>, <span class="number">0</span>)</span></span><br><span class="line"><span class="javascript">            ctx1.lineWidth=<span class="number">4</span></span></span><br><span class="line"><span class="javascript">            ctx1.strokeStyle=<span class="string">&#x27;orange&#x27;</span></span></span><br><span class="line"><span class="javascript">            ctx1.stroke()</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            ctx1.save()</span></span><br><span class="line"><span class="javascript">            ctx1.translate( canvas1.width/<span class="number">2</span>,  canvas1.height/<span class="number">2</span>);</span></span><br><span class="line"><span class="javascript">            <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">12</span>; i++)&#123; </span></span><br><span class="line"><span class="javascript">                ctx1.rotate((<span class="built_in">Math</span>.PI * <span class="number">2</span>)/<span class="number">12</span>); </span></span><br><span class="line"><span class="javascript">                drawLine(); </span></span><br><span class="line"><span class="javascript">            &#125;</span></span><br><span class="line"><span class="javascript">            ctx1.restore()</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">        draw()</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> image = <span class="keyword">new</span> Image()</span></span><br><span class="line"><span class="javascript">        image.src = canvas1.toDataURL();</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">        image.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">let</span> angle = <span class="number">1</span></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">            <span class="function"><span class="keyword">function</span> <span class="title">animate</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">                ctx2.clearRect(<span class="number">0</span>,<span class="number">0</span>,canvas2.width, canvas2.height)</span></span><br><span class="line"><span class="javascript">                ctx2.save() </span></span><br><span class="line"><span class="javascript">                </span></span><br><span class="line"><span class="javascript">                ctx2.translate(canvas2.width/<span class="number">2</span>-<span class="number">100</span>, canvas2.height/<span class="number">2</span>-<span class="number">100</span>)               </span></span><br><span class="line"><span class="javascript">                ctx2.rotate(angle * <span class="built_in">Math</span>.PI/<span class="number">360</span>)</span></span><br><span class="line"><span class="javascript">                ctx2.drawImage(image, <span class="number">0</span>-<span class="number">100</span>, <span class="number">0</span>-<span class="number">100</span>, <span class="number">200</span>, <span class="number">200</span>)</span></span><br><span class="line"><span class="javascript">                ctx2.restore();</span></span><br><span class="line"><span class="javascript">                angle+=<span class="number">4</span></span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">                <span class="built_in">window</span>.requestAnimationFrame(animate)</span></span><br><span class="line"><span class="javascript">            &#125;</span></span><br><span class="line"><span class="javascript">            animate()</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript"> </span></span><br><span class="line"><span class="javascript"> </span></span><br><span class="line"><span class="javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><blockquote><p>多一些图形旋转，每个图形的大小可自由设置，垂直飘落, 后面章节再完善</p></blockquote>]]></content>
     
@@ -33,9 +33,9 @@
     <category term="JavaScript" scheme="https://zhsunbeam.github.io/categories/JavaScript/"/>
     
     
-    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
-    
     <category term="JavaScript" scheme="https://zhsunbeam.github.io/tags/JavaScript/"/>
+    
+    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
@@ -56,9 +56,9 @@
     <category term="JavaScript" scheme="https://zhsunbeam.github.io/categories/JavaScript/"/>
     
     
-    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
-    
     <category term="JavaScript" scheme="https://zhsunbeam.github.io/tags/JavaScript/"/>
+    
+    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
@@ -79,9 +79,9 @@
     <category term="JavaScript" scheme="https://zhsunbeam.github.io/categories/JavaScript/"/>
     
     
-    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
-    
     <category term="JavaScript" scheme="https://zhsunbeam.github.io/tags/JavaScript/"/>
+    
+    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
@@ -102,9 +102,9 @@
     <category term="JavaScript" scheme="https://zhsunbeam.github.io/categories/JavaScript/"/>
     
     
-    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
-    
     <category term="JavaScript" scheme="https://zhsunbeam.github.io/tags/JavaScript/"/>
+    
+    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
@@ -125,9 +125,9 @@
     <category term="JavaScript" scheme="https://zhsunbeam.github.io/categories/JavaScript/"/>
     
     
-    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
-    
     <category term="JavaScript" scheme="https://zhsunbeam.github.io/tags/JavaScript/"/>
+    
+    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
@@ -148,9 +148,9 @@
     <category term="JavaScript" scheme="https://zhsunbeam.github.io/categories/JavaScript/"/>
     
     
-    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
-    
     <category term="JavaScript" scheme="https://zhsunbeam.github.io/tags/JavaScript/"/>
+    
+    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
@@ -171,9 +171,9 @@
     <category term="JavaScript" scheme="https://zhsunbeam.github.io/categories/JavaScript/"/>
     
     
-    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
-    
     <category term="JavaScript" scheme="https://zhsunbeam.github.io/tags/JavaScript/"/>
+    
+    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
@@ -217,9 +217,9 @@
     <category term="JavaScript" scheme="https://zhsunbeam.github.io/categories/JavaScript/"/>
     
     
-    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
-    
     <category term="JavaScript" scheme="https://zhsunbeam.github.io/tags/JavaScript/"/>
+    
+    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
@@ -240,9 +240,9 @@
     <category term="JavaScript" scheme="https://zhsunbeam.github.io/categories/JavaScript/"/>
     
     
-    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
-    
     <category term="JavaScript" scheme="https://zhsunbeam.github.io/tags/JavaScript/"/>
+    
+    <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
     
   </entry>
   
@@ -263,9 +263,9 @@
     <category term="Java" scheme="https://zhsunbeam.github.io/categories/Java/"/>
     
     
-    <category term="Java" scheme="https://zhsunbeam.github.io/tags/Java/"/>
-    
     <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="Java" scheme="https://zhsunbeam.github.io/tags/Java/"/>
     
   </entry>
   
@@ -290,9 +290,9 @@
     <category term="Java" scheme="https://zhsunbeam.github.io/categories/Java/"/>
     
     
-    <category term="Java" scheme="https://zhsunbeam.github.io/tags/Java/"/>
-    
     <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="Java" scheme="https://zhsunbeam.github.io/tags/Java/"/>
     
   </entry>
   
@@ -318,9 +318,9 @@
     <category term="Java" scheme="https://zhsunbeam.github.io/categories/Java/"/>
     
     
-    <category term="Java" scheme="https://zhsunbeam.github.io/tags/Java/"/>
-    
     <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="Java" scheme="https://zhsunbeam.github.io/tags/Java/"/>
     
   </entry>
   
@@ -345,9 +345,9 @@
     <category term="Java" scheme="https://zhsunbeam.github.io/categories/Java/"/>
     
     
-    <category term="Java" scheme="https://zhsunbeam.github.io/tags/Java/"/>
-    
     <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="Java" scheme="https://zhsunbeam.github.io/tags/Java/"/>
     
   </entry>
   
@@ -372,9 +372,9 @@
     <category term="Java" scheme="https://zhsunbeam.github.io/categories/Java/"/>
     
     
-    <category term="Java" scheme="https://zhsunbeam.github.io/tags/Java/"/>
-    
     <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="Java" scheme="https://zhsunbeam.github.io/tags/Java/"/>
     
   </entry>
   
@@ -398,9 +398,9 @@
     <category term="Java" scheme="https://zhsunbeam.github.io/categories/Java/"/>
     
     
-    <category term="Java" scheme="https://zhsunbeam.github.io/tags/Java/"/>
-    
     <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="Java" scheme="https://zhsunbeam.github.io/tags/Java/"/>
     
   </entry>
   
@@ -424,9 +424,9 @@
     <category term="Java" scheme="https://zhsunbeam.github.io/categories/Java/"/>
     
     
-    <category term="Java" scheme="https://zhsunbeam.github.io/tags/Java/"/>
-    
     <category term="编程基础" scheme="https://zhsunbeam.github.io/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"/>
+    
+    <category term="Java" scheme="https://zhsunbeam.github.io/tags/Java/"/>
     
   </entry>
   
