@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>(九) JavaScript-Canvas 雪花飘 | CodeCool</title>
+  <meta name="description" content="JavaScript基础,Canvas">
+<meta property="og:type" content="article">
+<meta property="og:title" content="(九) JavaScript-Canvas 雪花飘">
+<meta property="og:url" content="https://zhsunbeam.github.io/2022/07/30/JavaScript/(10)-JavaScript-Canvas%E9%9B%AA%E8%8A%B1%E9%A3%98(2)/index.html">
+<meta property="og:site_name" content="极乐空间">
+<meta property="og:description" content="JavaScript基础,Canvas">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zhsunbeam.github.io/2022/07/30/JavaScript/(10)-JavaScript-Canvas%E9%9B%AA%E8%8A%B1%E9%A3%98(2)/1.gif">
+<meta property="article:published_time" content="2022-07-30T01:05:00.000Z">
+<meta property="article:modified_time" content="2022-07-30T02:20:04.490Z">
+<meta property="article:author" content="Mars笑笑生">
+<meta property="article:tag" content="编程基础">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zhsunbeam.github.io/2022/07/30/JavaScript/(10)-JavaScript-Canvas%E9%9B%AA%E8%8A%B1%E9%A3%98(2)/1.gif">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://zhsunbeam.github.io/2022/07/30/JavaScript/(10)-JavaScript-Canvas%E9%9B%AA%E8%8A%B1%E9%A3%98(2)/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="极乐空间" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body class="main-center theme-green" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/zhsunbeam" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">哼哈七龙岛主</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">架构师 &amp; 开发者 &amp; 技术分享</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> ChangSha, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="/null" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>程序之路无止境,欢迎交流,一同成长!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/H5/">H5</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JOOQ/">JOOQ</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring/">Spring</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/">项目开发</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/" rel="tag">H5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ORM%E6%A1%86%E6%9E%B6/" rel="tag">ORM框架</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/" rel="tag">Spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%A1%86%E6%9E%B6/" rel="tag">框架</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="tag">编程基础</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/" rel="tag">项目开发</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/H5/" style="font-size: 13px;">H5</a> <a href="/tags/HTML/" style="font-size: 13px;">HTML</a> <a href="/tags/Java/" style="font-size: 13.5px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 14px;">JavaScript</a> <a href="/tags/ORM%E6%A1%86%E6%9E%B6/" style="font-size: 13px;">ORM框架</a> <a href="/tags/Spring/" style="font-size: 13px;">Spring</a> <a href="/tags/%E6%A1%86%E6%9E%B6/" style="font-size: 13px;">框架</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" style="font-size: 14px;">编程基础</a> <a href="/tags/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/" style="font-size: 13px;">项目开发</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">27</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/07/30/JavaScript/(10)-JavaScript-Canvas%E9%9B%AA%E8%8A%B1%E9%A3%98(2)/" class="title">(九) JavaScript-Canvas 雪花飘</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-07-30T01:05:00.000Z" itemprop="datePublished">2022-07-30</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/07/26/JavaScript/(9)-JavaScript-Canvas%E9%9B%AA%E8%8A%B1%E9%A3%98/" class="title">(九) JavaScript-Canvas 雪花飘</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-07-26T11:05:00.000Z" itemprop="datePublished">2022-07-26</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/07/25/JavaScript/(8)-JavaScript-Canvas%E6%97%8B%E8%BD%AC%E7%9A%84%E5%9B%BE%E7%89%87/" class="title">(八) JavaScript-Canvas旋转的图片</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-07-25T01:05:00.000Z" itemprop="datePublished">2022-07-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/07/22/JavaScript/(7)-JavaScript-Canvas%E6%BB%91%E5%8A%A8%E6%98%9F%E5%BA%A7/" class="title">(七) JavaScript-Canvas-滑动星座</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-07-22T10:00:00.000Z" itemprop="datePublished">2022-07-22</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/07/22/JavaScript/(6)-JavaScript-Canvas%E6%98%9F%E5%BA%A7/" class="title">(六) JavaScript-Canvas-星座</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-07-22T00:00:00.000Z" itemprop="datePublished">2022-07-22</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-JavaScript/(10)-JavaScript-Canvas雪花飘(2)" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      (九) JavaScript-Canvas 雪花飘
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/07/30/JavaScript/(10)-JavaScript-Canvas%E9%9B%AA%E8%8A%B1%E9%A3%98(2)/" class="article-date">
+	  <time datetime="2022-07-30T01:05:00.000Z" itemprop="datePublished">2022-07-30</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>, <a class="article-tag-link-link" href="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="tag">编程基础</a>
+  </span>
+
+
+        
+
+	<span class="article-read hidden-xs">
+    	<i class="icon icon-eye-fill" aria-hidden="true"></i>
+    	<span id="/2022/07/30/JavaScript/(10)-JavaScript-Canvas%E9%9B%AA%E8%8A%B1%E9%A3%98(2)/" class="leancloud_visitors"  data-flag-title="(九) JavaScript-Canvas 雪花飘">
+			<span class="leancloud-visitors-count">0</span>
+		</span>
+    </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/07/30/JavaScript/(10)-JavaScript-Canvas%E9%9B%AA%E8%8A%B1%E9%A3%98(2)/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.9k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 9(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <blockquote>
+<p> JavaScript 是前端核心， 掌握这门语言是步入前端高手行列必经之路，噢，别忘了还有TypeScript, 学习它还需要OOP知识， 底层的浏览器原理、HTTP协议也必不可少， 此系列文章记录使用JavaScript和Canvas进行游戏开发, 有游戏才有趣!!!</p>
+</blockquote>
+<h3 id="旋转的图形"><a href="#旋转的图形" class="headerlink" title="旋转的图形"></a>旋转的图形</h3><p><img src="/2022/07/30/JavaScript/(10)-JavaScript-Canvas%E9%9B%AA%E8%8A%B1%E9%A3%98(2)/1.gif"></p>
+<h2 id="十-JavaScript-Canvas-雪花飘-2"><a href="#十-JavaScript-Canvas-雪花飘-2" class="headerlink" title="(十) JavaScript-Canvas 雪花飘(2)"></a>(十) JavaScript-Canvas 雪花飘(2)</h2><blockquote>
+<p> 在<a target="_blank" rel="noopener" href="http://codecool.top/2022/07/26/JavaScript/(9)-JavaScript-Canvas%E9%9B%AA%E8%8A%B1%E9%A3%98/">(九) JavaScript-Canvas 雪花飘</a> 中利用两个Canvas绘制了一个图形并在中心旋转，本篇中加入面向对象内容，创建多个图形并旋转，让每个图形旋转的同时向上或向下移动</p>
+</blockquote>
+<h3 id="1-参考-九-JavaScript-Canvas-雪花飘-这篇完成的代码"><a href="#1-参考-九-JavaScript-Canvas-雪花飘-这篇完成的代码" class="headerlink" title="1.参考 (九) JavaScript-Canvas 雪花飘 这篇完成的代码"></a>1.参考 <a target="_blank" rel="noopener" href="http://codecool.top/2022/07/26/JavaScript/(9)-JavaScript-Canvas%E9%9B%AA%E8%8A%B1%E9%A3%98/">(九) JavaScript-Canvas 雪花飘</a> 这篇完成的代码</h3><ul>
+<li>先设计两个canvas, 定义他们的样式, 两个canvas都设置为绝对布局,通过z-index设置显示位置</li>
+<li>隐藏第一个canvas,  display:none</li>
+<li>canvas1.width = 200 , canvas1.height= 200 表示第一个canvas的宽和高，做成图形后，就是整个图形的大小, 可设计成动态随机大小</li>
+<li>第二个画布canvas2的宽度和高度设计为窗口的度和高</li>
+<li>let color = ‘hsl(‘+Math.random()*100+’,50%,50%)’ 定义一个全局的随机颜色变量,使用hsl</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>雪花飘<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-id">#canvas1</span> &#123;		</span></span><br><span class="line"><span class="css">            <span class="attribute">position</span>:absolute;</span></span><br><span class="line"><span class="css">            <span class="attribute">top</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">left</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">background-color</span>: <span class="built_in">rgb</span>(<span class="number">11</span>, <span class="number">4</span>, <span class="number">4</span>);</span></span><br><span class="line"><span class="css">            <span class="attribute">z-index</span>: <span class="number">11</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">display</span>:none;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-id">#canvas2</span> &#123;		</span></span><br><span class="line"><span class="css">            <span class="attribute">position</span>:absolute;</span></span><br><span class="line"><span class="css">            <span class="attribute">top</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">left</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">background</span>: <span class="built_in">rgb</span>(<span class="number">11</span>, <span class="number">4</span>, <span class="number">4</span>);</span></span><br><span class="line"><span class="css">            <span class="attribute">z-index</span>: -<span class="number">11</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">&quot;canvas1&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">&quot;canvas2&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="comment">/** <span class="doctag">@type <span class="type">&#123;HTMLCanvasElement&#125;</span> </span>*/</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> canvas1 = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;canvas1&#x27;</span>)</span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> ctx1 = canvas1.getContext(<span class="string">&#x27;2d&#x27;</span>)</span></span><br><span class="line"><span class="javascript">        canvas1.width = <span class="number">200</span></span></span><br><span class="line"><span class="javascript">        canvas1.height= <span class="number">200</span></span></span><br><span class="line"><span class="javascript">        <span class="comment">//画布设置</span></span></span><br><span class="line"><span class="javascript">        ctx1.lineCap = <span class="string">&#x27;round&#x27;</span>;</span></span><br><span class="line"><span class="javascript">        <span class="comment">//阴影设置</span></span></span><br><span class="line"><span class="javascript">        ctx1.shadowColor = <span class="string">&#x27;rgba(0,0,0,0.7)&#x27;</span>;</span></span><br><span class="line"><span class="javascript">        ctx1.shadowOffsetX = <span class="number">10</span>;</span></span><br><span class="line"><span class="javascript">        ctx1.shadowOffsetY = <span class="number">5</span>;</span></span><br><span class="line"><span class="javascript">        ctx1.shadowBlur = <span class="number">10</span>;</span></span><br><span class="line"><span class="javascript"></span></span><br><span class="line"><span class="javascript">	</span></span><br><span class="line"><span class="javascript">        <span class="comment">//第二个画布</span></span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> canvas2 = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;canvas2&#x27;</span>);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">const</span> ctx2 = canvas2.getContext(<span class="string">&#x27;2d&#x27;</span>);</span></span><br><span class="line"><span class="javascript">        canvas2.width = <span class="built_in">window</span>.innerWidth;</span></span><br><span class="line"><span class="javascript">        canvas2.height = <span class="built_in">window</span>.innerHeight;</span></span><br><span class="line"><span class="javascript">        </span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> color = <span class="string">&#x27;hsl(&#x27;</span>+<span class="built_in">Math</span>.random()*<span class="number">100</span>+<span class="string">&#x27;,50%,50%)&#x27;</span></span></span><br><span class="line"><span class="javascript"> </span></span><br><span class="line"><span class="javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-定义两个函数用于画线和画图形-由线组成"><a href="#2-定义两个函数用于画线和画图形-由线组成" class="headerlink" title="2. 定义两个函数用于画线和画图形(由线组成)"></a>2. 定义两个函数用于画线和画图形(由线组成)</h4><ul>
+<li>drawLine为画线函数，线长固定为100(从坐标0,0到100,0)</li>
+<li>线的颜色设置为定义的全局color</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">drawLine</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    ctx1.beginPath() </span><br><span class="line">    ctx1.moveTo(<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line">    ctx1.lineTo(<span class="number">100</span>, <span class="number">0</span>)</span><br><span class="line">    ctx1.lineWidth=<span class="number">4</span></span><br><span class="line">    ctx1.strokeStyle = color</span><br><span class="line">    ctx1.stroke()</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">draw</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    ctx1.save()</span><br><span class="line">    ctx1.translate(canvas1.width/<span class="number">2</span>,  canvas1.height/<span class="number">2</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">12</span>; i++)&#123; <span class="comment">//线条数量</span></span><br><span class="line">        ctx1.rotate((<span class="built_in">Math</span>.PI * <span class="number">2</span>)/<span class="number">12</span>);<span class="comment">//旋转度数 2PI 除以 线条数量</span></span><br><span class="line">        drawLine();<span class="comment">//调用画线</span></span><br><span class="line">    &#125;</span><br><span class="line">    ctx1.restore()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//调用绘图函数</span></span><br><span class="line">draw()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>接下来将canvas1的图形转换为image，使用image的toDataURL()方法</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> image = <span class="keyword">new</span> Image()</span><br><span class="line">image.src = canvas1.toDataURL();</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>注册image的加载事件,图形加载完成会触发这个事件</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//也可以使用addEventListener方式注册事件</span></span><br><span class="line">image.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3-定义一个Snow形状类"><a href="#3-定义一个Snow形状类" class="headerlink" title="3. 定义一个Snow形状类"></a>3. 定义一个Snow形状类</h4><ul>
+<li>定义Snow的目的是为了创建多个对象</li>
+<li>构造函数的定义，属性的定义， 需要搞清楚有哪些属性</li>
+<li>属性需要 image 图形；width,height 图形的宽度和高度；x,y图形的坐标; angle旋转的角度；旋转的速度speed等等</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Snow</span> </span>&#123;</span><br><span class="line">    <span class="comment">//在调用时传入的是第个canvas的宽度和高度</span></span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params">canvasWidth, canvasHeight, image</span>)</span>&#123;</span><br><span class="line">    	</span><br><span class="line">        <span class="built_in">this</span>.canvasWidth = canvasWidth</span><br><span class="line">        <span class="built_in">this</span>.canvasHeight = canvasHeight</span><br><span class="line">        <span class="built_in">this</span>.image = image</span><br><span class="line">		<span class="comment">//随机一个size值</span></span><br><span class="line">        <span class="built_in">this</span>.size  = <span class="built_in">Math</span>.random() * <span class="number">0.4</span> + <span class="number">0.1</span></span><br><span class="line">        <span class="comment">//定义图形的宽度和高度</span></span><br><span class="line">        <span class="built_in">this</span>.width = <span class="built_in">this</span>.image.width * <span class="built_in">this</span>.size </span><br><span class="line">        <span class="built_in">this</span>.height = <span class="built_in">this</span>.image.height * <span class="built_in">this</span>.size</span><br><span class="line">        <span class="comment">//图形的x,y坐标必须在画布canvas的宽高范围以内</span></span><br><span class="line">        <span class="built_in">this</span>.x = <span class="built_in">Math</span>.random() * <span class="built_in">this</span>.canvasWidth </span><br><span class="line">        <span class="built_in">this</span>.y = <span class="built_in">Math</span>.random() * <span class="built_in">this</span>.canvasHeight</span><br><span class="line">        <span class="comment">//定义一个速度属性，每个Snow对象的速度都是随机值</span></span><br><span class="line">        <span class="built_in">this</span>.speed = <span class="built_in">Math</span>.random() * <span class="number">1</span> + <span class="number">1</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//角度初始值为0</span></span><br><span class="line">        <span class="built_in">this</span>.angle = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//角度的变化值</span></span><br><span class="line">        <span class="built_in">this</span>.va = <span class="built_in">Math</span>.random() * <span class="number">0.05</span> - <span class="number">0.025</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-在Snow类中定义draw和update函数，用于绘图和更新属性"><a href="#4-在Snow类中定义draw和update函数，用于绘图和更新属性" class="headerlink" title="4. 在Snow类中定义draw和update函数，用于绘图和更新属性"></a>4. 在Snow类中定义draw和update函数，用于绘图和更新属性</h4><ul>
+<li>update函数主要用于对象属性的重新设置或更改，比如坐标不断更改</li>
+<li>draw函数用于将图形绘制到画布上， 使用drawImage函数时，图形的位置是当前图形对象的宽高分别除以2，让它以图形的中心点旋转</li>
+<li>画图的时候要用上save和restore方法，避免影响到其它Snow对象</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Snow</span> </span>&#123;</span><br><span class="line">    <span class="comment">//.....省略了构造函数</span></span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="title">update</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">//角度重新赋值</span></span><br><span class="line">        <span class="built_in">this</span>.angle += <span class="built_in">this</span>.va;</span><br><span class="line">        <span class="comment">//判断图形的纵坐标是否超出画布的高度，如果超出高度则重新设置坐标</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">this</span>.y &lt; -<span class="built_in">this</span>.height) &#123;</span><br><span class="line">            <span class="built_in">this</span>.y = <span class="built_in">this</span>.canvasHeight + <span class="built_in">this</span>.height;</span><br><span class="line">            <span class="built_in">this</span>.x = <span class="built_in">Math</span>.random() * (<span class="built_in">this</span>.canvasWidth - <span class="built_in">this</span>.width); </span><br><span class="line">            <span class="built_in">this</span>.angle = <span class="number">0</span>;</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">else</span>  &#123;</span><br><span class="line">            <span class="comment">//未超出高度则让y的值不断减小，speed的值越大，向上移动的速度越快</span></span><br><span class="line">            <span class="built_in">this</span>.y -= <span class="built_in">this</span>.speed;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//画图</span></span><br><span class="line">    <span class="function"><span class="title">draw</span>(<span class="params">ctx</span>)</span>&#123;</span><br><span class="line">        ctx.save();</span><br><span class="line">        ctx.translate(<span class="built_in">this</span>.x, <span class="built_in">this</span>.y );</span><br><span class="line">        ctx.rotate(<span class="built_in">this</span>.angle);</span><br><span class="line">        ctx.drawImage(<span class="built_in">this</span>.image, -<span class="built_in">this</span>.width/<span class="number">2</span>, -<span class="built_in">this</span>.height/<span class="number">2</span>, <span class="built_in">this</span>.width, <span class="built_in">this</span>.height)</span><br><span class="line">        ctx.restore();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="5-实现动画函数"><a href="#5-实现动画函数" class="headerlink" title="5. 实现动画函数"></a>5. 实现动画函数</h4><ul>
+<li>创建数组snows，存储多个Snow对象</li>
+<li>一定要在图形加载完成后再创建snow对象</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> snows=[]</span><br><span class="line"></span><br><span class="line">image.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">50</span>; i++)&#123;</span><br><span class="line">        snows.push(<span class="keyword">new</span> Snow(canvas2.width, canvas2.height, image))</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">animate</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="comment">//每次清除画布</span></span><br><span class="line">        ctx2.clearRect(<span class="number">0</span>,<span class="number">0</span>,canvas2.width, canvas2.height)</span><br><span class="line">        <span class="comment">//遍历数组,调用每个对象的draw和update方法</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;snows.length;i++) &#123;</span><br><span class="line">            snows[i].draw(ctx2)</span><br><span class="line">            snows[i].update()</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">window</span>.requestAnimationFrame(animate)</span><br><span class="line">    &#125;</span><br><span class="line">    animate()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="6-完整代码如下"><a href="#6-完整代码如下" class="headerlink" title="6. 完整代码如下"></a>6. 完整代码如下</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;</span><br><span class="line">    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</span><br><span class="line">    &lt;title&gt;Document&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">        #canvas1 &#123;		</span><br><span class="line">            position:absolute;</span><br><span class="line">            top: 0;</span><br><span class="line">            left: 0;</span><br><span class="line">            background-color: rgb(11, 4, 4);</span><br><span class="line">            z-index: 11;</span><br><span class="line">            display: none;</span><br><span class="line">        &#125;</span><br><span class="line">        #canvas2 &#123;		</span><br><span class="line">            position:absolute;</span><br><span class="line">            top: 0;</span><br><span class="line">            left: 0;</span><br><span class="line">            background: rgb(11, 4, 4);</span><br><span class="line">            z-index: -11;</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;canvas id=&quot;canvas1&quot;&gt;&lt;/canvas&gt;</span><br><span class="line">    &lt;canvas id=&quot;canvas2&quot;&gt;&lt;/canvas&gt;</span><br><span class="line"></span><br><span class="line">    &lt;script&gt;</span><br><span class="line">        /** @type &#123;HTMLCanvasElement&#125; */</span><br><span class="line">        const canvas1 = document.getElementById(&#x27;canvas1&#x27;)</span><br><span class="line">        const ctx1 = canvas1.getContext(&#x27;2d&#x27;)</span><br><span class="line">        canvas1.width = 200</span><br><span class="line">        canvas1.height= 200</span><br><span class="line">        //画布设置</span><br><span class="line">        ctx1.lineCap = &#x27;round&#x27;;</span><br><span class="line">        //阴影设置</span><br><span class="line">        ctx1.shadowColor = &#x27;rgba(0,0,0,0.7)&#x27;;</span><br><span class="line">        ctx1.shadowOffsetX = 10;</span><br><span class="line">        ctx1.shadowOffsetY = 5;</span><br><span class="line">        ctx1.shadowBlur = 10;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        //第二个画布</span><br><span class="line">        const canvas2 = document.getElementById(&#x27;canvas2&#x27;);</span><br><span class="line">        const ctx2 = canvas2.getContext(&#x27;2d&#x27;);</span><br><span class="line">        canvas2.width = window.innerWidth;</span><br><span class="line">        canvas2.height = window.innerHeight;</span><br><span class="line">        let color = &#x27;hsl(&#x27;+Math.random()*100+&#x27;,50%,50%)&#x27;</span><br><span class="line">        function drawLine() &#123;</span><br><span class="line">            ctx1.beginPath() </span><br><span class="line">            ctx1.moveTo(0,0)</span><br><span class="line">            ctx1.lineTo(100, 0)</span><br><span class="line">            ctx1.lineWidth=4</span><br><span class="line">            ctx1.strokeStyle = color</span><br><span class="line">            ctx1.stroke()</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        function draw() &#123;</span><br><span class="line">            ctx1.save()</span><br><span class="line">            ctx1.translate(canvas1.width/2,  canvas1.height/2);</span><br><span class="line">            for (let i = 0; i &lt; 12; i++)&#123; </span><br><span class="line">                ctx1.rotate((Math.PI * 2)/12);</span><br><span class="line">                drawLine();</span><br><span class="line">            &#125;</span><br><span class="line">            ctx1.restore()</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        draw()</span><br><span class="line"></span><br><span class="line">        const image = new Image()</span><br><span class="line">        image.src = canvas1.toDataURL();</span><br><span class="line"></span><br><span class="line">        class Snow &#123;</span><br><span class="line">            constructor(canvasWidth, canvasHeight, image)&#123;</span><br><span class="line">                this.canvasWidth = canvasWidth</span><br><span class="line">                this.canvasHeight = canvasHeight</span><br><span class="line">                this.image = image</span><br><span class="line"></span><br><span class="line">                this.size = Math.random() * 0.4 + 0.1</span><br><span class="line">                this.width = this.image.width * this.size</span><br><span class="line">                this.height = this.image.height * this.size</span><br><span class="line">                this.x = Math.random() * this.canvasWidth</span><br><span class="line">                this.y = Math.random() * this.canvasHeight</span><br><span class="line">                this.speed = Math.random() * 1 + 1;</span><br><span class="line"> </span><br><span class="line">                this.angle = 0;</span><br><span class="line">                this.va = Math.random() * 0.05 - 0.025;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            update()&#123;</span><br><span class="line">                this.angle += this.va;</span><br><span class="line">                if (this.y &lt; -this.height) &#123;</span><br><span class="line">                    this.y = this.canvasHeight + this.height;</span><br><span class="line">                    this.x = Math.random() * (this.canvasWidth - this.width); </span><br><span class="line">                    this.angle = 1;</span><br><span class="line">                &#125; else this.y -= this.speed;</span><br><span class="line">            &#125;</span><br><span class="line">            draw(ctx)&#123;</span><br><span class="line">                ctx.save() </span><br><span class="line">                ctx.translate(this.x, this.y)               </span><br><span class="line">                ctx.rotate(this.angle)</span><br><span class="line">                ctx.drawImage(this.image, -this.width/2, -this.height/2, this.width, this.height)</span><br><span class="line">                ctx.restore();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        let snows = []</span><br><span class="line">        </span><br><span class="line">        image.onload = function()&#123;</span><br><span class="line">            for (let i = 0; i &lt; 50; i++)&#123;</span><br><span class="line">                snows.push(new Snow(canvas2.width, canvas2.height, image))</span><br><span class="line">            &#125;</span><br><span class="line">            function animate() &#123;</span><br><span class="line">                ctx2.clearRect(0,0,canvas2.width, canvas2.height)</span><br><span class="line">                for(let i=0;i&lt;snows.length;i++) &#123;</span><br><span class="line">                    snows[i].draw(ctx2)</span><br><span class="line">                    snows[i].update()</span><br><span class="line">                &#125;</span><br><span class="line">                window.requestAnimationFrame(animate)</span><br><span class="line">            &#125;</span><br><span class="line">            animate()</span><br><span class="line">        &#125;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://zhsunbeam.github.io/2022/07/30/JavaScript/(10)-JavaScript-Canvas%E9%9B%AA%E8%8A%B1%E9%A3%98(2)/" title="(九) JavaScript-Canvas 雪花飘" target="_blank" rel="external">https://zhsunbeam.github.io/2022/07/30/JavaScript/(10)-JavaScript-Canvas雪花飘(2)/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/zhsunbeam" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/zhsunbeam" target="_blank"><span class="text-dark">哼哈七龙岛主</span><small class="ml-1x">架构师 &amp; 开发者 &amp; 技术分享</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2022/07/26/JavaScript/(9)-JavaScript-Canvas%E9%9B%AA%E8%8A%B1%E9%A3%98/" title="(九) JavaScript-Canvas 雪花飘"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="/null" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2022 Mars笑笑生
+        
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'AWX1gkMMJd8dS4aO39EHlkH4-gzGzoHsz',
+    appKey: 'RrDFIYOQqx4aJxK2v1UEd00G',
+    placeholder: '思辨',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
