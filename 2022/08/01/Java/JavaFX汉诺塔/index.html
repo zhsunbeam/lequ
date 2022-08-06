@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>JavaFX汉诺塔 | CodeCool</title>
+  <meta name="description" content="游戏,Java游戏,JavaFX,汉诺塔,Stream">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaFX汉诺塔">
+<meta property="og:url" content="https://zhsunbeam.github.io/2022/08/01/Java/JavaFX%E6%B1%89%E8%AF%BA%E5%A1%94/index.html">
+<meta property="og:site_name" content="极乐空间">
+<meta property="og:description" content="游戏,Java游戏,JavaFX,汉诺塔,Stream">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zhsunbeam.github.io/2022/08/01/Java/JavaFX%E6%B1%89%E8%AF%BA%E5%A1%94/1.gif">
+<meta property="og:image" content="https://zhsunbeam.github.io/2022/08/01/Java/JavaFX%E6%B1%89%E8%AF%BA%E5%A1%94/2.png">
+<meta property="og:image" content="https://zhsunbeam.github.io/2022/08/01/Java/JavaFX%E6%B1%89%E8%AF%BA%E5%A1%94/3.png">
+<meta property="article:published_time" content="2022-08-01T05:05:19.000Z">
+<meta property="article:modified_time" content="2022-08-06T03:51:30.385Z">
+<meta property="article:author" content="Mars笑笑生">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="编程基础">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zhsunbeam.github.io/2022/08/01/Java/JavaFX%E6%B1%89%E8%AF%BA%E5%A1%94/1.gif">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://zhsunbeam.github.io/2022/08/01/Java/JavaFX%E6%B1%89%E8%AF%BA%E5%A1%94/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="极乐空间" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body class="main-center theme-green" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/zhsunbeam" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">哼哈七龙岛主</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">架构师 &amp; 开发者 &amp; 技术分享</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> ChangSha, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="/null" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>程序之路无止境,欢迎交流,一同成长!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/H5/">H5</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JOOQ/">JOOQ</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/">项目开发</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/" rel="tag">H5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">17</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ORM%E6%A1%86%E6%9E%B6/" rel="tag">ORM框架</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="tag">编程基础</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/" rel="tag">项目开发</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/H5/" style="font-size: 13px;">H5</a> <a href="/tags/HTML/" style="font-size: 13px;">HTML</a> <a href="/tags/Java/" style="font-size: 13.33px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 13.67px;">JavaScript</a> <a href="/tags/ORM%E6%A1%86%E6%9E%B6/" style="font-size: 13px;">ORM框架</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" style="font-size: 14px;">编程基础</a> <a href="/tags/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/" style="font-size: 13px;">项目开发</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">26</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/Java/">Java</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/08/01/Java/JavaFX%E6%B1%89%E8%AF%BA%E5%A1%94/" class="title">JavaFX汉诺塔</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-08-01T05:05:19.000Z" itemprop="datePublished">2022-08-01</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/07/30/JavaScript/(10)-JavaScript-Canvas%E9%9B%AA%E8%8A%B1%E9%A3%98(2)/" class="title">(十) JavaScript-Canvas 雪花飘(2)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-07-30T01:05:00.000Z" itemprop="datePublished">2022-07-30</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/07/26/JavaScript/(9)-JavaScript-Canvas%E9%9B%AA%E8%8A%B1%E9%A3%98/" class="title">(九) JavaScript-Canvas 雪花飘</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-07-26T11:05:00.000Z" itemprop="datePublished">2022-07-26</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/07/25/JavaScript/(8)-JavaScript-Canvas%E6%97%8B%E8%BD%AC%E7%9A%84%E5%9B%BE%E7%89%87/" class="title">(八) JavaScript-Canvas旋转的图片</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-07-25T01:05:00.000Z" itemprop="datePublished">2022-07-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/07/22/JavaScript/(7)-JavaScript-Canvas%E6%BB%91%E5%8A%A8%E6%98%9F%E5%BA%A7/" class="title">(七) JavaScript-Canvas-滑动星座</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-07-22T10:00:00.000Z" itemprop="datePublished">2022-07-22</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-Java/JavaFX汉诺塔" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaFX汉诺塔
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/08/01/Java/JavaFX%E6%B1%89%E8%AF%BA%E5%A1%94/" class="article-date">
+	  <time datetime="2022-08-01T05:05:19.000Z" itemprop="datePublished">2022-08-01</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/Java/" rel="tag">Java</a>, <a class="article-tag-link-link" href="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="tag">编程基础</a>
+  </span>
+
+
+        
+
+	<span class="article-read hidden-xs">
+    	<i class="icon icon-eye-fill" aria-hidden="true"></i>
+    	<span id="/2022/08/01/Java/JavaFX%E6%B1%89%E8%AF%BA%E5%A1%94/" class="leancloud_visitors"  data-flag-title="JavaFX汉诺塔">
+			<span class="leancloud-visitors-count">0</span>
+		</span>
+    </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/08/01/Java/JavaFX%E6%B1%89%E8%AF%BA%E5%A1%94/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2.2k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 9(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <blockquote>
+<p>汉诺塔（Tower of Hanoi），是一个源于印度古老传说的益智玩具。大梵天创造世界的时候做了三根金刚石柱子，在一根柱子上从下往上按照大小顺序摞着64片黄金圆盘。大梵天命令婆罗门把圆盘从下面开始按大小顺序重新摆放在另一根柱子上。并且规定，在小圆盘上不能放大圆盘，在三根柱子之间一次只能移动一个圆盘。本文使用JavaFX模拟汉诺塔，使用了Java面向对象，Java stream和Optional, JavaFX图形技术, 包含Stage、Scene、事件处理、Pane、StackPane等，要求对Java8以上版本的特性有了解。一起来实现这个小游戏吧!</p>
+</blockquote>
+<h3 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h3><p><img src="/2022/08/01/Java/JavaFX%E6%B1%89%E8%AF%BA%E5%A1%94/1.gif"></p>
+<h3 id="游戏逻辑"><a href="#游戏逻辑" class="headerlink" title="游戏逻辑"></a>游戏逻辑</h3><ol>
+<li><p>创建三个塔，使用三个矩形模拟三个塔 </p>
+</li>
+<li><p>在第一个矩形周围绘制多个圆形表示圆盘</p>
+</li>
+<li><p>点击塔中的圆盘选中后，再点击其它塔，移动圆盘到其它塔</p>
+</li>
+<li><p>直到将所有圆盘按从小到大的顺序显示在第三个塔上</p>
+</li>
+</ol>
+<h4 id="一、创建一个Application"><a href="#一、创建一个Application" class="headerlink" title="一、创建一个Application"></a>一、创建一个Application</h4><ol>
+<li>Stage 舞台</li>
+<li>Scene 场景</li>
+<li>Pane容器用于存放绘制的形状</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TowerHanoi</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">(Stage stage)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        stage.setScene(<span class="keyword">new</span> Scene(createContent()));</span><br><span class="line">        stage.show();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> Parent <span class="title">createContent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        Pane root = <span class="keyword">new</span> Pane();</span><br><span class="line">        root.setPrefSize(<span class="number">1000</span>,<span class="number">400</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="二、新建Tower塔类，模拟矩形塔"><a href="#二、新建Tower塔类，模拟矩形塔" class="headerlink" title="二、新建Tower塔类，模拟矩形塔"></a>二、新建Tower塔类，模拟矩形塔</h4><ol>
+<li>类名定义为Tower, 属性有哪些？ 如果是绘制图形，则需要坐标位置信息，据此在构造方法中传入坐标值</li>
+<li>Tower类中需要绘制一个矩形，这个矩形可称为塔, 在它的边上需要绘制多个圆圈，从小到大顺序</li>
+<li>Tower类须继承 StackPane，因为同一个位置的其它圆的绘制有先后顺序</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Tower是一个StackPane</span></span><br><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Tower</span> <span class="keyword">extends</span> <span class="title">StackPane</span> </span>&#123;</span><br><span class="line">    Tower(<span class="keyword">int</span> x, <span class="keyword">int</span> y) &#123;</span><br><span class="line">        <span class="comment">//当前Tower的坐标</span></span><br><span class="line">        setTranslateX(x);</span><br><span class="line">        setTranslateY(y);</span><br><span class="line">        <span class="comment">//当前Tower容器的大小</span></span><br><span class="line">        setPrefSize(<span class="number">400</span>,<span class="number">400</span>);</span><br><span class="line">        <span class="comment">//定义一个矩形</span></span><br><span class="line">        Rectangle rectTower = <span class="keyword">new</span> Rectangle(<span class="number">35</span>,<span class="number">35</span>);</span><br><span class="line">        <span class="comment">//将这个矩形添加到当前的Tower容器中</span></span><br><span class="line">        getChildren().add(rectTower);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​    </p>
+<h4 id="三、创建三个Tower对象"><a href="#三、创建三个Tower对象" class="headerlink" title="三、创建三个Tower对象"></a>三、创建三个Tower对象</h4><ul>
+<li>此步骤创建三个Tower对象，并添加到容器中，同时设定到Scene场景对象中</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TowerHanoi</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">(Stage stage)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        stage.setScene(<span class="keyword">new</span> Scene(createContent()));</span><br><span class="line">        stage.show();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> Parent <span class="title">createContent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        Pane root = <span class="keyword">new</span> Pane();</span><br><span class="line">        root.setPrefSize(<span class="number">1000</span>,<span class="number">400</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">            <span class="comment">//纵坐标不变, 横坐标每根据循环变量 i 变化</span></span><br><span class="line">            Tower tower = <span class="keyword">new</span> Tower(i*<span class="number">400</span>, <span class="number">0</span>);</span><br><span class="line">            <span class="comment">//将三个Tower对象添加到root面板容器中</span></span><br><span class="line">            root.getChildren().add(tower);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/08/01/Java/JavaFX%E6%B1%89%E8%AF%BA%E5%A1%94/2.png"></p>
+<h4 id="四、在第一个Tower中绘制N个圆"><a href="#四、在第一个Tower中绘制N个圆" class="headerlink" title="四、在第一个Tower中绘制N个圆"></a>四、在第一个Tower中绘制N个圆</h4><ul>
+<li>绘制的圆表示放在Tower上的圆盘, 此处我们使用一个常量 NUM_CIRCLES 表示, 设定为4, 也可随意设置</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> NUM_CIRCLES = <span class="number">4</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在创建第一个Tower时，将NUM_CIRCLES个圆盘绘制在 Tower上面</li>
+<li>绘制时使用Circle类创建圆</li>
+<li>循环时从最大的开始，在计算半径时保证最大的圆盘先添加到Tower面板容器中，最后绘制的在Tower面板容器的最上面, 使用的是栈结构</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TowerHanoi</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">(Stage stage)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        stage.setScene(<span class="keyword">new</span> Scene(createContent()));</span><br><span class="line">        stage.show();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> Parent <span class="title">createContent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        Pane root = <span class="keyword">new</span> Pane();</span><br><span class="line">        root.setPrefSize(<span class="number">1000</span>,<span class="number">400</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">            <span class="comment">//纵坐标不变, 横坐标每根据循环变量 i 变化</span></span><br><span class="line">            Tower tower = <span class="keyword">new</span> Tower(i*<span class="number">400</span>, <span class="number">0</span>);</span><br><span class="line">            </span><br><span class="line">            <span class="comment">//i=0的时候，画三个圆盘</span></span><br><span class="line">            <span class="keyword">if</span>(i==<span class="number">0</span>) &#123;</span><br><span class="line">                <span class="comment">//循环时从最大的开始</span></span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = NUM_CIRCLES; j &gt; <span class="number">0</span>; j--) &#123;</span><br><span class="line">                    Circle circle = <span class="keyword">new</span> Circle(<span class="number">30</span>+j*<span class="number">20</span>, <span class="keyword">null</span>);</span><br><span class="line">                    <span class="comment">//设置边线颜色和宽度</span></span><br><span class="line">                    circle.setStroke(Color.BLUE);</span><br><span class="line">                    circle.setStrokeWidth(circle.getRadius()/<span class="number">20</span>);</span><br><span class="line">                    <span class="comment">//添加到面板容器</span></span><br><span class="line">                    tower.addCircle(circle);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">//将三个Tower对象添加到root面板容器中</span></span><br><span class="line">            root.getChildren().add(tower);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/08/01/Java/JavaFX%E6%B1%89%E8%AF%BA%E5%A1%94/3.png"></p>
+<h4 id="五、获取Tower塔上半径最小的圆盘"><a href="#五、获取Tower塔上半径最小的圆盘" class="headerlink" title="五、获取Tower塔上半径最小的圆盘"></a>五、获取Tower塔上半径最小的圆盘</h4><ul>
+<li>在Tower类中定义一个方法，用于获取Tower面板容器中最上面的那个圆盘</li>
+<li>这个方法采用getChildren()获取当前Tower 面板容器对象上的所有元素, 转换成stream, 再通过filter和map以及min这些中间操作后获得半径最小的圆盘</li>
+<li>stream 是java8之后的重要特性，此处还用到 lambda 表达式, 在集合的内部迭代中经常使用</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> Circle <span class="title">getTop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> top = getChildren()</span><br><span class="line">        .stream()</span><br><span class="line">        .filter(element-&gt;element <span class="keyword">instanceof</span> Circle)  <span class="comment">//返回元素类型为Circle的stream</span></span><br><span class="line">        .map(element-&gt;(Circle)element) <span class="comment">//将过滤后的类型转换为Circle类型</span></span><br><span class="line">        .min(Comparator.comparingDouble(Circle::getRadius)) <span class="comment">//比较一下所有的Circle，并得到半径最小的那个圆盘</span></span><br><span class="line">        .orElse(<span class="keyword">null</span>);</span><br><span class="line">    <span class="keyword">return</span> top;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="六、定义方法添加圆盘到Tower塔-面板容器中"><a href="#六、定义方法添加圆盘到Tower塔-面板容器中" class="headerlink" title="六、定义方法添加圆盘到Tower塔 面板容器中"></a>六、定义方法添加圆盘到Tower塔 面板容器中</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">addCircle</span><span class="params">(Circle circle)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//获取画在StackPane也就是Tower上最上面的那个Circle</span></span><br><span class="line">    Circle topMost = getTop();</span><br><span class="line">    <span class="comment">//如果为null则表示Tower上面没有圆</span></span><br><span class="line">    <span class="keyword">if</span>(topMost==<span class="keyword">null</span>) &#123;</span><br><span class="line">        getChildren().add(circle);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//如果不为空，则添加到Tower上的圆要和最上层的圆进行比较，小于最小层时才能添加</span></span><br><span class="line">        <span class="keyword">if</span>(circle.getRadius() &lt; topMost.getRadius()) &#123;</span><br><span class="line">            getChildren().add(circle);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//getChildren().add(circle);</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="七、点击Tower时获得最小半径的圆盘并改变颜色"><a href="#七、点击Tower时获得最小半径的圆盘并改变颜色" class="headerlink" title="七、点击Tower时获得最小半径的圆盘并改变颜色"></a>七、点击Tower时获得最小半径的圆盘并改变颜色</h4><ul>
+<li>定义一个Optional, 用于解决可能出现的NullPointException</li>
+<li>变量存在时，Optional类只是对类简单封装。变量不存在时，缺失的值会被建模成一个“空”的Optional对象，由方法Optional.empty()返回</li>
+<li>Optional.empty()方法是一个静态工厂方法，它返回Optional类的特定单一实例</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> Optional&lt;Circle&gt; selectedCircle = Optional.empty();</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>为Tower上的矩形定义一个鼠标点击事件，使用setOnMouseClicked</li>
+<li>Optional类提供了一个isPresent方法，如果Optional对象包含值，该方法就返回true, 如果不包含则返回false</li>
+<li>addCircle方法是在Tower类中定义的，目的是将圆添加到Tower中</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Tower是一个StackPane</span></span><br><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Tower</span> <span class="keyword">extends</span> <span class="title">StackPane</span> </span>&#123;</span><br><span class="line">    Tower(<span class="keyword">int</span> x, <span class="keyword">int</span> y) &#123;</span><br><span class="line">        <span class="comment">//当前Tower的坐标</span></span><br><span class="line">        setTranslateX(x);</span><br><span class="line">        setTranslateY(y);</span><br><span class="line">        <span class="comment">//当前Tower容器的大小</span></span><br><span class="line">        setPrefSize(<span class="number">400</span>,<span class="number">400</span>);</span><br><span class="line">        <span class="comment">//定义一个矩形</span></span><br><span class="line">        Rectangle rectTower = <span class="keyword">new</span> Rectangle(<span class="number">35</span>,<span class="number">35</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//监听每一个矩形塔的点击事件</span></span><br><span class="line">        rectTower.setOnMouseClicked(e-&gt;&#123;</span><br><span class="line">          	<span class="comment">//判断Optional对象是否包含值,如果包含则返回true,否则返回false</span></span><br><span class="line">            <span class="keyword">if</span>(selectedCircle.isPresent()) &#123;</span><br><span class="line">                <span class="comment">//包含值则获取其中的对象</span></span><br><span class="line">                Circle c = selectedCircle.get();</span><br><span class="line">                <span class="comment">//设置边框颜色 </span></span><br><span class="line">                c.setStroke(Color.BLUE);</span><br><span class="line">                <span class="comment">//添加圆盘到当前Tower中</span></span><br><span class="line">                addCircle(c);</span><br><span class="line">                <span class="comment">//模拟一个空的Optional对象,重新赋值</span></span><br><span class="line">                selectedCircle = Optional.empty();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                selectedCircle = Optional.ofNullable(getTop());</span><br><span class="line"> 				<span class="comment">//如果选中了则将边框颜色设置为红色</span></span><br><span class="line">                selectedCircle.get().setStroke(Color.RED);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//将这个矩形添加到当前的Tower容器中</span></span><br><span class="line">        getChildren().add(rectTower);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> Circle <span class="title">getTop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> top = getChildren()</span><br><span class="line">            .stream()</span><br><span class="line">            .filter(element-&gt;element <span class="keyword">instanceof</span> Circle)  <span class="comment">//返回元素类型为Circle的stream</span></span><br><span class="line">            .map(element-&gt;(Circle)element) <span class="comment">//将过滤后的类型转换为Circle类型</span></span><br><span class="line">            .min(Comparator.comparingDouble(Circle::getRadius)) <span class="comment">//比较一下所有的Circle，并得到半径最小的那个圆盘</span></span><br><span class="line">            .orElse(<span class="keyword">null</span>);</span><br><span class="line">        <span class="keyword">return</span> top;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">addCircle</span><span class="params">(Circle circle)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="八、addCircle方法实现"><a href="#八、addCircle方法实现" class="headerlink" title="八、addCircle方法实现"></a>八、addCircle方法实现</h4><ul>
+<li>addCircle方法是将选中的Circle添加到不同的Tower上面</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">addCircle</span><span class="params">(Circle circle)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//获取画在StackPane也就是Tower上最小的Circle</span></span><br><span class="line">    Circle topCircle = getTop();</span><br><span class="line">    <span class="comment">//如果为null则表示Tower上面没有圆， 没有圆盘则可将圆盘直接添加到Tower上</span></span><br><span class="line">    <span class="keyword">if</span>(topCircle==<span class="keyword">null</span>) &#123;</span><br><span class="line">        getChildren().add(circle);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//如果Tower上有圆盘，则添加到Tower上的圆盘要和最上层的圆盘进行比较，小于最上面那个圆盘时才能添加</span></span><br><span class="line">        <span class="keyword">if</span>(circle.getRadius() &lt; topCircle.getRadius()) &#123;</span><br><span class="line">            getChildren().add(circle);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="九、完整代码"><a href="#九、完整代码" class="headerlink" title="九、完整代码"></a>九、完整代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> top.codecool.game;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javafx.application.Application;</span><br><span class="line"><span class="keyword">import</span> javafx.scene.Parent;</span><br><span class="line"><span class="keyword">import</span> javafx.scene.Scene;</span><br><span class="line"><span class="keyword">import</span> javafx.scene.layout.Pane;</span><br><span class="line"><span class="keyword">import</span> javafx.scene.layout.StackPane;</span><br><span class="line"><span class="keyword">import</span> javafx.scene.paint.Color;</span><br><span class="line"><span class="keyword">import</span> javafx.scene.shape.Circle;</span><br><span class="line"><span class="keyword">import</span> javafx.scene.shape.Rectangle;</span><br><span class="line"><span class="keyword">import</span> javafx.stage.Stage;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Comparator;</span><br><span class="line"><span class="keyword">import</span> java.util.Optional;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TowerHanoiApp</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> NUM_CIRCLES = <span class="number">4</span>;</span><br><span class="line">    <span class="keyword">private</span> Optional&lt;Circle&gt; selectedCircle = Optional.empty();</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">(Stage stage)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        stage.setScene(<span class="keyword">new</span> Scene(createContent()));</span><br><span class="line">        stage.setTitle(<span class="string">&quot;汉诺塔游戏&quot;</span>);</span><br><span class="line">        stage.show();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> Parent <span class="title">createContent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Pane root = <span class="keyword">new</span> Pane();</span><br><span class="line">        root.setPrefSize(<span class="number">400</span>*<span class="number">3</span>,<span class="number">400</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">            Tower tower = <span class="keyword">new</span> Tower(i*<span class="number">400</span>, <span class="number">0</span>);</span><br><span class="line">            <span class="keyword">if</span>(i==<span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = NUM_CIRCLES; j &gt; <span class="number">0</span>; j--) &#123;</span><br><span class="line">                    Circle circle = <span class="keyword">new</span> Circle(<span class="number">30</span>+j*<span class="number">20</span>, <span class="keyword">null</span>);</span><br><span class="line">                    circle.setStroke(Color.BLUE);</span><br><span class="line">                    circle.setStrokeWidth(circle.getRadius()/<span class="number">20</span>);</span><br><span class="line">                    tower.addCircle(circle);</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            root.getChildren().add(tower);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">Tower</span> <span class="keyword">extends</span> <span class="title">StackPane</span> </span>&#123;</span><br><span class="line">        Tower(<span class="keyword">int</span> x, <span class="keyword">int</span> y) &#123;</span><br><span class="line">            setTranslateX(x);</span><br><span class="line">            setTranslateY(y);</span><br><span class="line">            setPrefSize(<span class="number">400</span>,<span class="number">400</span>);</span><br><span class="line">            Rectangle rectTower = <span class="keyword">new</span> Rectangle(<span class="number">35</span>,<span class="number">35</span>);</span><br><span class="line">            rectTower.setOnMouseClicked(e-&gt;&#123;</span><br><span class="line">                <span class="keyword">if</span>(selectedCircle.isPresent()) &#123;</span><br><span class="line">                    Circle c = selectedCircle.get();</span><br><span class="line">                    c.setStroke(Color.BLUE);</span><br><span class="line">                    addCircle(c);</span><br><span class="line">                    selectedCircle = Optional.empty();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    selectedCircle = Optional.ofNullable(getTop());</span><br><span class="line">                    selectedCircle.get().setStroke(Color.RED);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;);</span><br><span class="line">            getChildren().add(rectTower);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> Circle <span class="title">getTop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> top = getChildren()</span><br><span class="line">                    .stream()</span><br><span class="line">                    .filter(n-&gt;n <span class="keyword">instanceof</span> Circle)</span><br><span class="line">                    .map(n-&gt;(Circle)n)</span><br><span class="line">                    .min(Comparator.comparingDouble(Circle::getRadius))</span><br><span class="line">                    .orElse(<span class="keyword">null</span>);</span><br><span class="line">            <span class="keyword">return</span> top;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">addCircle</span><span class="params">(Circle circle)</span> </span>&#123;</span><br><span class="line">            Circle topCircle = getTop();</span><br><span class="line">            <span class="keyword">if</span>(topCircle==<span class="keyword">null</span>) &#123;</span><br><span class="line">                getChildren().add(circle);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">if</span>(circle.getRadius() &lt; topCircle.getRadius()) &#123;</span><br><span class="line">                    getChildren().add(circle);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>本文使用JavaFX和Java8中的stream、Optional、Lambda表达式等技术实现了一个简易版的汉诺塔小游戏，借此练习如何使用这些新特性，提升技能水平。</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://zhsunbeam.github.io/2022/08/01/Java/JavaFX%E6%B1%89%E8%AF%BA%E5%A1%94/" title="JavaFX汉诺塔" target="_blank" rel="external">https://zhsunbeam.github.io/2022/08/01/Java/JavaFX汉诺塔/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/zhsunbeam" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/zhsunbeam" target="_blank"><span class="text-dark">哼哈七龙岛主</span><small class="ml-1x">架构师 &amp; 开发者 &amp; 技术分享</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2022/07/30/JavaScript/(10)-JavaScript-Canvas%E9%9B%AA%E8%8A%B1%E9%A3%98(2)/" title="(十) JavaScript-Canvas 雪花飘(2)"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="/null" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2022 Mars笑笑生
+        
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'AWX1gkMMJd8dS4aO39EHlkH4-gzGzoHsz',
+    appKey: 'RrDFIYOQqx4aJxK2v1UEd00G',
+    placeholder: '思辨',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
