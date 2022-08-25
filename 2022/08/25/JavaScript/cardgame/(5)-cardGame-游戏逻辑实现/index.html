@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>(五) cardGame-游戏逻辑实现 | CodeCool</title>
+  <meta name="description" content="JavaScript基础,HTML5&#x2F;CSS3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="(五) cardGame-游戏逻辑实现">
+<meta property="og:url" content="https://zhsunbeam.github.io/2022/08/25/JavaScript/cardgame/(5)-cardGame-%E6%B8%B8%E6%88%8F%E9%80%BB%E8%BE%91%E5%AE%9E%E7%8E%B0/index.html">
+<meta property="og:site_name" content="极乐空间">
+<meta property="og:description" content="JavaScript基础,HTML5&#x2F;CSS3">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zhsunbeam.github.io/2022/08/25/JavaScript/cardgame/(5)-cardGame-%E6%B8%B8%E6%88%8F%E9%80%BB%E8%BE%91%E5%AE%9E%E7%8E%B0/1.gif">
+<meta property="og:image" content="https://zhsunbeam.github.io/2022/08/25/JavaScript/cardgame/(5)-cardGame-%E6%B8%B8%E6%88%8F%E9%80%BB%E8%BE%91%E5%AE%9E%E7%8E%B0/2.gif">
+<meta property="article:published_time" content="2022-08-25T09:12:02.000Z">
+<meta property="article:modified_time" content="2022-08-25T14:20:28.583Z">
+<meta property="article:author" content="Mars笑笑生">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="HTML5&#x2F;CSS3">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zhsunbeam.github.io/2022/08/25/JavaScript/cardgame/(5)-cardGame-%E6%B8%B8%E6%88%8F%E9%80%BB%E8%BE%91%E5%AE%9E%E7%8E%B0/1.gif">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://zhsunbeam.github.io/2022/08/25/JavaScript/cardgame/(5)-cardGame-%E6%B8%B8%E6%88%8F%E9%80%BB%E8%BE%91%E5%AE%9E%E7%8E%B0/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="极乐空间" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body class="main-center theme-green" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/zhsunbeam" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">哼哈七龙岛主</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">架构师 &amp; 开发者 &amp; 技术分享</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> ChangSha, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="/null" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>程序之路无止境,欢迎交流,一同成长!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/H5/">H5</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JOOQ/">JOOQ</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/">项目开发</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/" rel="tag">H5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5-CSS3/" rel="tag">HTML5/CSS3</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ORM%E6%A1%86%E6%9E%B6/" rel="tag">ORM框架</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="tag">编程基础</a><span class="tag-list-count">18</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/" rel="tag">项目开发</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/H5/" style="font-size: 13px;">H5</a> <a href="/tags/HTML/" style="font-size: 13px;">HTML</a> <a href="/tags/HTML5-CSS3/" style="font-size: 13.25px;">HTML5/CSS3</a> <a href="/tags/Java/" style="font-size: 13.5px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 14px;">JavaScript</a> <a href="/tags/ORM%E6%A1%86%E6%9E%B6/" style="font-size: 13px;">ORM框架</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" style="font-size: 13.75px;">编程基础</a> <a href="/tags/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/" style="font-size: 13px;">项目开发</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">26</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/08/25/JavaScript/cardgame/(5)-cardGame-%E6%B8%B8%E6%88%8F%E9%80%BB%E8%BE%91%E5%AE%9E%E7%8E%B0/" class="title">(五) cardGame-游戏逻辑实现</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-08-25T09:12:02.000Z" itemprop="datePublished">2022-08-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/08/25/JavaScript/cardgame/(4)-cardGame-%E6%89%91%E5%85%8B%E7%89%8C%E6%AD%A3%E9%9D%A2/" class="title">(四) cardGame-扑克牌正面</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-08-25T01:20:25.000Z" itemprop="datePublished">2022-08-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/08/25/JavaScript/cardgame/(3)-cardGame-%E6%89%91%E5%85%8B%E7%89%8C%E8%83%8C%E9%9D%A2/" class="title">(三) cardGame-扑克牌背面布局</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-08-25T00:10:25.000Z" itemprop="datePublished">2022-08-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/08/24/JavaScript/cardgame/(2)-cardGame-%E6%89%91%E5%85%8B%E7%89%8C%E8%AE%BE%E8%AE%A1/" class="title">(二) cardGame-扑克牌设计</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-08-24T01:10:16.000Z" itemprop="datePublished">2022-08-24</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/08/24/JavaScript/cardgame/(1)-cardGame-%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1/" class="title">(一) cardGame-界面设计</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-08-24T01:02:06.000Z" itemprop="datePublished">2022-08-24</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-JavaScript/cardgame/(5)-cardGame-游戏逻辑实现" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      (五) cardGame-游戏逻辑实现
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/08/25/JavaScript/cardgame/(5)-cardGame-%E6%B8%B8%E6%88%8F%E9%80%BB%E8%BE%91%E5%AE%9E%E7%8E%B0/" class="article-date">
+	  <time datetime="2022-08-25T09:12:02.000Z" itemprop="datePublished">2022-08-25</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/HTML5-CSS3/" rel="tag">HTML5/CSS3</a>, <a class="article-tag-link-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>
+  </span>
+
+
+        
+
+	<span class="article-read hidden-xs">
+    	<i class="icon icon-eye-fill" aria-hidden="true"></i>
+    	<span id="/2022/08/25/JavaScript/cardgame/(5)-cardGame-%E6%B8%B8%E6%88%8F%E9%80%BB%E8%BE%91%E5%AE%9E%E7%8E%B0/" class="leancloud_visitors"  data-flag-title="(五) cardGame-游戏逻辑实现">
+			<span class="leancloud-visitors-count">0</span>
+		</span>
+    </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/08/25/JavaScript/cardgame/(5)-cardGame-%E6%B8%B8%E6%88%8F%E9%80%BB%E8%BE%91%E5%AE%9E%E7%8E%B0/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2.1k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 11(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <blockquote>
+<p> 制作一个简单的翻牌游戏， 使用HTML5/CSS3设计界面,  Javascript翻牌对比； 麻雀虽小，五脏俱全, 此项目将CSS中常见的技术应用在项目中，使用JavaScript原生开发，设计简单，便于快速掌握CSS3和JavaScript的用法;  某些知识点再通过其它视频或文档去了解，事半功倍。</p>
+</blockquote>
+<h3 id="1-翻牌游戏HTML-CSS代码"><a href="#1-翻牌游戏HTML-CSS代码" class="headerlink" title="1. 翻牌游戏HTML+CSS代码"></a>1. 翻牌游戏HTML+CSS代码</h3><ul>
+<li>以下代码为翻牌游戏的HTML+CSS代码</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>翻牌游戏<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">        <span class="keyword">@font-face</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">font-family</span>: <span class="string">&quot;蜘蛛&quot;</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">src</span>: <span class="built_in">url</span>(<span class="string">fonts/恐怖蜘蛛.ttf</span>) <span class="built_in">format</span>(<span class="string">&quot;truetype&quot;</span>);</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">        <span class="comment">/* 盒子的计算方式 */</span></span></span><br><span class="line"><span class="css">        * &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">box-sizing</span>: border-box;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">        <span class="comment">/* 设置整个页面的字体，最小宽度和最小高度,单位使用vw,vh */</span></span></span><br><span class="line"><span class="css">        <span class="selector-tag">html</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">font-family</span>: <span class="string">&quot;蜘蛛&quot;</span>, serif;</span></span><br><span class="line"><span class="css">            <span class="attribute">min-width</span>: <span class="number">100vw</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">min-height</span>: <span class="number">100vh</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-tag">body</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">margin</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">background</span>: <span class="built_in">radial-gradient</span>(<span class="number">#F15F66</span>, <span class="number">#7E2625</span>);</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">        <span class="comment">/* 标题样式 */</span></span></span><br><span class="line"><span class="css">        <span class="selector-class">.game-title</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">color</span>: <span class="number">#EBD408</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="css">            <span class="attribute">font-size</span>: <span class="number">4em</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">font-weight</span>: normal;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">        <span class="comment">/* 游戏信息文字样式 */</span></span></span><br><span class="line"><span class="css">        <span class="selector-class">.game-info</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">color</span>: <span class="number">#F0F4F7</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">font-size</span>: <span class="number">3em</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">        <span class="comment">/* 游戏标题容器布局样式 */</span></span></span><br><span class="line"><span class="css">        <span class="selector-class">.game-container</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">display</span>: grid;</span></span><br><span class="line"><span class="css">            grid-template-<span class="attribute">columns</span>: <span class="built_in">repeat</span>(<span class="number">4</span>, auto);</span></span><br><span class="line"><span class="css">            <span class="attribute">justify-content</span>: center;</span></span><br><span class="line"><span class="css">            gap: <span class="number">10px</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">        <span class="comment">/* 内部布局样式 */</span></span></span><br><span class="line"><span class="css">        <span class="selector-class">.game-info-container</span> &#123;</span></span><br><span class="line"><span class="css">            grid-column: <span class="number">1</span> / -<span class="number">1</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">display</span>: flex;</span></span><br><span class="line"><span class="css">            <span class="attribute">justify-content</span>: space-between;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">        <span class="comment">/* 扑克牌 */</span></span></span><br><span class="line"><span class="css">        <span class="selector-class">.card</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">position</span>: relative;  <span class="comment">/* 相对位置 */</span></span></span><br><span class="line"><span class="css">            <span class="attribute">height</span>: <span class="number">175px</span>; <span class="comment">/* 扑克牌高度 */</span></span></span><br><span class="line"><span class="css">            <span class="attribute">width</span>: <span class="number">125px</span>; <span class="comment">/* 扑克牌宽度 */</span></span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">            <span class="comment">/* 测试用样式,后面删除 */</span></span></span><br><span class="line"><span class="css">            <span class="comment">/* border: 1px white solid; */</span></span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">        <span class="comment">/* 扑克牌正面和背面通用样式, 两个div层需要重合，使用的是position:absolute */</span></span></span><br><span class="line"><span class="css">        <span class="selector-class">.card-face</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="css">            <span class="attribute">width</span>: <span class="number">100%</span>;    <span class="comment">/* 相对于父元素宽度 也就是div.card */</span></span></span><br><span class="line"><span class="css">            <span class="attribute">height</span>: <span class="number">100%</span>;   <span class="comment">/* 相对于父元素高度 也就是div.card */</span></span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">            <span class="comment">/* 内部元素的排版布局方式为flex */</span></span></span><br><span class="line"><span class="css">            <span class="attribute">display</span>: flex;</span></span><br><span class="line"><span class="css">            <span class="attribute">justify-content</span>: center;</span></span><br><span class="line"><span class="css">            <span class="attribute">align-items</span>: center;</span></span><br><span class="line"><span class="css">            <span class="attribute">overflow</span>: hidden;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">            <span class="comment">/* 背面和正面的圆角设计 */</span></span></span><br><span class="line"><span class="css">            <span class="attribute">border-radius</span>: <span class="number">12px</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">border-width</span>: <span class="number">1px</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">border-style</span>: solid;</span></span><br><span class="line"><span class="css">            <span class="attribute">font-size</span>: <span class="number">7em</span>;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">            </span></span><br><span class="line"><span class="css">            <span class="comment">/* 隐藏背面 */</span></span></span><br><span class="line"><span class="css">            <span class="attribute">backface-visibility</span>: hidden;</span></span><br><span class="line"><span class="css">            <span class="comment">/* transform变换动画 */</span></span></span><br><span class="line"><span class="css">            <span class="attribute">transition</span>: transform <span class="number">500ms</span> ease-in-out;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.card-back</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">background-color</span>: black;</span></span><br><span class="line"><span class="css">            <span class="attribute">border-color</span>: <span class="number">#FF6D11</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.card-front</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">background-color</span>: <span class="number">#FFBB88</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">border-color</span>: <span class="number">#333333</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">transform</span>: <span class="built_in">rotateY</span>(<span class="number">180deg</span>);</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.card</span><span class="selector-pseudo">:hover</span> <span class="selector-class">.card-back</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="comment">/* transform: rotateY(-180deg); */</span></span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.card</span><span class="selector-pseudo">:hover</span> <span class="selector-class">.card-front</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="comment">/* transform: rotateY(0); */</span></span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">        <span class="comment">/* 背面图片布局 */</span></span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">        <span class="comment">/* 使用绝对位置 */</span></span></span><br><span class="line"><span class="css">        <span class="selector-class">.cobweb</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="css">            <span class="attribute">width</span>: <span class="number">45px</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">height</span>: <span class="number">45px</span>;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">            <span class="comment">/* 当高度和宽度变化时的动画 */</span></span></span><br><span class="line"><span class="css">            <span class="attribute">transition</span>: width <span class="number">100ms</span> ease-in-out, height <span class="number">100ms</span> ease-in-out;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">        <span class="comment">/* 四个角上的图片 */</span></span></span><br><span class="line"><span class="css">        <span class="selector-class">.cobweb-top-left</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">top</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">left</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">270deg</span>);</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.cobweb-top-right</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">top</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">right</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.cobweb-bottom-left</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">bottom</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">left</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">180deg</span>);</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.cobweb-bottom-right</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">bottom</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">right</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">90deg</span>);</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">        <span class="selector-class">.spider</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">align-self</span>: flex-start;</span></span><br><span class="line"><span class="css">            <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-<span class="number">20px</span>);</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">            <span class="comment">/* 蜘蛛transform属性更改时的动画 */</span></span></span><br><span class="line"><span class="css">            <span class="attribute">transition</span>: transform <span class="number">100ms</span> ease-in-out;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">        <span class="comment">/* 鼠标放在背面时.spider时transform的值改变 */</span></span></span><br><span class="line"><span class="css">        <span class="selector-class">.card-back</span><span class="selector-pseudo">:hover</span> <span class="selector-class">.spider</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">transform</span>: <span class="built_in">translateY</span>(<span class="number">0</span>);</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">         <span class="comment">/* 鼠标放在背面时.cobweb时width和height的值改变 */</span></span></span><br><span class="line"><span class="css">        <span class="selector-class">.card-back</span><span class="selector-pseudo">:hover</span>  <span class="selector-class">.cobweb</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">width</span>: <span class="number">55px</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">height</span>: <span class="number">55px</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">        <span class="comment">/* 扑克牌正面数字 */</span></span></span><br><span class="line"><span class="css">        <span class="selector-class">.card</span><span class="selector-pseudo">::before</span>, <span class="selector-class">.card</span><span class="selector-pseudo">::after</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="comment">/* 获取扑克牌上定义的 data-value值作为 content的内容 */</span></span></span><br><span class="line"><span class="css">            <span class="attribute">content</span>: <span class="built_in">attr</span>(data-value);</span></span><br><span class="line"><span class="css">            <span class="comment">/* 设置字体 */</span></span></span><br><span class="line"><span class="css">            <span class="attribute">font-size</span>: <span class="number">2rem</span>;</span></span><br><span class="line"><span class="css">           </span></span><br><span class="line"><span class="css">            <span class="comment">/* 绝对布局 让before和after的内容可以设置位置 */</span></span></span><br><span class="line"><span class="css">            <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">        <span class="comment">/* 伪类 content的位置 */</span></span></span><br><span class="line"><span class="css">        <span class="selector-class">.card</span><span class="selector-pseudo">::before</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">top</span>:.<span class="number">1rem</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">left</span>: .<span class="number">1rem</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.card</span><span class="selector-pseudo">::after</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">bottom</span>: .<span class="number">1rem</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">right</span>: .<span class="number">1rem</span>;</span></span><br><span class="line"><span class="css">            <span class="comment">/* 旋转180度 */</span></span></span><br><span class="line"><span class="css">            <span class="attribute">transform</span>: <span class="built_in">rotate</span>(<span class="number">180deg</span>);</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">        <span class="comment">/* 中心图标 */</span></span></span><br><span class="line"><span class="css">        <span class="selector-class">.card</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">display</span>: flex;</span></span><br><span class="line"><span class="css">            <span class="attribute">justify-content</span>: center;</span></span><br><span class="line"><span class="css">            <span class="attribute">align-items</span>: center;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.black</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">color</span>: black;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.red</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">color</span>:red</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 游戏标题设计 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">&quot;game-title&quot;</span>&gt;</span>翻牌游戏<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;game-container&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;game-info-container&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;game-info&quot;</span>&gt;</span></span><br><span class="line">                倒计时: <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;timeRemaining&quot;</span> <span class="attr">class</span>=<span class="string">&quot;time-remaining&quot;</span>&gt;</span>60<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;game-info&quot;</span>&gt;</span></span><br><span class="line">                点击次数: <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;clickCount&quot;</span> <span class="attr">class</span>=<span class="string">&quot;click-count&quot;</span>&gt;</span>0<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">&lt;!-- 扑克牌 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card&quot;</span> <span class="attr">data-number</span>=<span class="string">&quot;8&quot;</span> <span class="attr">data-turn</span>=<span class="string">&quot;back&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;handlerClick(this)&quot;</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 背面 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card-back card-face&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;imgs/Cobweb.png&quot;</span> <span class="attr">class</span>=<span class="string">&quot;cobweb cobweb-top-left&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;imgs/Cobweb.png&quot;</span> <span class="attr">class</span>=<span class="string">&quot;cobweb cobweb-top-right&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;imgs/Cobweb.png&quot;</span> <span class="attr">class</span>=<span class="string">&quot;cobweb cobweb-bottom-left&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;imgs/Cobweb.png&quot;</span> <span class="attr">class</span>=<span class="string">&quot;cobweb cobweb-bottom-right&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;imgs/Spider.png&quot;</span> <span class="attr">class</span>=<span class="string">&quot;spider&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 数字面  ♠ ♥ ♣ ♦--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span>  <span class="attr">class</span>=<span class="string">&quot;card-front card-face&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card black&quot;</span> <span class="attr">data-value</span>=<span class="string">&quot;8  ♠&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">div</span>&gt;</span>♠<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card&quot;</span> <span class="attr">data-number</span>=<span class="string">&quot;9&quot;</span> <span class="attr">data-turn</span>=<span class="string">&quot;back&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;handlerClick(this)&quot;</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 背面 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card-back card-face&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;imgs/Cobweb.png&quot;</span> <span class="attr">class</span>=<span class="string">&quot;cobweb cobweb-top-left&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;imgs/Cobweb.png&quot;</span> <span class="attr">class</span>=<span class="string">&quot;cobweb cobweb-top-right&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;imgs/Cobweb.png&quot;</span> <span class="attr">class</span>=<span class="string">&quot;cobweb cobweb-bottom-left&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;imgs/Cobweb.png&quot;</span> <span class="attr">class</span>=<span class="string">&quot;cobweb cobweb-bottom-right&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;imgs/Spider.png&quot;</span> <span class="attr">class</span>=<span class="string">&quot;spider&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 数字面  ♠ ♥ ♣ ♦--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span>  <span class="attr">class</span>=<span class="string">&quot;card-front card-face&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card black&quot;</span> <span class="attr">data-value</span>=<span class="string">&quot;9  ♣&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">div</span>&gt;</span>♣<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card&quot;</span> <span class="attr">data-number</span>=<span class="string">&quot;10&quot;</span> <span class="attr">data-turn</span>=<span class="string">&quot;back&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;handlerClick(this)&quot;</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 背面 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card-back card-face&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;imgs/Cobweb.png&quot;</span> <span class="attr">class</span>=<span class="string">&quot;cobweb cobweb-top-left&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;imgs/Cobweb.png&quot;</span> <span class="attr">class</span>=<span class="string">&quot;cobweb cobweb-top-right&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;imgs/Cobweb.png&quot;</span> <span class="attr">class</span>=<span class="string">&quot;cobweb cobweb-bottom-left&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;imgs/Cobweb.png&quot;</span> <span class="attr">class</span>=<span class="string">&quot;cobweb cobweb-bottom-right&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;imgs/Spider.png&quot;</span> <span class="attr">class</span>=<span class="string">&quot;spider&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 数字面  ♠ ♥ ♣ ♦--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span>  <span class="attr">class</span>=<span class="string">&quot;card-front card-face&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card red&quot;</span> <span class="attr">data-value</span>=<span class="string">&quot;10  ♥&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">div</span>&gt;</span>♥<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card&quot;</span> <span class="attr">data-number</span>=<span class="string">&quot;4&quot;</span> <span class="attr">data-turn</span>=<span class="string">&quot;back&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;handlerClick(this)&quot;</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 背面 --&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card-back card-face&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;imgs/Cobweb.png&quot;</span> <span class="attr">class</span>=<span class="string">&quot;cobweb cobweb-top-left&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;imgs/Cobweb.png&quot;</span> <span class="attr">class</span>=<span class="string">&quot;cobweb cobweb-top-right&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;imgs/Cobweb.png&quot;</span> <span class="attr">class</span>=<span class="string">&quot;cobweb cobweb-bottom-left&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;imgs/Cobweb.png&quot;</span> <span class="attr">class</span>=<span class="string">&quot;cobweb cobweb-bottom-right&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;imgs/Spider.png&quot;</span> <span class="attr">class</span>=<span class="string">&quot;spider&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="comment">&lt;!-- 数字面  ♠ ♥ ♣ ♦--&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span>  <span class="attr">class</span>=<span class="string">&quot;card-front card-face&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;card red&quot;</span> <span class="attr">data-value</span>=<span class="string">&quot;4  ♦&quot;</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">div</span>&gt;</span>♦<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">		<span class="comment">/* 游戏逻辑脚本 */</span></span></span><br><span class="line"><span class="javascript">        </span></span><br><span class="line"><span class="javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/08/25/JavaScript/cardgame/(5)-cardGame-%E6%B8%B8%E6%88%8F%E9%80%BB%E8%BE%91%E5%AE%9E%E7%8E%B0/1.gif"></p>
+<h3 id="2-定义函数处理点击事件"><a href="#2-定义函数处理点击事件" class="headerlink" title="2. 定义函数处理点击事件"></a>2. 定义函数处理点击事件</h3><ul>
+<li>点击扑克牌时翻转</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 存储先后点击的两张扑克牌 */</span></span><br><span class="line"><span class="keyword">let</span> firstCard=<span class="literal">null</span></span><br><span class="line"><span class="keyword">let</span> secondCard=<span class="literal">null</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 点击事件处理函数，传入div.card元素 */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handlerClick</span>(<span class="params">element</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//翻转扑克牌</span></span><br><span class="line">    reversal(element)</span><br><span class="line">	</span><br><span class="line">    <span class="comment">//如果第一个为null则赋值，否则给第二个赋值</span></span><br><span class="line">    <span class="keyword">if</span>(!firstCard) &#123;</span><br><span class="line">        firstCard = element</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        secondCard = element</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    <span class="comment">//两个都不为null时，同时两个不相同时调用比较函数</span></span><br><span class="line">    <span class="keyword">if</span>(firstCard &amp;&amp; secondCard &amp;&amp; firstCard!=secondCard) &#123;</span><br><span class="line">        compare(firstCard,secondCard)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-实现翻转函数"><a href="#3-实现翻转函数" class="headerlink" title="3. 实现翻转函数"></a>3. 实现翻转函数</h3><ul>
+<li>主要获取元素的data-turn属性，此属性描述了扑克牌是否翻转到背面</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">reversal</span>(<span class="params">element</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> turn = element.getAttribute(<span class="string">&#x27;data-turn&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span>(turn===<span class="string">&#x27;back&#x27;</span>) &#123;</span><br><span class="line">        element.children[<span class="number">0</span>].style.transform = <span class="string">&#x27;rotateY(-180deg)&#x27;</span></span><br><span class="line">        element.children[<span class="number">1</span>].style.transform = <span class="string">&#x27;rotateY(0deg)&#x27;</span></span><br><span class="line">        element.setAttribute(<span class="string">&#x27;data-turn&#x27;</span>, <span class="string">&#x27;front&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        element.children[<span class="number">0</span>].style.transform = <span class="string">&#x27;rotateY(0deg)&#x27;</span></span><br><span class="line">        element.children[<span class="number">1</span>].style.transform = <span class="string">&#x27;rotateY(180deg)&#x27;</span></span><br><span class="line">        element.setAttribute(<span class="string">&#x27;data-turn&#x27;</span>, <span class="string">&#x27;back&#x27;</span>)    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="4-实现比较函数"><a href="#4-实现比较函数" class="headerlink" title="4. 实现比较函数"></a>4. 实现比较函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 比较两张牌的值是不是相等 */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">compare</span>(<span class="params">first,second</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> firstValue = first.getAttribute(<span class="string">&#x27;data-number&#x27;</span>)</span><br><span class="line">    <span class="keyword">let</span> secondValue = second.getAttribute(<span class="string">&#x27;data-number&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span>(firstValue == secondValue) &#123;</span><br><span class="line">        firstCard = <span class="literal">null</span></span><br><span class="line">        secondCard = <span class="literal">null</span></span><br><span class="line">		<span class="comment">//延时隐藏</span></span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            first.style.visibility=<span class="string">&#x27;hidden&#x27;</span></span><br><span class="line">            second.style.visibility=<span class="string">&#x27;hidden&#x27;</span></span><br><span class="line">        &#125;, <span class="number">700</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//不相等则再次翻转</span></span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            reversal(first)</span><br><span class="line">            reversal(second)</span><br><span class="line">            firstCard = <span class="literal">null</span></span><br><span class="line">            secondCard = <span class="literal">null</span></span><br><span class="line">        &#125;, <span class="number">700</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="5-实现倒计时"><a href="#5-实现倒计时" class="headerlink" title="5. 实现倒计时"></a>5. 实现倒计时</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 倒计时 和点击次数*/</span></span><br><span class="line"><span class="keyword">let</span> timeRemaining = <span class="built_in">document</span>.getElementById(<span class="string">&quot;timeRemaining&quot;</span>)</span><br><span class="line"><span class="keyword">let</span> clickCount = <span class="built_in">document</span>.getElementById(<span class="string">&quot;clickCount&quot;</span>)</span><br><span class="line"><span class="keyword">let</span> time = <span class="number">60</span></span><br><span class="line"><span class="keyword">let</span> clicks = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> t = <span class="built_in">setInterval</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    time--</span><br><span class="line">    timeRemaining.innerText=time</span><br><span class="line">    <span class="keyword">if</span>(time==<span class="number">0</span>) &#123;</span><br><span class="line">        timeRemaining.innerText=time</span><br><span class="line">        <span class="built_in">clearInterval</span>(t)</span><br><span class="line">        <span class="keyword">if</span>(confirm(<span class="string">&#x27;时间到,游戏失败,点击确定再来一次&#x27;</span>)) &#123;</span><br><span class="line">            location.reload()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+
+<p>最终实现的效果如下图</p>
+<p><img src="/2022/08/25/JavaScript/cardgame/(5)-cardGame-%E6%B8%B8%E6%88%8F%E9%80%BB%E8%BE%91%E5%AE%9E%E7%8E%B0/2.gif"></p>
+<blockquote>
+<p>最终代码完成，但是这里会有一些小问题，比如点击速度比较快，小小的BUG解决一下?</p>
+</blockquote>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://zhsunbeam.github.io/2022/08/25/JavaScript/cardgame/(5)-cardGame-%E6%B8%B8%E6%88%8F%E9%80%BB%E8%BE%91%E5%AE%9E%E7%8E%B0/" title="(五) cardGame-游戏逻辑实现" target="_blank" rel="external">https://zhsunbeam.github.io/2022/08/25/JavaScript/cardgame/(5)-cardGame-游戏逻辑实现/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/zhsunbeam" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/zhsunbeam" target="_blank"><span class="text-dark">哼哈七龙岛主</span><small class="ml-1x">架构师 &amp; 开发者 &amp; 技术分享</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2022/08/25/JavaScript/cardgame/(4)-cardGame-%E6%89%91%E5%85%8B%E7%89%8C%E6%AD%A3%E9%9D%A2/" title="(四) cardGame-扑克牌正面"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="/null" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2022 Mars笑笑生
+        
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'AWX1gkMMJd8dS4aO39EHlkH4-gzGzoHsz',
+    appKey: 'RrDFIYOQqx4aJxK2v1UEd00G',
+    placeholder: '思辨',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
