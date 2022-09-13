@@ -1,3 +1,5 @@
+https://zhsunbeam.github.io/2022/09/13/JavaScript/ball/%E6%B5%AE%E5%8A%A8%E7%9A%84%E7%90%83(2)/
+https://zhsunbeam.github.io/2022/09/13/JavaScript/ball/%E6%B5%AE%E5%8A%A8%E7%9A%84%E7%90%83(1)/
 https://zhsunbeam.github.io/2022/08/25/JavaScript/cardgame/(5)-cardGame-%E6%B8%B8%E6%88%8F%E9%80%BB%E8%BE%91%E5%AE%9E%E7%8E%B0/
 https://zhsunbeam.github.io/2022/08/25/JavaScript/cardgame/(4)-cardGame-%E6%89%91%E5%85%8B%E7%89%8C%E6%AD%A3%E9%9D%A2/
 https://zhsunbeam.github.io/2022/08/25/JavaScript/cardgame/(3)-cardGame-%E6%89%91%E5%85%8B%E7%89%8C%E8%83%8C%E9%9D%A2/

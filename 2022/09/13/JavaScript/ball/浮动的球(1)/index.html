@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>JavaScript-Canvas 浮动的球(1) | CodeCool</title>
+  <meta name="description" content="JavaScript基础,Canvas">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript-Canvas 浮动的球(1)">
+<meta property="og:url" content="https://zhsunbeam.github.io/2022/09/13/JavaScript/ball/%E6%B5%AE%E5%8A%A8%E7%9A%84%E7%90%83(1)/index.html">
+<meta property="og:site_name" content="极乐空间">
+<meta property="og:description" content="JavaScript基础,Canvas">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zhsunbeam.github.io/2022/09/13/JavaScript/ball/%E6%B5%AE%E5%8A%A8%E7%9A%84%E7%90%83(1)/1.gif">
+<meta property="og:image" content="https://zhsunbeam.github.io/2022/09/13/JavaScript/ball/%E6%B5%AE%E5%8A%A8%E7%9A%84%E7%90%83(1)/1.gif">
+<meta property="article:published_time" content="2022-09-13T01:01:00.000Z">
+<meta property="article:modified_time" content="2022-09-13T14:18:48.613Z">
+<meta property="article:author" content="Mars笑笑生">
+<meta property="article:tag" content="编程基础">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zhsunbeam.github.io/2022/09/13/JavaScript/ball/%E6%B5%AE%E5%8A%A8%E7%9A%84%E7%90%83(1)/1.gif">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://zhsunbeam.github.io/2022/09/13/JavaScript/ball/%E6%B5%AE%E5%8A%A8%E7%9A%84%E7%90%83(1)/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="极乐空间" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body class="main-center theme-green" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/zhsunbeam" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">哼哈七龙岛主</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">架构师 &amp; 开发者 &amp; 技术分享</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> ChangSha, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="/null" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>程序之路无止境,欢迎交流,一同成长!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/H5/">H5</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JOOQ/">JOOQ</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">17</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/">项目开发</a><span class="category-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/" rel="tag">H5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5-CSS3/" rel="tag">HTML5/CSS3</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ORM%E6%A1%86%E6%9E%B6/" rel="tag">ORM框架</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="tag">编程基础</a><span class="tag-list-count">20</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/" rel="tag">项目开发</a><span class="tag-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/H5/" style="font-size: 13px;">H5</a> <a href="/tags/HTML/" style="font-size: 13px;">HTML</a> <a href="/tags/HTML5-CSS3/" style="font-size: 13.25px;">HTML5/CSS3</a> <a href="/tags/Java/" style="font-size: 13.5px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 14px;">JavaScript</a> <a href="/tags/ORM%E6%A1%86%E6%9E%B6/" style="font-size: 13px;">ORM框架</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" style="font-size: 13.75px;">编程基础</a> <a href="/tags/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/" style="font-size: 13px;">项目开发</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">26</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/09/13/JavaScript/ball/%E6%B5%AE%E5%8A%A8%E7%9A%84%E7%90%83(1)/" class="title">JavaScript-Canvas 浮动的球(1)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-09-13T01:01:00.000Z" itemprop="datePublished">2022-09-13</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/09/13/JavaScript/ball/%E6%B5%AE%E5%8A%A8%E7%9A%84%E7%90%83(2)/" class="title">JavaScript-Canvas 浮动的球(2)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-09-13T01:01:00.000Z" itemprop="datePublished">2022-09-13</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/08/25/JavaScript/cardgame/(5)-cardGame-%E6%B8%B8%E6%88%8F%E9%80%BB%E8%BE%91%E5%AE%9E%E7%8E%B0/" class="title">(五) cardGame-游戏逻辑实现</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-08-25T09:12:02.000Z" itemprop="datePublished">2022-08-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/08/25/JavaScript/cardgame/(4)-cardGame-%E6%89%91%E5%85%8B%E7%89%8C%E6%AD%A3%E9%9D%A2/" class="title">(四) cardGame-扑克牌正面</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-08-25T01:20:25.000Z" itemprop="datePublished">2022-08-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
+              </p>
+              <p class="item-title">
+                <a href="/2022/08/25/JavaScript/cardgame/(3)-cardGame-%E6%89%91%E5%85%8B%E7%89%8C%E8%83%8C%E9%9D%A2/" class="title">(三) cardGame-扑克牌背面布局</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-08-25T00:10:25.000Z" itemprop="datePublished">2022-08-25</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-JavaScript/ball/浮动的球(1)" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JavaScript-Canvas 浮动的球(1)
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/09/13/JavaScript/ball/%E6%B5%AE%E5%8A%A8%E7%9A%84%E7%90%83(1)/" class="article-date">
+	  <time datetime="2022-09-13T01:01:00.000Z" itemprop="datePublished">2022-09-13</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>, <a class="article-tag-link-link" href="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="tag">编程基础</a>
+  </span>
+
+
+        
+
+	<span class="article-read hidden-xs">
+    	<i class="icon icon-eye-fill" aria-hidden="true"></i>
+    	<span id="/2022/09/13/JavaScript/ball/%E6%B5%AE%E5%8A%A8%E7%9A%84%E7%90%83(1)/" class="leancloud_visitors"  data-flag-title="JavaScript-Canvas 浮动的球(1)">
+			<span class="leancloud-visitors-count">0</span>
+		</span>
+    </span>
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/09/13/JavaScript/ball/%E6%B5%AE%E5%8A%A8%E7%9A%84%E7%90%83(1)/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.1k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <blockquote>
+<p> JavaScript 是前端核心， 掌握这门语言是步入前端高手行列必经之路，噢，别忘了还有TypeScript, 学习它还需要OOP知识， 底层的浏览器原理、HTTP协议也必不可少， 此系列文章记录使用JavaScript和Canvas进行游戏开发, 有游戏才有趣!!!</p>
+</blockquote>
+<h3 id="浮动的球-一"><a href="#浮动的球-一" class="headerlink" title="浮动的球(一)"></a>浮动的球(一)</h3><p><img src="/2022/09/13/JavaScript/ball/%E6%B5%AE%E5%8A%A8%E7%9A%84%E7%90%83(1)/1.gif"></p>
+<h2 id="一个浮动的球"><a href="#一个浮动的球" class="headerlink" title="一个浮动的球"></a>一个浮动的球</h2><blockquote>
+<p>在Canvas画布上绘制圆形，而且还要让这个圆形不断地在画布上移动，这是第一步；后面还需要实现N个球飘浮随机移动，再加上碰撞功能。先实现一个球的飘动吧</p>
+</blockquote>
+<h3 id="1-给一个模板页面"><a href="#1-给一个模板页面" class="headerlink" title="1. 给一个模板页面"></a>1. 给一个模板页面</h3><ul>
+<li>模板页面中一点点的CSS样式，主要定义Canvas宽和高以及position</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>漂浮的球<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css">        *&#123; <span class="attribute">padding</span>: <span class="number">0</span>; <span class="attribute">margin</span>: <span class="number">0</span>;&#125;</span></span><br><span class="line"><span class="css"> </span></span><br><span class="line"><span class="css">        <span class="selector-id">#myCanvas</span> &#123;</span></span><br><span class="line"><span class="css">            <span class="attribute">width</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">height</span>: <span class="number">100%</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">position</span>: absolute;</span></span><br><span class="line"><span class="css">            <span class="attribute">top</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">            <span class="attribute">left</span>: <span class="number">0</span>;</span></span><br><span class="line"><span class="css">        &#125;</span></span><br><span class="line"><span class="css"></span></span><br><span class="line"><span class="css">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">&quot;myCanvas&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-获取Canvas对象并设置它的基本属性"><a href="#2-获取Canvas对象并设置它的基本属性" class="headerlink" title="2. 获取Canvas对象并设置它的基本属性"></a>2. 获取Canvas对象并设置它的基本属性</h3><ul>
+<li>一些基本的js代码，主要是获取Canvas元素以及Context</li>
+<li>设置Canvas画布的宽度和高度</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;myCanvas&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> ctx = canvas.getContext(<span class="string">&#x27;2d&#x27;</span>)</span><br><span class="line">canvas.width = <span class="built_in">window</span>.innerWidth</span><br><span class="line">canvas.height = <span class="built_in">window</span>.innerHeight</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="3-定义一个Ball类"><a href="#3-定义一个Ball类" class="headerlink" title="3. 定义一个Ball类"></a>3. 定义一个Ball类</h3><ul>
+<li>定义Ball类，并确定好它的属性和方法</li>
+<li>属性包含x,y坐标位置，以及半径</li>
+<li>方法能绘制一个圆,使用Context 的 arc函数</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Ball</span>(<span class="params">x, y, radius</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//x,y坐标</span></span><br><span class="line">    <span class="built_in">this</span>.x = x</span><br><span class="line">    <span class="built_in">this</span>.y = y</span><br><span class="line">    <span class="comment">//半径</span></span><br><span class="line">    <span class="built_in">this</span>.radius = radius</span><br><span class="line">	<span class="comment">//画圆的方法</span></span><br><span class="line">    <span class="built_in">this</span>.draw = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//这行必须的，为了不影响每个圆的绘制</span></span><br><span class="line">        ctx.beginPath()</span><br><span class="line">        <span class="comment">//画圆, 需要坐标位置和半径大小,从0到360度, 最后一个参数表示是不是逆时针方向</span></span><br><span class="line">        ctx.arc(<span class="built_in">this</span>.x,<span class="built_in">this</span>.y,<span class="built_in">this</span>.radius, <span class="number">0</span>, <span class="number">2</span>*<span class="built_in">Math</span>.PI, <span class="literal">false</span>)</span><br><span class="line">        <span class="comment">//颜色设置</span></span><br><span class="line">        ctx.strokeStyle = <span class="string">&#x27;blue&#x27;</span></span><br><span class="line">        ctx.stroke()</span><br><span class="line">        <span class="comment">//填充</span></span><br><span class="line">        ctx.fill()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="4-在Ball类中定义一个update函数"><a href="#4-在Ball类中定义一个update函数" class="headerlink" title="4. 在Ball类中定义一个update函数"></a>4. 在Ball类中定义一个update函数</h3><ul>
+<li>定义一个update函数，作用是在此函数中调用绘制的方法</li>
+<li>如果球要移动，就需要不断地更新它的x,y坐标, 在这个函数中不断的修改x,y</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Ball</span>(<span class="params">x, y, radius</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//x,y坐标</span></span><br><span class="line">    <span class="built_in">this</span>.x = x</span><br><span class="line">    <span class="built_in">this</span>.y = y</span><br><span class="line">    <span class="comment">//半径</span></span><br><span class="line">    <span class="built_in">this</span>.radius = radius</span><br><span class="line">	<span class="comment">//画圆的方法</span></span><br><span class="line">    <span class="built_in">this</span>.draw = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//这行必须的，为了不影响每个圆的绘制</span></span><br><span class="line">        ctx.beginPath()</span><br><span class="line">        <span class="comment">//画圆, 需要坐标位置和半径大小,从0到360度, 最后一个参数表示是不是逆时针方向</span></span><br><span class="line">        ctx.arc(<span class="built_in">this</span>.x,<span class="built_in">this</span>.y,<span class="built_in">this</span>.radius, <span class="number">0</span>, <span class="number">2</span>*<span class="built_in">Math</span>.PI, <span class="literal">false</span>)</span><br><span class="line">        <span class="comment">//颜色设置</span></span><br><span class="line">        ctx.strokeStyle = <span class="string">&#x27;blue&#x27;</span></span><br><span class="line">        ctx.stroke()</span><br><span class="line">        <span class="comment">//填充</span></span><br><span class="line">        ctx.fill()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">this</span>.update = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    	<span class="comment">//调用画圆的方法    </span></span><br><span class="line">        <span class="built_in">this</span>.draw() </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-创建Ball对象-并使用动画帧"><a href="#5-创建Ball对象-并使用动画帧" class="headerlink" title="5. 创建Ball对象,并使用动画帧"></a>5. 创建Ball对象,并使用动画帧</h3><ul>
+<li>创建Ball对象 </li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ball = <span class="keyword">new</span> Ball(<span class="number">200</span>,<span class="number">200</span>,<span class="number">30</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>动画帧</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ball = <span class="keyword">new</span> Ball(<span class="number">200</span>,<span class="number">200</span>,<span class="number">3</span>,<span class="number">3</span>,<span class="number">30</span>)</span><br><span class="line">        </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">animate</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    requestAnimationFrame(animate)</span><br><span class="line">    <span class="comment">//清除画布上的所有内容</span></span><br><span class="line">    ctx.clearRect(<span class="number">0</span>,<span class="number">0</span>,canvas.width,canvas.height)</span><br><span class="line">    <span class="comment">//更新位置</span></span><br><span class="line">    ball.update()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//调用动画函数</span></span><br><span class="line">animate()</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="6-让球动起来"><a href="#6-让球动起来" class="headerlink" title="6. 让球动起来"></a>6. 让球动起来</h3><ul>
+<li>需要改变它的x,y</li>
+<li>遇到边界要回弹</li>
+<li>定义球每次在x和y方向上移动的距离dx和dy</li>
+<li>因为update函数会不断调用，所以更改位置就在update函数中实现</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Ball</span>(<span class="params">x, y, radius, dx, dy</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//x,y坐标</span></span><br><span class="line">    <span class="built_in">this</span>.x = x</span><br><span class="line">    <span class="built_in">this</span>.y = y</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//移动的位置属性</span></span><br><span class="line">    <span class="built_in">this</span>.dx = dx</span><br><span class="line">    <span class="built_in">this</span>.dy = dy</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//半径</span></span><br><span class="line">    <span class="built_in">this</span>.radius = radius</span><br><span class="line">	<span class="comment">//画圆的方法</span></span><br><span class="line">    <span class="built_in">this</span>.draw = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//这行必须的，为了不影响每个圆的绘制</span></span><br><span class="line">        ctx.beginPath()</span><br><span class="line">        <span class="comment">//画圆, 需要坐标位置和半径大小,从0到360度, 最后一个参数表示是不是逆时针方向</span></span><br><span class="line">        ctx.arc(<span class="built_in">this</span>.x,<span class="built_in">this</span>.y,<span class="built_in">this</span>.radius, <span class="number">0</span>, <span class="number">2</span>*<span class="built_in">Math</span>.PI, <span class="literal">false</span>)</span><br><span class="line">        <span class="comment">//颜色设置</span></span><br><span class="line">        ctx.strokeStyle = <span class="string">&#x27;blue&#x27;</span></span><br><span class="line">        ctx.stroke()</span><br><span class="line">        <span class="comment">//填充</span></span><br><span class="line">        ctx.fill()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">this</span>.update = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//更新时判断是否超过左边和右边</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">this</span>.x + <span class="built_in">this</span>.radius &gt; canvas.width || <span class="built_in">this</span>.x-<span class="built_in">this</span>.radius &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="built_in">this</span>.dx = -<span class="built_in">this</span>.dx</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//更新时判断是否超过上边和下边</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">this</span>.y+<span class="built_in">this</span>.radius &gt; canvas.height || <span class="built_in">this</span>.y-<span class="built_in">this</span>.radius &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="built_in">this</span>.dy = -<span class="built_in">this</span>.dy</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//更改x和y的值</span></span><br><span class="line">        <span class="built_in">this</span>.x += <span class="built_in">this</span>.dx</span><br><span class="line">        <span class="built_in">this</span>.y += <span class="built_in">this</span>.dy</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//调用画圆的方法    </span></span><br><span class="line">        <span class="built_in">this</span>.draw() </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="7-最终效果"><a href="#7-最终效果" class="headerlink" title="7. 最终效果"></a>7. 最终效果</h3><p><img src="/2022/09/13/JavaScript/ball/%E6%B5%AE%E5%8A%A8%E7%9A%84%E7%90%83(1)/1.gif"></p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://zhsunbeam.github.io/2022/09/13/JavaScript/ball/%E6%B5%AE%E5%8A%A8%E7%9A%84%E7%90%83(1)/" title="JavaScript-Canvas 浮动的球(1)" target="_blank" rel="external">https://zhsunbeam.github.io/2022/09/13/JavaScript/ball/浮动的球(1)/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/zhsunbeam" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/zhsunbeam" target="_blank"><span class="text-dark">哼哈七龙岛主</span><small class="ml-1x">架构师 &amp; 开发者 &amp; 技术分享</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2022/09/13/JavaScript/ball/%E6%B5%AE%E5%8A%A8%E7%9A%84%E7%90%83(2)/" title="JavaScript-Canvas 浮动的球(2)"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="/null" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="/null" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2022 Mars笑笑生
+        
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'AWX1gkMMJd8dS4aO39EHlkH4-gzGzoHsz',
+    appKey: 'RrDFIYOQqx4aJxK2v1UEd00G',
+    placeholder: '思辨',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: true
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
