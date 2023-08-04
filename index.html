@@ -1,891 +1,242 @@
-<!DOCTYPE html>
-<html lang=zh>
-<head>
-  <meta charset="utf-8">
-  
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-  <meta name="renderer" content="webkit">
-  <meta http-equiv="Cache-Control" content="no-transform" />
-  <meta http-equiv="Cache-Control" content="no-siteapp" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="format-detection" content="telephone=no,email=no,adress=no">
-  <!-- Color theme for statusbar -->
-  <meta name="theme-color" content="#000000" />
-  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
-  <meta http-equiv="window-target" content="_top" />
-  
-  
-  <title>CodeCool</title>
-  <meta property="og:type" content="website">
-<meta property="og:title" content="极乐空间">
-<meta property="og:url" content="https://zhsunbeam.github.io/index.html">
-<meta property="og:site_name" content="极乐空间">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="Mars笑笑生">
-<meta property="article:tag" content="编程, 架构, 数据结构, 网络, 数据库&#x2F;MySQL&#x2F;Redis, Java&#x2F;JavaFX, C, Go, JavaScript&#x2F;Canvas, HTML5, CSS3, Vue, Spring, 消息队列&#x2F;Kafka">
-<meta name="twitter:card" content="summary">
-  <!-- Canonical links -->
-  <link rel="canonical" href="https://zhsunbeam.github.io/index.html">
-  
-    <link rel="alternate" href="/atom.xml" title="极乐空间" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png" type="image/x-icon">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.101.0">
+    <title>Blog Template · Bootstrap v4.6</title>
 
-  
-  
-  
-  
-<meta name="generator" content="Hexo 5.4.0"></head>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.6/examples/blog/">
+
+    
+
+    <!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
 
 
-<body class="main-center theme-green" itemscope itemtype="http://schema.org/WebPage">
-  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-  <div class="slimContent">
-    <div class="navbar-header">
-      
-      
-      <div class="profile-block text-center">
-        <a id="avatar" href="https://github.com/zhsunbeam" target="_blank">
-          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
-        </a>
-        <h2 id="name" class="hidden-xs hidden-sm">哼哈七龙岛主</h2>
-        <h3 id="title" class="hidden-xs hidden-sm hidden-md">架构师 &amp; 开发者 &amp; 技术分享</h3>
-        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> ChangSha, China</small>
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="blog.css" rel="stylesheet">
+  </head>
+  <body>
+    
+<div class="container">
+  <header class="blog-header py-3">
+    <div class="row flex-nowrap justify-content-between align-items-center">
+      <div class="col-4 pt-1">
+        <a class="text-muted" href="#">Subscribe</a>
       </div>
-      
-      <div class="search" id="search-form-wrap">
-
-    <form class="search-form sidebar-form">
-        <div class="input-group">
-            <input type="text" class="search-form-input form-control" placeholder="搜索" />
-            <span class="input-group-btn">
-                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
-            </span>
-        </div>
-    </form>
-    <div class="ins-search">
-  <div class="ins-search-mask"></div>
-  <div class="ins-search-container">
-    <div class="ins-input-wrapper">
-      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
-      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      <div class="col-4 text-center">
+        <a class="blog-header-logo text-dark" href="#">Large</a>
+      </div>
+      <div class="col-4 d-flex justify-content-end align-items-center">
+        <a class="text-muted" href="#" aria-label="Search">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24" focusable="false"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
+        </a>
+        <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a>
+      </div>
     </div>
-    <div class="ins-section-wrapper">
-      <div class="ins-section-container"></div>
-    </div>
-  </div>
-</div>
+  </header>
 
-
-</div>
-      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
-      <ul class="nav navbar-nav main-nav menu-highlight">
-        
-        
-        <li class="menu-item menu-item-home">
-          <a href="/.">
-            
-            <i class="icon icon-home-fill"></i>
-            
-            <span class="menu-title">首页</span>
-          </a>
-        </li>
-        
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives">
-            
-            <i class="icon icon-archives-fill"></i>
-            
-            <span class="menu-title">归档</span>
-          </a>
-        </li>
-        
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories">
-            
-            <i class="icon icon-folder"></i>
-            
-            <span class="menu-title">分类</span>
-          </a>
-        </li>
-        
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags">
-            
-            <i class="icon icon-tags"></i>
-            
-            <span class="menu-title">标签</span>
-          </a>
-        </li>
-        
-        
-        <li class="menu-item menu-item-repository">
-          <a href="/repository">
-            
-            <i class="icon icon-project"></i>
-            
-            <span class="menu-title">项目</span>
-          </a>
-        </li>
-        
-        
-        <li class="menu-item menu-item-books">
-          <a href="/books">
-            
-            <i class="icon icon-book-fill"></i>
-            
-            <span class="menu-title">书单</span>
-          </a>
-        </li>
-        
-        
-        <li class="menu-item menu-item-links">
-          <a href="/links">
-            
-            <i class="icon icon-friendship"></i>
-            
-            <span class="menu-title">友链</span>
-          </a>
-        </li>
-        
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about">
-            
-            <i class="icon icon-cup-fill"></i>
-            
-            <span class="menu-title">关于</span>
-          </a>
-        </li>
-        
-      </ul>
-      
-	
-    <ul class="social-links">
-    	
-        <li><a href="/null" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
-        
-        <li><a href="/null" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
-        
-        <li><a href="/null" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
-        
-        <li><a href="/null" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
-        
-        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
-        
-    </ul>
-
+  <div class="nav-scroller py-1 mb-2">
+    <nav class="nav d-flex justify-content-between">
+      <a class="p-2 text-muted" href="main.html">博客</a>
+      <a class="p-2 text-muted" href="#">U.S.</a>
+      <a class="p-2 text-muted" href="#">Technology</a>
+      <a class="p-2 text-muted" href="#">Design</a>
+      <a class="p-2 text-muted" href="#">Culture</a>
+      <a class="p-2 text-muted" href="#">Business</a>
+      <a class="p-2 text-muted" href="#">Politics</a>
+      <a class="p-2 text-muted" href="#">Opinion</a>
+      <a class="p-2 text-muted" href="#">Science</a>
+      <a class="p-2 text-muted" href="#">Health</a>
+      <a class="p-2 text-muted" href="#">Style</a>
+      <a class="p-2 text-muted" href="#">Travel</a>
     </nav>
   </div>
-</header>
 
-  
-    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
-  <div class="slimContent">
-    
-      <div class="widget">
-    <h3 class="widget-title">公告</h3>
-    <div class="widget-body">
-        <div id="board">
-            <div class="content">
-                <p>程序之路无止境,欢迎交流,一同成长!</p>
-            </div>
-        </div>
+  <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+    <div class="col-md-6 px-0">
+      <h1 class="display-4 font-italic">Title of a longer featured blog post</h1>
+      <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
+      <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
     </div>
+  </div>
+
+  <div class="row mb-2">
+    <div class="col-md-6">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-primary">World</strong>
+          <h3 class="mb-0">Featured post</h3>
+          <div class="mb-1 text-muted">Nov 12</div>
+          <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="stretched-link">Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <strong class="d-inline-block mb-2 text-success">Design</strong>
+          <h3 class="mb-0">Post title</h3>
+          <div class="mb-1 text-muted">Nov 11</div>
+          <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+          <a href="#" class="stretched-link">Continue reading</a>
+        </div>
+        <div class="col-auto d-none d-lg-block">
+          <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-    
-      
-  <div class="widget">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/H5/">H5</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JOOQ/">JOOQ</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">19</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/">项目开发</a><span class="category-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-    
-      
-  <div class="widget">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/H5/" rel="tag">H5</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/" rel="tag">HTML</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML5-CSS3/" rel="tag">HTML5/CSS3</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a><span class="tag-list-count">26</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ORM%E6%A1%86%E6%9E%B6/" rel="tag">ORM框架</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="tag">编程基础</a><span class="tag-list-count">22</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/" rel="tag">项目开发</a><span class="tag-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-    
-      
-  <div class="widget">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget-body tagcloud">
-      <a href="/tags/H5/" style="font-size: 13px;">H5</a> <a href="/tags/HTML/" style="font-size: 13px;">HTML</a> <a href="/tags/HTML5-CSS3/" style="font-size: 13.25px;">HTML5/CSS3</a> <a href="/tags/Java/" style="font-size: 13.5px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 14px;">JavaScript</a> <a href="/tags/ORM%E6%A1%86%E6%9E%B6/" style="font-size: 13px;">ORM框架</a> <a href="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" style="font-size: 13.75px;">编程基础</a> <a href="/tags/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/" style="font-size: 13px;">项目开发</a>
-    </div>
-  </div>
-
-    
-      
-  <div class="widget">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/09/">九月 2022</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">八月 2022</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/07/">七月 2022</a><span class="archive-list-count">26</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-    
-      
-  <div class="widget">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget-body">
-      <ul class="recent-post-list list-unstyled no-thumbnail">
-        
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
-              </p>
-              <p class="item-title">
-                <a href="/2022/09/15/JavaScript/flybird/flybird-2/" class="title">飞鸟-2</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2022-09-15T15:00:00.000Z" itemprop="datePublished">2022-09-15</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
-              </p>
-              <p class="item-title">
-                <a href="/2022/09/15/JavaScript/flybird/flybird-1/" class="title">飞鸟-1</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2022-09-15T13:02:00.000Z" itemprop="datePublished">2022-09-15</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
-              </p>
-              <p class="item-title">
-                <a href="/2022/09/14/JavaScript/ball/%E6%B5%AE%E5%8A%A8%E7%9A%84%E7%90%83(2)/" class="title">JavaScript-Canvas 浮动的球(2)</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2022-09-14T11:01:00.000Z" itemprop="datePublished">2022-09-14</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
-              </p>
-              <p class="item-title">
-                <a href="/2022/09/13/JavaScript/ball/%E6%B5%AE%E5%8A%A8%E7%9A%84%E7%90%83(1)/" class="title">JavaScript-Canvas 浮动的球(1)</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2022-09-13T01:01:00.000Z" itemprop="datePublished">2022-09-13</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/JavaScript/">JavaScript</a>
-              </p>
-              <p class="item-title">
-                <a href="/2022/08/25/JavaScript/cardgame/(5)-cardGame-%E6%B8%B8%E6%88%8F%E9%80%BB%E8%BE%91%E5%AE%9E%E7%8E%B0/" class="title">(五) cardGame-游戏逻辑实现</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2022-08-25T09:12:02.000Z" itemprop="datePublished">2022-08-25</time>
-              </p>
-            </div>
-          </li>
-          
-      </ul>
-    </div>
-  </div>
-  
-
-    
-  </div>
-</aside>
-
-  
-  <main class="main" role="main">
-  
-  <div class="content article-list">
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/09/15/JavaScript/flybird/flybird-2/">飞鸟-2</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2022/09/15/JavaScript/flybird/flybird-2/" class="article-date">
-	  <time datetime="2022-09-15T15:00:00.000Z" itemprop="datePublished">9月 15</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>, <a class="article-tag-link-link" href="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="tag">编程基础</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/09/15/JavaScript/flybird/flybird-2/#comments" class="article-comment-link">评论</a></span>
-    
-	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.5k(字)</span>
-	
-	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 7(分)</span>
-	
-
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/09/15/JavaScript/flybird/flybird-1/">飞鸟-1</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2022/09/15/JavaScript/flybird/flybird-1/" class="article-date">
-	  <time datetime="2022-09-15T13:02:00.000Z" itemprop="datePublished">9月 15</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>, <a class="article-tag-link-link" href="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="tag">编程基础</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/09/15/JavaScript/flybird/flybird-1/#comments" class="article-comment-link">评论</a></span>
-    
-	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.9k(字)</span>
-	
-	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 10(分)</span>
-	
-
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/09/14/JavaScript/ball/%E6%B5%AE%E5%8A%A8%E7%9A%84%E7%90%83(2)/">JavaScript-Canvas 浮动的球(2)</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2022/09/14/JavaScript/ball/%E6%B5%AE%E5%8A%A8%E7%9A%84%E7%90%83(2)/" class="article-date">
-	  <time datetime="2022-09-14T11:01:00.000Z" itemprop="datePublished">9月 14</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>, <a class="article-tag-link-link" href="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="tag">编程基础</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/09/14/JavaScript/ball/%E6%B5%AE%E5%8A%A8%E7%9A%84%E7%90%83(2)/#comments" class="article-comment-link">评论</a></span>
-    
-	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1k(字)</span>
-	
-	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
-	
-
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/09/13/JavaScript/ball/%E6%B5%AE%E5%8A%A8%E7%9A%84%E7%90%83(1)/">JavaScript-Canvas 浮动的球(1)</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2022/09/13/JavaScript/ball/%E6%B5%AE%E5%8A%A8%E7%9A%84%E7%90%83(1)/" class="article-date">
-	  <time datetime="2022-09-13T01:01:00.000Z" itemprop="datePublished">9月 13</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>, <a class="article-tag-link-link" href="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="tag">编程基础</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/09/13/JavaScript/ball/%E6%B5%AE%E5%8A%A8%E7%9A%84%E7%90%83(1)/#comments" class="article-comment-link">评论</a></span>
-    
-	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.1k(字)</span>
-	
-	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 4(分)</span>
-	
-
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/25/JavaScript/cardgame/(5)-cardGame-%E6%B8%B8%E6%88%8F%E9%80%BB%E8%BE%91%E5%AE%9E%E7%8E%B0/">(五) cardGame-游戏逻辑实现</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2022/08/25/JavaScript/cardgame/(5)-cardGame-%E6%B8%B8%E6%88%8F%E9%80%BB%E8%BE%91%E5%AE%9E%E7%8E%B0/" class="article-date">
-	  <time datetime="2022-08-25T09:12:02.000Z" itemprop="datePublished">8月 25</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/HTML5-CSS3/" rel="tag">HTML5/CSS3</a>, <a class="article-tag-link-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/08/25/JavaScript/cardgame/(5)-cardGame-%E6%B8%B8%E6%88%8F%E9%80%BB%E8%BE%91%E5%AE%9E%E7%8E%B0/#comments" class="article-comment-link">评论</a></span>
-    
-	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2.1k(字)</span>
-	
-	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 11(分)</span>
-	
-
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/25/JavaScript/cardgame/(4)-cardGame-%E6%89%91%E5%85%8B%E7%89%8C%E6%AD%A3%E9%9D%A2/">(四) cardGame-扑克牌正面</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2022/08/25/JavaScript/cardgame/(4)-cardGame-%E6%89%91%E5%85%8B%E7%89%8C%E6%AD%A3%E9%9D%A2/" class="article-date">
-	  <time datetime="2022-08-25T01:20:25.000Z" itemprop="datePublished">8月 25</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/HTML5-CSS3/" rel="tag">HTML5/CSS3</a>, <a class="article-tag-link-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/08/25/JavaScript/cardgame/(4)-cardGame-%E6%89%91%E5%85%8B%E7%89%8C%E6%AD%A3%E9%9D%A2/#comments" class="article-comment-link">评论</a></span>
-    
-	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 3.8k(字)</span>
-	
-	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 20(分)</span>
-	
-
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/25/JavaScript/cardgame/(3)-cardGame-%E6%89%91%E5%85%8B%E7%89%8C%E8%83%8C%E9%9D%A2/">(三) cardGame-扑克牌背面布局</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2022/08/25/JavaScript/cardgame/(3)-cardGame-%E6%89%91%E5%85%8B%E7%89%8C%E8%83%8C%E9%9D%A2/" class="article-date">
-	  <time datetime="2022-08-25T00:10:25.000Z" itemprop="datePublished">8月 25</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/HTML5-CSS3/" rel="tag">HTML5/CSS3</a>, <a class="article-tag-link-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/08/25/JavaScript/cardgame/(3)-cardGame-%E6%89%91%E5%85%8B%E7%89%8C%E8%83%8C%E9%9D%A2/#comments" class="article-comment-link">评论</a></span>
-    
-	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 538(字)</span>
-	
-	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
-	
-
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/24/JavaScript/cardgame/(2)-cardGame-%E6%89%91%E5%85%8B%E7%89%8C%E8%AE%BE%E8%AE%A1/">(二) cardGame-扑克牌设计</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2022/08/24/JavaScript/cardgame/(2)-cardGame-%E6%89%91%E5%85%8B%E7%89%8C%E8%AE%BE%E8%AE%A1/" class="article-date">
-	  <time datetime="2022-08-24T01:10:16.000Z" itemprop="datePublished">8月 24</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/HTML5-CSS3/" rel="tag">HTML5/CSS3</a>, <a class="article-tag-link-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/08/24/JavaScript/cardgame/(2)-cardGame-%E6%89%91%E5%85%8B%E7%89%8C%E8%AE%BE%E8%AE%A1/#comments" class="article-comment-link">评论</a></span>
-    
-	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2.3k(字)</span>
-	
-	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 11(分)</span>
-	
-
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/24/JavaScript/cardgame/(1)-cardGame-%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1/">(一) cardGame-界面设计</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2022/08/24/JavaScript/cardgame/(1)-cardGame-%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1/" class="article-date">
-	  <time datetime="2022-08-24T01:02:06.000Z" itemprop="datePublished">8月 24</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/HTML5-CSS3/" rel="tag">HTML5/CSS3</a>, <a class="article-tag-link-link" href="/tags/JavaScript/" rel="tag">JavaScript</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/08/24/JavaScript/cardgame/(1)-cardGame-%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1/#comments" class="article-comment-link">评论</a></span>
-    
-	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1.2k(字)</span>
-	
-	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
-	
-
-  </p>
-</article>
-
-    
-      <article class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
-  <div class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/01/Java/JavaFX%E6%B1%89%E8%AF%BA%E5%A1%94/">JavaFX汉诺塔</a>
-    </h1>
-  
-
-  </div>
-  
-  <p class="article-meta">
-    <span class="article-date">
-    <i class="icon icon-calendar-check"></i>
-	<a href="/2022/08/01/Java/JavaFX%E6%B1%89%E8%AF%BA%E5%A1%94/" class="article-date">
-	  <time datetime="2022-08-01T05:05:19.000Z" itemprop="datePublished">8月 1</time>
-	</a>
-</span>
-    
-  <span class="article-category">
-    <i class="icon icon-folder"></i>
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-  </span>
-
-    
-  <span class="article-tag">
-    <i class="icon icon-tags"></i>
-	<a class="article-tag-link-link" href="/tags/Java/" rel="tag">Java</a>, <a class="article-tag-link-link" href="/tags/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" rel="tag">编程基础</a>
-  </span>
-
-
-    <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/08/01/Java/JavaFX%E6%B1%89%E8%AF%BA%E5%A1%94/#comments" class="article-comment-link">评论</a></span>
-    
-	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2.2k(字)</span>
-	
-	
-		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 9(分)</span>
-	
-
-  </p>
-</article>
-
-    
-  </div>
-
-  
-    
-    <nav class="bar bar-footer clearfix" data-stick-bottom>
-        <div class="bar-inner">
-        <ul class="pager pull-left">
-            
-            <li class="prev disabled">
-                <a href="javascript:;">
-                    <i class="icon icon-angle-left"></i>
-                    上一页
-                </a>
-            </li>
-            
-            
-            <li class="next">
-                <a href="/page/2/">
-                    下一页
-                    <i class="icon icon-angle-right"></i>
-                </a>
-            </li>
-            
+<main role="main" class="container">
+  <div class="row">
+    <div class="col-md-8 blog-main">
+      <h3 class="pb-4 mb-4 font-italic border-bottom">
+        From the Firehose
+      </h3>
+
+      <div class="blog-post">
+        <h2 class="blog-post-title">Sample blog post</h2>
+        <p class="blog-post-meta">January 1, 2014 by <a href="#">Mark</a></p>
+
+        <p>This blog post shows a few different types of content that’s supported and styled with Bootstrap. Basic typography, images, and code are all supported.</p>
+        <hr>
+        <p>Yeah, she dances to her own beat. Oh, no. You could've been the greatest. 'Cause, baby, <a href="#">you're a firework</a>. Maybe a reason why all the doors are closed. Open up your heart and just let it begin. So très chic, yeah, she's a classic.</p>
+        <blockquote>
+          <p>Bikinis, zucchinis, Martinis, no weenies. I know there will be sacrifice but that's the price. <strong>This is how we do it</strong>. I'm not sticking around to watch you go down. You think you're so rock and roll, but you're really just a joke. I know one spark will shock the world, yeah yeah. Can't replace you with a million rings.</p>
+        </blockquote>
+        <p>Trying to connect the dots, don't know what to tell my boss. Before you met me I was alright but things were kinda heavy. You just gotta ignite the light and let it shine. Glitter all over the room <em>pink flamingos</em> in the pool. </p>
+        <h2>Heading</h2>
+        <p>Suiting up for my crowning battle. If you only knew what the future holds. Bring the beat back. Peach-pink lips, yeah, everybody stares.</p>
+        <h3>Sub-heading</h3>
+        <p>You give a hundred reasons why, and you say you're really gonna try. Straight stuntin' yeah we do it like that. Calling out my name. ‘Cause I, I’m capable of anything.</p>
+        <pre><code>Example code block</code></pre>
+        <p>Before you met me I was alright but things were kinda heavy. You just gotta ignite the light and let it shine.</p>
+        <h3>Sub-heading</h3>
+        <p>You got the finest architecture. Passport stamps, she's cosmopolitan. Fine, fresh, fierce, we got it on lock. Never planned that one day I'd be losing you. She eats your heart out.</p>
+        <ul>
+          <li>Got a motel and built a fort out of sheets.</li>
+          <li>Your kiss is cosmic, every move is magic.</li>
+          <li>Suiting up for my crowning battle.</li>
         </ul>
-            <div class="total-article bar-right">Page 1 of 4</div>
-        </div>
-    </nav>
-    
- 
-</main>
+        <p>Takes you miles high, so high, 'cause she’s got that one international smile.</p>
+        <ol>
+          <li>Scared to rock the boat and make a mess.</li>
+          <li>I could have rewrite your addiction.</li>
+          <li>I know you get me so I let my walls come down.</li>
+        </ol>
+        <p>After a hurricane comes a rainbow.</p>
+      </div><!-- /.blog-post -->
 
-  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
-	
-	
-    <ul class="social-links">
-    	
-        <li><a href="/null" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
-        
-        <li><a href="/null" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
-        
-        <li><a href="/null" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
-        
-        <li><a href="/null" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
-        
-        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
-        
-    </ul>
+      <div class="blog-post">
+        <h2 class="blog-post-title">Another blog post</h2>
+        <p class="blog-post-meta">December 23, 2013 by <a href="#">Jacob</a></p>
 
-    <div class="copyright">
-    	
-        &copy; 2022 Mars笑笑生
-        
-        <div class="publishby">
-        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
-        </div>
-    </div>
+        <p>I am ready for the road less traveled. Already <a href="#">brushing off the dust</a>. Yeah, you're lucky if you're on her plane. I used to bite my tongue and hold my breath. Uh, She’s a beast. I call her Karma (come back). Black ray-bans, you know she's with the band. I can't sleep let's run away and don't ever look back, don't ever look back.</p>
+        <blockquote>
+          <p>Growing fast into a <strong>bolt of lightning</strong>. Be careful Try not to lead her on</p>
+        </blockquote>
+        <p>I'm intrigued, for a peek, heard it's fascinating. Oh oh! Wanna be a victim ready for abduction. She's got that international smile, oh yeah, she's got that one international smile. Do you ever feel, feel so paper thin. I’m gon’ put her in a coma. Sun-kissed skin so hot we'll melt your popsicle.</p>
+        <p>This is transcendental, on another level, boy, you're my lucky star.</p>
+      </div><!-- /.blog-post -->
+
+      <div class="blog-post">
+        <h2 class="blog-post-title">New feature</h2>
+        <p class="blog-post-meta">December 14, 2013 by <a href="#">Chris</a></p>
+
+        <p>From Tokyo to Mexico, to Rio. Yeah, you take me to utopia. I'm walking on air. We'd make out in your Mustang to Radiohead. I mean the ones, I mean like she's the one. Sun-kissed skin so hot we'll melt your popsicle. Slow cooking pancakes for my boy, still up, still fresh as a Daisy.</p>
+        <ul>
+          <li>I hope you got a healthy appetite.</li>
+          <li>You're never gonna be unsatisfied.</li>
+          <li>Got a motel and built a fort out of sheets.</li>
+        </ul>
+        <p>Don't need apologies. Boy, you're an alien your touch so foreign, it's <em>supernatural</em>, extraterrestrial. Talk about our future like we had a clue. I can feel a phoenix inside of me.</p>
+      </div><!-- /.blog-post -->
+
+      <nav class="blog-pagination">
+        <a class="btn btn-outline-primary" href="#">Older</a>
+        <a class="btn btn-outline-secondary disabled">Newer</a>
+      </nav>
+
+    </div><!-- /.blog-main -->
+
+    <aside class="col-md-4 blog-sidebar">
+      <div class="p-4 mb-3 bg-light rounded">
+        <h4 class="font-italic">About</h4>
+        <p class="mb-0">Saw you downtown singing the Blues. Watch you circle the drain. Why don't you let me stop by? Heavy is the head that <em>wears the crown</em>. Yes, we make angels cry, raining down on earth from up above.</p>
+      </div>
+
+      <div class="p-4">
+        <h4 class="font-italic">Archives</h4>
+        <ol class="list-unstyled mb-0">
+          <li><a href="#">March 2014</a></li>
+          <li><a href="#">February 2014</a></li>
+          <li><a href="#">January 2014</a></li>
+          <li><a href="#">December 2013</a></li>
+          <li><a href="#">November 2013</a></li>
+          <li><a href="#">October 2013</a></li>
+          <li><a href="#">September 2013</a></li>
+          <li><a href="#">August 2013</a></li>
+          <li><a href="#">July 2013</a></li>
+          <li><a href="#">June 2013</a></li>
+          <li><a href="#">May 2013</a></li>
+          <li><a href="#">April 2013</a></li>
+        </ol>
+      </div>
+
+      <div class="p-4">
+        <h4 class="font-italic">Elsewhere</h4>
+        <ol class="list-unstyled">
+          <li><a href="#">GitHub</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Facebook</a></li>
+        </ol>
+      </div>
+    </aside><!-- /.blog-sidebar -->
+
+  </div><!-- /.row -->
+
+</main><!-- /.container -->
+
+<footer class="blog-footer">
+  <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+  <p>
+    <a href="#">Back to top</a>
+  </p>
 </footer>
-  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-<script>
-window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
-</script>
-
-<script src="/js/plugin.min.js"></script>
 
 
-<script src="/js/application.js"></script>
-
-
-    <script>
-(function (window) {
-    var INSIGHT_CONFIG = {
-        TRANSLATION: {
-            POSTS: '文章',
-            PAGES: '页面',
-            CATEGORIES: '分类',
-            TAGS: '标签',
-            UNTITLED: '(未命名)',
-        },
-        ROOT_URL: '/',
-        CONTENT_URL: '/content.json',
-    };
-    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
-})(window);
-</script>
-
-<script src="/js/insight.js"></script>
-
-
-
-
-
-
-   
-
-
-
-
-
-
-
-
-
-</body>
+    
+  </body>
 </html>
